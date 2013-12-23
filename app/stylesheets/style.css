@@ -1,8 +1,162 @@
+@font-face {
+    font-family: Calibri-Light;
+    src: url(./fonts/CalibriL.ttf);
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    font-family: "Calibri-Light", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    /*padding-top: 50px;*/
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
+}
+
+
+
+/* NAVTOP */
+.navtop-container {
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border: none;
+    text-transform: uppercase;
+}
+
+#navtop-brand {
+    color: rgb(0, 0, 0);
+}
+
+.navtop-icon {
+    vertical-align: bottom;
+}
+
+.navtop-toggle-button {
+    border: none;
+    outline: none;
+}
+
+.navtop-toggle-button:hover,
+.navtop-toggle-button:active {
+    background-color: rgb(238, 238, 238) !important;
+    border-radius: 0 0;
+    border-color: white !important;
+}
+
+.navtop-toggle-button:hover .icon-bar {
+    color: rgb(255, 255, 255) !important;
+}
+
+.navtop-item {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background-repeat: no-repeat;
+    background-position-y: 50px;
+}
+
+.navtop-item:hover {
+    background-position-y: 0;
+}
+
+.navtop-item a {
+    color: rgb(0, 0, 0) !important;
+}
+
+.navtop-item-selected {
+    background-position-y: 48px;
+}
+
+.navtop-items-list li.navtop-item-selected:nth-child(1) a {
+    color: rgb(254, 80, 81) !important;
+}
+
+.navtop-items-list li.navtop-item-selected:nth-child(2) a {
+    color: rgb(26, 192, 206) !important;
+}
+
+.navtop-items-list li.navtop-item-selected:nth-child(3) a {
+    color: rgb(251, 149, 41) !important;
+}
+
+.navtop-items-list li.navtop-item-selected:nth-child(4) a {
+    color: rgb(27, 206, 112) !important;
+}
+
+.navtop-items-list li.navtop-item-selected:nth-child(5) a {
+    color: rgb(246, 80, 146) !important;
+}
+
+
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: white !important;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: rgb(0, 0, 0);
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: rgb(238, 238, 238);
+}
+
+.navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus {
+    background-color: white;
+}
+
+.navtop-items-list li:nth-child(1) {
+    background-image: -webkit-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
+}
+
+.navtop-items-list li:nth-child(2) {
+    background-image: -webkit-linear-gradient(rgb(26, 192, 206), rgb(26, 192, 206));
+}
+
+.navtop-items-list li:nth-child(3) {
+    background-image: -webkit-linear-gradient(rgb(251, 149, 41), rgb(251, 149, 41));
+}
+
+.navtop-items-list li:nth-child(4) {
+    background-image: -webkit-linear-gradient(rgb(27, 206, 112), rgb(27, 206, 112));
+}
+
+.navtop-items-list li:nth-child(5) {
+    background-image: -webkit-linear-gradient(rgb(246, 80, 146), rgb(246, 80, 146));
+}
+
+/* CONTENT */
+.content-container {
+    display: block;
+    position: relative;
+    width: 100%;
+}
+
+.content-container:after {
+    background: url("1.jpg")no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 0.07;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+    content: "";
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 38px;
+    font-weight: normal;
+}
+
+.row {
+    margin: 0;
 }
