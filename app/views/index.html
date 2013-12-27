@@ -59,5 +59,13 @@
         <script src="../src/lib/angular/angular-sanitize.min.js"></script>
         <script src="../src/app.js"></script>
         <script src="../src/home/home.js"></script>
+
+        <script>
+            // TEMPORARY LOCATION
+            $('.nav li').click(function() {
+                $('.nav li').removeClass('navtop-item-selected');
+                $(this).addClass('navtop-item-selected');
+            });
+        </script>
     </body>
 </html>
