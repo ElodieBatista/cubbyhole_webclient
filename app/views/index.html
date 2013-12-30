@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>CubbyHole</title>
-        <link rel="stylesheet" href="../stylesheets/bootstrap/bootstrap-3.0.3-custom.min.css">
+        <link rel="stylesheet" href="../stylesheets/bootstrap/bootstrap-3.0.3-complete.min.css">
         <link rel="stylesheet" href="../stylesheets/font-awesome/font-awesome-4.0.3.min.css">
         <link rel="stylesheet" href="../stylesheets/style.css">
     </head>
@@ -57,23 +57,58 @@
                 <div class="row space" id="home">
                     <h1>Home</h1>
 
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
+                    <div class="col-md-6 home-container-intro">
+                        Stuff goes here...
+                    </div>
+
+                    <div class="col-md-6 home-container-sign">
+                        <ul class="nav nav-tabs" id="sign-nav">
+                            <li class="sign-nav-item active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                            <li class="sign-nav-item"><a href="#signup" data-toggle="tab">Sign Up</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="signin">
+                                <form method="POST" action="/signin">
+                                    <div class="sign-input-prepend">
+                                        <i class="fa fa-envelope sign-input-icon"></i>
+                                        <input class="sign-input" type="email" placeholder="Email" required>
+                                    </div>
+                                    <div class="sign-input-prepend">
+                                        <i class="fa fa-lock sign-input-icon"></i>
+                                        <input class="sign-input" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
+                                    </div>
+
+                                    <input type="submit" value="Sign In" class="sign-btn-submit">
+                                </form>
+                            </div>
+
+                            <div class="tab-pane" id="signup">
+                                <form method="POST" action="/signup">
+                                    <div class="sign-input-prepend">
+                                        <i class="fa fa-envelope sign-input-icon"></i>
+                                        <input class="sign-input" type="email" placeholder="Email" required>
+                                    </div>
+                                    <div class="sign-input-prepend">
+                                        <i class="fa fa-lock sign-input-icon"></i>
+                                        <input class="sign-input" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
+                                    </div>
+                                    <div class="sign-input-prepend">
+                                        <i class="fa fa-lock sign-input-icon"></i>
+                                        <input class="sign-input" type="password" placeholder="Confirm Password" required pattern=".{6,}" title="6 character minimum length">
+                                    </div>
+
+                                    <select class="sign-select" required>
+                                        <option class="sign-select-option">FREE Plan</option>
+                                        <option class="sign-select-option">PRO Plan</option>
+                                        <option class="sign-select-option">ENTERPRISE Plan</option>
+                                    </select>
+
+                                    <input type="submit" value="Sign Up" class="sign-btn-submit">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row space" id="features">
@@ -243,7 +278,7 @@
         </footer>
 
         <script src="../src/lib/jquery/jquery-1.10.2.min.js"></script>
-        <script src="../src/lib/bootstrap/bootstrap-3.0.3-custom.min.js"></script>
+        <script src="../src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
         <!--script src="../src/lib/angular/angular.min.js"></script>
         <script src="../src/lib/angular/angular-animate.min.js"></script>
         <script src="../src/lib/angular/angular-resource.min.js"></script>
@@ -258,6 +293,20 @@
                 $('.nav li').removeClass('navtop-item-selected');
                 $(this).addClass('navtop-item-selected');
             });*/
+
+            // Active Tabs
+            $('#sign-nav a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+
+            $('.sign-input').focus(function() {
+                $(this).parent().addClass('sign-input-prepend-active');
+            });
+
+            $('.sign-input').blur(function() {
+                $(this).parent().removeClass('sign-input-prepend-active');
+            });
         </script>
     </body>
 </html>

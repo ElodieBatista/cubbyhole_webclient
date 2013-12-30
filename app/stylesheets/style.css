@@ -3,6 +3,12 @@
     src: url(./fonts/OpenSans-Light.ttf);
 }
 
+@font-face {
+    font-family: OpenSans-Regular;
+    src: url(./fonts/OpenSans-Regular.ttf);
+}
+
+/* BASE */
 body {
     font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
     font-size: 14px;
@@ -13,11 +19,28 @@ a {
     color: #00B7FF;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
+}
+
 .space {
     padding-top: 50px;
     margin-top: -50px;
 }
 
+.row {
+    margin: 0;
+}
+
+.center {
+    text-align: center;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+    outline: 0;
+}
 
 
 /* NAVTOP */
@@ -63,10 +86,6 @@ a {
     background-position-y: 50px;
 }
 
-/*.navtop-item:hover {
-     background-position-y: 0;
- }*/
-
 .navtop-item a {
     color: rgb(0, 0, 0) !important;
 }
@@ -76,8 +95,8 @@ a {
 }
 
 .navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover/*,
-.navbar-inverse .navbar-nav > .active > a:focus*/ {
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
     background-color: inherit;
 }
 
@@ -113,9 +132,6 @@ a {
 .navbar-inverse .navbar-nav > li > a:hover {
     color: white !important;
 }
-
-
-
 
 .navbar-inverse .navbar-toggle .icon-bar {
     background-color: rgb(0, 0, 0);
@@ -187,14 +203,6 @@ h1 {
     text-align: center;
 }
 
-.row {
-    margin: 0;
-}
-
-.center {
-    text-align: center;
-}
-
 footer {
     min-height: 50px;
     line-height: 50px;
@@ -206,6 +214,123 @@ footer {
     color: rgb(255, 29, 37);
 }
 
+
+/* HOME */
+#sign-nav {
+    margin: 0 0 11px;
+    border-bottom: 1px solid rgb(255, 29, 37);
+    text-transform: uppercase;
+}
+
+.sign-nav-item {
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background-repeat: no-repeat;
+    background-position-y: 40px;
+    margin-bottom: 0;
+    background-image: -webkit-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
+}
+
+.sign-nav-item:hover {
+    background-position-y: 0px;
+}
+
+.sign-nav-item:hover a {
+    color: rgb(255, 255, 255) !important;
+}
+
+#sign-nav a {
+    color: rgb(100, 100, 100);
+    background-color: transparent;
+    border: none;
+    font-family: "OpenSans-Regular";
+}
+
+#sign-nav .active a {
+    background-color: transparent;
+    color: rgb(255, 29, 37);
+}
+
+.sign-input-prepend {
+    height: 45px;
+    border: 1px solid rgb(230, 230, 230);
+    display: block;
+    font: 100 15px/20px "OpenSans-Light";
+    width: 100%;
+    margin: 0 0 11px;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
+    white-space: nowrap;
+    padding-right: 45px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    -webkit-transition: all 0.2s ease-out;
+    -moz-transition: all 0.2s ease-out;
+    -o-transition: all 0.2s ease-out;
+    -ms-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+
+.sign-input-prepend-active {
+    border-color: rgb(255, 29, 37);
+}
+
+.sign-input-icon {
+    float: left;
+    color: rgb(230, 230, 230);
+    display: block;
+    line-height: 25px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 15px;
+    text-align: center;
+}
+
+.sign-input {
+    border: none;
+    width: 100%;
+    line-height: 22px;
+    color: rgb(0, 0, 0);
+}
+
+.sign-select {
+    width: 100%;
+    height: 45px;
+    border: 1px solid rgb(230, 230, 230);
+    color: rgb(170, 170, 170);
+    padding-left: 30px;
+    margin: 0 0 11px;
+}
+
+.sign-select:focus {
+    border-color: rgb(255, 29, 37);
+    color: rgb(0, 0, 0);
+}
+
+.sign-select-option {
+    background-image: url('/stylesheets/icon_gift.svg');
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+}
+
+.sign-btn-submit {
+    width: 100%;
+    border: none;
+    background-color: rgb(254, 80, 81);
+    color: white;
+    height: 45px;
+    text-transform: uppercase;
+    font-family: "OpenSans-Regular";
+}
+
+.sign-btn-submit:hover {
+    background-color: rgb(255, 29, 37);
+}
+
+/* PLANS */
 .plan-container {
     color: rgb(44, 44, 44);
     padding: 20px;
