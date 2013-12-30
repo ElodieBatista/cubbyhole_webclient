@@ -63,48 +63,59 @@ a {
     background-position-y: 50px;
 }
 
-.navtop-item:hover {
-    background-position-y: 0;
-}
+/*.navtop-item:hover {
+     background-position-y: 0;
+ }*/
 
 .navtop-item a {
     color: rgb(0, 0, 0) !important;
 }
 
-.navtop-item-selected {
+.navtop-items-list .active {
     background-position-y: 48px;
 }
 
-.navtop-items-list li.navtop-item-selected:nth-child(1) a {
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover/*,
+.navbar-inverse .navbar-nav > .active > a:focus*/ {
+    background-color: inherit;
+}
+
+.navtop-items-list .active:nth-child(1) a {
     /*color: rgb(254, 80, 81) !important;*/
     color: rgb(255, 29, 37) !important;
 }
 
-.navtop-items-list li.navtop-item-selected:nth-child(2) a {
+.navtop-items-list .active:nth-child(2) a {
     /*color: rgb(26, 192, 206) !important;*/
     color: rgb(63, 169, 245) !important;
 }
 
-.navtop-items-list li.navtop-item-selected:nth-child(3) a {
+.navtop-items-list .active:nth-child(3) a {
     /*color: rgb(251, 149, 41) !important;*/
     color: rgb(255, 147, 30) !important;
 }
 
-.navtop-items-list li.navtop-item-selected:nth-child(4) a {
+.navtop-items-list .active:nth-child(4) a {
     /*color: rgb(27, 206, 112) !important;*/
     color: rgb(122, 201, 67) !important;
 }
 
-.navtop-items-list li.navtop-item-selected:nth-child(5) a {
+.navtop-items-list .active:nth-child(5) a {
     /*color: rgb(246, 80, 146) !important;*/
     color: rgb(255, 108, 164) !important;
 }
 
-
+.navtop-item:hover {
+    background-position-y: 0;
+}
 
 .navbar-inverse .navbar-nav > li > a:hover {
     color: white !important;
 }
+
+
+
 
 .navbar-inverse .navbar-toggle .icon-bar {
     background-color: rgb(0, 0, 0);
