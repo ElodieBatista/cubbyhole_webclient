@@ -83,7 +83,7 @@ select:focus {
     -ms-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
     background-repeat: no-repeat;
-    background-position-y: 50px;
+    background-position: 0 50px;
 }
 
 .navtop-item a {
@@ -91,7 +91,7 @@ select:focus {
 }
 
 .navtop-items-list .active {
-    background-position-y: 48px;
+    background-position: 0 48px;
 }
 
 .navbar-inverse .navbar-nav > .active > a,
@@ -126,7 +126,7 @@ select:focus {
 }
 
 .navtop-item:hover {
-    background-position-y: 0;
+    background-position: 0 0;
 }
 
 .navbar-inverse .navbar-nav > li > a:hover {
@@ -148,26 +148,41 @@ select:focus {
 .navtop-items-list li:nth-child(1) {
     /*background-image: -webkit-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));*/
     background-image: -webkit-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
+    background-image: -moz-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
+    background-image: -o-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
+    background-image: -ms-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
 }
 
 .navtop-items-list li:nth-child(2) {
     /*background-image: -webkit-linear-gradient(rgb(26, 192, 206), rgb(26, 192, 206));*/
     background-image: -webkit-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
+    background-image: -moz-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
+    background-image: -o-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
+    background-image: -ms-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
 }
 
 .navtop-items-list li:nth-child(3) {
     /*background-image: -webkit-linear-gradient(rgb(251, 149, 41), rgb(251, 149, 41));*/
     background-image: -webkit-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
+    background-image: -moz-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
+    background-image: -o-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
+    background-image: -ms-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
 }
 
 .navtop-items-list li:nth-child(4) {
     /*background-image: -webkit-linear-gradient(rgb(27, 206, 112), rgb(27, 206, 112));*/
     background-image: -webkit-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
+    background-image: -moz-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
+    background-image: -o-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
+    background-image: -ms-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
 }
 
 .navtop-items-list li:nth-child(5) {
     /*background-image: -webkit-linear-gradient(rgb(246, 80, 146), rgb(246, 80, 146));*/
     background-image: -webkit-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
+    background-image: -moz-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
+    background-image: -o-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
+    background-image: -ms-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
 }
 
 /* CONTENT */
@@ -229,13 +244,16 @@ footer {
     -ms-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
     background-repeat: no-repeat;
-    background-position-y: 40px;
+    background-position: 0 40px;
     margin-bottom: 0;
     background-image: -webkit-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
+    background-image: -moz-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
+    background-image: -o-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
+    background-image: -ms-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
 }
 
 .sign-nav-item:hover {
-    background-position-y: 0px;
+    background-position: 0 0;
 }
 
 .sign-nav-item:hover a {
@@ -344,6 +362,10 @@ footer {
 .plan-container:hover {
     z-index: 10;
     -webkit-transform: scale(1.05,1.05);
+    -moz-transform: scale(1.05,1.05);
+    -o-transform: scale(1.05,1.05);
+    -ms-transform: scale(1.05,1.05);
+    transform: scale(1.05,1.05);
     box-shadow: 0 0 5px rgb(220, 220, 220);
 }
 
