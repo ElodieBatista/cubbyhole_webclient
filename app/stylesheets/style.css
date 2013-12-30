@@ -1,10 +1,10 @@
 @font-face {
-    font-family: Calibri-Light;
-    src: url(./fonts/CalibriL.ttf);
+    font-family: OpenSans-Light;
+    src: url(./fonts/OpenSans-Light.ttf);
 }
 
 body {
-    font-family: "Calibri-Light", Helvetica, Arial, sans-serif;
+    font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
     font-size: 14px;
     /*padding-top: 50px;*/
 }
