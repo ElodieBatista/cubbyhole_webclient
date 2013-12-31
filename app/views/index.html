@@ -51,9 +51,8 @@
 
 
         <!--ng-view class="content-container"></ng-view-->
-        <div class="content-container">
+        <div class="content-container home-container">
             <div class="container">
-
                 <div class="row space" id="home">
                     <h1>Home</h1>
 
@@ -69,7 +68,7 @@
 
                         <div class="tab-content">
                             <div class="tab-pane active" id="signin">
-                                <form method="POST" action="/signin">
+                                <form class="sign-form" method="POST" action="/signin">
                                     <div class="sign-input-prepend">
                                         <i class="fa fa-envelope sign-input-icon"></i>
                                         <input class="sign-input" type="email" placeholder="Email" required>
@@ -84,7 +83,7 @@
                             </div>
 
                             <div class="tab-pane" id="signup">
-                                <form method="POST" action="/signup">
+                                <form class="sign-form" method="POST" action="/signup">
                                     <div class="sign-input-prepend">
                                         <i class="fa fa-envelope sign-input-icon"></i>
                                         <input class="sign-input" type="email" placeholder="Email" required>
@@ -110,7 +109,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
+        <div class="content-container features-container">
+            <div class="container">
                 <div class="row space" id="features">
                     <h1>Features</h1>
 
@@ -132,37 +135,43 @@
                     <p>TEST</p>
                     <p>TEST</p>
                 </div>
+            </div>
+        </div>
 
-
+        <div class="content-container downloads-container">
+            <div class="container">
                 <div class="row space" id="downloads">
                     <h1>Downloads</h1>
 
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
-                    <p>TEST</p>
+                    <div class="col-md-6 features-container-picture">
+                        <img src="/stylesheets/iphone-a.png">
+                    </div>
+
+                    <div class="col-md-6 downloads-container-content">
+                        Other stuff goes here ;) ...
+                    </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6 downloads-container-content">
+                        Other stuff goes here ;) ...
+                    </div>
 
+                    <div class="col-md-6 features-container-picture">
+                        <img src="/stylesheets/pc-a2.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-container plan-container">
+            <div class="container">
                 <div class="row space" id="plans">
                     <h1>Plans</h1>
 
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-4 plan-container">
+                            <div class="col-md-4 plan-bloc">
                                 <h3 class="plan-title">Free</h3>
 
                                 <img class="plan-img" src="/stylesheets/icon_gift.svg">
@@ -187,7 +196,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4 plan-container">
+                            <div class="col-md-4 plan-bloc">
                                 <h3 class="plan-title">Pro</h3>
 
                                 <img class="plan-img" src="/stylesheets/icon_handshake.svg">
@@ -212,7 +221,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4 plan-container">
+                            <div class="col-md-4 plan-bloc">
                                 <h3 class="plan-title">Enterprise</h3>
 
                                 <img class="plan-img" src="/stylesheets/icon_briefcase.svg">
@@ -239,8 +248,11 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
 
-
+        <div class="content-container about-container">
+            <div class="container">
                 <div class="row space" id="about">
                     <h1>About</h1>
 

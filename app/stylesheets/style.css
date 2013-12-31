@@ -24,8 +24,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .space {
-    padding-top: 50px;
+    padding-top: 80px;
     margin-top: -50px;
+}
+
+.container {
+    /*margin: 0;
+    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;*/
 }
 
 .row {
@@ -211,7 +218,7 @@ select:focus {
 
 h1 {
     margin-top: 0;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     font-size: 40px;
     font-weight: normal;
     text-transform: uppercase;
@@ -222,7 +229,7 @@ footer {
     min-height: 50px;
     line-height: 50px;
     color: rgb(255, 255, 255);
-    background-color: rgb(51, 51, 51);
+    background-color: rgb(50, 50, 50);
 }
 
 .footer-icon {
@@ -231,6 +238,11 @@ footer {
 
 
 /* HOME */
+.home-container {
+    background-color: rgb(240, 240, 240);
+    padding-bottom: 50px;
+}
+
 #sign-nav {
     margin: 0 0 11px;
     border-bottom: 1px solid rgb(255, 29, 37);
@@ -348,8 +360,32 @@ footer {
     background-color: rgb(255, 29, 37);
 }
 
+
+/* FEATURES */
+.features-container {
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 50px;
+}
+
+
+/* DOWNLOADS */
+.downloads-container {
+    background-color: rgb(50, 50, 50);
+    padding-bottom: 50px;
+}
+
+.downloads-container {
+    color: white;
+}
+
+
 /* PLANS */
 .plan-container {
+    background-color: rgb(244, 244, 244);
+    padding-bottom: 50px;
+}
+
+.plan-bloc {
     color: rgb(44, 44, 44);
     padding: 20px;
     -webkit-transition: all 0.1s ease-out;
@@ -359,7 +395,7 @@ footer {
     transition: all 0.1s ease-out;
 }
 
-.plan-container:hover {
+.plan-bloc:hover {
     z-index: 10;
     -webkit-transform: scale(1.05,1.05);
     -moz-transform: scale(1.05,1.05);
@@ -369,16 +405,16 @@ footer {
     box-shadow: 0 0 5px rgb(220, 220, 220);
 }
 
-.plan-container:nth-child(1) {
+.plan-bloc:nth-child(1) {
     background-color: rgb(255, 255, 255);
 }
 
-.plan-container:nth-child(2) {
+.plan-bloc:nth-child(2) {
     background-color: rgb(122, 201, 67);
     color: rgb(255, 255, 255);
 }
 
-.plan-container:nth-child(3) {
+.plan-bloc:nth-child(3) {
     background-color: rgb(90, 90, 90);
     color: rgb(255, 255, 255);
 }
@@ -426,4 +462,10 @@ footer {
 
 .plan-price span {
     font-size: 14px;
+}
+
+/* ABOUT */
+.about-container {
+    background-color: rgb(255, 255, 255);
+    padding-bottom: 50px;
 }
