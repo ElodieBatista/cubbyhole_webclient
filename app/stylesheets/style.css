@@ -469,3 +469,38 @@ footer {
     background-color: rgb(255, 255, 255);
     padding-bottom: 50px;
 }
+
+.about-profile-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.about-profile-img {
+    border-radius: 100px;
+    width: 200px;
+    height: 200px;
+    border: 3px solid rgb(200, 200, 200);
+    -webkit-transition: all 0.1s ease-out;
+    -moz-transition: all 0.1s ease-out;
+    -o-transition: all 0.1s ease-out;
+    -ms-transition: all 0.1s ease-out;
+    transition: all 0.1s ease-out;
+}
+
+.about-profile-img:hover {
+    border: 3px solid rgb(255, 108, 164);
+    z-index: 10;
+    -webkit-transform: scale(1.05,1.05);
+    -moz-transform: scale(1.05,1.05);
+    -o-transform: scale(1.05,1.05);
+    -ms-transform: scale(1.05,1.05);
+    transform: scale(1.05,1.05);
+}
+
+.about-profile-name {
+    text-transform: uppercase;
+}
+
+.about-profile-role {
+    color: rgb(255, 108, 164);
+}
