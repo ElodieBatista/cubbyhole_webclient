@@ -225,6 +225,12 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+}
+
 footer {
     min-height: 50px;
     line-height: 50px;
@@ -241,6 +247,10 @@ footer {
 .home-container {
     background-color: rgb(240, 240, 240);
     padding-bottom: 50px;
+}
+
+.home-highlight {
+    color: rgb(255, 29, 37);
 }
 
 #sign-nav {
@@ -367,15 +377,20 @@ footer {
     padding-bottom: 50px;
 }
 
+.features-highlight {
+    color: rgb(63, 169, 245);
+}
+
 
 /* DOWNLOADS */
 .downloads-container {
     background-color: rgb(50, 50, 50);
     padding-bottom: 50px;
+    color: white;
 }
 
-.downloads-container {
-    color: white;
+.downloads-highlight {
+    color: rgb(255, 147, 30);
 }
 
 
@@ -383,6 +398,10 @@ footer {
 .plan-container {
     background-color: rgb(244, 244, 244);
     padding-bottom: 50px;
+}
+
+.plan-highlight {
+    color: rgb(122, 201, 67);
 }
 
 .plan-bloc {
@@ -470,37 +489,55 @@ footer {
     padding-bottom: 50px;
 }
 
-.about-profile-container {
-    text-align: center;
+.about-img {
+    width: 100%;
+    height: 100%;
+}
+
+.about-highlight {
+    color: rgb(255, 108, 164);
+}
+
+.about-info-container {
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.about-subtitle {
+    color: rgb(255, 108, 164);
+    font-variant: small-caps;
+    font-size: 25px;
     margin-bottom: 20px;
 }
 
-.about-profile-img {
-    border-radius: 100px;
-    width: 200px;
-    height: 200px;
-    border: 3px solid rgb(200, 200, 200);
-    -webkit-transition: all 0.1s ease-out;
-    -moz-transition: all 0.1s ease-out;
-    -o-transition: all 0.1s ease-out;
-    -ms-transition: all 0.1s ease-out;
-    transition: all 0.1s ease-out;
+.about-social-container {
+    padding: 0;
+    margin-bottom: 10px;
 }
 
-.about-profile-img:hover {
-    border: 3px solid rgb(255, 108, 164);
-    z-index: 10;
-    -webkit-transform: scale(1.05,1.05);
-    -moz-transform: scale(1.05,1.05);
-    -o-transform: scale(1.05,1.05);
-    -ms-transform: scale(1.05,1.05);
-    transform: scale(1.05,1.05);
+.about-social-logo {
+    float: left;
+    margin-right: 10px;
+    width: 40px;
 }
 
-.about-profile-name {
-    text-transform: uppercase;
+.about-social-link {
+    line-height: 40px;
+    color: rgb(50, 50, 50);
 }
 
-.about-profile-role {
+.about-social-link:hover {
+    text-decoration: none;
+}
+
+.about-social-container:nth-child(1) .about-social-link:hover {
+    color: rgb(0, 64, 137);
+}
+
+.about-social-container:nth-child(2) .about-social-link:hover {
+    color: rgb(0, 171, 227);
+}
+
+.about-social-container:nth-child(3) .about-social-link:hover {
     color: rgb(255, 108, 164);
 }
