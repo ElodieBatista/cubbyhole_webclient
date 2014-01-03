@@ -26,6 +26,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 25px;
     margin-bottom: 20px;
     font-variant: small-caps;
+    margin-top: 0;
 }
 
 .space-top {
@@ -36,12 +37,12 @@ h1, h2, h3, h4, h5, h6 {
     padding-top: 115px;
 }
 
-.row {
-    margin: 0;
+.no-padding {
+    padding: 0;
 }
 
-.center {
-    text-align: center;
+.row {
+    margin: 0;
 }
 
 textarea:focus,
@@ -233,6 +234,11 @@ footer {
     line-height: 50px;
     color: rgb(255, 255, 255);
     background-color: rgb(50, 50, 50);
+    text-align: center;
+}
+
+.footer-description {
+    margin: 0;
 }
 
 .footer-icon {
@@ -439,7 +445,7 @@ footer {
     color: rgb(255, 147, 30);
 }
 
-.downloads-bloc-container {
+.downloads-bloc {
     margin-top: 13%;
     margin-bottom: 30px;
 }
@@ -578,13 +584,12 @@ footer {
     height: 100%;
 }
 
-.about-info-container {
-    margin-bottom: 30px;
+.about-bloc {
+    margin-bottom: 20px;
     font-size: 14px;
 }
 
 .about-social-container {
-    padding: 0;
     margin-bottom: 10px;
 }
 
