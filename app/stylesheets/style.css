@@ -425,6 +425,7 @@ footer {
 
 .features-description {
     margin-top: 30px;
+    margin-bottom: 30px;
     text-align: justify;
 }
 
@@ -434,27 +435,26 @@ footer {
     color: rgb(255, 147, 30);
 }
 
-.downloads-container-content {
-    margin-top: 13%;
-}
-
 #downloads .subtitle {
     color: rgb(255, 147, 30);
 }
 
-.downloads-container-picture {
-    text-align: center;
+.downloads-bloc-container {
+    margin-top: 13%;
+    margin-bottom: 30px;
 }
 
-.downloads-picture {
+.downloads-img {
     width: 100%;
 }
 
-.downloads-picture-medium {
+.downloads-img-medium {
     width: 40%;
+    display: block;
+    margin: 0 auto;
 }
 
-.downloads-picture-logo {
+.downloads-logo {
     width: 120px;
     margin-left: 20px;
 }
@@ -554,6 +554,10 @@ footer {
     color: rgb(255, 108, 164);
 }
 
+#about .subtitle {
+    color: rgb(255, 108, 164);
+}
+
 .about-img {
     width: 100%;
     height: 100%;
@@ -562,10 +566,6 @@ footer {
 .about-info-container {
     margin-bottom: 30px;
     font-size: 14px;
-}
-
-#about .subtitle {
-    color: rgb(255, 108, 164);
 }
 
 .about-social-container {
