@@ -22,6 +22,12 @@ h1, h2, h3, h4, h5, h6 {
     font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
 }
 
+.subtitle {
+    font-size: 25px;
+    margin-bottom: 20px;
+    font-variant: small-caps;
+}
+
 .space-top {
     padding-top: 65px;
 }
@@ -405,16 +411,9 @@ footer {
     color: rgb(63, 169, 245);
 }
 
-.features-subtitle {
+#features .subtitle {
     color: rgb(63, 169, 245);
-    font-variant: small-caps;
     text-align: center;
-    font-size: 25px;
-    margin-bottom: 30px;
-}
-
-.features-bloc-container {
-    text-align: justify;
 }
 
 .features-img {
@@ -426,6 +425,7 @@ footer {
 
 .features-description {
     margin-top: 30px;
+    text-align: justify;
 }
 
 
@@ -438,11 +438,8 @@ footer {
     margin-top: 13%;
 }
 
-.downloads-subtitle {
+#downloads .subtitle {
     color: rgb(255, 147, 30);
-    font-variant: small-caps;
-    font-size: 25px;
-    margin-bottom: 20px;
 }
 
 .downloads-container-picture {
@@ -567,11 +564,8 @@ footer {
     font-size: 14px;
 }
 
-.about-subtitle {
+#about .subtitle {
     color: rgb(255, 108, 164);
-    font-variant: small-caps;
-    font-size: 25px;
-    margin-bottom: 20px;
 }
 
 .about-social-container {
