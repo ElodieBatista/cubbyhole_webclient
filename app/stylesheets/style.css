@@ -12,7 +12,6 @@
 body {
     font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    /*padding-top: 50px;*/
 }
 
 a {
@@ -25,13 +24,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .space {
     padding-top: 80px;
-}
-
-.container {
-    /*margin: 0;
-    width: 100%;
-    padding-left: 5%;
-    padding-right: 5%;*/
 }
 
 .row {
@@ -107,27 +99,22 @@ select:focus {
 }
 
 .navtop-items-list .active:nth-child(1) a {
-    /*color: rgb(254, 80, 81) !important;*/
     color: rgb(255, 29, 37) !important;
 }
 
 .navtop-items-list .active:nth-child(2) a {
-    /*color: rgb(26, 192, 206) !important;*/
     color: rgb(63, 169, 245) !important;
 }
 
 .navtop-items-list .active:nth-child(3) a {
-    /*color: rgb(251, 149, 41) !important;*/
     color: rgb(255, 147, 30) !important;
 }
 
 .navtop-items-list .active:nth-child(4) a {
-    /*color: rgb(27, 206, 112) !important;*/
     color: rgb(122, 201, 67) !important;
 }
 
 .navtop-items-list .active:nth-child(5) a {
-    /*color: rgb(246, 80, 146) !important;*/
     color: rgb(255, 108, 164) !important;
 }
 
@@ -152,7 +139,6 @@ select:focus {
 }
 
 .navtop-items-list li:nth-child(1) {
-    /*background-image: -webkit-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));*/
     background-image: -webkit-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
     background-image: -moz-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
     background-image: -o-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
@@ -160,7 +146,6 @@ select:focus {
 }
 
 .navtop-items-list li:nth-child(2) {
-    /*background-image: -webkit-linear-gradient(rgb(26, 192, 206), rgb(26, 192, 206));*/
     background-image: -webkit-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
     background-image: -moz-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
     background-image: -o-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
@@ -168,7 +153,6 @@ select:focus {
 }
 
 .navtop-items-list li:nth-child(3) {
-    /*background-image: -webkit-linear-gradient(rgb(251, 149, 41), rgb(251, 149, 41));*/
     background-image: -webkit-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
     background-image: -moz-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
     background-image: -o-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
@@ -176,7 +160,6 @@ select:focus {
 }
 
 .navtop-items-list li:nth-child(4) {
-    /*background-image: -webkit-linear-gradient(rgb(27, 206, 112), rgb(27, 206, 112));*/
     background-image: -webkit-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
     background-image: -moz-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
     background-image: -o-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
@@ -184,7 +167,6 @@ select:focus {
 }
 
 .navtop-items-list li:nth-child(5) {
-    /*background-image: -webkit-linear-gradient(rgb(246, 80, 146), rgb(246, 80, 146));*/
     background-image: -webkit-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
     background-image: -moz-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
     background-image: -o-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
@@ -197,22 +179,6 @@ select:focus {
     position: relative;
     width: 100%;
     background-color: rgb(240, 240, 240);
-}
-
-.content-container:after {
-    /*background: url("1.jpg")no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    opacity: 0.07;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: -1;
-    content: "";*/
 }
 
 h1 {

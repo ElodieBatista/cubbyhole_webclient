@@ -8,7 +8,6 @@
         <link rel="stylesheet" href="../stylesheets/style.css">
     </head>
 
-    <!--body id="ng-app" ng-app="webApp" data-spy="scroll" data-target=".navtop-items-container"-->
     <body data-spy="scroll" data-target=".navtop-items-container">
 
         <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav navtop-container" role="banner">
@@ -23,11 +22,6 @@
                     <a href="./" id="navtop-brand" class="navbar-brand"><i class="navtop-icon fa fa-th"></i> Cubbyhole</a>
                 </div>
                 <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" role="navigation">
-                    <!--ul class="nav navbar-nav">
-                        <li>
-                            <a href="#">Features</a>
-                        </li>
-                    </ul-->
                     <ul class="nav navbar-nav navbar-right navtop-items-list">
                         <li class="navtop-item navtop-item-selected">
                             <a href="#home">Home</a>
@@ -49,8 +43,6 @@
             </div>
         </header>
 
-
-        <!--ng-view class="content-container"></ng-view-->
         <div class="content-container home-container">
             <div class="container">
                 <div class="row space" id="home">
@@ -314,7 +306,6 @@
                             <div class="about-info-container">
                                 <h4 class="about-subtitle">Contact us</h4>
 
-                                <!--div class="container"-->
                                 <div class="row">
                                     <div class="col-md-4 about-social-container">
                                         <img class="about-social-logo" src="/stylesheets/img/facebook.png">
@@ -331,7 +322,6 @@
                                         <a class="about-social-link" href="mailto:contact@cubbyhole.com">Email us</a>
                                     </div>
                                 </div>
-                                <!--/div-->
 
 
                             </div>
@@ -358,21 +348,9 @@
 
         <script src="../src/lib/jquery/jquery-1.10.2.min.js"></script>
         <script src="../src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
-        <!--script src="../src/lib/angular/angular.min.js"></script>
-        <script src="../src/lib/angular/angular-animate.min.js"></script>
-        <script src="../src/lib/angular/angular-resource.min.js"></script>
-        <script src="../src/lib/angular/angular-route.min.js"></script>
-        <script src="../src/lib/angular/angular-sanitize.min.js"></script>
-        <script src="../src/app.js"></script>
-        <script src="../src/home/home.js"></script-->
 
         <script>
             // TEMPORARY LOCATION
-            /*$('.nav li').click(function() {
-             $('.nav li').removeClass('navtop-item-selected');
-             $(this).addClass('navtop-item-selected');
-             });*/
-
             // Active Tabs
             $('#sign-nav a').click(function (e) {
                 e.preventDefault();
