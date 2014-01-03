@@ -430,8 +430,36 @@ footer {
     color: white;
 }
 
+.downloads-container-content {
+    margin-top: 13%;
+}
+
 .downloads-highlight {
     color: rgb(255, 147, 30);
+}
+
+.downloads-subtitle {
+    color: rgb(255, 147, 30);
+    font-variant: small-caps;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.downloads-container-picture {
+    text-align: center;
+}
+
+.downloads-picture {
+    width: 100%;
+}
+
+.downloads-picture-medium {
+    width: 40%;
+}
+
+.downloads-picture-logo {
+    width: 120px;
+    margin-left: 20px;
 }
 
 
