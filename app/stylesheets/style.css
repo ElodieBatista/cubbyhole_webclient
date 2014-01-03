@@ -465,7 +465,7 @@ footer {
     color: rgb(122, 201, 67);
 }
 
-.plans-bloc-container {
+.plans-container {
     padding-right: 15px;
     padding-left: 15px;
 }
@@ -482,11 +482,11 @@ footer {
 
 .plans-bloc:hover {
     z-index: 10;
-    -webkit-transform: scale(1.05,1.05);
-    -moz-transform: scale(1.05,1.05);
-    -o-transform: scale(1.05,1.05);
-    -ms-transform: scale(1.05,1.05);
-    transform: scale(1.05,1.05);
+    -webkit-transform: scale(1.05, 1.05);
+    -moz-transform: scale(1.05, 1.05);
+    -o-transform: scale(1.05, 1.05);
+    -ms-transform: scale(1.05, 1.05);
+    transform: scale(1.05, 1.05);
     box-shadow: 0 0 5px rgb(220, 220, 220);
 }
 
@@ -525,7 +525,22 @@ footer {
 
 .plans-list {
     list-style-type: none;
-    margin: 0;
+    padding: 0;
+    display: table;
+    margin: 0 auto;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 1200px) {
+    .plans-list {
+        font-size: 11px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .plans-list {
+        font-size: 14px;
+    }
 }
 
 .plans-list-item {
@@ -545,7 +560,7 @@ footer {
     margin-top: 10px;
 }
 
-.plans-price span {
+.plans-price-small {
     font-size: 14px;
 }
 
