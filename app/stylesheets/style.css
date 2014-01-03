@@ -20,6 +20,7 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
+    font-weight: normal;
 }
 
 .subtitle {
@@ -218,7 +219,6 @@ h1 {
     margin-top: 0;
     margin-bottom: 30px;
     font-size: 40px;
-    font-weight: normal;
     text-transform: uppercase;
     text-align: center;
 }
@@ -243,6 +243,11 @@ footer {
 
 .footer-icon {
     color: rgb(255, 29, 37);
+}
+
+.footer-link,
+.footer-link:hover {
+    color: rgb(255, 255, 255);
 }
 
 
@@ -589,12 +594,15 @@ footer {
     font-size: 14px;
 }
 
+.about-description {
+    margin: 0;
+}
+
 .about-social-container {
     margin-bottom: 10px;
 }
 
 .about-social-logo {
-    float: left;
     margin-right: 10px;
     width: 40px;
 }
