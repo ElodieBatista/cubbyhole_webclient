@@ -253,6 +253,47 @@ footer {
     color: rgb(255, 29, 37);
 }
 
+.home-banner {
+    position: absolute;
+    top: 70%;
+    background-color: rgb(255, 29, 37);
+    color: rgb(255, 255, 255);
+    padding: 7px;
+    font-variant: small-caps;
+    font-size: 18px;
+}
+
+.home-picture {
+    width: 100%;
+    margin-top: 30px;
+}
+
+#home-remember-box {
+    margin-left: 13px;
+    margin-right: 6px;
+    vertical-align: top;
+}
+
+.home-remember-label {
+    font-weight: normal;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 990px) {
+    .home-picture {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .home-banner {
+        position: relative;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+
 #sign-nav {
     margin: 0 0 11px;
     border-bottom: 1px solid rgb(255, 29, 37);
