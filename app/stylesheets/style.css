@@ -445,6 +445,11 @@ footer {
     color: rgb(122, 201, 67);
 }
 
+.plans-bloc-container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 .plan-bloc {
     color: rgb(44, 44, 44);
     padding: 20px;
