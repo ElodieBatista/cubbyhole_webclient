@@ -6,7 +6,7 @@ module.config(function config($routeProvider) {
     $routeProvider
         .when('/home',
         {
-            templateUrl: 'partials/home/home.html',
+            templateUrl: '/src/home/home.html',
             controller: 'HomeCtrl'
         })
 });
