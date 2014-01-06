@@ -1,7 +1,11 @@
-<div id="treeview"></div>
+<div id="treeview" class="panel-left-content"></div>
+
 
 <div id="gridview">
-    <ul>
-        <li ng-repeat="file in files">{{file.name}}</li>
-    </ul>
+    <table>
+        <tr ng-repeat="file in files">
+            <td>{{file.name}}</td>
+            <td>{{file.type}}</td>
+        </tr>
+    </table>
 </div>
