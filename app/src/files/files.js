@@ -23,11 +23,102 @@ module.controller('FilesCtrl',
                 children: [
                     {
                         type: 'folder',
-                        name: 'USA',
+                        name: 'United States of America',
                         children: [
                             {
                                 type: 'file',
                                 name: 'California'
+                            },
+                            {
+                                type: 'folder',
+                                name: 'Washington',
+                                children: [
+                                    {
+                                        type: 'folder',
+                                        name: 'Orange County',
+                                        children: [
+                                            {
+                                                type: 'folder',
+                                                name: 'Kirkland',
+                                                children: [
+                                                    {
+                                                        type: 'folder',
+                                                        name: 'Orange County',
+                                                        children: [
+                                                            {
+                                                                type: 'folder',
+                                                                name: 'Kirkland',
+                                                                children: [
+                                                                    {
+                                                                        type: 'folder',
+                                                                        name: 'Orange County',
+                                                                        children: [
+                                                                            {
+                                                                                type: 'folder',
+                                                                                name: 'Kirkland',
+                                                                                children: [
+                                                                                    {
+                                                                                        type: 'folder',
+                                                                                        name: 'Orange County',
+                                                                                        children: [
+                                                                                            {
+                                                                                                type: 'folder',
+                                                                                                name: 'Kirkland',
+                                                                                                children: [
+                                                                                                    {
+                                                                                                        type: 'folder',
+                                                                                                        name: 'Orange County',
+                                                                                                        children: [
+                                                                                                            {
+                                                                                                                type: 'folder',
+                                                                                                                name: 'Kirkland',
+                                                                                                                children: [
+                                                                                                                    {
+                                                                                                                        type: 'folder',
+                                                                                                                        name: 'Orange County',
+                                                                                                                        children: [
+                                                                                                                            {
+                                                                                                                                type: 'folder',
+                                                                                                                                name: 'Kirkland',
+                                                                                                                                children: [
+                                                                                                                                    {
+                                                                                                                                        type: 'folder',
+                                                                                                                                        name: 'Orange County',
+                                                                                                                                        children: [
+                                                                                                                                            {
+                                                                                                                                                type: 'folder',
+                                                                                                                                                name: 'Kirkland',
+                                                                                                                                                children: [
+
+                                                                                                                                                ]
+                                                                                                                                            }
+                                                                                                                                        ]
+                                                                                                                                    }
+                                                                                                                                ]
+                                                                                                                            }
+                                                                                                                        ]
+                                                                                                                    }
+                                                                                                                ]
+                                                                                                            }
+                                                                                                        ]
+                                                                                                    }
+                                                                                                ]
+                                                                                            }
+                                                                                        ]
+                                                                                    }
+                                                                                ]
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
                             }
                         ]
                     },
