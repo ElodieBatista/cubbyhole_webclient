@@ -68,6 +68,10 @@ module.controller('FilesCtrl',
                         {
                             type: 'folder',
                             name: 'Australia'
+                        },
+                        {
+                            type: 'file',
+                            name: 'Tasmania'
                         }
                     ]
                 },
@@ -77,6 +81,6 @@ module.controller('FilesCtrl',
                 }
             ];
 
-        $scope.files = json_from_api;
+        $scope.folders = json_from_api;
     }
 );
