@@ -3,10 +3,10 @@ cubbyhole_webclient
 
 # Getting started
 
-Git bach on the "app" folder
+Git bash on the "app" folder
 
 	node web-server.js
 
-Lunch browser at 
+Launch browser at 
 	
-	http://localhost:8000/views/index.html
+	http://localhost:8000/index.html
