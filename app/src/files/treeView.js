@@ -5,7 +5,7 @@ var module = angular.module('webApp');
 /**
  * Defines the way to display a tree view
  */
-module.directive('treeView', function() {
+module.directive('treeView', function($compile) {
     return {
         restrict: 'E',
         scope: '{}',
@@ -14,10 +14,11 @@ module.directive('treeView', function() {
         link: function (scope, element, attrs) {
             scope.$watch(attrs.items, function(newValue, oldValue) {
                 scope.items = newValue;
+                scope.id_selected = scope.items.next[0].id;
                 bfs(scope.items);
             });
 
-            function bfs(sourceNode, val) {
+            function bfs(sourceNode) {
                 if (sourceNode === null) { return null; }
 
                 var queue = [];
@@ -25,19 +26,36 @@ module.directive('treeView', function() {
 
                 while (queue.length !== 0) {
                     var node = queue.shift();
-                    console.log(node.name);
 
                     if (node.previous) {
                         if (node.next) {
-                            $('#treeview #' + node.previous + ' > ul').append('<li id="' + node.id + '">' + node.name + ' <ul></ul></li>');
+                            $('#treeview #' + node.previous + ' > ul').append($compile(
+                                '<li id="' + node.id + '">' +
+                                    '<span class="tree-view-item-selectable" ng-click="select(\'' + node.id + '\')" ng-class="itemClass(\'' + node.id + '\')">' + node.name + '</span> ' +
+                                    '<ul></ul>' +
+                                '</li>'
+                            )(scope));
                         } else {
-                            $('#treeview #' + node.previous + ' > ul').append('<li id="' + node.id + '">' + node.name + '</li>');
+                            $('#treeview #' + node.previous + ' > ul').append($compile(
+                                '<li id="' + node.id + '">' +
+                                    '<span>' + node.name + '</span>' +
+                                '</li>'
+                            )(scope));
                         }
                     } else {
                         if (node.next) {
-                            $('#treeview ul.tree-view').append('<li id="' + node.id + '">' + node.name + ' <ul></ul></li>');
+                            $('#treeview ul.tree-view').append($compile(
+                                '<li id="' + node.id + '">' +
+                                    '<span class="tree-view-item-selectable" ng-click="select(\'' + node.id + '\')" ng-class="itemClass(\'' + node.id + '\')">' + node.name + '</span> ' +
+                                    '<ul></ul>' +
+                                '</li>'
+                            )(scope));
                         } else {
-                            $('#treeview ul.tree-view').append('<li id="' + node.id + '">' + node.name + '</li>');
+                            $('#treeview ul.tree-view').append($compile(
+                                '<li id="' + node.id + '">' +
+                                    '<span class="tree-view-item-selectable" ng-click="select(\'' + node.id + '\')" ng-class="itemClass(\'' + node.id + '\')">' + node.name + '</span>' +
+                                '</li>'
+                            )(scope));
                         }
                     }
 
@@ -51,8 +69,13 @@ module.directive('treeView', function() {
             }
 
 
+            scope.select = function(id_item) {
+                scope.id_selected = id_item;
+            };
 
-
+            scope.itemClass = function(id_item) {
+                return id_item === scope.id_selected ? 'tree-view-item-selected' : undefined;
+            };
         }
     };
 });

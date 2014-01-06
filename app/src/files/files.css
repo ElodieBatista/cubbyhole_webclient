@@ -1,0 +1,8 @@
+.tree-view-item-selected {
+    background-color: rgb(255, 29, 37);
+    color: rgb(255, 255, 255);
+}
+
+.tree-view-item-selectable {
+    cursor: pointer;
+}
