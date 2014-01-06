@@ -5,9 +5,9 @@ var app = angular.module('webApp', ['ngResource', 'ngRoute', 'ngSanitize', 'ngAn
 /**
  * App module's configuration
  */
-app.config(function($locationProvider, $httpProvider, $routeProvider, $sceDelegateProvider) {
+app.config(function($locationProvider, $httpProvider, $routeProvider) {
     // Set a default route
-    $routeProvider.otherwise({redirectTo: '/home'});
+    $routeProvider.otherwise({redirectTo: '/files'});
 });
 
 /**
