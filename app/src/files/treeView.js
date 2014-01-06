@@ -15,7 +15,10 @@ module.directive('treeView', function() {
                 scope.items = newValue;
 
                 element.tree({
-                    data: scope.items
+                    data: scope.items,
+                    onCanDisplayNode: function(node) {
+                        return node.type === 'folder';
+                    }
                 });
             });
         }

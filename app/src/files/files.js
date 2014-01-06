@@ -23,7 +23,13 @@ module.controller('FilesCtrl',
                     children: [
                         {
                             type: 'folder',
-                            name: 'USA'
+                            name: 'USA',
+                            children: [
+                                {
+                                    type: 'file',
+                                    name: 'California'
+                                }
+                            ]
                         },
                         {
                             type: 'folder',
@@ -37,7 +43,13 @@ module.controller('FilesCtrl',
                     children: [
                         {
                             type: 'folder',
-                            name: 'France'
+                            name: 'France',
+                            children: [
+                                {
+                                    type: 'folder',
+                                    name: 'Toulouse'
+                                }
+                            ]
                         },
                         {
                             type: 'folder',
@@ -58,6 +70,10 @@ module.controller('FilesCtrl',
                             name: 'Australia'
                         }
                     ]
+                },
+                {
+                    type: 'folder',
+                    name: 'Asia'
                 }
             ];
 

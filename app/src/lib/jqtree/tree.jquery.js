@@ -786,6 +786,7 @@
             selectable: true,
             useContextMenu: true,
             onCanSelectNode: null,
+            onCanDisplayNode: null,
             onSetStateFromStorage: null,
             onGetStateFromStorage: null,
             onCreateLi: null,
@@ -1303,6 +1304,19 @@
             });
         };
 
+        JqTreeWidget.prototype.areAllChildrenDisplayable = function(node) {
+            if (this.options.onCanDisplayNode) {
+                for (var i = 0, l = node.children.length; i < l; i++) {
+                    if (!this.options.onCanDisplayNode(node.children[i])) {
+                        return false;
+                    }
+                }
+                return true;
+            } else {
+                return true;
+            }
+        };
+
         JqTreeWidget.prototype._refreshElements = function(from_node) {
             var $element, createFolderLi, createLi, createNodeLi, createUl, doCreateDomElements, escapeIfNecessary, is_root_node, node_element,
                 _this = this;
@@ -1327,7 +1341,7 @@
             };
             createLi = function(node) {
                 var $li;
-                if (node.isFolder()) {
+                if (node.isFolder() && _this.areAllChildrenDisplayable(node)) {
                     $li = createFolderLi(node);
                 } else {
                     $li = createNodeLi(node);
@@ -1376,6 +1390,7 @@
                 } else {
                     button_char = _this.options.closedIcon;
                 }
+
                 return $("<li class=\"jqtree_common " + folder_classes + "\"><div class=\"jqtree-element jqtree_common\"><a class=\"jqtree_common " + button_classes + "\">" + button_char + "</a><span class=\"jqtree_common jqtree-title\">" + escaped_name + "</span></div></li>");
             };
             doCreateDomElements = function($element, children, is_root_node, is_open) {
@@ -1384,12 +1399,16 @@
                 $element.append($ul);
                 for (_i = 0, _len = children.length; _i < _len; _i++) {
                     child = children[_i];
-                    $li = createLi(child);
-                    $ul.append($li);
-                    child.element = $li[0];
-                    $li.data('node', child);
-                    if (child.hasChildren()) {
-                        doCreateDomElements($li, child.children, false, child.is_open);
+
+                    if (!_this.options.onCanDisplayNode ||
+                        (_this.options.onCanDisplayNode && _this.options.onCanDisplayNode(child))) {
+                            $li = createLi(child);
+                            $ul.append($li);
+                            child.element = $li[0];
+                            $li.data('node', child);
+                            if (child.hasChildren()) {
+                                doCreateDomElements($li, child.children, false, child.is_open);
+                            }
                     }
                 }
                 return null;
