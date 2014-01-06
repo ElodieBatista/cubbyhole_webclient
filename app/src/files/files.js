@@ -17,14 +17,12 @@ module.controller('FilesCtrl',
         $scope.test = 'test';
 
         var json_from_api = {
-            id: 'id_0',
-            name: 'root',
+            id: 'root',
             next: [
                 {
                     id: 'id_10',
                     type: 'folder',
                     name: 'America',
-                    previous: 'id_0',
                     next: [
                         {
                             id: 'id_11',
@@ -44,7 +42,6 @@ module.controller('FilesCtrl',
                     id: 'id_20',
                     type: 'folder',
                     name: 'Europe',
-                    previous: 'id_0',
                     next: [
                         {
                             id: 'id_21',
@@ -70,7 +67,6 @@ module.controller('FilesCtrl',
                     id: 'id_30',
                     type: 'folder',
                     name: 'Oceania',
-                    previous: 'id_0',
                     next: [
                         {
                             id: 'id_31',

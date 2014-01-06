@@ -43,19 +43,21 @@ module.directive('treeView', function($compile) {
                             )(scope));
                         }
                     } else {
-                        if (node.next) {
-                            $('#treeview ul.tree-view').append($compile(
-                                '<li id="' + node.id + '">' +
-                                    '<span class="tree-view-item-selectable" ng-click="select(\'' + node.id + '\')" ng-class="itemClass(\'' + node.id + '\')">' + node.name + '</span> ' +
-                                    '<ul></ul>' +
-                                '</li>'
-                            )(scope));
-                        } else {
-                            $('#treeview ul.tree-view').append($compile(
-                                '<li id="' + node.id + '">' +
-                                    '<span class="tree-view-item-selectable" ng-click="select(\'' + node.id + '\')" ng-class="itemClass(\'' + node.id + '\')">' + node.name + '</span>' +
-                                '</li>'
-                            )(scope));
+                        if (node.id !== 'root') {
+                            if (node.next) {
+                                $('#treeview ul.tree-view').append($compile(
+                                    '<li id="' + node.id + '">' +
+                                        '<span class="tree-view-item-selectable" ng-click="select(\'' + node.id + '\')" ng-class="itemClass(\'' + node.id + '\')">' + node.name + '</span> ' +
+                                        '<ul></ul>' +
+                                    '</li>'
+                                )(scope));
+                            } else {
+                                $('#treeview ul.tree-view').append($compile(
+                                    '<li id="' + node.id + '">' +
+                                        '<span class="tree-view-item-selectable" ng-click="select(\'' + node.id + '\')" ng-class="itemClass(\'' + node.id + '\')">' + node.name + '</span>' +
+                                    '</li>'
+                                )(scope));
+                            }
                         }
                     }
 
