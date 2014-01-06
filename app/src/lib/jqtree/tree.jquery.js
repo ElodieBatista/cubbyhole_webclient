@@ -1307,11 +1307,11 @@
         JqTreeWidget.prototype.areAllChildrenDisplayable = function(node) {
             if (this.options.onCanDisplayNode) {
                 for (var i = 0, l = node.children.length; i < l; i++) {
-                    if (!this.options.onCanDisplayNode(node.children[i])) {
-                        return false;
+                    if (this.options.onCanDisplayNode(node.children[i])) {
+                        return true;
                     }
                 }
-                return true;
+                return false;
             } else {
                 return true;
             }
