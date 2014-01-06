@@ -4,10 +4,19 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
     background-color: rgb(255, 29, 37);
     color: rgb(255, 255, 255);
     text-shadow: none;
+    display: inline;
 }
 
 ul.jqtree-tree .jqtree-title {
     color: inherit;
+}
+
+ul.jqtree-tree .jqtree-element {
+    white-space: nowrap;
+}
+
+html,body {
+    height:100%;
 }
 
 body {
@@ -15,12 +24,18 @@ body {
 }
 
 #panel-left {
-    border: 1px solid rgb(0, 0, 0);
+    height: 100%;
+    min-height: 100%;
     display: block;
 }
 
 .panel-left-content {
     background-color: rgb(60, 60, 60);
-    margin-top: -15px;
     color: rgb(255, 255, 255);
+    height: 100%;
+    overflow: auto;
+}
+
+#tree-view-container {
+    height: 100%;
 }

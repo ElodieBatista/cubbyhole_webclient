@@ -15,19 +15,14 @@ module.directive('treeView', function() {
             scope.$watch(attrs.items, function(newValue, oldValue) {
                 scope.items = newValue;
 
-                $('#panel-left').resizable({
-                    handles: 'e',
-                    containment: '#tree-view-container'
-                });
-
-                angular.element(element[0].children[0]).tree({
+                $('#tree-view').tree({
                     data: scope.items,
                     onCanDisplayNode: function(node) {
                         return node.type === 'folder';
                     }
                 });
 
-                angular.element(element[0].children[0]).bind(
+                $('#tree-view').bind(
                     'tree.select',
                     function(event) {
                         // Node selected

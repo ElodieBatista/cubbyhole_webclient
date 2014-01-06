@@ -1,11 +1,14 @@
-<div id="treeview" class="panel-left-content"></div>
+<div id="tree-view-container">
 
+    <div id="tree-view" class="panel-left-content col-md-3"></div>
 
-<div id="gridview">
-    <table>
-        <tr ng-repeat="file in files">
-            <td>{{file.name}}</td>
-            <td>{{file.type}}</td>
-        </tr>
-    </table>
+    <div id="grid-view" class="col-md-9">
+        <table>
+            <tr ng-repeat="file in files">
+                <td>{{file.name}}</td>
+                <td>{{file.type}}</td>
+            </tr>
+        </table>
+    </div>
+
 </div>
