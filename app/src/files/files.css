@@ -1,8 +1,11 @@
-.tree-view-item-selected {
+ul.jqtree-tree li.jqtree-selected > .jqtree-element,
+ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
+    background: none;
     background-color: rgb(255, 29, 37);
     color: rgb(255, 255, 255);
+    text-shadow: none;
 }
 
-.tree-view-item-selectable {
-    cursor: pointer;
+ul.jqtree-tree .jqtree-title {
+    color: inherit;
 }
