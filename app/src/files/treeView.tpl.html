@@ -1,10 +1,11 @@
 <div id="tree-view-container">
 
-    <div id="tree-view" class="panel-left-content col-md-2"></div>
+    <div id="tree-view" class="panel-left-content col-md-3"></div>
 
     <div id="grid-view" class="col-md-9">
         <table class="grid-view-table">
             <tr ng-repeat="file in files" class="grid-view-table-tr">
+                <td><img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" /></td>
                 <td>{{file.name}}</td>
                 <td>{{file.type}}</td>
             </tr>
