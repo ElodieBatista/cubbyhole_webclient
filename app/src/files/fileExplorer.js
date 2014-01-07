@@ -78,6 +78,23 @@ module.directive('fileExplorer', function($location) {
                     }
                 }
             });
+
+            scope.selectNode = function(nodeName) {
+                var node = $('#tree-view').tree('getNodeByName', nodeName);
+
+                var path = node.name;
+
+                for (var i = 0, l = node.getLevel() - 1; i < l; i++) {
+                    node = node.parent;
+                    path = node.name + ',' + path;
+                }
+
+                $location.path('/files').search({path: path});
+
+                if (!scope.$$phase) {
+                    scope.$apply();
+                }
+            }
         }
     };
 });

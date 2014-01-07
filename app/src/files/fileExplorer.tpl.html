@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tr ng-repeat="file in files" class="grid-view-table-tr">
-                <td class="grid-view-table-td-first">
+                <td class="grid-view-table-td-first" ng-click="selectNode(file.name)">
                     <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
                     <span>{{file.name}}</span>
                 </td>
