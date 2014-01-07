@@ -3,10 +3,36 @@
     <div id="tree-view" class="panel-left-content col-md-3"></div>
 
     <div id="grid-view" class="col-md-9">
+
+        <!--ul class="nav nav-pills grid-view-action-bar">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Messages</a></li>
+        </ul-->
+
+        <div>
+            <ul class="action-bar">
+                <li>Add Folder</li>
+                <li>Add File</li>
+                <li>Share Link</li>
+                <li>Delete</li>
+            </ul>
+        </div>
+
+        <h3 class="grid-view-title">Cubbyhole</h3>
+
         <table class="grid-view-table">
+            <thead>
+                <tr class="grid-view-table-header">
+                    <th>Name</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
             <tr ng-repeat="file in files" class="grid-view-table-tr">
-                <td><img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" /></td>
-                <td>{{file.name}}</td>
+                <td>
+                    <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
+                    <span>{{file.name}}</span>
+                </td>
                 <td>{{file.type}}</td>
             </tr>
         </table>
