@@ -5,11 +5,11 @@ var module = angular.module('webApp');
 /**
  * Defines the way to display a tree view
  */
-module.directive('treeView', function() {
+module.directive('fileExplorer', function() {
     return {
         restrict: 'E',
         scope: '{}',
-        templateUrl: '/src/files/treeView.tpl.html',
+        templateUrl: '/src/files/fileExplorer.tpl.html',
 
         link: function (scope, element, attrs) {
             scope.$watch(attrs.items, function(newValue, oldValue) {

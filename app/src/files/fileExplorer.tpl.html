@@ -1,27 +1,19 @@
-<div id="tree-view-container">
+<div id="file-explorer-container">
 
     <div id="tree-view" class="panel-left-content col-md-3"></div>
 
     <div id="grid-view" class="col-md-9">
 
-        <!--ul class="nav nav-pills grid-view-action-bar">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Messages</a></li>
-        </ul-->
-
-        <div>
-            <ul class="action-bar">
-                <li>
-                    <img class="action-bar-icon" src="/styles/icons/icon_folder_add.svg" />
-                    Add Folder
-                </li>
-                <li>
-                    <img class="action-bar-icon" src="/styles/icons/icon_file_add.svg" />
-                    Add File
-                </li>
-            </ul>
-        </div>
+        <ul class="action-bar">
+            <li class="action-bar-item">
+                <img class="action-bar-icon" src="/styles/icons/icon_folder_add.svg" />
+                <span>Add Folder</span>
+            </li>
+            <li class="action-bar-item">
+                <img class="action-bar-icon" src="/styles/icons/icon_file_add.svg" />
+                <span>Add File</span>
+            </li>
+        </ul>
 
         <h3 class="grid-view-title">Cubbyhole</h3>
 
@@ -33,7 +25,7 @@
                 </tr>
             </thead>
             <tr ng-repeat="file in files" class="grid-view-table-tr">
-                <td>
+                <td class="grid-view-table-td-first">
                     <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
                     <span>{{file.name}}</span>
                 </td>

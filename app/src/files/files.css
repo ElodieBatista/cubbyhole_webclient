@@ -1,3 +1,4 @@
+/* JQTREE OVERRIDES */
 ul.jqtree-tree li.jqtree-selected > .jqtree-element {
     color: rgb(255, 29, 37);
 }
@@ -37,6 +38,7 @@ ul.jqtree-tree li.jqtree-folder .jqtree-title {
     padding-right: 15px;
 }
 
+/* BASE */
 html, body {
     height: 100%;
 }
@@ -63,7 +65,8 @@ body {
     margin: 0;
 }
 
-#tree-view-container {
+/* FILE EXPLORER */
+#file-explorer-container {
     height: 100%;
 }
 
@@ -102,7 +105,7 @@ body {
     padding: 5px;
 }
 
-td span {
+.grid-view-table-td-first {
     color: rgb(255, 0, 0);
     font-variant: small-caps;
     font-size: 15px;
@@ -129,7 +132,7 @@ td span {
     width: 23px;
 }
 
-.action-bar li {
+.action-bar-item {
     float: right;
     display: block;
     height: 30px;
@@ -141,7 +144,7 @@ td span {
     color: rgb(50, 50, 50);
 }
 
-.action-bar li:hover {
+.action-bar-item:hover {
     background-color: rgb(254, 80, 81);
     color: rgb(255, 255, 255);
 }
