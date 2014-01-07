@@ -80,7 +80,12 @@ module.directive('fileExplorer', function($location) {
             });
 
             scope.selectNode = function(nodeName) {
-                var node = $('#tree-view').tree('getNodeByName', nodeName);
+                var $tree = $('#tree-view'),
+                    node = $tree.tree('getNodeByName', nodeName);
+
+                if (node.type === 'folder') {
+                    $tree.tree('selectNode', node);
+                }
 
                 var path = node.name;
 
@@ -90,6 +95,8 @@ module.directive('fileExplorer', function($location) {
                 }
 
                 $location.path('/files').search({path: path});
+
+
 
                 if (!scope.$$phase) {
                     scope.$apply();
