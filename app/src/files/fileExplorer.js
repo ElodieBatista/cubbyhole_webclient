@@ -73,7 +73,11 @@ module.directive('fileExplorer', function($location) {
                                 $tree.tree('selectNode', node);
                             }
                         } else {
-                            $tree.tree('selectNode', node);
+                            if (node.type === 'folder') {
+                                $tree.tree('selectNode', node);
+                            } else {
+                                $tree.tree('selectNode', node.parent);
+                            }
                         }
                     }
                 }

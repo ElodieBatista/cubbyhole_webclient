@@ -104,6 +104,7 @@ body {
     color: rgb(255, 0, 0);
     font-variant: small-caps;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .grid-view-table-icon {
