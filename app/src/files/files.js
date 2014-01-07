@@ -7,12 +7,13 @@ module.config(function config($routeProvider) {
         .when('/files',
         {
             templateUrl: '/src/files/files.tpl.html',
-            controller: 'FilesCtrl'
+            controller: 'FilesCtrl',
+            reloadOnSearch: false
         })
 });
 
 module.controller('FilesCtrl',
-    function FilesCtrl($rootScope, $scope) {
+    function FilesCtrl($rootScope, $scope, $routeParams) {
         console.log('Files Controller');
         $scope.test = 'test';
 
@@ -185,5 +186,7 @@ module.controller('FilesCtrl',
         ];
 
         $scope.folders = json_from_api;
+
+        $scope.path = $routeParams.path;
     }
 );
