@@ -89,7 +89,21 @@ module.directive('fileExplorer', function($location) {
                 if (!scope.$$phase) {
                     scope.$apply();
                 }
-            }
+            };
+
+            $('.action-bar-item').mouseenter(function() {
+                var img = $(this).find(':first-child');
+                var src = img.attr('src');
+                img.attr('src', function(i, e) {
+                    return e.replace('.svg', '_white.svg');
+                });
+            }).mouseleave(function() {
+                var img = $(this).find(':first-child');
+                var src = img.attr('src');
+                    img.attr('src', function(i, e) {
+                    return e.replace(src, src.substr(0, src.indexOf('_white.svg')) + '.svg');
+                });
+            });
         }
     };
 });
