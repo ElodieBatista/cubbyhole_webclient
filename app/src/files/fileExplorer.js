@@ -30,19 +30,15 @@ module.directive('fileExplorer', function($location) {
                             var node = event.node;
                             scope.files = node.children;
 
-                            var path = node.name;
-
-                            for (var i = 0, l = node.getLevel() - 1; i < l; i++) {
-                                node = node.parent;
-                                path = node.name + ',' + path;
-                            }
-
-                            $location.path('/files').search({path: path});
+                            $location.path('/files').search({path: node.getPath()});
 
                             if (!scope.$$phase) {
                                 scope.$apply();
                             }
                         } else {
+                            // event.node is null
+                            // a node was deselected
+                            // e.previous_node contains the deselected node
                             scope.files = [];
 
                             $location.path('/files').search({path: ''});
@@ -50,9 +46,6 @@ module.directive('fileExplorer', function($location) {
                             if (!scope.$$phase) {
                                 scope.$apply();
                             }
-                            // event.node is null
-                            // a node was deselected
-                            // e.previous_node contains the deselected node
                         }
                     }
                 );
@@ -91,16 +84,7 @@ module.directive('fileExplorer', function($location) {
                     $tree.tree('selectNode', node);
                 }
 
-                var path = node.name;
-
-                for (var i = 0, l = node.getLevel() - 1; i < l; i++) {
-                    node = node.parent;
-                    path = node.name + ',' + path;
-                }
-
-                $location.path('/files').search({path: path});
-
-
+                $location.path('/files').search({path: node.getPath()});
 
                 if (!scope.$$phase) {
                     scope.$apply();

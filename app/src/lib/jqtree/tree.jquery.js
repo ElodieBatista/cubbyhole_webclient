@@ -748,6 +748,18 @@
             }
         };
 
+        Node.prototype.getPath = function() {
+            var node = this,
+                path = this.name;
+
+            for (var i = 0, l = node.getLevel() - 1; i < l; i++) {
+                node = node.parent;
+                path = node.name + ',' + path;
+            }
+
+            return path;
+        };
+
         return Node;
 
     })();
