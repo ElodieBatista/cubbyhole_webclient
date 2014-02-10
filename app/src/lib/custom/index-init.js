@@ -11,6 +11,11 @@ $('.sign-input').focus(function() {
     $(this).parent().removeClass('sign-input-prepend-active');
 });
 
+// Collapse navbar on click on a btn
+$('nav a').click(function() {
+    $('nav').collapse('hide');
+});
+
 // Sign In
 $('#signin form').submit(function(event) {
     event.preventDefault();
