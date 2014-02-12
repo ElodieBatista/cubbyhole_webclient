@@ -113,6 +113,10 @@ body {
     margin-right: 5px;
 }
 
+.grid-view-table-filename:hover {
+    text-decoration: underline;
+}
+
 .action-bar {
     display: block;
     width: 100%;

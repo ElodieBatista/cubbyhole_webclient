@@ -5,7 +5,7 @@
     <div id="grid-view" class="col-md-9">
 
         <ul class="action-bar">
-            <li class="action-bar-item">
+            <li class="action-bar-item" data-toggle="modal" data-target="#new-folder-modal">
                 <img class="action-bar-icon" src="/styles/icons/icon_folder_add.svg" />
                 <span>Add Folder</span>
             </li>
@@ -23,13 +23,34 @@
                 </tr>
             </thead>
             <tr ng-repeat="file in files" class="grid-view-table-tr">
-                <td class="grid-view-table-td-first" ng-click="selectNode(file.name)">
+                <td class="grid-view-table-td-first">
                     <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
-                    <span>{{file.name}}</span>
+                    <span class="grid-view-table-filename" ng-click="selectNode(file.name)">{{file.name}}</span>
                 </td>
                 <td>{{file.type}}</td>
             </tr>
         </table>
     </div>
 
+</div>
+
+<div class="modal fade" id="new-folder-modal" tabindex="-1" role="dialog" aria-labelledby="newfolder" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="newfolder">Add a folder</h4>
+            </div>
+            <form name="formNewFolder" ng-submit="newFolder(formNewFolder)">
+                <div class="modal-body">
+                    <label for="newfolder-input">Name of the folder:</label>
+                    <input type="text" id="newfolder-input" class="input-modal" placeholder="New Folder" required ng-model="formNewFolder.name" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <input type="submit" class="btn btn-primary" value="Add" />
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

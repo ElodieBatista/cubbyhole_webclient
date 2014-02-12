@@ -91,6 +91,27 @@ module.directive('fileExplorer', function($location) {
                 }
             };
 
+            scope.addFolder = function(name) {
+                scope.addNode('folder', name);
+
+                $('.modal').modal('hide');
+                $('.input-modal').val('');
+            };
+
+            scope.addNode = function(type, name) {
+                var $tree = $('#tree-view'),
+                    node = $tree.tree('getSelectedNode');
+
+                $tree.tree(
+                    'appendNode',
+                    {
+                        type: type,
+                        name: name
+                    },
+                    node
+                );
+            };
+
             $('.action-bar-item').mouseenter(function() {
                 var img = $(this).find(':first-child');
                 var src = img.attr('src');
