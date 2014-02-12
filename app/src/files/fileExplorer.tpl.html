@@ -41,10 +41,12 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="newfolder">Add a folder</h4>
             </div>
-            <form name="formNewFolder" ng-submit="newFolder(formNewFolder)">
+            <form role="form" name="formNewFolder" ng-submit="newFolder(formNewFolder)">
                 <div class="modal-body">
-                    <label for="newfolder-input">Name of the folder:</label>
-                    <input type="text" id="newfolder-input" class="input-modal" placeholder="New Folder" required ng-model="formNewFolder.name" />
+                    <div class="input-prepend" ng-class="{'input-prepend-active': focused}">
+                        <i class="fa fa-folder input-icon"></i>
+                        <input id="newfolder-input" class="input-text" type="text" placeholder="Folder name" required ng-model="formNewFolder.name" ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

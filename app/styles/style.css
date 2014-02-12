@@ -353,7 +353,7 @@ footer {
     color: rgb(255, 29, 37);
 }
 
-.sign-input-prepend {
+.input-prepend {
     height: 45px;
     border: 1px solid rgb(230, 230, 230);
     display: block;
@@ -373,11 +373,11 @@ footer {
     transition: all 0.2s ease-out;
 }
 
-.sign-input-prepend-active {
+.input-prepend-active {
     border-color: rgb(255, 29, 37);
 }
 
-.sign-input-icon {
+.input-icon {
     float: left;
     color: rgb(230, 230, 230);
     display: block;
@@ -388,7 +388,7 @@ footer {
     text-align: center;
 }
 
-.sign-input {
+.input-text {
     border: none;
     width: 100%;
     line-height: 22px;

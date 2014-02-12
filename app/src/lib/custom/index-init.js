@@ -5,10 +5,10 @@ $('#sign-nav a').click(function (e) {
 });
 
 // Outline input on focus/blur
-$('.sign-input').focus(function() {
-    $(this).parent().addClass('sign-input-prepend-active');
+$('.input-text').focus(function() {
+    $(this).parent().addClass('input-prepend-active');
 }).blur(function() {
-    $(this).parent().removeClass('sign-input-prepend-active');
+    $(this).parent().removeClass('input-prepend-active');
 });
 
 // Collapse navbar on click on a btn
