@@ -15,7 +15,9 @@ module.config(function config($routeProvider) {
 module.controller('FilesCtrl',
     function FilesCtrl($rootScope, $scope, $routeParams) {
         console.log('Files Controller');
-        $scope.test = 'test';
+        $rootScope.navtop = 0;
+
+        // TODO: Request all files to API
 
         var json_from_api = [
             {
@@ -188,5 +190,14 @@ module.controller('FilesCtrl',
         $scope.folders = json_from_api;
 
         $scope.path = $routeParams.path;
+
+        $scope.newFolder = function(form) {
+            if (form.$valid) {
+                // TODO: Send a new folder request to the server
+                console.log($routeParams.path);
+
+                $scope.addFolder(form.name);
+            }
+        }
     }
 );

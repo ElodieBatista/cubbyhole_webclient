@@ -3,7 +3,8 @@
     <head>
         <meta charset="utf-8">
         <title>CubbyHole - Web App</title>
-        <link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-custom.min.css">
+        <!--link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-custom.min.css"-->
+        <link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-complete.min.css">
         <link rel="stylesheet" href="styles/font-awesome/font-awesome-4.0.3.min.css">
         <link rel="stylesheet" href="src/lib/jqtree/jqtree.css">
         <link rel="stylesheet" href="styles/style.css">
@@ -27,19 +28,19 @@
 
                 <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" role="navigation">
                     <ul class="nav navbar-nav navbar-right navtop-items-list">
-                        <li class="navtop-item navtop-item-selected">
+                        <li class="navtop-item" ng-class="{active: navtop == 0}">
                             <a href="#files">Files</a>
                         </li>
-                        <li class="navtop-item">
+                        <li class="navtop-item" ng-class="{active: navtop == 1}">
                             <a href="#sharing">Sharing</a>
                         </li>
-                        <li class="navtop-item">
+                        <li class="navtop-item" ng-class="{active: navtop == 2}">
                             <a href="#links">Links</a>
                         </li>
-                        <li class="navtop-item">
+                        <li class="navtop-item" ng-class="{active: navtop == 3}">
                             <a href="#plans">?</a>
                         </li>
-                        <li class="navtop-item">
+                        <li class="navtop-item" ng-class="{active: navtop == 4}">
                             <a href="#about">Me</a>
                         </li>
                     </ul>
@@ -51,7 +52,8 @@
         <ng-view></ng-view>
 
         <script src="src/lib/jquery/jquery-1.10.2.min.js"></script>
-        <script src="src/lib/bootstrap/bootstrap-3.0.3-custom.min.js"></script>
+        <!--script src="src/lib/bootstrap/bootstrap-3.0.3-custom.min.js"></script-->
+        <script src="src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
         <script src="src/lib/angular/angular.min.js"></script>
         <script src="src/lib/angular/angular-animate.min.js"></script>
         <script src="src/lib/angular/angular-resource.min.js"></script>
