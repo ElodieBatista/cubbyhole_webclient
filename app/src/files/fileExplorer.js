@@ -95,7 +95,7 @@ module.directive('fileExplorer', function($location) {
                 scope.addNode('folder', name);
 
                 $('.modal').modal('hide');
-                $('.input-modal').val('');
+                $('.modal input').val('');
             };
 
             scope.addNode = function(type, name) {
