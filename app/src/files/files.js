@@ -188,7 +188,20 @@ module.controller('FilesCtrl',
             }
         ];
 
-        $scope.folders = json_from_api;
+        var root = [{
+            type: 'folder',
+            name: 'root',
+            id: -1,
+            children: json_from_api
+        }];
+
+        $scope.folders = null;
+
+        // Simulate delay from API
+        setTimeout(function() {
+            $scope.folders = root;
+            $scope.$apply();
+        }, 2000);
 
         $scope.path = $routeParams.path;
 

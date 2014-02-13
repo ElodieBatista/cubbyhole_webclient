@@ -12,64 +12,76 @@ module.directive('fileExplorer', function($location) {
         templateUrl: '/src/files/fileExplorer.tpl.html',
 
         link: function (scope, element, attrs) {
+            var $tree;
+
             scope.$watch(attrs.items, function(newValue, oldValue) {
-                scope.items = newValue;
+                if (newValue !== undefined && newValue !== null) {
+                    scope.items = newValue;
 
-                $('#tree-view').tree({
-                    data: scope.items,
-                    onCanDisplayNode: function(node) {
-                        return node.type === 'folder';
-                    }
-                });
+                    $tree = $('#tree-view');
 
-                $('#tree-view').bind(
-                    'tree.select',
-                    function(event) {
-                        // Node selected
-                        if (event.node) {
-                            var node = event.node;
-                            scope.files = node.children;
+                    $tree.bind(
+                        'tree.select',
+                        function(event) {
+                            // Node selected
+                            if (event.node) {
+                                var node = event.node;
+                                scope.files = node.children;
 
-                            $location.path('/files').search({path: node.getPath()});
+                                $location.path('/files').search({path: node.getPath()});
 
-                            if (!scope.$$phase) {
-                                scope.$apply();
-                            }
-                        } else {
-                            // event.node is null
-                            // a node was deselected
-                            // e.previous_node contains the deselected node
-                            scope.files = [];
+                                if (!scope.$$phase) {
+                                    scope.$apply();
+                                }
+                            } else {
+                                // event.node is null
+                                // a node was deselected
+                                // e.previous_node contains the deselected node
+                                scope.files = [];
 
-                            $location.path('/files').search({path: ''});
+                                $location.path('/files').search({path: ''});
 
-                            if (!scope.$$phase) {
-                                scope.$apply();
+                                if (!scope.$$phase) {
+                                    scope.$apply();
+                                }
                             }
                         }
-                    }
-                );
+                    );
 
-                if (scope.path !== undefined) {
-                    // Unroll the tree & Select the last node of the url
-                    var node,
-                        $tree = $('#tree-view'),
-                        nodes = scope.path.split(',');
+                    $tree.bind(
+                        'tree.init',
+                        function() {
+                            scope.openRoot();
+                        }
+                    );
 
-                    for (var i = 0, l = nodes.length; i < l; i++) {
-                        node = $tree.tree('getNodeByName', nodes[i]);
+                    $tree.tree({
+                        data: scope.items,
+                        onCanDisplayNode: function(node) {
+                            return node.type === 'folder';
+                        }
+                    });
 
-                        if (node.children.length > 0) {
-                            $tree.tree('openNode', node);
+                    if (scope.path !== undefined && scope.path !== '') {
+                        // Unroll the tree & Select the last node of the url
+                        var node,
+                            nodes = scope.path.split(',');
 
-                            if (i === (l - 1)) {
-                                $tree.tree('selectNode', node);
-                            }
-                        } else {
-                            if (node.type === 'folder') {
-                                $tree.tree('selectNode', node);
+                        for (var i = 0, l = nodes.length; i < l; i++) {
+                            node = $tree.tree('getNodeByName', nodes[i]);
+
+                            if (node.children.length > 0) {
+                                $tree.tree('openNode', node);
+
+                                if (i === (l - 1)) {
+                                    $tree.tree('selectNode', node);
+                                }
                             } else {
-                                $tree.tree('selectNode', node.parent);
+                                if (node.type === 'folder') {
+                                    $tree.tree('selectNode', node);
+                                } else {
+                                    $tree.tree('selectNode', node.parent);
+                                }
                             }
                         }
                     }
@@ -77,9 +89,16 @@ module.directive('fileExplorer', function($location) {
             });
 
 
+            scope.openRoot = function() {
+                var node = $tree.tree('getNodeById', -1);
+
+                $tree.tree('openNode', node);
+                scope.selectNode('root');
+            };
+
+
             scope.selectNode = function(nodeName) {
-                var $tree = $('#tree-view'),
-                    node = $tree.tree('getNodeByName', nodeName);
+                var node = $tree.tree('getNodeByName', nodeName);
 
                 if (node.type === 'folder') {
                     $tree.tree('selectNode', node);
@@ -102,8 +121,7 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.addNode = function(type, name) {
-                var $tree = $('#tree-view'),
-                    node = $tree.tree('getSelectedNode');
+                var node = $tree.tree('getSelectedNode');
 
                 $tree.tree(
                     'appendNode',
