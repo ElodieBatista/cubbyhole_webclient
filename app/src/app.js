@@ -26,5 +26,27 @@ app.run(function($rootScope, $location, $anchorScroll) {
     $rootScope.scrollTo = function(id) {
         $location.hash(id);
         $anchorScroll();
-    }
+    };
+
+    $rootScope.getSessionKey = function() {
+        if ($rootScope.sessionKey) {
+            return $rootScope.sessionKey;
+        } else if (localStorage.sessionKey) {
+            $rootScope.sessionKey = localStorage.sessionKey;
+            return $rootScope.sessionKey;
+        } else {
+            return null;
+        }
+    };
+
+    $rootScope.getProfile = function() {
+        if ($rootScope.profile) {
+            return $rootScope.profile;
+        } else if (localStorage.profile) {
+            $rootScope.profile = JSON.parse(localStorage.profile);
+            return $rootScope.profile;
+        } else {
+            return null;
+        }
+    };
 });

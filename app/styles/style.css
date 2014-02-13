@@ -59,6 +59,16 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
 }
 
+.full-height {
+    height: 100%;
+}
+
+.bottom-fixed {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
 textarea:focus,
 input:focus,
 select:focus {
@@ -155,48 +165,89 @@ select:focus {
     background-color: rgb(0, 0, 0);
 }
 
-.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
     border-color: rgb(238, 238, 238);
 }
 
-.navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus {
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
     background-color: white;
 }
 
-.navtop-items-list li:nth-child(1) {
+.dropdown-menu > li > span {
+    text-transform: lowercase;
+    padding: 3px 20px;
+}
+
+.navtop-items-list .navtop-item.open > a {
+    color: white !important;
+}
+
+.navtop-items-list .navtop-item .dropdown-menu a:hover {
+    color: white !important;
+}
+
+.navtop-items-list .navtop-item:nth-child(1) .dropdown-menu a:hover {
+    background-color: rgb(255, 29, 37);
+}
+
+.navtop-items-list .navtop-item:nth-child(2) .dropdown-menu a:hover {
+    background-color: rgb(63, 169, 245);
+}
+
+.navtop-items-list .navtop-item:nth-child(3) .dropdown-menu a:hover {
+    background-color: rgb(255, 147, 30);
+}
+
+.navtop-items-list .navtop-item:nth-child(4) .dropdown-menu a:hover {
+    background-color: rgb(122, 201, 67);
+}
+
+.navtop-items-list .navtop-item:nth-child(5) .dropdown-menu a:hover {
+    background-color: rgb(255, 108, 164);
+}
+
+.navtop-items-list .navtop-item:nth-child(1),
+.navtop-items-list .navtop-item:nth-child(1).open > a {
     background-image: -webkit-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
     background-image: -moz-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
     background-image: -o-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
     background-image: -ms-linear-gradient(rgb(255, 29, 37), rgb(255, 29, 37));
 }
 
-.navtop-items-list li:nth-child(2) {
+.navtop-items-list .navtop-item:nth-child(2),
+.navtop-items-list .navtop-item:nth-child(2).open > a {
     background-image: -webkit-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
     background-image: -moz-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
     background-image: -o-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
     background-image: -ms-linear-gradient(rgb(63, 169, 245), rgb(63, 169, 245));
 }
 
-.navtop-items-list li:nth-child(3) {
+.navtop-items-list .navtop-item:nth-child(3),
+.navtop-items-list .navtop-item:nth-child(3).open > a {
     background-image: -webkit-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
     background-image: -moz-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
     background-image: -o-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
     background-image: -ms-linear-gradient(rgb(255, 147, 30), rgb(255, 147, 30));
 }
 
-.navtop-items-list li:nth-child(4) {
+.navtop-items-list .navtop-item:nth-child(4),
+.navtop-items-list .navtop-item:nth-child(4).open > a {
     background-image: -webkit-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
     background-image: -moz-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
     background-image: -o-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
     background-image: -ms-linear-gradient(rgb(122, 201, 67), rgb(122, 201, 67));
 }
 
-.navtop-items-list li:nth-child(5) {
+.navtop-items-list .navtop-item:nth-child(5),
+.navtop-items-list .navtop-item:nth-child(5).open > a {
     background-image: -webkit-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
     background-image: -moz-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
     background-image: -o-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
     background-image: -ms-linear-gradient(rgb(255, 108, 164), rgb(255, 108, 164));
 }
+
 
 /* CONTENT */
 .content-container {
@@ -640,14 +691,4 @@ footer {
 
 .about-social-container:nth-child(3) .about-social-link:hover {
     color: rgb(255, 108, 164);
-}
-
-.full-height {
-    height: 100%;
-}
-
-.bottom-fixed {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
 }
