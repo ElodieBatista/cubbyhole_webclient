@@ -73,6 +73,7 @@ body {
 #grid-view {
     height: 100%;
     background-color: rgb(255, 255, 255);
+    border: 3px solid white;
 }
 
 .grid-view-table {
@@ -147,4 +148,20 @@ body {
 .action-bar-item:hover {
     background-color: rgb(254, 80, 81);
     color: rgb(255, 255, 255);
+}
+
+.upload-container-hover {
+    border: 3px solid rgb(255, 29, 37) !important;
+}
+
+.upload-progress-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: -15px;
+}
+
+.upload-btn {
+    margin: 0 auto;
+    display: block;
 }

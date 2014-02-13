@@ -2,7 +2,17 @@
 
     <div id="tree-view" class="panel-left-content col-md-3"></div>
 
-    <div id="grid-view" class="col-md-9">
+    <!--div>
+        <input type="file" ng-file-select="onFileSelect($files)" >
+        <input type="file" ng-file-select="onFileSelect($files)" multiple>
+        <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class"
+             ng-show="dropSupported">drop files here</div>
+        <div ng-file-drop-available="dropSupported=true"
+             ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
+        <button ng-click="upload.abort()">Cancel Upload</button>
+    </div-->
+
+    <div id="grid-view" class="col-md-9" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="upload-container-hover">
 
         <ul class="action-bar">
             <li class="action-bar-item" data-toggle="modal" data-target="#new-folder-modal">
@@ -30,6 +40,11 @@
                 <td>{{file.type}}</td>
             </tr>
         </table>
+
+        <div class="upload-progress-container" ng-show="uploading">
+            <button class="upload-btn" ng-click="upload.abort()">Cancel Upload</button>
+        </div>
+
     </div>
 
 </div>
@@ -45,7 +60,7 @@
                 <div class="modal-body">
                     <div class="input-prepend" ng-class="{'input-prepend-active': focused}">
                         <i class="fa fa-folder input-icon"></i>
-                        <input id="newfolder-input" class="input-text" type="text" placeholder="Folder name" required ng-model="formNewFolder.name" ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false">
+                        <input id="newfolder-input" class="input-text" type="text" placeholder="Folder name" required ng-model="formNewFolder.name" ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false" />
                     </div>
                 </div>
                 <div class="modal-footer">
