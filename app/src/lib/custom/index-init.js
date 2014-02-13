@@ -31,7 +31,8 @@ $('#signin form').submit(function(event) {
         url: 'http://localhost:9000/signin',
         data: {
             email: email,
-            pass: pass
+            pass: pass,
+            remember: remember
         }
     }).done(function(data) {*/
     // FAKE
@@ -44,8 +45,6 @@ $('#signin form').submit(function(event) {
     };
 
         console.log('Sign in success');
-
-        localStorage.setItem('remember', remember);
 
         // Passing auth data to Angular
         localStorage.setItem('dataAuth', JSON.stringify(data));
@@ -96,8 +95,6 @@ $('#signup form').submit(function(event) {
     };
 
         console.log('Sign up success');
-
-        localStorage.setItem('remember', false);
 
         // Passing auth data to Angular
         localStorage.setItem('dataAuth', JSON.stringify(data));

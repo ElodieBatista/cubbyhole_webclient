@@ -13,10 +13,6 @@ module.config(function config($routeProvider) {
 
 module.controller('LogoutCtrl',
     function LogoutCtrl($rootScope, $scope, $routeParams, $resource, $window, $http) {
-        // TODO: Send request to API to logout
-        /*var Logout = $resource($rootScope.srvEndpoint + 'auth/?');
-        Logout.delete();*/
-
         delete $http.defaults.headers.common['X-Cub-AuthToken'];
 
         localStorage.clear();

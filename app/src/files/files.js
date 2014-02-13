@@ -22,78 +22,85 @@ module.controller('FilesCtrl',
 
         var json_from_api = [
             {
+                id: -1,
                 type: 'folder',
-                name: 'America',
+                name: 'My Cubbyhole',
                 children: [
                     {
                         type: 'folder',
-                        name: 'United States of America',
+                        name: 'America',
                         children: [
                             {
-                                type: 'file',
-                                name: 'California'
-                            },
-                            {
                                 type: 'folder',
-                                name: 'Washington',
+                                name: 'United States of America',
                                 children: [
                                     {
+                                        type: 'file',
+                                        name: 'California'
+                                    },
+                                    {
                                         type: 'folder',
-                                        name: 'Orange County',
+                                        name: 'Washington',
                                         children: [
                                             {
                                                 type: 'folder',
-                                                name: 'Kirkland',
+                                                name: 'Orange County',
                                                 children: [
                                                     {
                                                         type: 'folder',
-                                                        name: 'Orange County',
+                                                        name: 'Kirkland',
                                                         children: [
                                                             {
                                                                 type: 'folder',
-                                                                name: 'Kirkland',
+                                                                name: 'Orange County',
                                                                 children: [
                                                                     {
                                                                         type: 'folder',
-                                                                        name: 'Orange County',
+                                                                        name: 'Kirkland',
                                                                         children: [
                                                                             {
                                                                                 type: 'folder',
-                                                                                name: 'Kirkland',
+                                                                                name: 'Orange County',
                                                                                 children: [
                                                                                     {
                                                                                         type: 'folder',
-                                                                                        name: 'Orange County',
+                                                                                        name: 'Kirkland',
                                                                                         children: [
                                                                                             {
                                                                                                 type: 'folder',
-                                                                                                name: 'Kirkland',
+                                                                                                name: 'Orange County',
                                                                                                 children: [
                                                                                                     {
                                                                                                         type: 'folder',
-                                                                                                        name: 'Orange County',
+                                                                                                        name: 'Kirkland',
                                                                                                         children: [
                                                                                                             {
                                                                                                                 type: 'folder',
-                                                                                                                name: 'Kirkland',
+                                                                                                                name: 'Orange County',
                                                                                                                 children: [
                                                                                                                     {
                                                                                                                         type: 'folder',
-                                                                                                                        name: 'Orange County',
+                                                                                                                        name: 'Kirkland',
                                                                                                                         children: [
                                                                                                                             {
                                                                                                                                 type: 'folder',
-                                                                                                                                name: 'Kirkland',
+                                                                                                                                name: 'Orange County',
                                                                                                                                 children: [
                                                                                                                                     {
                                                                                                                                         type: 'folder',
-                                                                                                                                        name: 'Orange County',
+                                                                                                                                        name: 'Kirkland',
                                                                                                                                         children: [
                                                                                                                                             {
                                                                                                                                                 type: 'folder',
-                                                                                                                                                name: 'Kirkland',
+                                                                                                                                                name: 'Orange County',
                                                                                                                                                 children: [
+                                                                                                                                                    {
+                                                                                                                                                        type: 'folder',
+                                                                                                                                                        name: 'Kirkland',
+                                                                                                                                                        children: [
 
+                                                                                                                                                        ]
+                                                                                                                                                    }
                                                                                                                                                 ]
                                                                                                                                             }
                                                                                                                                         ]
@@ -123,85 +130,80 @@ module.controller('FilesCtrl',
                                         ]
                                     }
                                 ]
+                            },
+                            {
+                                type: 'folder',
+                                name: 'Canada'
                             }
                         ]
                     },
                     {
                         type: 'folder',
-                        name: 'Canada'
-                    }
-                ]
-            },
-            {
-                type: 'folder',
-                name: 'Europe',
-                children: [
-                    {
-                        type: 'folder',
-                        name: 'France',
+                        name: 'Europe',
                         children: [
                             {
                                 type: 'folder',
-                                name: 'Midi-Pyrénéessssssssssssssssssssssssssssssssssssssssss',
+                                name: 'France',
                                 children: [
                                     {
                                         type: 'folder',
-                                        name: 'Haute-Garonne',
+                                        name: 'Midi-Pyrénéessssssssssssssssssssssssssssssssssssssssss',
                                         children: [
                                             {
-                                                type: 'file',
-                                                name: 'Toulouse'
+                                                type: 'folder',
+                                                name: 'Haute-Garonne',
+                                                children: [
+                                                    {
+                                                        type: 'file',
+                                                        name: 'Toulouse'
+                                                    }
+                                                ]
                                             }
                                         ]
                                     }
                                 ]
+                            },
+                            {
+                                type: 'folder',
+                                name: 'Portugal'
+                            },
+                            {
+                                type: 'folder',
+                                name: 'Spain'
                             }
                         ]
                     },
                     {
                         type: 'folder',
-                        name: 'Portugal'
+                        name: 'Oceania',
+                        children: [
+                            {
+                                type: 'folder',
+                                name: 'Australia'
+                            },
+                            {
+                                type: 'file',
+                                name: 'Tasmania'
+                            }
+                        ]
                     },
                     {
                         type: 'folder',
-                        name: 'Spain'
+                        name: 'Asia'
                     }
                 ]
-            },
-            {
-                type: 'folder',
-                name: 'Oceania',
-                children: [
-                    {
-                        type: 'folder',
-                        name: 'Australia'
-                    },
-                    {
-                        type: 'file',
-                        name: 'Tasmania'
-                    }
-                ]
-            },
-            {
-                type: 'folder',
-                name: 'Asia'
             }
         ];
 
-        var root = [{
-            type: 'folder',
-            name: 'My Cubbyhole',
-            id: -1,
-            children: json_from_api
-        }];
-
         $scope.folders = null;
 
+        // Temp: while no API request
         $rootScope.displaySpinner = true;
 
         // Simulate delay from API
         setTimeout(function() {
-            $scope.folders = root;
+            $scope.folders = json_from_api;
+            // Temp: while no API request
             $rootScope.displaySpinner = false;
             $scope.$apply();
         }, 2000);
