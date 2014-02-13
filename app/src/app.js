@@ -16,11 +16,15 @@ app.config(function($locationProvider, $httpProvider, $routeProvider) {
  * App Run block: get executed after the injector is created and are used to kickstart the application
  * Only instances and constants can be injected into run blocks. This is to prevent further system configuration during application run time
  */
-app.run(function($rootScope, $location, $anchorScroll) {
+app.run(function($rootScope, $location, $window, $anchorScroll) {
     $rootScope.srvEndpoint = '';
 
-    $rootScope.$on('$routeChangeStart', function() {
+    $rootScope.$on('$routeChangeStart', function(event, next, current) {
         console.log('Route change start');
+
+        if (next.authRequired === true && !$rootScope.getSessionKey()) {
+            $window.location.href = 'index.html';
+        }
     });
 
     $rootScope.scrollTo = function(id) {

@@ -8,7 +8,8 @@ module.config(function config($routeProvider) {
         {
             templateUrl: '/src/files/files.tpl.html',
             controller: 'FilesCtrl',
-            reloadOnSearch: false
+            reloadOnSearch: false,
+            authRequired: true
         })
 });
 
