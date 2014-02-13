@@ -8,6 +8,37 @@ var app = angular.module('webApp', ['ngResource', 'ngRoute', 'ngSanitize', 'ngAn
 app.config(function($locationProvider, $httpProvider, $routeProvider) {
     $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.sessionKey;
 
+    var interceptor = ['$q', '$injector', '$rootScope', function($q, $injector, $rootScope) {
+        var $http;
+
+        function success(response) {
+            // Get $http via $injector to avoid circular dependency problem
+            $http = $http || $injector.get('$http');
+
+            if ($http.pendingRequests.length < 1) {
+                $rootScope.displaySpinner = false;
+            }
+            return response;
+        }
+
+        function error(response) {
+            // get $http via $injector to avoid circular dependency problem
+            $http = $http || $injector.get('$http');
+
+            if ($http.pendingRequests.length < 1) {
+                $rootScope.displaySpinner = false;
+            }
+            return $q.reject(response);
+        }
+
+        return function (promise) {
+            $rootScope.displaySpinner = true;
+            return promise.then(success, error);
+        };
+    }];
+
+    $httpProvider.interceptors.push(interceptor);
+
     // Set a default route
     $routeProvider.otherwise({redirectTo: '/files'});
 });

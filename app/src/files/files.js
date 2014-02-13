@@ -190,16 +190,19 @@ module.controller('FilesCtrl',
 
         var root = [{
             type: 'folder',
-            name: 'root',
+            name: 'My Cubbyhole',
             id: -1,
             children: json_from_api
         }];
 
         $scope.folders = null;
 
+        $rootScope.displaySpinner = true;
+
         // Simulate delay from API
         setTimeout(function() {
             $scope.folders = root;
+            $rootScope.displaySpinner = false;
             $scope.$apply();
         }, 2000);
 

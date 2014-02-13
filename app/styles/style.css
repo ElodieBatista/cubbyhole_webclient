@@ -75,6 +75,12 @@ select:focus {
     outline: 0;
 }
 
+spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
 
 /* NAVTOP */
 .navtop-container {

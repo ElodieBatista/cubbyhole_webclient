@@ -93,7 +93,7 @@ module.directive('fileExplorer', function($location) {
                 var node = $tree.tree('getNodeById', -1);
 
                 $tree.tree('openNode', node);
-                scope.selectNode('root');
+                scope.selectNode('My Cubbyhole');
             };
 
 
