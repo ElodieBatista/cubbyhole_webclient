@@ -14,7 +14,7 @@ module.config(function config($routeProvider) {
 
 module.controller('FilesCtrl',
     function FilesCtrl($rootScope, $scope, $routeParams) {
-        console.log('Files Controller');
+        // Highlight first btn in the nav bar
         $rootScope.navtop = 0;
 
         // TODO: Request all files to API
@@ -193,11 +193,11 @@ module.controller('FilesCtrl',
 
         $scope.newFolder = function(form) {
             if (form.$valid) {
-                // TODO: Send a new folder request to the server
+                // TODO: Send a new folder request to the API
                 console.log($routeParams.path);
 
                 $scope.addFolder(form.name);
             }
-        }
+        };
     }
 );

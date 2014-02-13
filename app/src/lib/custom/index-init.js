@@ -26,24 +26,34 @@ $('#signin form').submit(function(event) {
 
     console.log('Sending sign in info: ' + email + ' ' + pass);
 
-    $.ajax({
+    /*$.ajax({
         type: 'POST',
         url: 'http://localhost:9000/signin',
         data: {
             email: email,
             pass: pass
         }
-    }).done(function(data) {
+    }).done(function(data) {*/
+    // FAKE
+    var data = {
+        sessionKey: 'aaa111bbb222ccc333',
+        profile: {
+            email: email,
+            plan: 0
+        }
+    };
+
         console.log('Sign in success');
 
-        localStorage.setItem('key', data.key);
-        localStorage.setItem('profile', JSON.stringify(data.profile));
         localStorage.setItem('remember', remember);
 
-        console.log('Saving Auth info in the LocalStorage: ' + data.key + ' ' + data.profile.toString());
-    }).fail(function(error) {
+        // Passing auth data to Angular
+        localStorage.setItem('dataAuth', JSON.stringify(data));
+
+        window.location.href = 'webapp.html#/login';
+    /*}).fail(function(error) {
         console.log('Sign in failed: ' + error.msg);
-    });
+    });*/
 });
 
 // Sign Up
@@ -67,7 +77,7 @@ $('#signup form').submit(function(event) {
 
     console.log('Sending sign up info: ' + email + ' ' + pass + ' ' + plan);
 
-    $.ajax({
+    /*$.ajax({
         type: 'POST',
         url: 'http://localhost:9000/signup',
         data: {
@@ -75,15 +85,25 @@ $('#signup form').submit(function(event) {
             pass: pass,
             plan: plan
         }
-    }).done(function(data) {
+    }).done(function(data) {*/
+    // FAKE
+    var data = {
+        sessionKey: 'aaa111bbb222ccc333',
+        profile: {
+            email: email,
+            plan: 0
+        }
+    };
+
         console.log('Sign up success');
 
-        localStorage.setItem('key', data.key);
-        localStorage.setItem('profile', JSON.stringify(data.profile));
         localStorage.setItem('remember', false);
 
-        console.log('Saving Auth info in the LocalStorage: ' + data.key + ' ' + data.profile.toString());
-    }).fail(function(error) {
+        // Passing auth data to Angular
+        localStorage.setItem('dataAuth', JSON.stringify(data));
+
+        window.location.href = 'webapp.html#/login';
+    /*}).fail(function(error) {
         console.log('Sign up failed: ' + error.msg);
-    });
+    });*/
 });

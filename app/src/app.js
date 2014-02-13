@@ -6,6 +6,8 @@ var app = angular.module('webApp', ['ngResource', 'ngRoute', 'ngSanitize', 'ngAn
  * App module's configuration
  */
 app.config(function($locationProvider, $httpProvider, $routeProvider) {
+    $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.sessionKey;
+
     // Set a default route
     $routeProvider.otherwise({redirectTo: '/files'});
 });

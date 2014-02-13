@@ -76,6 +76,7 @@ module.directive('fileExplorer', function($location) {
                 }
             });
 
+
             scope.selectNode = function(nodeName) {
                 var $tree = $('#tree-view'),
                     node = $tree.tree('getNodeByName', nodeName);
@@ -91,12 +92,14 @@ module.directive('fileExplorer', function($location) {
                 }
             };
 
+
             scope.addFolder = function(name) {
                 scope.addNode('folder', name);
 
                 $('.modal').modal('hide');
                 $('.modal input').val('');
             };
+
 
             scope.addNode = function(type, name) {
                 var $tree = $('#tree-view'),
@@ -111,6 +114,7 @@ module.directive('fileExplorer', function($location) {
                     node
                 );
             };
+
 
             $('.action-bar-item').mouseenter(function() {
                 var img = $(this).find(':first-child');
