@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('webApp', ['ngResource', 'ngRoute', 'ngSanitize', 'ngAnimate']);
+var app = angular.module('webApp', ['ngResource', 'ngRoute', 'ngSanitize', 'ngAnimate', 'angularFileUpload']);
 
 /**
  * App module's configuration
