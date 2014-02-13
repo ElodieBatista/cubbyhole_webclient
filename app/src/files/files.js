@@ -27,7 +27,8 @@ module.controller('FilesCtrl',
                 method:'POST',
                 params: {
                     type:'@type',
-                    content:'@content'
+                    name:'@name',
+                    path:'@path'
                 }
             }
         });
@@ -232,10 +233,11 @@ module.controller('FilesCtrl',
 
         $scope.newFolder = function(form) {
             if (form.$valid) {
-                // TODO: Send a new folder request to the API
-                console.log($routeParams.path);
-
-                $scope.addFolder(form.name);
+                //Files.post({'type':'folder', 'name':form.name, 'path':$routeParams.path}, function(res) {
+                    $scope.addFolder(form.name);
+                /*}, function(err) {
+                    console.log('Can\'t create new folder.');
+                });*/
             }
         };
 
