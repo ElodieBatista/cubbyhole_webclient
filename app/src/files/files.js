@@ -30,6 +30,13 @@ module.controller('FilesCtrl',
                     name:'@name',
                     path:'@path'
                 }
+            },
+            'put': {
+                method:'PUT',
+                params: {
+                    name:'@name',
+                    path:'@path'
+                }
             }
         });
 
@@ -241,6 +248,18 @@ module.controller('FilesCtrl',
             }
         };
 
+
+        $scope.renameItem = function(form) {
+            if (form.$valid) {
+                //Files.put({'name':form.name, 'path':$routeParams.path}, function(res) {
+                $scope.renameAnItem(form.name);
+                /*}, function(err) {
+                 console.log('Can\'t rename the item.');
+                 });*/
+            }
+        };
+
+
         $scope.onFileSelect = function($files) {
             //$files: an array of files selected, each file has name, size, and type.
             //for (var i = 0; i < $files.length; i++) {
@@ -270,6 +289,15 @@ module.controller('FilesCtrl',
                 });
                 //.then(success, error, progress);
             //}
+        };
+
+
+        $scope.toggleItem = function(item) {
+            if ($scope.itemActive === item) {
+                $scope.itemActive = null;
+            } else {
+                $scope.itemActive = item;
+            }
         };
     }
 );

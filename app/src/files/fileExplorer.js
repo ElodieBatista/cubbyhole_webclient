@@ -112,11 +112,53 @@ module.directive('fileExplorer', function($location) {
             };
 
 
+            scope.openModalNewFolder = function() {
+                scope.modalOpts = {
+                    test: 'Create a folder',
+                    iconClass: 'fa-folder',
+                    submitFn: scope.newFolder,
+                    placeholder: 'Folder name',
+                    submitBtnVal: 'Add'
+                };
+
+                $('#appmodal').modal('show');
+            };
+
+
+            scope.openModalRenameItem = function(item) {
+                scope.modalOpts = {
+                    test: 'Rename ' + item.name + ' ' + item.type,
+                    iconClass: 'fa-' + item.type,
+                    submitFn: scope.renameItem,
+                    placeholder: item.name,
+                    submitBtnVal: 'Rename'
+                };
+
+                $('#appmodal').modal('show');
+            };
+
+
             scope.addFolder = function(name) {
                 scope.addNode('folder', name);
 
                 $('.modal').modal('hide');
-                $('.modal input').val('');
+                $('.modal input:not([type="submit"]').val('');
+            };
+
+
+            scope.renameAnItem = function(name) {
+                var node = $tree.tree('getNodeByName', scope.modalOpts.placeholder);
+
+                $tree.tree(
+                    'updateNode',
+                    node,
+                    {
+                        name: name
+                    }
+                );
+
+                $('.modal').modal('hide');
+                $('.modal input:not([type="submit"]').val('');
             };
 
 

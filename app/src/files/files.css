@@ -118,6 +118,18 @@ body {
     text-decoration: underline;
 }
 
+.grid-view-table-tr:not(.itemActive):hover {
+    background-color: rgba(254, 80, 81, 0.1);
+}
+
+.itemActive {
+    background-color: rgba(254, 80, 81, 0.7);
+}
+
+.itemActive .grid-view-table-td-first {
+    color: white;
+}
+
 .action-bar {
     display: block;
     width: 100%;
