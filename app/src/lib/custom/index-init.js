@@ -63,11 +63,15 @@ $('#signup form').submit(function(event) {
     var pass2 = $(this).find('input')[2].value;
 
     if (pass !== pass2) {
-        alert('Passwords don\'t match');
-        $(this).find('input[type="password"]').parent().css('background-color', 'rgb(255, 80, 81)');
-        setTimeout(function() {
-            $('#signup form').find('input[type="password"]').parent().css('background-color', 'white');
-        }, 1000);
+        $('#modal-msg').text('Passwords don\'t match.');
+        $('#appmodal').modal('show');
+
+        $('#appmodal').on('hidden.bs.modal', function (e) {
+            $('#signup form').find('input[type="password"]').parent().css('background-color', 'rgb(255, 80, 81)');
+            setTimeout(function() {
+                $('#signup form').find('input[type="password"]').parent().css('background-color', 'white');
+            }, 1000);
+        });
         return;
     }
 

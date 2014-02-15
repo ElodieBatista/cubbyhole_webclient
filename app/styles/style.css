@@ -71,7 +71,8 @@ h1, h2, h3, h4, h5, h6 {
 
 textarea:focus,
 input:focus,
-select:focus {
+select:focus,
+button:focus {
     outline: 0;
 }
 
@@ -79,6 +80,47 @@ spinner {
     position: absolute;
     top: 50%;
     left: 50%;
+}
+
+
+/* BOOTSTRAP */
+.modal-footer {
+    margin-top: 0;
+}
+
+.modal-body p {
+    margin: 0;
+}
+
+.btn {
+    border-radius: 0;
+    text-transform: uppercase;
+    border: none;
+}
+
+.btn-primary {
+    background-color: rgb(254, 80, 81);
+    border-color: rgb(254, 80, 81);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: rgb(255, 29, 37);
+}
+
+.btn-default {
+    background-color: rgb(240, 240, 240);
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active {
+    background-color: rgb(230, 230, 230);
+}
+
+.modal-content {
+    border-radius: 0;
 }
 
 
