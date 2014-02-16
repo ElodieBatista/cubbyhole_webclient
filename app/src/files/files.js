@@ -260,7 +260,7 @@ module.controller('FilesCtrl',
         };
 
 
-        $scope.onFileSelect = function($files) {
+        $scope.onFileSelect = function(form, $files) {
             //$files: an array of files selected, each file has name, size, and type.
             //for (var i = 0; i < $files.length; i++) {
                 //var file = $files[i];

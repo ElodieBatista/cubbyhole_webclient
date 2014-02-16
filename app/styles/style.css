@@ -123,6 +123,10 @@ spinner {
     border-radius: 0;
 }
 
+input[type="file"] {
+    display: inline-block;
+}
+
 
 /* NAVTOP */
 .navtop-container {
@@ -507,12 +511,6 @@ footer {
 .sign-select:focus {
     border-color: rgb(255, 29, 37);
     color: rgb(0, 0, 0);
-}
-
-.sign-select-option {
-    background-image: url('/stylesheets/icon_gift.svg');
-    background-size: 30px 30px;
-    background-repeat: no-repeat;
 }
 
 .sign-btn-submit {

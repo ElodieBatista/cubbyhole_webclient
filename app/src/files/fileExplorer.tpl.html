@@ -2,26 +2,16 @@
 
     <div id="tree-view" class="panel-left-content col-md-3"></div>
 
-    <!--div>
-        <input type="file" ng-file-select="onFileSelect($files)" >
-        <input type="file" ng-file-select="onFileSelect($files)" multiple>
-        <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class"
-             ng-show="dropSupported">drop files here</div>
-        <div ng-file-drop-available="dropSupported=true"
-             ng-show="!dropSupported">HTML5 Drop File is not supported!</div>
-        <button ng-click="upload.abort()">Cancel Upload</button>
-    </div-->
-
-    <div id="grid-view" class="col-md-9" ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="upload-container-hover">
+    <div id="grid-view" class="col-md-9" ng-file-drop="onFileSelect(null, $files)" ng-file-drag-over-class="upload-container-hover">
 
         <ul class="action-bar">
             <li class="action-bar-item" data-toggle="modal" ng-click="openModalNewFolder()">
                 <img class="action-bar-icon" src="/styles/icons/icon_folder_add.svg" />
                 <span>Create Folder</span>
             </li>
-            <li class="action-bar-item">
+            <li class="action-bar-item" ng-click="openModalNewFiles()">
                 <img class="action-bar-icon" src="/styles/icons/icon_file_add.svg" />
-                <span>Add File</span>
+                <span>Add Files</span>
             </li>
             <li class="action-bar-item" ng-show="itemActive" ng-click="openModalRenameItem(itemActive)">
                 <img class="action-bar-icon" src="/styles/icons/icon_file_rename.svg" />
@@ -58,30 +48,3 @@
 </div>
 
 <modal modal-opts="modalOpts"></modal>
-
-<!--div class="modal fade" id="new-folder-modal" tabindex="-1" role="dialog" aria-labelledby="appmodal" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Add a folder</h4>
-            </div>
-
-            <form role="form" name="modalform" ng-submit="newFolder(modalform)">
-                <div class="modal-body">
-                    <div class="input-prepend" ng-class="{'input-prepend-active': focused}">
-                        <i class="fa fa-folder input-icon"></i>
-                        <input class="input-text" type="text" placeholder="Folder name" required ng-model="modalform.name" ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false" />
-                    </div>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <input type="submit" class="btn btn-primary" value="Add" />
-                </div>
-            </form>
-
-        </div>
-    </div>
-</div-->

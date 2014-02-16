@@ -114,7 +114,7 @@ module.directive('fileExplorer', function($location) {
 
             scope.openModalNewFolder = function() {
                 scope.modalOpts = {
-                    test: 'Create a folder',
+                    title: 'Create a folder',
                     iconClass: 'fa-folder',
                     submitFn: scope.newFolder,
                     placeholder: 'Folder name',
@@ -127,11 +127,31 @@ module.directive('fileExplorer', function($location) {
 
             scope.openModalRenameItem = function(item) {
                 scope.modalOpts = {
-                    test: 'Rename ' + item.name + ' ' + item.type,
+                    title: 'Rename ' + item.name + ' ' + item.type,
                     iconClass: 'fa-' + item.type,
                     submitFn: scope.renameItem,
                     placeholder: item.name,
                     submitBtnVal: 'Rename'
+                };
+
+                $('#appmodal').modal('show');
+            };
+
+
+            scope.openModalNewFiles = function() {
+                scope.modalOpts = {
+                    title: 'Upload files',
+                    iconClass: 'fa-file',
+                    submitBtnVal: 'Add',
+                    submitFn: scope.onFileSelect,
+                    submitFnExtraParam: null,
+                    template:
+                            '<div class="modal-body">' +
+                                '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused}">' +
+                                    '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
+                                    '<input class="input-text" type="file" ng-file-select="modalOpts.submitFnExtraParam = $files;" multiple required />' +
+                                '</div>' +
+                            '</div>'
                 };
 
                 $('#appmodal').modal('show');
