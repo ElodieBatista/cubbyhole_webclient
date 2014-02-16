@@ -608,6 +608,20 @@
             return result;
         };
 
+        Node.prototype.getNodeBy = function(prop, val) {
+            var result;
+            result = null;
+            this.iterate(function(node) {
+                if (node[prop] === val) {
+                    result = node;
+                    return false;
+                } else {
+                    return true;
+                }
+            });
+            return result;
+        };
+
         Node.prototype.addAfter = function(node_info) {
             var child_index, node;
             if (!this.parent) {
@@ -1010,6 +1024,10 @@
 
         JqTreeWidget.prototype.getNodeByName = function(name) {
             return this.tree.getNodeByName(name);
+        };
+
+        JqTreeWidget.prototype.getNodeBy = function(prop, val) {
+            return this.tree.getNodeBy(prop, val);
         };
 
         JqTreeWidget.prototype.openNode = function(node, slide) {
