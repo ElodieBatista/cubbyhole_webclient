@@ -68,7 +68,7 @@ module.directive('fileExplorer', function($location) {
                             nodes = scope.path.split(',');
 
                         for (var i = 0, l = nodes.length; i < l; i++) {
-                            node = $tree.tree('getNodeByName', nodes[i]);
+                            node = $tree.tree('getNodeBy', 'name', nodes[i]);
 
                             if (node.children.length > 0) {
                                 $tree.tree('openNode', node);
@@ -98,7 +98,7 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.selectNode = function(nodeName) {
-                var node = $tree.tree('getNodeByName', nodeName);
+                var node = $tree.tree('getNodeBy', 'name', nodeName);
 
                 if (node.type === 'folder') {
                     $tree.tree('selectNode', node);
@@ -167,7 +167,7 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.renameAnItem = function(name) {
-                var node = $tree.tree('getNodeByName', scope.modalOpts.placeholder);
+                var node = $tree.tree('getNodeBy', 'name', scope.modalOpts.placeholder);
 
                 $tree.tree(
                     'updateNode',

@@ -1,3 +1,5 @@
+var srvEndpoint = 'http://localhost:3000';
+
 // Activate Tabs
 $('#sign-nav a').click(function (e) {
     e.preventDefault();
@@ -26,23 +28,23 @@ $('#signin form').submit(function(event) {
 
     console.log('Sending sign in info: ' + email + ' ' + pass);
 
-    /*$.ajax({
+    $.ajax({
         type: 'POST',
-        url: 'http://localhost:9000/signin',
+        url: srvEndpoint + '/auth/signin',
         data: {
             email: email,
             pass: pass,
             remember: remember
         }
-    }).done(function(data) {*/
+    }).done(function(data) {
     // FAKE
-    var data = {
+    /*var data = {
         sessionKey: 'aaa111bbb222ccc333',
         profile: {
             email: email,
             plan: 0
         }
-    };
+    };*/
 
         console.log('Sign in success');
 
@@ -50,9 +52,9 @@ $('#signin form').submit(function(event) {
         localStorage.setItem('dataAuth', JSON.stringify(data));
 
         window.location.href = 'webapp.html#/login';
-    /*}).fail(function(error) {
+    }).fail(function(error) {
         console.log('Sign in failed: ' + error.msg);
-    });*/
+    });
 });
 
 // Sign Up
@@ -80,31 +82,32 @@ $('#signup form').submit(function(event) {
 
     console.log('Sending sign up info: ' + email + ' ' + pass + ' ' + plan);
 
-    /*$.ajax({
+    $.ajax({
         type: 'POST',
-        url: 'http://localhost:9000/signup',
+        url: srvEndpoint + '/auth/signup',
         data: {
             email: email,
-            pass: pass,
-            plan: plan
+            pass: pass
         }
-    }).done(function(data) {*/
+    }).done(function(data) {
     // FAKE
-    var data = {
+    /*var data = {
         sessionKey: 'aaa111bbb222ccc333',
         profile: {
             email: email,
             plan: 0
         }
-    };
+    };*/
 
         console.log('Sign up success');
 
         // Passing auth data to Angular
-        localStorage.setItem('dataAuth', JSON.stringify(data));
+        //localStorage.setItem('dataAuth', JSON.stringify(data));
 
-        window.location.href = 'webapp.html#/login';
-    /*}).fail(function(error) {
+        //window.location.href = 'webapp.html#/login';
+
+
+    }).fail(function(error) {
         console.log('Sign up failed: ' + error.msg);
-    });*/
+    });
 });
