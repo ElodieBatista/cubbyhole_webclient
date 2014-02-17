@@ -90,6 +90,7 @@ StaticServlet.prototype.handleRequest = function(req, res) {
   var path = ('./' + req.url.pathname).replace('//','/').replace(/%(..)/g, function(match, hex){
     return String.fromCharCode(parseInt(hex, 16));
   });
+  if (path === './') return self.sendFile_(req, res, 'index.html');
   var parts = path.split('/');
   if (parts[parts.length-1].charAt(0) === '.')
     return self.sendForbidden_(req, res, path);
@@ -100,7 +101,7 @@ StaticServlet.prototype.handleRequest = function(req, res) {
       return self.sendDirectory_(req, res, path);
     return self.sendFile_(req, res, path);
   });
-}
+};
 
 StaticServlet.prototype.sendError_ = function(req, res, error) {
   res.writeHead(500, {
