@@ -6,7 +6,8 @@ var app = angular.module('webApp', ['ngResource', 'ngRoute', 'ngSanitize', 'ngAn
  * App module's configuration
  */
 app.config(function($locationProvider, $httpProvider, $routeProvider) {
-    $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.sessionKey;
+    $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.token;
+    $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
 
     var interceptorHttp = ['$q', '$injector', '$rootScope', function($q, $injector, $rootScope) {
         var $http;
@@ -71,7 +72,7 @@ app.config(function($locationProvider, $httpProvider, $routeProvider) {
  * Only instances and constants can be injected into run blocks. This is to prevent further system configuration during application run time
  */
 app.run(function($rootScope, $location, $window, $anchorScroll) {
-    $rootScope.srvEndpoint = '';
+    $rootScope.srvEndpoint = 'http://localhost:3000';
 
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
         console.log('Route change start');
