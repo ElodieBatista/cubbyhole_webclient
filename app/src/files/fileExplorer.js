@@ -90,7 +90,7 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.openRoot = function() {
-                var node = $tree.tree('getNodeById', -1);
+                var node = $tree.tree('getNodeBy', '_id', -1);
 
                 $tree.tree('openNode', node);
                 scope.selectNode('My Cubbyhole');
@@ -113,11 +113,13 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.openModalNewFolder = function() {
+                var node = $tree.tree('getSelectedNode');
                 scope.modalOpts = {
                     title: 'Create a folder',
                     iconClass: 'fa-folder',
                     submitFn: scope.newFolder,
                     placeholder: 'Folder name',
+                    submitFnExtraParam: node._id,
                     submitBtnVal: 'Add'
                 };
 
@@ -131,6 +133,7 @@ module.directive('fileExplorer', function($location) {
                     iconClass: 'fa-' + item.type,
                     submitFn: scope.renameItem,
                     placeholder: item.name,
+                    submitFnExtraParam: item.parent,
                     submitBtnVal: 'Rename'
                 };
 
@@ -158,8 +161,8 @@ module.directive('fileExplorer', function($location) {
             };
 
 
-            scope.addFolder = function(name) {
-                scope.addNode('folder', name);
+            scope.addFolder = function(folder) {
+                scope.addNode(folder);
 
                 $('.modal').modal('hide');
                 $('.modal input:not([type="submit"]').val('');
@@ -182,15 +185,12 @@ module.directive('fileExplorer', function($location) {
             };
 
 
-            scope.addNode = function(type, name) {
+            scope.addNode = function(item) {
                 var node = $tree.tree('getSelectedNode');
 
                 $tree.tree(
                     'appendNode',
-                    {
-                        type: type,
-                        name: name
-                    },
+                    item,
                     node
                 );
             };

@@ -18,8 +18,7 @@ module.controller('FilesCtrl',
         // Highlight first btn in the nav bar
         $rootScope.navtop = 0;
 
-        // TODO: Request all files to API
-        var Files = $resource($rootScope.srvEndpoint + 'item', {}, {
+        var Files = $resource($rootScope.srvEndpoint + '/item', {}, {
             'get': {
                 method: 'GET'
             },
@@ -28,7 +27,7 @@ module.controller('FilesCtrl',
                 params: {
                     type:'@type',
                     name:'@name',
-                    path:'@path'
+                    parent:'@parent'
                 }
             },
             'put': {
@@ -37,214 +36,32 @@ module.controller('FilesCtrl',
                     name:'@name',
                     path:'@path'
                 }
+            },
+            'delete': {
+                method:'DELETE',
+                params: {
+                    id:'@id'
+                }
             }
         });
 
-
-        var json_from_api = [
-            {
-                id: -1,
-                type: 'folder',
-                name: 'My Cubbyhole',
-                children: [
-                    {
-                        type: 'folder',
-                        name: 'America',
-                        children: [
-                            {
-                                type: 'folder',
-                                name: 'United States of America',
-                                children: [
-                                    {
-                                        type: 'file',
-                                        name: 'California'
-                                    },
-                                    {
-                                        type: 'folder',
-                                        name: 'Washington',
-                                        children: [
-                                            {
-                                                type: 'folder',
-                                                name: 'Orange County',
-                                                children: [
-                                                    {
-                                                        type: 'folder',
-                                                        name: 'Kirkland',
-                                                        children: [
-                                                            {
-                                                                type: 'folder',
-                                                                name: 'Orange County',
-                                                                children: [
-                                                                    {
-                                                                        type: 'folder',
-                                                                        name: 'Kirkland',
-                                                                        children: [
-                                                                            {
-                                                                                type: 'folder',
-                                                                                name: 'Orange County',
-                                                                                children: [
-                                                                                    {
-                                                                                        type: 'folder',
-                                                                                        name: 'Kirkland',
-                                                                                        children: [
-                                                                                            {
-                                                                                                type: 'folder',
-                                                                                                name: 'Orange County',
-                                                                                                children: [
-                                                                                                    {
-                                                                                                        type: 'folder',
-                                                                                                        name: 'Kirkland',
-                                                                                                        children: [
-                                                                                                            {
-                                                                                                                type: 'folder',
-                                                                                                                name: 'Orange County',
-                                                                                                                children: [
-                                                                                                                    {
-                                                                                                                        type: 'folder',
-                                                                                                                        name: 'Kirkland',
-                                                                                                                        children: [
-                                                                                                                            {
-                                                                                                                                type: 'folder',
-                                                                                                                                name: 'Orange County',
-                                                                                                                                children: [
-                                                                                                                                    {
-                                                                                                                                        type: 'folder',
-                                                                                                                                        name: 'Kirkland',
-                                                                                                                                        children: [
-                                                                                                                                            {
-                                                                                                                                                type: 'folder',
-                                                                                                                                                name: 'Orange County',
-                                                                                                                                                children: [
-                                                                                                                                                    {
-                                                                                                                                                        type: 'folder',
-                                                                                                                                                        name: 'Kirkland',
-                                                                                                                                                        children: [
-
-                                                                                                                                                        ]
-                                                                                                                                                    }
-                                                                                                                                                ]
-                                                                                                                                            }
-                                                                                                                                        ]
-                                                                                                                                    }
-                                                                                                                                ]
-                                                                                                                            }
-                                                                                                                        ]
-                                                                                                                    }
-                                                                                                                ]
-                                                                                                            }
-                                                                                                        ]
-                                                                                                    }
-                                                                                                ]
-                                                                                            }
-                                                                                        ]
-                                                                                    }
-                                                                                ]
-                                                                            }
-                                                                        ]
-                                                                    }
-                                                                ]
-                                                            }
-                                                        ]
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                type: 'folder',
-                                name: 'Canada'
-                            }
-                        ]
-                    },
-                    {
-                        type: 'folder',
-                        name: 'Europe',
-                        children: [
-                            {
-                                type: 'folder',
-                                name: 'France',
-                                children: [
-                                    {
-                                        type: 'folder',
-                                        name: 'Midi-Pyrénéessssssssssssssssssssssssssssssssssssssssss',
-                                        children: [
-                                            {
-                                                type: 'folder',
-                                                name: 'Haute-Garonne',
-                                                children: [
-                                                    {
-                                                        type: 'file',
-                                                        name: 'Toulouse'
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                type: 'folder',
-                                name: 'Portugal'
-                            },
-                            {
-                                type: 'folder',
-                                name: 'Spain'
-                            }
-                        ]
-                    },
-                    {
-                        type: 'folder',
-                        name: 'Oceania',
-                        children: [
-                            {
-                                type: 'folder',
-                                name: 'Australia'
-                            },
-                            {
-                                type: 'file',
-                                name: 'Tasmania'
-                            }
-                        ]
-                    },
-                    {
-                        type: 'folder',
-                        name: 'Asia'
-                    }
-                ]
-            }
-        ];
-
         $scope.folders = null;
 
-        // Temp: while no API request
-        $rootScope.displaySpinner = true;
-
-        // Simulate delay from API
-        setTimeout(function() {
-            $scope.folders = json_from_api;
-            // Temp: while no API request
-            $rootScope.displaySpinner = false;
-            $scope.$apply();
-        }, 2000);
-
-        /*Files.get(function(res) {
-            $scope.folders = res.items;
-            $scope.$apply();
-        }, function(err) {
+        Files.get(function(res) {
+            $scope.folders = res.data;
+        }, function(error) {
             console.log('Can\'t get the files.');
-        });*/
+        });
 
         $scope.path = $routeParams.path;
 
-        $scope.newFolder = function(form) {
+        $scope.newFolder = function(form, parent) {
             if (form.$valid) {
-                //Files.post({'type':'folder', 'name':form.name, 'path':$routeParams.path}, function(res) {
-                    $scope.addFolder(form.name);
-                /*}, function(err) {
+                Files.post({'type':'folder', 'name':form.name, 'parent':parent}, function(res) {
+                    $scope.addFolder(res.data);
+                }, function(error) {
                     console.log('Can\'t create new folder.');
-                });*/
+                });
             }
         };
 
@@ -259,36 +76,45 @@ module.controller('FilesCtrl',
             }
         };
 
+        $scope.deleteItem = function(form) {
+            if (form.$valid) {
+                /*Files.delete({'id':form.id}, function(res) {
+                    $scope.deleteAnItem(form.id);
+                }, function(error) {
+                    console.log('Can\'t delete the item.');
+                });*/
+            }
+        };
+
 
         $scope.onFileSelect = function(form, $files) {
-            //$files: an array of files selected, each file has name, size, and type.
-            //for (var i = 0; i < $files.length; i++) {
-                //var file = $files[i];
-            $scope.uploading = true;
+            for (var i = 0; i < $files.length; i++) {
+                var file = $files[i];
+                $scope.uploading = true;
+
                 $scope.upload = $upload.upload({
-                    url: $rootScope.srvEndpoint + 'item', //upload.php script, node.js route, or servlet url
+                    url: $rootScope.srvEndpoint + '/item',
                     method: 'POST',
-                    // headers: {'headerKey': 'headerValue'},
-                    data: {myObj: $scope.myModelObj},
-                    file: $files //upload multiple files, this feature only works in HTML5 FromData browsers
-                    // file: file,
+                    data: {
+                        type: 'file',
+                        parent: -1
+                    },
+                    file: file
                     /* set file formData name for 'Content-Desposition' header. Default: 'file' */
                     //fileFormDataName: myFile, //OR for HTML5 multiple upload only a list: ['name1', 'name2', ...]
                     /* customize how data is added to formData. See #40#issuecomment-28612000 for example */
                     //formDataAppender: function(formData, key, val){} //#40#issuecomment-28612000
-                }).progress(function(evt) {
-                    console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
+                }).progress(function(e) {
+                    console.log('percent: ' + parseInt(100.0 * e.loaded / e.total));
                 }).success(function(data, status, headers, config) {
-                    // file is uploaded successfully
                     console.log(data);
                     $scope.uploading = false;
                 })
-                .error(function(err) {
-                    console.log(err);
+                .error(function(error) {
+                    console.log(error);
                     $scope.uploading = false;
                 });
-                //.then(success, error, progress);
-            //}
+            }
         };
 
 
