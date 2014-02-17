@@ -393,12 +393,14 @@ footer {
     margin-left: 13px;
     margin-right: 6px;
     vertical-align: top;
+    margin-top: 16px;
 }
 
 .home-remember-label {
     font-weight: normal;
     font-size: 15px;
     margin-bottom: 11px;
+    line-height: 45px;
 }
 
 @media screen and (max-width: 990px) {
