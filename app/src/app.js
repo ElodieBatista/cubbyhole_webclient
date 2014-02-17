@@ -76,7 +76,7 @@ app.run(function($rootScope, $location, $window, $anchorScroll) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
         console.log('Route change start');
 
-        if (next.authRequired === true && !$rootScope.getSessionKey()) {
+        if (next.authRequired === true && !$rootScope.getToken()) {
             $window.location.href = 'index.html';
         }
     });
@@ -86,12 +86,12 @@ app.run(function($rootScope, $location, $window, $anchorScroll) {
         $anchorScroll();
     };
 
-    $rootScope.getSessionKey = function() {
-        if ($rootScope.sessionKey) {
-            return $rootScope.sessionKey;
-        } else if (localStorage.sessionKey) {
-            $rootScope.sessionKey = localStorage.sessionKey;
-            return $rootScope.sessionKey;
+    $rootScope.getToken = function() {
+        if ($rootScope.token) {
+            return $rootScope.token;
+        } else if (localStorage.token) {
+            $rootScope.token = localStorage.token;
+            return $rootScope.token;
         } else {
             return null;
         }

@@ -13,17 +13,17 @@ module.config(function config($routeProvider) {
 
 module.controller('LoginCtrl',
     function LoginCtrl($rootScope, $scope, $location, $http) {
-        var data = JSON.parse(localStorage.getItem('dataAuth'));
+        var profile = JSON.parse(localStorage.getItem('dataAuth'));
         localStorage.removeItem('dataAuth');
 
-        localStorage.setItem('sessionKey', data.sessionKey);
-        localStorage.setItem('profile', JSON.stringify(data.profile));
+        localStorage.setItem('token', profile.token);
+        localStorage.setItem('profile', JSON.stringify(profile));
 
-        $http.defaults.headers.common['X-Cub-AuthToken'] = data.sessionKey;
+        $http.defaults.headers.common['X-Cub-AuthToken'] = profile.token;
 
-        $rootScope.profile = data.profile;
+        $rootScope.profile = profile;
 
-        console.log('Saving Auth info in the LocalStorage: ' + data.sessionKey + ' ' + JSON.stringify(data.profile));
+        console.log('Saving Auth info in the LocalStorage: ' + profile.token + ' ' + JSON.stringify(profile));
 
         $location.path('/files');
     }
