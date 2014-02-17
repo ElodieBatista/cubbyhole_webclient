@@ -86,6 +86,8 @@
                                         <input type="checkbox" id="home-remember-box">
                                         <label for="home-remember-box" class="home-remember-label">Remember me</label>
 
+                                        <div id="signin-spinner"></div>
+
                                         <input type="submit" value="Sign In" class="btn btn-primary sign-btn-submit">
                                     </form>
                                 </div>
@@ -104,6 +106,8 @@
                                             <i class="fa fa-lock input-icon"></i>
                                             <input class="input-text" type="password" placeholder="Confirm Password" required pattern=".{6,}" title="6 character minimum length">
                                         </div>
+
+                                        <div id="signup-spinner"></div>
 
                                         <input type="submit" value="Sign Up" class="btn btn-primary sign-btn-submit">
                                     </form>
@@ -536,6 +540,7 @@
         <script src="src/lib/jquery/jquery-1.10.2.min.js"></script>
         <!--script src="src/lib/bootstrap/bootstrap-3.0.3-custom.min.js"></script-->
         <script src="src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
+        <script src="src/lib/spinjs/spin.js"></script>
         <script src="src/lib/custom/index-init.js"></script>
     </body>
 </html>
