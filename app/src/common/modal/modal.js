@@ -20,6 +20,10 @@ module.directive('modal', function($compile) {
                     $('#modal-body-custom').append(htmlStr);
                 }
             });
+
+            $(elem).on('shown.bs.modal', function (e) {
+              $(this).find('input:first').focus();
+            });
         }
     };
 });
