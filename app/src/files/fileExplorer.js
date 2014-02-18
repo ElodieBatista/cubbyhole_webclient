@@ -14,7 +14,7 @@ module.directive('fileExplorer', function($location) {
         link: function (scope, element, attrs) {
             var $tree;
 
-            scope.$watch(attrs.items, function(newValue, oldValue) {
+            scope.$watch(attrs.items, function(newValue) {
                 if (newValue !== undefined && newValue !== null) {
                     scope.items = newValue;
 
@@ -30,9 +30,7 @@ module.directive('fileExplorer', function($location) {
 
                                 $location.path('/files').search({path: node.getPath()});
 
-                                if (!scope.$$phase) {
-                                    scope.$apply();
-                                }
+                                if (!scope.$$phase) { scope.$apply(); }
                             } else {
                                 // event.node is null
                                 // a node was deselected
@@ -41,9 +39,7 @@ module.directive('fileExplorer', function($location) {
 
                                 $location.path('/files').search({path: ''});
 
-                                if (!scope.$$phase) {
-                                    scope.$apply();
-                                }
+                                if (!scope.$$phase) { scope.$apply(); }
                             }
                         }
                     );
@@ -51,7 +47,7 @@ module.directive('fileExplorer', function($location) {
                     $tree.bind(
                         'tree.init',
                         function() {
-                            scope.openRoot();
+                            scope.feOpenRoot();
                         }
                     );
 
@@ -65,10 +61,10 @@ module.directive('fileExplorer', function($location) {
                     if (scope.path !== undefined && scope.path !== '') {
                         // Unroll the tree & Select the last node of the url
                         var node,
-                            nodes = scope.path.split(',');
+                            nodesName = scope.path.split(',');
 
-                        for (var i = 0, l = nodes.length; i < l; i++) {
-                            node = $tree.tree('getNodeBy', 'name', nodes[i]);
+                        for (var i = 0, l = nodesName.length; i < l; i++) {
+                            node = $tree.tree('getNodeBy', 'name', nodesName[i], node);
 
                             if (node.children.length > 0) {
                                 $tree.tree('openNode', node);
@@ -89,35 +85,30 @@ module.directive('fileExplorer', function($location) {
             });
 
 
-            scope.openRoot = function() {
+            scope.feOpenRoot = function() {
                 var node = $tree.tree('getNodeBy', '_id', -1);
-
                 $tree.tree('openNode', node);
-                scope.selectNode('My Cubbyhole');
+                scope.feSelectNode(node);
             };
 
 
-            scope.selectNode = function(nodeName) {
-                var node = $tree.tree('getNodeBy', 'name', nodeName);
-
+            scope.feSelectNode = function(node) {
                 if (node.type === 'folder') {
                     $tree.tree('selectNode', node);
                 }
 
                 $location.path('/files').search({path: node.getPath()});
 
-                if (!scope.$$phase) {
-                    scope.$apply();
-                }
+                if (!scope.$$phase) { scope.$apply(); }
             };
 
 
-            scope.openModalNewFolder = function() {
+            scope.feOpenModalNewFolder = function() {
                 var node = $tree.tree('getSelectedNode');
                 scope.modalOpts = {
                     title: 'Create a folder',
                     iconClass: 'fa-folder',
-                    submitFn: scope.newFolder,
+                    submitFn: scope.addFolder,
                     placeholder: 'Folder name',
                     submitFnExtraParam: node._id,
                     submitBtnVal: 'Add'
@@ -127,7 +118,7 @@ module.directive('fileExplorer', function($location) {
             };
 
 
-            scope.openModalRenameItem = function(item) {
+            scope.feOpenModalRenameItem = function(item) {
                 scope.modalOpts = {
                     title: 'Rename ' + item.name + ' ' + item.type,
                     iconClass: 'fa-' + item.type,
@@ -141,7 +132,7 @@ module.directive('fileExplorer', function($location) {
             };
 
 
-            scope.openModalNewFiles = function() {
+            scope.feOpenModalNewFiles = function() {
                 scope.modalOpts = {
                     title: 'Upload files',
                     iconClass: 'fa-file',
@@ -161,15 +152,15 @@ module.directive('fileExplorer', function($location) {
             };
 
 
-            scope.addFolder = function(folder) {
-                scope.addNode(folder);
+            scope.feAddFolder = function(folder) {
+                scope.feAddNode(folder);
 
                 $('.modal').modal('hide');
                 $('.modal input:not([type="submit"]').val('');
             };
 
 
-            scope.renameAnItem = function(name) {
+            scope.feRenameItem = function(name) {
                 var node = $tree.tree('getNodeBy', 'name', scope.modalOpts.placeholder);
 
                 $tree.tree(
@@ -185,7 +176,7 @@ module.directive('fileExplorer', function($location) {
             };
 
 
-            scope.addNode = function(item) {
+            scope.feAddNode = function(item) {
                 var node = $tree.tree('getSelectedNode');
 
                 $tree.tree(

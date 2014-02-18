@@ -594,24 +594,14 @@
             return getDataFromNodes(this.children);
         };
 
-        Node.prototype.getNodeByName = function(name) {
-            var result;
-            result = null;
-            this.iterate(function(node) {
-                if (node.name === name) {
-                    result = node;
-                    return false;
-                } else {
-                    return true;
-                }
-            });
-            return result;
-        };
+        Node.prototype.getNodeBy = function(prop, val, subtree) {
+            var result = null, currTree = this;
 
-        Node.prototype.getNodeBy = function(prop, val) {
-            var result;
-            result = null;
-            this.iterate(function(node) {
+            if (subtree) {
+              currTree = subtree;
+            }
+
+            currTree.iterate(function(node) {
                 if (node[prop] === val) {
                     result = node;
                     return false;
@@ -1022,12 +1012,8 @@
             return this.tree.getNodeById(node_id);
         };
 
-        JqTreeWidget.prototype.getNodeByName = function(name) {
-            return this.tree.getNodeByName(name);
-        };
-
-        JqTreeWidget.prototype.getNodeBy = function(prop, val) {
-            return this.tree.getNodeBy(prop, val);
+        JqTreeWidget.prototype.getNodeBy = function(prop, val, subtree) {
+            return this.tree.getNodeBy(prop, val, subtree);
         };
 
         JqTreeWidget.prototype.openNode = function(node, slide) {

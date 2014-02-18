@@ -47,18 +47,18 @@ module.controller('FilesCtrl',
 
         $scope.folders = null;
 
+        $scope.path = $routeParams.path;
+
         Files.get(function(res) {
             $scope.folders = res.data;
         }, function(error) {
             console.log('Can\'t get the files.');
         });
 
-        $scope.path = $routeParams.path;
-
-        $scope.newFolder = function(form, parent) {
+        $scope.addFolder = function(form, parent) {
             if (form.$valid) {
                 Files.post({'type':'folder', 'name':form.name, 'parent':parent}, function(res) {
-                    $scope.addFolder(res.data);
+                    $scope.feAddFolder(res.data);
                 }, function(error) {
                     console.log('Can\'t create new folder.');
                 });
@@ -69,7 +69,7 @@ module.controller('FilesCtrl',
         $scope.renameItem = function(form) {
             if (form.$valid) {
                 //Files.put({'name':form.name, 'path':$routeParams.path}, function(res) {
-                $scope.renameAnItem(form.name);
+                $scope.feRenameItem(form.name);
                 /*}, function(err) {
                  console.log('Can\'t rename the item.');
                  });*/
@@ -79,7 +79,7 @@ module.controller('FilesCtrl',
         $scope.deleteItem = function(form) {
             if (form.$valid) {
                 /*Files.delete({'id':form.id}, function(res) {
-                    $scope.deleteAnItem(form.id);
+                    $scope.feDeleteItem(form.id);
                 }, function(error) {
                     console.log('Can\'t delete the item.');
                 });*/
