@@ -86,7 +86,7 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.feOpenRoot = function() {
-                var node = $tree.tree('getNodeBy', '_id', -1);
+                var node = $tree.tree('getNodeBy', '_id', '-1');
                 $tree.tree('openNode', node);
                 scope.feSelectNode(node);
             };
@@ -110,7 +110,7 @@ module.directive('fileExplorer', function($location) {
                     iconClass: 'fa-folder',
                     submitFn: scope.addFolder,
                     placeholder: 'Folder name',
-                    submitFnExtraParam: node._id,
+                    submitFnExtraParam: (node._id !== '-1' ? node._id : undefined),
                     submitBtnVal: 'Add'
                 };
 

@@ -33,7 +33,7 @@
             <tr ng-repeat="file in files" class="grid-view-table-tr" ng-click="toggleItem(file)" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]">
                 <td class="grid-view-table-td-first">
                     <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
-                    <span class="grid-view-table-filename" ng-click="selectNode(file.name)">{{file.name}}</span>
+                    <span class="grid-view-table-filename" ng-click="feSelectNode(file)">{{file.name}}</span>
                 </td>
                 <td>{{file.type}}</td>
             </tr>
