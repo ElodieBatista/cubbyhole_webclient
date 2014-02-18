@@ -131,6 +131,21 @@ module.directive('fileExplorer', function($location) {
                 $('#appmodal').modal('show');
             };
 
+            scope.feOpenModalDeleteItem = function(item) {
+                scope.modalOpts = {
+                    title: 'Delete ' + item.name + ' ' + item.type,
+                    submitFn: scope.deleteItem,
+                    submitFnExtraParam: item._id,
+                    submitBtnVal: 'Delete',
+                    template:
+                            '<div class="modal-body">' +
+                                '<p>Are you sure you want to delete this ' + item.type + '?</p>' +
+                            '</div>'
+                };
+
+                $('#appmodal').modal('show');
+            };
+
 
             scope.feOpenModalNewFiles = function() {
                 scope.modalOpts = {
@@ -160,8 +175,8 @@ module.directive('fileExplorer', function($location) {
             };
 
 
-            scope.feRenameItem = function(name) {
-                var node = $tree.tree('getNodeBy', 'name', scope.modalOpts.placeholder);
+            scope.feRenameItem = function(name, id) {
+                var node = $tree.tree('getNodeBy', '_id', id);
 
                 $tree.tree(
                     'updateNode',
@@ -173,6 +188,15 @@ module.directive('fileExplorer', function($location) {
 
                 $('.modal').modal('hide');
                 $('.modal input:not([type="submit"]').val('');
+            };
+
+
+            scope.feDeleteItem = function(id) {
+                var node = $tree.tree('getNodeBy', '_id', id);
+
+                $tree.tree('removeNode', node);
+
+                $('.modal').modal('hide');
             };
 
 

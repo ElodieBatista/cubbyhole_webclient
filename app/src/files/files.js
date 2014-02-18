@@ -29,19 +29,21 @@ module.controller('FilesCtrl',
                     name:'@name',
                     parent:'@parent'
                 }
+            }
+        });
+
+        var File = $resource($rootScope.srvEndpoint + '/item/:id', {id: '@id'}, {
+            'get': {
+                method: 'GET'
             },
             'put': {
                 method:'PUT',
                 params: {
-                    name:'@name',
-                    path:'@path'
+                    name:'@name'
                 }
             },
             'delete': {
-                method:'DELETE',
-                params: {
-                    id:'@id'
-                }
+                method:'DELETE'
             }
         });
 
@@ -66,23 +68,23 @@ module.controller('FilesCtrl',
         };
 
 
-        $scope.renameItem = function(form) {
+        $scope.renameItem = function(form, id) {
             if (form.$valid) {
-                //Files.put({'name':form.name, 'path':$routeParams.path}, function(res) {
-                $scope.feRenameItem(form.name);
+                //File.put({'name':form.name, 'id':id}, function(res) {
+                $scope.feRenameItem(form.name, id);
                 /*}, function(err) {
                  console.log('Can\'t rename the item.');
                  });*/
             }
         };
 
-        $scope.deleteItem = function(form) {
+        $scope.deleteItem = function(form, id) {
             if (form.$valid) {
-                /*Files.delete({'id':form.id}, function(res) {
-                    $scope.feDeleteItem(form.id);
+                File.delete({'id':id}, function(res) {
+                    $scope.feDeleteItem(id);
                 }, function(error) {
                     console.log('Can\'t delete the item.');
-                });*/
+                });
             }
         };
 
