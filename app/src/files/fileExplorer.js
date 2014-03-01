@@ -28,6 +28,8 @@ module.directive('fileExplorer', function($location) {
                                 var node = event.node;
                                 scope.files = node.children;
 
+                                scope.toggleItem(null);
+
                                 $location.path('/files').search({path: node.getPath()});
 
                                 if (!scope.$$phase) { scope.$apply(); }
@@ -124,7 +126,7 @@ module.directive('fileExplorer', function($location) {
                     iconClass: 'fa-' + item.type,
                     submitFn: scope.renameItem,
                     placeholder: item.name,
-                    submitFnExtraParam: item.parent,
+                    submitFnExtraParam: item._id,
                     submitBtnVal: 'Rename'
                 };
 
@@ -196,12 +198,16 @@ module.directive('fileExplorer', function($location) {
 
                 $tree.tree('removeNode', node);
 
+                scope.toggleItem(null);
+
                 $('.modal').modal('hide');
             };
 
 
             scope.feAddNode = function(item) {
                 var node = $tree.tree('getSelectedNode');
+
+                $tree.tree('openNode', node);
 
                 $tree.tree(
                     'appendNode',

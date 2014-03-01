@@ -57,6 +57,7 @@ module.controller('FilesCtrl',
             console.log('Can\'t get the files.');
         });
 
+
         $scope.addFolder = function(form, parent) {
             if (form.$valid) {
                 Files.post({'type':'folder', 'name':form.name, 'parent':parent}, function(res) {
@@ -70,13 +71,14 @@ module.controller('FilesCtrl',
 
         $scope.renameItem = function(form, id) {
             if (form.$valid) {
-                //File.put({'name':form.name, 'id':id}, function(res) {
-                $scope.feRenameItem(form.name, id);
-                /*}, function(err) {
-                 console.log('Can\'t rename the item.');
-                 });*/
+                File.put({'name':form.name, 'id':id}, function(res) {
+                    $scope.feRenameItem(form.name, id);
+                }, function(err) {
+                    console.log('Can\'t rename the item.');
+                });
             }
         };
+
 
         $scope.deleteItem = function(form, id) {
             if (form.$valid) {
