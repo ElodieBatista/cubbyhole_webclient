@@ -72,7 +72,7 @@ module.controller('FilesCtrl',
         $scope.renameItem = function(form, id) {
             if (form.$valid) {
                 File.put({'name':form.name, 'id':id}, function(res) {
-                    $scope.feRenameItem(form.name, id);
+                    $scope.feRenameItem(res.data.name, id);
                 }, function(err) {
                     console.log('Can\'t rename the item.');
                 });

@@ -38,6 +38,11 @@ $(document).ready(function() {
         }
     });
 
+    function validateEmail(email) {
+      var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return re.test(email);
+    }
+
     // Spinner configuration
     var opts = {
         lines: 13, // The number of lines to draw
@@ -58,6 +63,18 @@ $(document).ready(function() {
         left: 'auto' // Left position relative to parent in px
     };
     var spinner = new Spinner(opts);
+
+
+    // Handle email param
+    var emailParamPos = window.location.href.indexOf('?email=');
+    if (emailParamPos !== -1) {
+        var emailParam = window.location.href.substring(emailParamPos + 7);
+
+        if (validateEmail(emailParam)) {
+            $('#signin form').find('input')[0].value = emailParam;
+            $('#signin form').find('input')[1].focus();
+        }
+    }
 
 
     // Sign In
@@ -90,8 +107,23 @@ $(document).ready(function() {
         }).fail(function(data) {
             spinner.stop();
 
-            $('#modal-msg').text(data.responseJSON.error);
-                inputsToAnimate = [$('#signin form').find('input[type="email"]'), $('#signin form').find('input[type="password"]')];
+            var msg = '';
+
+            switch (data.status) {
+                case 404:
+                    msg = 'This email address doesn\'t exist. Please, sign up.';
+                    break;
+                case 401:
+                    msg = 'Please, check your emails to verify your address.';
+                    break;
+                default:
+                    msg = 'Something went wrong. Please, try again later.';
+                    break;
+            }
+
+            $('#modal-title').text('Error');
+            $('#modal-msg').text(msg);
+            inputsToAnimate = [$('#signin form').find('input[type="email"]'), $('#signin form').find('input[type="password"]')];
             $('#appmodal').modal('show');
         });
     });
@@ -106,6 +138,7 @@ $(document).ready(function() {
             pass2 = $(this).find('input')[2].value;
 
         if (pass !== pass2) {
+            $('#modal-title').text('Error');
             $('#modal-msg').text('Passwords don\'t match.');
             inputsToAnimate = [$('#signup form').find('input[type="password"]')];
             $('#appmodal').modal('show');
@@ -124,6 +157,7 @@ $(document).ready(function() {
         }).done(function(data) {
             spinner.stop();
 
+            $('#modal-title').text('Success');
             $('#modal-msg').text('Congratulations! You\'ve just created a Cubbyhole account for ' + email + '. You can now sign in!');
             $('#appmodal').modal('show');
             $('input:not([type="submit"]').val('');
@@ -131,8 +165,20 @@ $(document).ready(function() {
         }).fail(function(data) {
             spinner.stop();
 
-            $('#modal-msg').text(data.responseJSON.error);
-                inputsToAnimate = [$('#signup form').find('input[type="email"]')];
+            var msg = '';
+
+            switch (data.status) {
+                case 422:
+                    msg = 'This email address already exists. Please, sign in.';
+                    break;
+                default:
+                    msg = 'Something went wrong. Please, try again later.';
+                    break;
+            }
+
+            $('#modal-title').text('Error');
+            $('#modal-msg').text(msg);
+            inputsToAnimate = [$('#signup form').find('input[type="email"]')];
             $('#appmodal').modal('show');
         });
     });
