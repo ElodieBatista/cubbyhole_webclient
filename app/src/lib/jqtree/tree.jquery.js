@@ -818,7 +818,8 @@
             nodeClass: Node,
             dataFilter: null,
             keyboardSupport: true,
-            openFolderDelay: 500
+            openFolderDelay: 500,
+            allowToggleSelection: false
         };
 
         JqTreeWidget.prototype.toggle = function(node, slide) {
@@ -1459,7 +1460,7 @@
                         click_event: e
                     });
                     if (!event.isDefaultPrevented()) {
-                        return this._selectNode(node, true);
+                        return this._selectNode(node, JqTreeWidget.prototype.defaults.allowToggleSelection);
                     }
                 }
             }

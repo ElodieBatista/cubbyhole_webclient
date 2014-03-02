@@ -35,15 +35,6 @@ module.directive('fileExplorer', function($location) {
                                 $location.path('/files').search({path: scope.selectedNode.getPath()});
 
                                 if (!scope.$$phase) { scope.$apply(); }
-                            } else {
-                                // event.node is null
-                                // a node was deselected
-                                // e.previous_node contains the deselected node
-                                scope.files = [];
-
-                                $location.path('/files').search({path: ''});
-
-                                if (!scope.$$phase) { scope.$apply(); }
                             }
                         }
                     );
@@ -212,6 +203,11 @@ module.directive('fileExplorer', function($location) {
 
             scope.feDownloadItem = function() {
               $('#file-explorer-form-download').submit();
+            };
+
+
+            scope.feAddFiles = function() {
+                $('.modal').modal('hide');
             };
 
 
