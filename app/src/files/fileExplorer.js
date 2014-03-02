@@ -202,7 +202,26 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.feDownloadItem = function() {
-              $('#file-explorer-form-download').submit();
+                $('#file-explorer-form-download').submit();
+                $('.modal').modal('hide');
+            };
+
+
+            scope.feAskDownloadConfirm = function(item) {
+                scope.toggleItem(item, true);
+
+                scope.modalOpts = {
+                    title: item.name,
+                    submitBtnVal: 'Download',
+                    submitFn: scope.feDownloadItem,
+                    submitFnExtraParam: null,
+                    template:
+                        '<div class="modal-body">' +
+                            '<p>Do you want to download this ' + item.type + '?</p>' +
+                        '</div>'
+                };
+
+                $('#appmodal').modal('show');
             };
 
 
