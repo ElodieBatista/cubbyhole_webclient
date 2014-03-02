@@ -68,6 +68,11 @@ module.directive('fileExplorer', function($location) {
                         for (var i = 0, l = nodesName.length; i < l; i++) {
                             node = $tree.tree('getNodeBy', 'name', nodesName[i], node);
 
+                            // If path is incorrect
+                            if (node === null) {
+                                break;
+                            }
+
                             if (node.children.length > 0) {
                                 $tree.tree('openNode', node);
 
