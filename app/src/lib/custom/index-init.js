@@ -77,6 +77,16 @@ $(document).ready(function() {
     }
 
 
+    // If user's already authenticated
+    if (localStorage.profile !== undefined) {
+        $('#unauthenticated-container').css('display', 'none');
+        $('#authenticated-container').css('display', 'block');
+    } else {
+        $('#authenticated-container').css('display', 'none');
+        $('#unauthenticated-container').css('display', 'block');
+    }
+
+
     // Sign In
     $('#signin form').submit(function(e) {
         e.preventDefault();
@@ -111,7 +121,7 @@ $(document).ready(function() {
 
             switch (data.status) {
                 case 404:
-                    msg = 'This email address doesn\'t exist. Please, sign up.';
+                    msg = 'Incorrect email or password.';
                     break;
                 case 401:
                     msg = 'Please, check your emails to verify your address.';

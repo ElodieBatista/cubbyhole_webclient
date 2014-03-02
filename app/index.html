@@ -66,53 +66,65 @@
                         </div>
 
                         <div class="col-md-6 home-container-sign">
-                            <ul class="nav nav-tabs" id="sign-nav">
-                                <li class="sign-nav-item active"><a href="#signin" data-toggle="tab">Sign In</a></li>
-                                <li class="sign-nav-item"><a href="#signup" data-toggle="tab">Sign Up</a></li>
-                            </ul>
+                            <div id="unauthenticated-container">
+                                <ul class="nav nav-tabs" id="sign-nav">
+                                    <li class="sign-nav-item active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                                    <li class="sign-nav-item"><a href="#signup" data-toggle="tab">Sign Up</a></li>
+                                </ul>
 
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="signin">
-                                    <form class="sign-form" method="POST" action="/signin">
-                                        <div class="input-prepend">
-                                            <i class="fa fa-envelope input-icon"></i>
-                                            <input class="input-text" type="email" placeholder="Email" required>
-                                        </div>
-                                        <div class="input-prepend">
-                                            <i class="fa fa-lock input-icon"></i>
-                                            <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
-                                        </div>
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="signin">
+                                        <form class="sign-form" method="POST" action="/signin">
+                                            <div class="input-prepend">
+                                                <i class="fa fa-envelope input-icon"></i>
+                                                <input class="input-text" type="email" placeholder="Email" required>
+                                            </div>
+                                            <div class="input-prepend">
+                                                <i class="fa fa-lock input-icon"></i>
+                                                <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
+                                            </div>
 
-                                        <input type="checkbox" id="home-remember-box">
-                                        <label for="home-remember-box" class="home-remember-label">Remember me</label>
+                                            <input type="checkbox" id="home-remember-box">
+                                            <label for="home-remember-box" class="home-remember-label">Remember me</label>
 
-                                        <div id="signin-spinner"></div>
+                                            <div id="signin-spinner"></div>
 
-                                        <input type="submit" value="Sign In" class="btn btn-primary sign-btn-submit">
-                                    </form>
-                                </div>
+                                            <input type="submit" value="Sign In" class="btn btn-primary sign-btn-submit">
+                                        </form>
+                                    </div>
 
-                                <div class="tab-pane" id="signup">
-                                    <form class="sign-form" method="POST" action="/signup">
-                                        <div class="input-prepend">
-                                            <i class="fa fa-envelope input-icon"></i>
-                                            <input class="input-text" type="email" placeholder="Email" required>
-                                        </div>
-                                        <div class="input-prepend">
-                                            <i class="fa fa-lock input-icon"></i>
-                                            <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
-                                        </div>
-                                        <div class="input-prepend">
-                                            <i class="fa fa-lock input-icon"></i>
-                                            <input class="input-text" type="password" placeholder="Confirm Password" required pattern=".{6,}" title="6 character minimum length">
-                                        </div>
+                                    <div class="tab-pane" id="signup">
+                                        <form class="sign-form" method="POST" action="/signup">
+                                            <div class="input-prepend">
+                                                <i class="fa fa-envelope input-icon"></i>
+                                                <input class="input-text" type="email" placeholder="Email" required>
+                                            </div>
+                                            <div class="input-prepend">
+                                                <i class="fa fa-lock input-icon"></i>
+                                                <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
+                                            </div>
+                                            <div class="input-prepend">
+                                                <i class="fa fa-lock input-icon"></i>
+                                                <input class="input-text" type="password" placeholder="Confirm Password" required pattern=".{6,}" title="6 character minimum length">
+                                            </div>
 
-                                        <div id="signup-spinner"></div>
+                                            <div id="signup-spinner"></div>
 
-                                        <input type="submit" value="Sign Up" class="btn btn-primary sign-btn-submit">
-                                    </form>
+                                            <input type="submit" value="Sign Up" class="btn btn-primary sign-btn-submit">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div id="authenticated-container">
+                                <h3 class="authenticated-title">Welcome back</h3>
+                                <h4 class="home-highlight authenticated-title">elo555@yopmail.com</h4>
+
+                                <p class="authenticated-title">You can <a href="/webapp.html#/logout">logout here</a> or</p>
+
+                                <a href="/webapp.html" class="btn btn-primary sign-btn-submit">Launch Web App</a>
+                            </div>
+
                         </div>
                     </div>
 

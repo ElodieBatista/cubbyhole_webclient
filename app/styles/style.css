@@ -529,10 +529,21 @@ footer {
     height: 45px;
     text-transform: uppercase;
     font-family: "OpenSans-Regular";
+    line-height: 45px;
+    padding: 0;
 }
 
 .sign-btn-submit:hover {
     background-color: rgb(255, 29, 37);
+}
+
+#authenticated-container {
+    display: none;
+    text-align: center;
+}
+
+.authenticated-title {
+    margin-bottom: 40px;
 }
 
 
