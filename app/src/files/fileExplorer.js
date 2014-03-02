@@ -202,7 +202,10 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.feDownloadItem = function() {
-                $('#file-explorer-form-download').submit();
+                if (scope.itemActive.type === 'file' || scope.itemActive.children.length > 0) {
+                    $('#file-explorer-form-download').submit();
+                }
+
                 $('.modal').modal('hide');
             };
 
