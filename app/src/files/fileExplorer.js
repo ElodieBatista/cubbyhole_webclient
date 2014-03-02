@@ -155,17 +155,21 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.feOpenModalNewFiles = function() {
+                var node = $tree.tree('getSelectedNode');
                 scope.modalOpts = {
                     title: 'Upload files',
                     iconClass: 'fa-file',
                     submitBtnVal: 'Add',
                     submitFn: scope.onFileSelect,
-                    submitFnExtraParam: null,
+                    submitFnExtraParam: {
+                      parent: (node._id !== '-1' ? node._id : undefined),
+                      files: null
+                    },
                     template:
                             '<div class="modal-body">' +
                                 '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused}">' +
                                     '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-                                    '<input class="input-text" type="file" ng-file-select="modalOpts.submitFnExtraParam = $files;" multiple required />' +
+                                    '<input class="input-text" type="file" ng-file-select="modalOpts.submitFnExtraParam.files = $files;" multiple required />' +
                                 '</div>' +
                             '</div>'
                 };

@@ -47,6 +47,12 @@ module.controller('FilesCtrl',
             }
         });
 
+        var Download = $resource($rootScope.srvEndpoint + '/item/:id/download', {id: '@id'}, {
+          'get': {
+            method: 'GET'
+          }
+        });
+
         $scope.folders = null;
 
         $scope.path = $routeParams.path;
@@ -91,9 +97,18 @@ module.controller('FilesCtrl',
         };
 
 
-        $scope.onFileSelect = function(form, $files) {
-            for (var i = 0; i < $files.length; i++) {
-                var file = $files[i];
+        $scope.downloadItem = function(item) {
+            Download.get({'id':item._id}, function(res) {
+                console.log('dl success');
+            }, function(error) {
+                console.log('Can\'t download the item.');
+            });
+        };
+
+
+        $scope.onFileSelect = function(form, data) {
+            for (var i = 0; i < data.files.length; i++) {
+                var file = data.files[i];
                 $scope.uploading = true;
 
                 $scope.upload = $upload.upload({
@@ -101,7 +116,7 @@ module.controller('FilesCtrl',
                     method: 'POST',
                     data: {
                         type: 'file',
-                        parent: -1
+                        parent: data.parent
                     },
                     file: file
                     /* set file formData name for 'Content-Desposition' header. Default: 'file' */
@@ -110,11 +125,12 @@ module.controller('FilesCtrl',
                     //formDataAppender: function(formData, key, val){} //#40#issuecomment-28612000
                 }).progress(function(e) {
                     console.log('percent: ' + parseInt(100.0 * e.loaded / e.total));
-                }).success(function(data, status, headers, config) {
-                    console.log(data);
+                }).success(function(res, status, headers, config) {
+                    console.log(res.data);
                     $scope.uploading = false;
-                })
-                .error(function(error) {
+
+                    $scope.feAddNode(res.data);
+                }).error(function(error) {
                     console.log(error);
                     $scope.uploading = false;
                 });
