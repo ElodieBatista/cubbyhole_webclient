@@ -25,12 +25,12 @@ module.directive('fileExplorer', function($location) {
                         function(event) {
                             // Node selected
                             if (event.node) {
-                                var node = event.node;
-                                scope.files = node.children;
+                                scope.selectedNode = event.node;
+                                scope.files = scope.selectedNode.children;
 
                                 scope.toggleItem(null);
 
-                                $location.path('/files').search({path: node.getPath()});
+                                $location.path('/files').search({path: scope.selectedNode.getPath()});
 
                                 if (!scope.$$phase) { scope.$apply(); }
                             } else {
@@ -111,13 +111,12 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.feOpenModalNewFolder = function() {
-                var node = $tree.tree('getSelectedNode');
                 scope.modalOpts = {
                     title: 'Create a folder',
                     iconClass: 'fa-folder',
                     submitFn: scope.addFolder,
                     placeholder: 'Folder name',
-                    submitFnExtraParam: (node._id !== '-1' ? node._id : undefined),
+                    submitFnExtraParam: scope.selectedNode._id,
                     submitBtnVal: 'Add'
                 };
 
@@ -155,21 +154,17 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.feOpenModalNewFiles = function() {
-                var node = $tree.tree('getSelectedNode');
                 scope.modalOpts = {
                     title: 'Upload files',
                     iconClass: 'fa-file',
                     submitBtnVal: 'Add',
                     submitFn: scope.onFileSelect,
-                    submitFnExtraParam: {
-                      parent: (node._id !== '-1' ? node._id : undefined),
-                      files: null
-                    },
+                    submitFnExtraParam: null,
                     template:
                             '<div class="modal-body">' +
                                 '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused}">' +
                                     '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-                                    '<input class="input-text" type="file" ng-file-select="modalOpts.submitFnExtraParam.files = $files;" multiple required />' +
+                                    '<input class="input-text" type="file" ng-file-select="modalOpts.submitFnExtraParam = $files;" multiple required />' +
                                 '</div>' +
                             '</div>'
                 };
@@ -214,14 +209,12 @@ module.directive('fileExplorer', function($location) {
 
 
             scope.feAddNode = function(item) {
-                var node = $tree.tree('getSelectedNode');
-
-                $tree.tree('openNode', node);
+                $tree.tree('openNode', scope.selectedNode);
 
                 $tree.tree(
                     'appendNode',
                     item,
-                    node
+                    scope.selectedNode
                 );
             };
 

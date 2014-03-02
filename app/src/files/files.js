@@ -107,8 +107,10 @@ module.controller('FilesCtrl',
 
 
         $scope.onFileSelect = function(form, data) {
-            for (var i = 0; i < data.files.length; i++) {
-                var file = data.files[i];
+            var $files = (data.files ? data.files : data);
+
+            for (var i = 0; i < $files.length; i++) {
+                var file = $files[i];
                 $scope.uploading = true;
 
                 $scope.upload = $upload.upload({
@@ -116,7 +118,7 @@ module.controller('FilesCtrl',
                     method: 'POST',
                     data: {
                         type: 'file',
-                        parent: data.parent
+                        parent: $scope.selectedNode._id
                     },
                     file: file
                     /* set file formData name for 'Content-Desposition' header. Default: 'file' */

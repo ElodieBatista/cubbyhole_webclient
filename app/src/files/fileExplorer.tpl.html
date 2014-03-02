@@ -21,6 +21,10 @@
                 <img class="action-bar-icon" src="/styles/icons/icon_delete.svg" />
                 <span>Delete</span>
             </li>
+            <li class="action-bar-item" ng-show="itemActive" ng-click="downloadItem(itemActive)">
+                <img class="action-bar-icon" src="/styles/icons/icon_download.svg" />
+                <span>Download</span>
+            </li>
         </ul>
 
         <table class="grid-view-table">
@@ -39,11 +43,17 @@
             </tr>
         </table>
 
+        <p id="grid-view-msg" ng-show="files.length === 0">
+            This folder is empty. <span class="grid-view-highlight">Drag and drop</span> some folders and files here!
+        </p>
+
         <div class="upload-progress-container" ng-show="uploading">
             <button class="upload-btn" ng-click="upload.abort()">Cancel Upload</button>
         </div>
 
     </div>
+
+    <a href="http://localhost:3000/item/53123e96a66cb87c12000002/download">Test</a>
 
 </div>
 

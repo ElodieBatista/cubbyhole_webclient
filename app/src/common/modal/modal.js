@@ -17,12 +17,12 @@ module.directive('modal', function($compile) {
             scope.$watch('modalOpts.template', function(newValue, oldValue) {
                 if (newValue !== undefined && newValue !== null) {
                     var htmlStr = $compile(scope.modalOpts.template)(scope);
-                    $('#modal-body-custom').append(htmlStr);
+                    $('#modal-body-custom').html(htmlStr);
                 }
             });
 
             $(elem).on('shown.bs.modal', function (e) {
-              $(this).find('input:first').focus();
+                $(this).find('input:first').focus();
             });
         }
     };
