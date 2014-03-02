@@ -47,12 +47,6 @@ module.controller('FilesCtrl',
             }
         });
 
-        var Download = $resource($rootScope.srvEndpoint + '/item/:id/download', {id: '@id'}, {
-          'get': {
-            method: 'GET'
-          }
-        });
-
         $scope.folders = null;
 
         $scope.path = $routeParams.path;
@@ -97,15 +91,6 @@ module.controller('FilesCtrl',
         };
 
 
-        $scope.downloadItem = function(item) {
-            Download.get({'id':item._id}, function(res) {
-                console.log('dl success');
-            }, function(error) {
-                console.log('Can\'t download the item.');
-            });
-        };
-
-
         $scope.onFileSelect = function(form, data) {
             var $files = (data.files ? data.files : data);
 
@@ -142,8 +127,10 @@ module.controller('FilesCtrl',
 
         $scope.toggleItem = function(item) {
             if ($scope.itemActive === item) {
+                $scope.itemActiveId = -1;
                 $scope.itemActive = null;
             } else {
+                $scope.itemActiveId = (item === null ? -1 : item._id);
                 $scope.itemActive = item;
             }
         };

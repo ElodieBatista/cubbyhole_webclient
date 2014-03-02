@@ -12,6 +12,8 @@ module.directive('fileExplorer', function($location) {
         templateUrl: '/src/files/fileExplorer.tpl.html',
 
         link: function (scope, element, attrs) {
+            scope.token = localStorage.token;
+
             var $tree;
 
             scope.$watch(attrs.items, function(newValue) {
@@ -205,6 +207,11 @@ module.directive('fileExplorer', function($location) {
                 scope.toggleItem(null);
 
                 $('.modal').modal('hide');
+            };
+
+
+            scope.feDownloadItem = function() {
+              $('#file-explorer-form-download').submit();
             };
 
 

@@ -70,6 +70,10 @@ body {
     height: 100%;
 }
 
+#file-explorer-form-download {
+    display: none;
+}
+
 #grid-view {
     height: 100%;
     background-color: rgb(255, 255, 255);
