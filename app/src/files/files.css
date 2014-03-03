@@ -109,7 +109,15 @@ body {
   height: 100%;
   background-color: rgb(255, 255, 255);
   border: 3px solid white;
-  overflow-y: scroll;
+  /*overflow-y: auto;*/
+}
+
+.grid-view-table-container {
+  position: absolute;
+  max-height: 100%;
+  margin-bottom: -50px;
+  margin-right: 15px;
+  overflow-y: auto;
 }
 
 .grid-view-table {
