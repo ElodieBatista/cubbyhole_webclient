@@ -117,11 +117,9 @@ module.controller('FilesCtrl',
           }).success(function(res, status, headers, config) {
             console.log(res.data);
             $scope.uploading = false;
-            $scope.feAddFiles();
             $scope.feAddNode(res.data);
           }).error(function(error) {
             console.log(error);
-            $scope.feAddFiles();
             $scope.uploading = false;
           });
       }

@@ -15,7 +15,7 @@ module.directive('fileExplorer', function($location) {
       scope.token = localStorage.token;
 
       var $tree,
-        $progressBar = $('#file-explorer-progress-bar');
+          $progressBar = $('#file-explorer-progress-bar');
 
       scope.$watch(attrs.items, function(newValue) {
         if (newValue !== undefined && newValue !== null) {
@@ -111,7 +111,8 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.addFolder,
           placeholder: 'Folder name',
           submitFnExtraParam: scope.selectedNode._id,
-          submitBtnVal: 'Add'
+          submitBtnVal: 'Add',
+          dismiss: scope.dismissModal
         };
 
         $('#appmodal').modal('show');
@@ -125,7 +126,8 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.renameItem,
           placeholder: item.name,
           submitFnExtraParam: item._id,
-          submitBtnVal: 'Rename'
+          submitBtnVal: 'Rename',
+          dismiss: scope.dismissModal
         };
 
         $('#appmodal').modal('show');
@@ -137,6 +139,7 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.deleteItem,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Delete',
+          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<p>Are you sure you want to delete this ' + item.type + '?</p>' +
@@ -154,6 +157,7 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Add',
           submitFn: scope.onFileSelect,
           submitFnExtraParam: null,
+          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused}">' +
@@ -169,9 +173,6 @@ module.directive('fileExplorer', function($location) {
 
       scope.feAddFolder = function(folder) {
         scope.feAddNode(folder);
-
-        $('.modal').modal('hide');
-        $('.modal input:not([type="submit"]').val('');
       };
 
 
@@ -185,9 +186,6 @@ module.directive('fileExplorer', function($location) {
             name: name
           }
         );
-
-        $('.modal').modal('hide');
-        $('.modal input:not([type="submit"]').val('');
       };
 
 
@@ -197,8 +195,6 @@ module.directive('fileExplorer', function($location) {
         $tree.tree('removeNode', node);
 
         scope.toggleItem(null);
-
-        $('.modal').modal('hide');
       };
 
 
@@ -206,8 +202,6 @@ module.directive('fileExplorer', function($location) {
         if (scope.itemActive.type === 'file' || scope.itemActive.children.length > 0) {
           $('#file-explorer-form-download').submit();
         }
-
-        $('.modal').modal('hide');
       };
 
 
@@ -219,18 +213,14 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Download',
           submitFn: scope.feDownloadItem,
           submitFnExtraParam: null,
+          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<p>Do you want to download this ' + item.type + '?</p>' +
-              '</div>'
+            '</div>'
         };
 
         $('#appmodal').modal('show');
-      };
-
-
-      scope.feAddFiles = function() {
-        $('.modal').modal('hide');
       };
 
 
@@ -258,6 +248,12 @@ module.directive('fileExplorer', function($location) {
             $progressBar.removeClass('progress-bar-animate');
           }, 500);
         }
+      };
+
+
+      scope.dismissModal = function() {
+        $('.modal').modal('hide');
+        $('.modal input:not([type="submit"]').val('');
       };
 
 

@@ -7,7 +7,7 @@
         <h4 class="modal-title" ng-bind="modalOpts.title"></h4>
       </div>
 
-      <form role="form" name="modalform" ng-submit="modalOpts.submitFn(modalform, modalOpts.submitFnExtraParam)">
+      <form role="form" name="modalform" ng-submit="modalOpts.submitFn(modalform, modalOpts.submitFnExtraParam); modalOpts.dismiss();">
         <div class="modal-body" ng-if="modalOpts.template === undefined">
           <div class="input-prepend" ng-class="{'input-prepend-active': focused}">
             <i class="fa input-icon" ng-class="modalOpts.iconClass"></i>
