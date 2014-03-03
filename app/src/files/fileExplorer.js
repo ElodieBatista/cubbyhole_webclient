@@ -253,7 +253,6 @@ module.directive('fileExplorer', function($location) {
 
       scope.dismissModal = function() {
         $('.modal').modal('hide');
-        $('.modal input:not([type="submit"]').val('');
       };
 
 

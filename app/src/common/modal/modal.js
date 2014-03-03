@@ -21,7 +21,11 @@ module.directive('modal', function($compile) {
       });
 
       $(elem).on('shown.bs.modal', function (e) {
-        $(this).find('input:first').focus();
+        $(this).find('input:not([type="file"]):first').focus();
+      });
+
+      $(elem).on('hide.bs.modal', function (e) {
+        $(this).find('input:not([type="submit"])').val('');
       });
     }
   };
