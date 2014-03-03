@@ -104,6 +104,14 @@ body {
 }
 
 
+/* TREE VIEW */
+@media screen and (max-width: 991px) {
+  #tree-view {
+    display: none;
+  }
+}
+
+
 /* GRID VIEW */
 #grid-view {
   height: 100%;
@@ -112,11 +120,9 @@ body {
 }
 
 .grid-view-table-container {
-  position: absolute;
   height: -webkit-calc(100% - 50px);
   height: -moz-calc(100% - 50px);
   height: calc(100% - 50px);
-  margin-right: 15px;
   overflow-y: auto;
 }
 
@@ -214,7 +220,6 @@ body {
   padding: 0;
   text-align: center;
   background-color: rgb(240, 240, 240);
-
 }
 
 .action-bar-icon {
@@ -235,4 +240,10 @@ body {
 .action-bar-item:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(254, 80, 81);
+}
+
+@media screen and (max-width: 600px) {
+  .action-bar-item span {
+    display: none;
+  }
 }
