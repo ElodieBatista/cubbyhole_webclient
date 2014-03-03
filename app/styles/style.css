@@ -333,6 +333,92 @@ input[type="file"] {
 }
 
 
+/* TABS */
+.nav-tabs {
+  margin: 0 0 11px;
+  text-transform: uppercase;
+  border-bottom: 1px solid;
+}
+
+.nav-tabs .active a {
+  background-color: transparent;
+}
+
+.primary .nav-tabs    { border-color: rgb(255, 29, 37);   }
+.secondary .nav-tabs  { border-color: rgb(63, 169, 245);  }
+.tertiary .nav-tabs   { border-color: rgb(255, 147, 30);  }
+.quaternary .nav-tabs { border-color: rgb(122, 201, 67);  }
+.quinary .nav-tabs    { border-color: rgb(255, 108, 164); }
+
+.primary .sign-nav-item {
+  background-image: -webkit-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
+  background-image: -moz-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
+  background-image: -o-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
+  background-image: -ms-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
+}
+
+.secondary .sign-nav-item {
+  background-image: -webkit-linear-gradient(rgb(95, 182, 245), rgb(95, 182, 245));
+  background-image: -moz-linear-gradient(rgb(95, 182, 245), rgb(95, 182, 245));
+  background-image: -o-linear-gradient(rgb(95, 182, 245), rgb(95, 182, 245));
+  background-image: -ms-linear-gradient(rgb(95, 182, 245), rgb(95, 182, 245));
+}
+
+.tertiary .sign-nav-item {
+  background-image: -webkit-linear-gradient(rgb(255, 168, 72), rgb(255, 168, 72));
+  background-image: -moz-linear-gradient(rgb(255, 168, 72), rgb(255, 168, 72));
+  background-image: -o-linear-gradient(rgb(255, 168, 72), rgb(255, 168, 72));
+  background-image: -ms-linear-gradient(rgb(255, 168, 72), rgb(255, 168, 72));
+}
+
+.quaternary .sign-nav-item {
+  background-image: -webkit-linear-gradient(rgb(141, 209, 97), rgb(141, 209, 97));
+  background-image: -moz-linear-gradient(rgb(141, 209, 97), rgb(141, 209, 97));
+  background-image: -o-linear-gradient(rgb(141, 209, 97), rgb(141, 209, 97));
+  background-image: -ms-linear-gradient(rgb(141, 209, 97), rgb(141, 209, 97));
+}
+
+.quinary .sign-nav-item {
+  background-image: -webkit-linear-gradient(rgb(255, 149, 189), rgb(255, 149, 189));
+  background-image: -moz-linear-gradient(rgb(255, 149, 189), rgb(255, 149, 189));
+  background-image: -o-linear-gradient(rgb(255, 149, 189), rgb(255, 149, 1891));
+  background-image: -ms-linear-gradient(rgb(255, 149, 189), rgb(255, 149, 189));
+}
+
+.primary .nav-tabs .active a    { color: rgb(255, 29, 37) !important;   }
+.secondary .nav-tabs .active a  { color: rgb(63, 169, 245) !important;  }
+.tertiary .nav-tabs .active a   { color: rgb(255, 147, 30) !important;  }
+.quaternary .nav-tabs .active a { color: rgb(122, 201, 67) !important;  }
+.quinary .nav-tabs .active a    { color: rgb(255, 108, 164) !important; }
+
+.sign-nav-item {
+  margin-bottom: 0;
+  background-repeat: no-repeat;
+  background-position: 0 40px;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -ms-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+
+.sign-nav-item:hover {
+  background-position: 0 0;
+}
+
+.sign-nav-item:hover a,
+.sign-nav-item:hover.active a {
+  color: rgb(255, 255, 255) !important;
+}
+
+#sign-nav a {
+  color: rgb(100, 100, 100);
+  font-family: "OpenSans-Regular", Helvetica, Arial, sans-serif;
+  background-color: transparent;
+  border: none;
+}
+
+
 /* FOOTER */
 footer {
   min-height: 50px;
@@ -420,10 +506,10 @@ footer {
 
 /* COLORS */
 .primary-btn    { background-color: rgb(254, 80, 81);   }
-.secondary-btn  { background-color: rgb(63, 169, 245);  }
-.tertiary-btn   { background-color: rgb(255, 147, 30);  }
-.quaternary-btn { background-color: rgb(122, 201, 67);  }
-.quinary-btn    { background-color: rgb(255, 108, 164); }
+.secondary-btn  { background-color: rgb(95, 182, 245);  }
+.tertiary-btn   { background-color: rgb(255, 168, 72);  }
+.quaternary-btn { background-color: rgb(141, 209, 97);  }
+.quinary-btn    { background-color: rgb(255, 149, 189); }
 
 .primary-btn:hover,
 .primary-btn:focus,

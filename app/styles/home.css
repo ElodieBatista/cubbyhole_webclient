@@ -41,47 +41,6 @@
   line-height: 45px;
 }
 
-#sign-nav {
-  margin: 0 0 11px;
-  text-transform: uppercase;
-  border-bottom: 1px solid rgb(255, 29, 37);
-}
-
-.sign-nav-item {
-  margin-bottom: 0;
-  background-repeat: no-repeat;
-  background-position: 0 40px;
-  background-image: -webkit-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
-  background-image: -moz-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
-  background-image: -o-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
-  background-image: -ms-linear-gradient(rgb(254, 80, 81), rgb(254, 80, 81));
-  -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
-}
-
-.sign-nav-item:hover {
-  background-position: 0 0;
-}
-
-.sign-nav-item:hover a {
-  color: rgb(255, 255, 255) !important;
-}
-
-#sign-nav a {
-  color: rgb(100, 100, 100);
-  font-family: "OpenSans-Regular", Helvetica, Arial, sans-serif;
-  background-color: transparent;
-  border: none;
-}
-
-#sign-nav .active a {
-  color: rgb(255, 29, 37);
-  background-color: transparent;
-}
-
 #home-authenticated-container {
   display: none;
   text-align: center;
@@ -140,20 +99,20 @@
   padding: 20px;
   color: rgb(44, 44, 44);
   -webkit-transition: all 0.1s ease-out;
-  -moz-transition: all 0.1s ease-out;
-  -ms-transition: all 0.1s ease-out;
-  -o-transition: all 0.1s ease-out;
-  transition: all 0.1s ease-out;
+     -moz-transition: all 0.1s ease-out;
+      -ms-transition: all 0.1s ease-out;
+       -o-transition: all 0.1s ease-out;
+          transition: all 0.1s ease-out;
 }
 
 .plans-bloc:hover {
   z-index: 10;
   box-shadow: 0 0 5px rgb(220, 220, 220);
   -webkit-transform: scale(1.05, 1.05);
-  -moz-transform: scale(1.05, 1.05);
-  -ms-transform: scale(1.05, 1.05);
-  -o-transform: scale(1.05, 1.05);
-  transform: scale(1.05, 1.05);
+     -moz-transform: scale(1.05, 1.05);
+      -ms-transform: scale(1.05, 1.05);
+       -o-transform: scale(1.05, 1.05);
+          transform: scale(1.05, 1.05);
 }
 
 .plans-bloc:nth-child(1) {
