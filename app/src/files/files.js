@@ -34,7 +34,7 @@ module.controller('FilesCtrl',
 
         var File = $resource($rootScope.srvEndpoint + '/item/:id', {id: '@id'}, {
             'get': {
-                method: 'GET'
+                method:'GET'
             },
             'put': {
                 method:'PUT',
@@ -111,7 +111,9 @@ module.controller('FilesCtrl',
                     /* customize how data is added to formData. See #40#issuecomment-28612000 for example */
                     //formDataAppender: function(formData, key, val){} //#40#issuecomment-28612000
                 }).progress(function(e) {
-                    console.log('percent: ' + parseInt(100.0 * e.loaded / e.total));
+                    var percent = parseInt(100.0 * e.loaded / e.total);
+                    console.log('percent: ' + percent);
+                    $scope.feUpdateProgressBar(percent);
                 }).success(function(res, status, headers, config) {
                     console.log(res.data);
                     $scope.uploading = false;

@@ -74,6 +74,28 @@ body {
     display: none;
 }
 
+#file-explorer-progress-bar {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 3px;
+    background: rgb(255, 29, 37);
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+    pointer-events: none;
+}
+
+#file-explorer-progress-bar.progress-bar-animate {
+    z-index: 100;
+    opacity: 1;
+    -webkit-transition: -webkit-transform 0.3s ease-in;
+    transition: transform 0.3s ease-in;
+}
+
+
+/* GRID VIEW */
 #grid-view {
     height: 100%;
     background-color: rgb(255, 255, 255);
@@ -144,6 +166,24 @@ body {
     color: white;
 }
 
+.upload-container-hover {
+    border: 3px solid rgb(255, 29, 37) !important;
+}
+
+.upload-progress-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: -15px;
+}
+
+.upload-btn {
+    margin: 0 auto;
+    display: block;
+}
+
+
+/* ACTION BAR */
 .action-bar {
     display: block;
     width: 100%;
@@ -174,20 +214,4 @@ body {
 .action-bar-item:hover {
     background-color: rgb(254, 80, 81);
     color: rgb(255, 255, 255);
-}
-
-.upload-container-hover {
-    border: 3px solid rgb(255, 29, 37) !important;
-}
-
-.upload-progress-container {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: -15px;
-}
-
-.upload-btn {
-    margin: 0 auto;
-    display: block;
 }

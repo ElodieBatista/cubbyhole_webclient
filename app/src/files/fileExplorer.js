@@ -14,7 +14,8 @@ module.directive('fileExplorer', function($location) {
         link: function (scope, element, attrs) {
             scope.token = localStorage.token;
 
-            var $tree;
+            var $tree,
+                $progressBar = $('#file-explorer-progress-bar');
 
             scope.$watch(attrs.items, function(newValue) {
                 if (newValue !== undefined && newValue !== null) {
@@ -241,6 +242,22 @@ module.directive('fileExplorer', function($location) {
                     item,
                     scope.selectedNode
                 );
+            };
+
+
+            scope.feUpdateProgressBar = function(percent) {
+                if (!$progressBar.hasClass('progress-bar-animate')) {
+                    $progressBar.addClass('progress-bar-animate');
+                }
+
+                $progressBar.css('transform', 'translate3d(' + (percent - 100) + '%,0,0)');
+
+                if (percent === 100) {
+                    setTimeout(function() {
+                        $progressBar.css('transform', 'translate3d(-100%,0,0)');
+                        $progressBar.removeClass('progress-bar-animate');
+                    }, 500);
+                }
             };
 
 
