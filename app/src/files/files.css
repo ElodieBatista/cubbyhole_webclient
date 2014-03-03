@@ -37,6 +37,10 @@ ul.jqtree-tree li.jqtree-folder .jqtree-title {
   padding-right: 15px;
 }
 
+ul.jqtree-tree ul.jqtree_common {
+  margin-left: 16px;
+}
+
 /* BASE */
 html, body {
   height: 100%;
