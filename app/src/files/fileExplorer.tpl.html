@@ -27,6 +27,10 @@
         <img class="action-bar-icon" src="/styles/icons/icon_download.svg" />
         <span>Download</span>
       </li>
+      <li class="action-bar-item" ng-show="itemActive && itemActive.type === 'folder'" ng-click="feSelectNode(itemActive)">
+        <img class="action-bar-icon" src="/styles/icons/icon_open.svg" />
+        <span>Open</span>
+      </li>
     </ul>
 
     <table class="grid-view-table">
