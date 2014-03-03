@@ -35,10 +35,12 @@
 
     <table class="grid-view-table">
       <thead>
-      <tr class="grid-view-table-header">
-        <th>Name</th>
-        <th>Type</th>
-      </tr>
+        <tr class="grid-view-table-header">
+          <th>Name</th>
+          <th>Type</th>
+          <th>Size</th>
+          <th>Modified</th>
+        </tr>
       </thead>
       <tr class="grid-view-table-tr" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files" ng-click="toggleItem(file)">
         <td class="grid-view-table-td-first">
@@ -47,7 +49,15 @@
           <span class="grid-view-table-filename" ng-if="file.type === 'folder'" ng-click="feSelectNode(file)">{{file.name}}</span>
           <span class="grid-view-table-filename" ng-if="file.type === 'file'" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();">{{file.name}}</span>
         </td>
-        <td>{{file.type}}</td>
+        <td>
+          <span ng-if="file.type === 'folder'" ng-bind="file.type"></span>
+          <span ng-if="file.type === 'file'" ng-bind="file.meta.type"></span>
+        </td>
+        <td>
+          <span ng-if="file.type === 'folder'">-</span>
+          <span ng-if="file.type === 'file'" ng-bind="file.meta.size"></span>
+        </td>
+        <td>{{file.lastModified}}</td>
       </tr>
     </table>
 

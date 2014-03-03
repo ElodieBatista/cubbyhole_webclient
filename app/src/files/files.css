@@ -167,6 +167,10 @@ body {
   color: rgb(254, 80, 81);
 }
 
+.grid-view-table-header th:first-child {
+  width: 100%;
+}
+
 .itemActive {
   background-color: rgba(254, 80, 81, 0.7);
 }
