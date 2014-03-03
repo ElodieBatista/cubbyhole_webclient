@@ -1,10 +1,10 @@
-<div id="file-explorer-container">
+<div class="primary" id="file-explorer-container">
 
-  <div id="tree-view" class="panel-left-content col-md-3"></div>
+  <div class="panel-left-content col-md-3" id="tree-view"></div>
 
   <div id="file-explorer-progress-bar"></div>
 
-  <div id="grid-view" class="col-md-9" ng-file-drop="onFileSelect(null, $files)" ng-file-drag-over-class="upload-container-hover">
+  <div class="col-md-9" id="grid-view" ng-file-drop="onFileSelect(null, $files)" ng-file-drag-over-class="upload-container-hover">
 
     <ul class="action-bar">
       <li class="action-bar-item" data-toggle="modal" ng-click="feOpenModalNewFolder()">
@@ -36,12 +36,12 @@
         <th>Type</th>
       </tr>
       </thead>
-      <tr ng-repeat="file in files" class="grid-view-table-tr" ng-click="toggleItem(file)" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]">
+      <tr class="grid-view-table-tr" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files" ng-click="toggleItem(file)">
         <td class="grid-view-table-td-first">
           <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
 
-          <span ng-if="file.type === 'folder'" class="grid-view-table-filename" ng-click="feSelectNode(file)">{{file.name}}</span>
-          <span ng-if="file.type === 'file'" class="grid-view-table-filename" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();">{{file.name}}</span>
+          <span class="grid-view-table-filename" ng-if="file.type === 'folder'" ng-click="feSelectNode(file)">{{file.name}}</span>
+          <span class="grid-view-table-filename" ng-if="file.type === 'file'" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();">{{file.name}}</span>
         </td>
         <td>{{file.type}}</td>
       </tr>
@@ -61,4 +61,4 @@
   </form>
 </div>
 
-<modal modal-opts="modalOpts"></modal>
+<modal class="primary" modal-opts="modalOpts"></modal>

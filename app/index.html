@@ -7,21 +7,22 @@
     <link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-complete.min.css" />
     <link rel="stylesheet" href="styles/font-awesome/font-awesome-4.0.3.min.css" />
     <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/home.css" />
   </head>
 
   <body data-spy="scroll" data-target=".navtop-items-container">
 
-    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav navtop-container" role="banner">
+    <header class="navbar navbar-inverse navbar-fixed-top navtop-container" role="banner">
       <div class="container">
 
         <div class="navbar-header">
-          <button class="navbar-toggle navtop-toggle-button" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+          <button class="navbar-toggle navtop-toggle-button" data-toggle="collapse" data-target=".bs-navbar-collapse" type="button">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="./" id="navtop-brand" class="navbar-brand"><i class="navtop-icon fa fa-th"></i> Cubbyhole</a>
+          <a class="navbar-brand" href="./"><i class="navtop-icon fa fa-th"></i> Cubbyhole</a>
         </div>
 
         <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" role="navigation">
@@ -49,27 +50,27 @@
 
     <div class="content-container">
       <div class="container">
-        <div class="row" id="home">
+        <div class="row primary" id="home">
 
           <div class="row space-top-double">
             <div class="col-md-12">
               <h1>Cubbyhole</h1>
-              <h2>Sharing <span class="home-highlight">easier</span> with online storage</h2>
+              <h2>Sharing <span class="highlight">easier</span> with online storage</h2>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6 home-container-intro">
-              <img class="home-picture" src="/styles/img/home.png">
+              <img class="home-picture" src="/styles/img/home.png" alt="home">
 
               <p class="home-banner">Store & Synchronize your data online from various devices</p>
             </div>
 
             <div class="col-md-6 home-container-sign">
-              <div id="unauthenticated-container">
+              <div id="home-unauthenticated-container">
                 <ul class="nav nav-tabs" id="sign-nav">
-                  <li class="sign-nav-item active"><a href="#signin" data-toggle="tab">Sign In</a></li>
-                  <li class="sign-nav-item"><a href="#signup" data-toggle="tab">Sign Up</a></li>
+                  <li class="sign-nav-item active"><a data-toggle="tab" href="#signin">Sign In</a></li>
+                  <li class="sign-nav-item"><a data-toggle="tab" href="#signup">Sign Up</a></li>
                 </ul>
 
                 <div class="tab-content">
@@ -84,12 +85,12 @@
                         <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
                       </div>
 
-                      <input type="checkbox" id="home-remember-box">
-                      <label for="home-remember-box" class="home-remember-label">Remember me</label>
+                      <input id="home-remember-box" type="checkbox">
+                      <label class="home-remember-label" for="home-remember-box" >Remember me</label>
 
                       <div id="signin-spinner"></div>
 
-                      <input type="submit" value="Sign In" class="btn btn-primary sign-btn-submit">
+                      <input class="btn primary-btn" type="submit" value="Sign In">
                     </form>
                   </div>
 
@@ -110,19 +111,19 @@
 
                       <div id="signup-spinner"></div>
 
-                      <input type="submit" value="Sign Up" class="btn btn-primary sign-btn-submit">
+                      <input class="btn primary-btn" type="submit" value="Sign Up">
                     </form>
                   </div>
                 </div>
               </div>
 
-              <div id="authenticated-container">
-                <h3 class="authenticated-title">Welcome back</h3>
-                <h4 class="home-highlight authenticated-title">elo555@yopmail.com</h4>
+              <div id="home-authenticated-container">
+                <h3 class="home-authenticated-title">Welcome back</h3>
+                <h4 class="highlight home-authenticated-title">elo555@yopmail.com</h4>
 
-                <p class="authenticated-title">You can <a href="/webapp.html#/logout">logout here</a> or</p>
+                <p class="home-authenticated-title">You can <a href="/webapp.html#/logout">logout here</a> or</p>
 
-                <a href="/webapp.html" class="btn btn-primary sign-btn-submit">Launch Web App</a>
+                <a class="btn primary-btn" href="/webapp.html">Launch Web App</a>
               </div>
 
             </div>
@@ -134,12 +135,12 @@
 
     <div class="content-container">
       <div class="container">
-        <div class="row" id="features">
+        <div class="row secondary" id="features">
 
           <div class="row space-top">
             <div class="col-md-12">
               <h1>Features</h1>
-              <h2>One <span class="features-highlight">place</span> for all your documents</h2>
+              <h2>One <span class="highlight">place</span> for all your documents</h2>
             </div>
           </div>
 
@@ -153,7 +154,7 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <img class="features-img" src="/styles/icons/icon_store.svg">
+                  <img class="features-img" src="/styles/icons/icon_store.svg" alt="icon storage" />
                 </div>
               </div>
 
@@ -177,7 +178,7 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <img class="features-img" src="/styles/icons/icon_share.svg">
+                  <img class="features-img" src="/styles/icons/icon_share.svg" alt="icon sharing">
                 </div>
               </div>
 
@@ -202,7 +203,7 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <img class="features-img" src="/styles/icons/icon_browse.svg">
+                  <img class="features-img" src="/styles/icons/icon_browse.svg" alt="icon browsing">
                 </div>
               </div>
 
@@ -215,6 +216,7 @@
                   </p>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -223,18 +225,18 @@
 
     <div class="content-container">
       <div class="container">
-        <div class="row" id="downloads">
+        <div class="row tertiary" id="downloads">
 
           <div class="row space-top">
             <div class="col-md-12">
               <h1>Downloads</h1>
-              <h2>Because you want <span class="downloads-highlight">more</span></h2>
+              <h2>Because you want <span class="highlight">more</span></h2>
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-              <img class="downloads-img-medium" src="/styles/img/iphone-a3.png">
+              <img class="downloads-img-medium" src="/styles/img/iphone-a3.png" alt="icon download">
             </div>
 
             <div class="col-md-6 downloads-bloc no-padding">
@@ -249,7 +251,7 @@
                   <p class="downloads-description">
                     Retrieve all the Cubbyhole features to store and manage your documents online on our new Cubbybole app.<br /><br />
 
-                    Download it now: <a href=""><img class="downloads-logo" src="/styles/img/app-store.png"></a>
+                    Download it now: <a href=""><img class="downloads-logo" src="/styles/img/app-store.png" alt="icon download"></a>
                   </p>
                 </div>
               </div>
@@ -269,14 +271,14 @@
                   <p class="downloads-description">
                     Synchronize all or some of your documents on your local machine.<br /><br />
 
-                    Download it now: <a href=""><img class="downloads-logo" src="/styles/img/get-sync-client.png"></a>
+                    Download it now: <a href=""><img class="downloads-logo" src="/styles/img/get-sync-client.png" alt="icon download"></a>
                   </p>
                 </div>
               </div>
             </div>
 
             <div class="col-md-6">
-              <img class="downloads-img" src="/styles/img/pc2-a.png">
+              <img class="downloads-img" src="/styles/img/pc2-a.png" alt="icon download">
             </div>
           </div>
 
@@ -286,12 +288,12 @@
 
     <div class="content-container">
       <div class="container">
-        <div class="row" id="plans">
+        <div class="row quaternary" id="plans">
 
           <div class="row space-top">
             <div class="col-md-12">
               <h1>Plans</h1>
-              <h2>To meet <span class="plans-highlight">all</span> your needs</h2>
+              <h2>To meet <span class="highlight">all</span> your needs</h2>
             </div>
           </div>
 
@@ -306,7 +308,7 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <img class="plans-img" src="/styles/icons/icon_gift.svg">
+                  <img class="plans-img" src="/styles/icons/icon_gift.svg" alt="icon gift">
                 </div>
               </div>
 
@@ -349,7 +351,7 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <img class="plans-img" src="/styles/icons/icon_handshake.svg">
+                  <img class="plans-img" src="/styles/icons/icon_handshake.svg" alt="icon handshake">
                 </div>
               </div>
 
@@ -392,7 +394,7 @@
 
               <div class="row">
                 <div class="col-md-12">
-                  <img class="plans-img" src="/styles/icons/icon_briefcase.svg">
+                  <img class="plans-img" src="/styles/icons/icon_briefcase.svg" alt="icon briefcase">
                 </div>
               </div>
 
@@ -431,12 +433,12 @@
 
     <div class="content-container">
       <div class="container">
-        <div class="row" id="about">
+        <div class="row quinary" id="about">
 
           <div class="row space-top">
             <div class="col-md-12">
               <h1>About</h1>
-              <h2>We <span class="about-highlight">love</span> what we do</h2>
+              <h2>We <span class="highlight">love</span> what we do</h2>
             </div>
           </div>
 
@@ -490,17 +492,17 @@
 
                 <div class="row">
                   <div class="col-md-4 about-social-container">
-                    <img class="about-social-logo" src="/styles/img/facebook.png">
+                    <img class="about-social-logo" src="/styles/img/facebook.png" alt="facebook">
                     <a class="about-social-link" href="http://www.facebook.com/cubbyhole">Like us</a>
                   </div>
 
                   <div class="col-md-4 about-social-container">
-                    <img class="about-social-logo" src="/styles/img/twitter.png">
+                    <img class="about-social-logo" src="/styles/img/twitter.png" alt="twitter">
                     <a class="about-social-link" href="http://www.twitter.com/cubbyhole">Follow us</a>
                   </div>
 
                   <div class="col-md-4 about-social-container">
-                    <img class="about-social-logo" src="/styles/img/email.png">
+                    <img class="about-social-logo" src="/styles/img/email.png" alt="email">
                     <a class="about-social-link" href="mailto:contact@cubbyhole.com">Email us</a>
                   </div>
                 </div>
@@ -509,7 +511,7 @@
             </div>
 
             <div class="col-md-6">
-              <img class="about-img" src="/styles/img/about.jpg">
+              <img class="about-img" src="/styles/img/about.jpg" alt="about">
             </div>
 
           </div>
@@ -533,7 +535,7 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
             <h4 class="modal-title"><span id="modal-title"></span></h4>
           </div>
 
@@ -542,7 +544,7 @@
           </div>
 
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+            <button class="btn primary-btn" data-dismiss="modal">Ok</button>
           </div>
 
         </div>

@@ -5,9 +5,9 @@ ul.jqtree-tree li.jqtree-selected > .jqtree-element {
 
 ul.jqtree-tree li.jqtree-selected > .jqtree-element,
 ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
-  background: none;
-  text-shadow: none;
   display: block;
+  text-shadow: none;
+  background: none;
 }
 
 ul.jqtree-tree .jqtree-title {
@@ -15,11 +15,10 @@ ul.jqtree-tree .jqtree-title {
 }
 
 ul.jqtree-tree .jqtree-element {
-  white-space: nowrap;
-  width: 100%;
-  padding: 7px;
-  padding-left: 10px;
   display: block;
+  width: 100%;
+  padding: 7px 7px 7px 10px;
+  white-space: nowrap;
 }
 
 ul.jqtree-tree .jqtree-toggler {
@@ -48,17 +47,17 @@ body {
 }
 
 #panel-left {
+  display: block;
   height: 100%;
   min-height: 100%;
-  display: block;
 }
 
 .panel-left-content {
-  background-color: rgb(240, 240, 240);
-  color: rgb(50, 50, 50);
   height: 100%;
-  overflow: auto;
   padding: 5px;
+  color: rgb(50, 50, 50);
+  background-color: rgb(240, 240, 240);
+  overflow: auto;
 }
 
 .panel-left-content > ul {
@@ -82,16 +81,22 @@ body {
   width: 100%;
   height: 3px;
   background: rgb(255, 29, 37);
-  -webkit-transform: translate3d(-100%, 0, 0);
-  transform: translate3d(-100%, 0, 0);
   pointer-events: none;
+  -webkit-transform: translate3d(-100%, 0, 0);
+     -moz-transform: translate3d(-100%, 0, 0);
+      -ms-transform: translate3d(-100%, 0, 0);
+       -o-transform: translate3d(-100%, 0, 0);
+          transform: translate3d(-100%, 0, 0);
 }
 
 #file-explorer-progress-bar.progress-bar-animate {
   z-index: 100;
   opacity: 1;
   -webkit-transition: -webkit-transform 0.3s ease-in;
-  transition: transform 0.3s ease-in;
+     -moz-transition: -moz-transform 0.3s ease-in;
+      -ms-transition: -ms-transform 0.3s ease-in;
+       -o-transition: -o-transform 0.3s ease-in;
+          transition: transform 0.3s ease-in;
 }
 
 
@@ -108,15 +113,15 @@ body {
 }
 
 .grid-view-table-header {
-  text-align: left;
-  border-bottom: 2px solid rgb(230, 230, 230);
-  text-transform: uppercase;
   color: rgb(150, 150, 150);
+  text-align: left;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgb(230, 230, 230);
 }
 
 .grid-view-table-header th {
-  font-weight: normal;
   padding: 5px;
+  font-weight: normal;
 }
 
 .grid-view-table-tr {
@@ -129,7 +134,7 @@ body {
 }
 
 .grid-view-table-td-first {
-  color: rgb(255, 0, 0);
+  color: rgb(255, 29, 37);
   font-variant: small-caps;
   font-size: 15px;
   cursor: pointer;
@@ -137,8 +142,8 @@ body {
 
 .grid-view-table-icon {
   width: 23px;
-  vertical-align: bottom;
   margin-right: 5px;
+  vertical-align: bottom;
 }
 
 .grid-view-table-filename:hover {
@@ -150,8 +155,8 @@ body {
 }
 
 #grid-view-msg {
-  text-align: center;
   margin-top: 100px;
+  text-align: center;
 }
 
 .grid-view-highlight {
@@ -172,14 +177,14 @@ body {
 
 .upload-progress-container {
   position: absolute;
+  left: -15px;
   bottom: 0;
   width: 100%;
-  left: -15px;
 }
 
 .upload-btn {
-  margin: 0 auto;
   display: block;
+  margin: 0 auto;
 }
 
 
@@ -188,11 +193,11 @@ body {
   display: block;
   width: 100%;
   height: 30px;
-  margin-bottom: 10px;
+  margin: 10px auto;
   padding: 0;
-  margin-top: 10px;
-  background-color: rgb(240, 240, 240);
   text-align: center;
+  background-color: rgb(240, 240, 240);
+
 }
 
 .action-bar-icon {
@@ -203,15 +208,14 @@ body {
   float: right;
   display: block;
   height: 30px;
+  padding: 0 5px;
+  color: rgb(50, 50, 50);
+  font-size: 12px;
   line-height: 30px;
   cursor: pointer;
-  padding-left: 5px;
-  padding-right: 5px;
-  font-size: 12px;
-  color: rgb(50, 50, 50);
 }
 
 .action-bar-item:hover {
-  background-color: rgb(254, 80, 81);
   color: rgb(255, 255, 255);
+  background-color: rgb(254, 80, 81);
 }

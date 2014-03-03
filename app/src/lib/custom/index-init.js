@@ -79,11 +79,11 @@ $(document).ready(function() {
 
   // If user's already authenticated
   if (localStorage.profile !== undefined) {
-    $('#unauthenticated-container').css('display', 'none');
-    $('#authenticated-container').css('display', 'block');
+    $('#home-unauthenticated-container').css('display', 'none');
+    $('#home-authenticated-container').css('display', 'block');
   } else {
-    $('#authenticated-container').css('display', 'none');
-    $('#unauthenticated-container').css('display', 'block');
+    $('#home-authenticated-container').css('display', 'none');
+    $('#home-unauthenticated-container').css('display', 'block');
   }
 
 
