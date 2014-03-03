@@ -63,7 +63,6 @@ app.config(function($locationProvider, $httpProvider, $routeProvider) {
   $httpProvider.interceptors.push(interceptorHttp);
   $httpProvider.interceptors.push(interceptor401);
 
-  // Set a default route
   $routeProvider.otherwise({redirectTo: '/files'});
 });
 

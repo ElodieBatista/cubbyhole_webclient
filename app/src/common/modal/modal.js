@@ -16,8 +16,7 @@ module.directive('modal', function($compile) {
     link: function(scope, elem, attrs) {
       scope.$watch('modalOpts.template', function(newValue, oldValue) {
         if (newValue !== undefined && newValue !== null) {
-          var htmlStr = $compile(scope.modalOpts.template)(scope);
-          $('#modal-body-custom').html(htmlStr);
+          $('#modal-body-custom').html($compile(scope.modalOpts.template)(scope));
         }
       });
 
