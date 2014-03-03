@@ -226,6 +226,10 @@ body {
   width: 23px;
 }
 
+.action-bar-icon-small {
+  width: 19px;
+}
+
 .action-bar-item {
   float: right;
   display: block;
@@ -246,4 +250,16 @@ body {
   .action-bar-item span {
     display: none;
   }
+}
+
+.action-bar-item-special {
+  float: left;
+}
+
+.action-bar-separator {
+  float: right;
+  display: block;
+  height: 20px;
+  border-right: solid 1px rgb(50, 50, 50);
+  margin: 5px;
 }

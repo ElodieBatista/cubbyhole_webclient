@@ -7,6 +7,10 @@
   <div class="col-md-9" id="grid-view" ng-file-drop="onFileSelect(null, $files)" ng-file-drag-over-class="upload-container-hover">
 
     <ul class="row action-bar">
+      <li class="action-bar-item action-bar-item-special" ng-show="selectedNode.parent.parent !== null" ng-click="feSelectNode(selectedNode.parent)">
+        <img class="action-bar-icon action-bar-icon-small" src="/styles/icons/icon_parent.svg" />
+      </li>
+
       <li class="action-bar-item" data-toggle="modal" ng-click="feOpenModalNewFolder()">
         <img class="action-bar-icon" src="/styles/icons/icon_folder_add.svg" />
         <span>Create Folder</span>
@@ -15,6 +19,9 @@
         <img class="action-bar-icon" src="/styles/icons/icon_file_add.svg" />
         <span>Add Files</span>
       </li>
+
+      <li class="action-bar-separator" ng-show="itemActive"></li>
+
       <li class="action-bar-item" ng-show="itemActive" ng-click="feOpenModalRenameItem(itemActive)">
         <img class="action-bar-icon" src="/styles/icons/icon_edit.svg" />
         <span>Rename</span>
