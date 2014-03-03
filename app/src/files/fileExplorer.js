@@ -226,11 +226,41 @@ module.directive('fileExplorer', function($location) {
       scope.feAddNode = function(item) {
         $tree.tree('openNode', scope.selectedNode);
 
-        $tree.tree(
-          'appendNode',
-          item,
-          scope.selectedNode
-        );
+        var child,
+            nodeSibling = null,
+            l = scope.selectedNode.children.length;
+
+        if (scope.selectedNode.children.length === 0) {
+          $tree.tree(
+            'appendNode',
+            item,
+            scope.selectedNode
+          );
+          return;
+        }
+
+        for (var i = 0; i < l; i++) {
+          child = scope.selectedNode.children[i];
+
+          if (item.name <= child.name) {
+            nodeSibling = scope.selectedNode.children[i - 1];
+            break;
+          }
+        }
+
+        if (nodeSibling === null) {
+          $tree.tree(
+            'addNodeAfter',
+            item,
+            scope.selectedNode.children[l - 1]
+          );
+        } else {
+          $tree.tree(
+            'addNodeAfter',
+            item,
+            nodeSibling
+          );
+        }
       };
 
 
