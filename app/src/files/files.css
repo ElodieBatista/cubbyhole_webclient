@@ -109,13 +109,13 @@ body {
   height: 100%;
   background-color: rgb(255, 255, 255);
   border: 3px solid white;
-  /*overflow-y: auto;*/
 }
 
 .grid-view-table-container {
   position: absolute;
-  max-height: 100%;
-  margin-bottom: -50px;
+  height: -webkit-calc(100% - 50px);
+  height: -moz-calc(100% - 50px);
+  height: calc(100% - 50px);
   margin-right: 15px;
   overflow-y: auto;
 }
@@ -143,6 +143,7 @@ body {
 
 .grid-view-table td {
   padding: 5px;
+  white-space: nowrap;
 }
 
 .grid-view-table-td-first {
