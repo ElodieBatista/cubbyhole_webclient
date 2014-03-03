@@ -1,80 +1,80 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>CubbyHole - Web App</title>
-        <!--link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-custom.min.css"-->
-        <link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-complete.min.css">
-        <link rel="stylesheet" href="styles/font-awesome/font-awesome-4.0.3.min.css">
-        <link rel="stylesheet" href="src/lib/jqtree/jqtree.css">
-        <link rel="stylesheet" href="styles/style.css">
-        <link rel="stylesheet" href="src/files/files.css">
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <title>CubbyHole - Web App</title>
+    <!--link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-custom.min.css"-->
+    <link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-complete.min.css">
+    <link rel="stylesheet" href="styles/font-awesome/font-awesome-4.0.3.min.css">
+    <link rel="stylesheet" href="src/lib/jqtree/jqtree.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="src/files/files.css">
+  </head>
 
-    <body id="ng-app" ng-app="webApp">
+  <body id="ng-app" ng-app="webApp">
 
-        <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav navtop-container" role="banner">
-            <div class="container">
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav navtop-container" role="banner">
+      <div class="container">
 
-                <div class="navbar-header">
-                    <button class="navbar-toggle navtop-toggle-button" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="./" id="navtop-brand" class="navbar-brand"><i class="navtop-icon fa fa-th"></i> Cubbyhole</a>
-                </div>
+        <div class="navbar-header">
+          <button class="navbar-toggle navtop-toggle-button" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="./" id="navtop-brand" class="navbar-brand"><i class="navtop-icon fa fa-th"></i> Cubbyhole</a>
+        </div>
 
-                <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" role="navigation">
-                    <ul class="nav navbar-nav navbar-right navtop-items-list">
-                        <li class="navtop-item" ng-class="{active: navtop == 0}">
-                            <a href="#/files">Files</a>
-                        </li>
-                        <li class="navtop-item" ng-class="{active: navtop == 1}">
-                            <a href="#/sharing">Sharing</a>
-                        </li>
-                        <li class="navtop-item" ng-class="{active: navtop == 2}">
-                            <a href="#/links">Links</a>
-                        </li>
-                        <li class="navtop-item" ng-class="{active: navtop == 3}">
-                            <a href="#/plans">?</a>
-                        </li>
-                        <li class="navtop-item dropdown" ng-class="{active: navtop == 4}">
-                            <a data-toggle="dropdown" href="">Me &nbsp;&nbsp;<i class="fa fa-angle-down"></i></a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                                <li><span ng-bind="getProfile().email"></span></li>
-                                <li><a href="#/logout">Log out</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
+        <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" role="navigation">
+          <ul class="nav navbar-nav navbar-right navtop-items-list">
+            <li class="navtop-item" ng-class="{active: navtop == 0}">
+              <a href="#/files">Files</a>
+            </li>
+            <li class="navtop-item" ng-class="{active: navtop == 1}">
+              <a href="#/sharing">Sharing</a>
+            </li>
+            <li class="navtop-item" ng-class="{active: navtop == 2}">
+              <a href="#/links">Links</a>
+            </li>
+            <li class="navtop-item" ng-class="{active: navtop == 3}">
+              <a href="#/notifications">Notifications</a>
+            </li>
+            <li class="navtop-item dropdown" ng-class="{active: navtop == 4}">
+              <a data-toggle="dropdown" href="">Me &nbsp;&nbsp;<i class="fa fa-angle-down"></i></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><span ng-bind="getProfile().email"></span></li>
+                <li><a href="#/logout">Log out</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
 
-            </div>
-        </header>
+      </div>
+    </header>
 
-        <ng-view></ng-view>
+    <ng-view></ng-view>
 
-        <spinner ng-show="displaySpinner"></spinner>
+    <spinner ng-show="displaySpinner"></spinner>
 
-        <script src="src/lib/jquery/jquery-1.11.0.min.js"></script>
-        <!--script src="src/lib/bootstrap/bootstrap-3.0.3-custom.min.js"></script-->
-        <script src="src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
-        <script src="src/lib/spinjs/spin.js"></script>
-        <script src="src/lib/angular-file-upload/angular-file-upload-html5-shim.min.js"></script>
-        <script src="src/lib/angular/angular.min.js"></script>
-        <script src="src/lib/angular/angular-animate.min.js"></script>
-        <script src="src/lib/angular/angular-resource.min.js"></script>
-        <script src="src/lib/angular/angular-route.min.js"></script>
-        <script src="src/lib/angular/angular-sanitize.min.js"></script>
-        <script src="src/lib/angular-file-upload/angular-file-upload.min.js"></script>
-        <script src="src/app.js"></script>
-        <script src="src/lib/jqtree/tree.jquery.js"></script>
-        <script src="src/common/directives/spinner.js"></script>
-        <script src="src/common/modal/modal.js"></script>
-        <script src="src/login/login.js"></script>
-        <script src="src/logout/logout.js"></script>
-        <script src="src/files/files.js"></script>
-        <script src="src/files/fileExplorer.js"></script>
-    </body>
+    <script src="src/lib/jquery/jquery-1.11.0.min.js"></script>
+    <!--script src="src/lib/bootstrap/bootstrap-3.0.3-custom.min.js"></script-->
+    <script src="src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
+    <script src="src/lib/spinjs/spin.js"></script>
+    <script src="src/lib/angular-file-upload/angular-file-upload-html5-shim.min.js"></script>
+    <script src="src/lib/angular/angular.min.js"></script>
+    <script src="src/lib/angular/angular-animate.min.js"></script>
+    <script src="src/lib/angular/angular-resource.min.js"></script>
+    <script src="src/lib/angular/angular-route.min.js"></script>
+    <script src="src/lib/angular/angular-sanitize.min.js"></script>
+    <script src="src/lib/angular-file-upload/angular-file-upload.min.js"></script>
+    <script src="src/app.js"></script>
+    <script src="src/lib/jqtree/tree.jquery.js"></script>
+    <script src="src/common/directives/spinner.js"></script>
+    <script src="src/common/modal/modal.js"></script>
+    <script src="src/login/login.js"></script>
+    <script src="src/logout/logout.js"></script>
+    <script src="src/files/files.js"></script>
+    <script src="src/files/fileExplorer.js"></script>
+  </body>
 </html>

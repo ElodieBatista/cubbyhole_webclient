@@ -1,558 +1,558 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>CubbyHole</title>
-        <!--link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-custom.min.css" /-->
-        <link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-complete.min.css" />
-        <link rel="stylesheet" href="styles/font-awesome/font-awesome-4.0.3.min.css" />
-        <link rel="stylesheet" href="styles/style.css" />
-    </head>
+  <head>
+    <meta charset="utf-8">
+    <title>CubbyHole</title>
+    <!--link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-custom.min.css" /-->
+    <link rel="stylesheet" href="src/lib/bootstrap/bootstrap-3.0.3-complete.min.css" />
+    <link rel="stylesheet" href="styles/font-awesome/font-awesome-4.0.3.min.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
 
-    <body data-spy="scroll" data-target=".navtop-items-container">
+  <body data-spy="scroll" data-target=".navtop-items-container">
 
-        <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav navtop-container" role="banner">
-            <div class="container">
+    <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav navtop-container" role="banner">
+      <div class="container">
 
-                <div class="navbar-header">
-                    <button class="navbar-toggle navtop-toggle-button" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a href="./" id="navtop-brand" class="navbar-brand"><i class="navtop-icon fa fa-th"></i> Cubbyhole</a>
-                </div>
-
-                <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" role="navigation">
-                    <ul class="nav navbar-nav navbar-right navtop-items-list">
-                        <li class="navtop-item">
-                            <a href="#home">Home</a>
-                        </li>
-                        <li class="navtop-item">
-                            <a href="#features">Features</a>
-                        </li>
-                        <li class="navtop-item">
-                            <a href="#downloads">Downloads</a>
-                        </li>
-                        <li class="navtop-item">
-                            <a href="#plans">Plans</a>
-                        </li>
-                        <li class="navtop-item">
-                            <a href="#about">About</a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
-
-        <div class="content-container">
-            <div class="container">
-                <div class="row" id="home">
-
-                    <div class="row space-top-double">
-                        <div class="col-md-12">
-                            <h1>Cubbyhole</h1>
-                            <h2>Sharing <span class="home-highlight">easier</span> with online storage</h2>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6 home-container-intro">
-                            <img class="home-picture" src="/styles/img/home.png">
-
-                            <p class="home-banner">Store & Synchronize your data online from various devices</p>
-                        </div>
-
-                        <div class="col-md-6 home-container-sign">
-                            <div id="unauthenticated-container">
-                                <ul class="nav nav-tabs" id="sign-nav">
-                                    <li class="sign-nav-item active"><a href="#signin" data-toggle="tab">Sign In</a></li>
-                                    <li class="sign-nav-item"><a href="#signup" data-toggle="tab">Sign Up</a></li>
-                                </ul>
-
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="signin">
-                                        <form class="sign-form" method="POST" action="/signin">
-                                            <div class="input-prepend">
-                                                <i class="fa fa-envelope input-icon"></i>
-                                                <input class="input-text" type="email" placeholder="Email" required>
-                                            </div>
-                                            <div class="input-prepend">
-                                                <i class="fa fa-lock input-icon"></i>
-                                                <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
-                                            </div>
-
-                                            <input type="checkbox" id="home-remember-box">
-                                            <label for="home-remember-box" class="home-remember-label">Remember me</label>
-
-                                            <div id="signin-spinner"></div>
-
-                                            <input type="submit" value="Sign In" class="btn btn-primary sign-btn-submit">
-                                        </form>
-                                    </div>
-
-                                    <div class="tab-pane" id="signup">
-                                        <form class="sign-form" method="POST" action="/signup">
-                                            <div class="input-prepend">
-                                                <i class="fa fa-envelope input-icon"></i>
-                                                <input class="input-text" type="email" placeholder="Email" required>
-                                            </div>
-                                            <div class="input-prepend">
-                                                <i class="fa fa-lock input-icon"></i>
-                                                <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
-                                            </div>
-                                            <div class="input-prepend">
-                                                <i class="fa fa-lock input-icon"></i>
-                                                <input class="input-text" type="password" placeholder="Confirm Password" required pattern=".{6,}" title="6 character minimum length">
-                                            </div>
-
-                                            <div id="signup-spinner"></div>
-
-                                            <input type="submit" value="Sign Up" class="btn btn-primary sign-btn-submit">
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div id="authenticated-container">
-                                <h3 class="authenticated-title">Welcome back</h3>
-                                <h4 class="home-highlight authenticated-title">elo555@yopmail.com</h4>
-
-                                <p class="authenticated-title">You can <a href="/webapp.html#/logout">logout here</a> or</p>
-
-                                <a href="/webapp.html" class="btn btn-primary sign-btn-submit">Launch Web App</a>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+        <div class="navbar-header">
+          <button class="navbar-toggle navtop-toggle-button" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="./" id="navtop-brand" class="navbar-brand"><i class="navtop-icon fa fa-th"></i> Cubbyhole</a>
         </div>
 
-        <div class="content-container">
-            <div class="container">
-                <div class="row" id="features">
+        <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" role="navigation">
+          <ul class="nav navbar-nav navbar-right navtop-items-list">
+            <li class="navtop-item">
+              <a href="#home">Home</a>
+            </li>
+            <li class="navtop-item">
+              <a href="#features">Features</a>
+            </li>
+            <li class="navtop-item">
+              <a href="#downloads">Downloads</a>
+            </li>
+            <li class="navtop-item">
+              <a href="#plans">Plans</a>
+            </li>
+            <li class="navtop-item">
+              <a href="#about">About</a>
+            </li>
+          </ul>
+        </nav>
 
-                    <div class="row space-top">
-                        <div class="col-md-12">
-                            <h1>Features</h1>
-                            <h2>One <span class="features-highlight">place</span> for all your documents</h2>
-                        </div>
-                    </div>
+      </div>
+    </header>
 
-                    <div class="row">
-                        <div class="col-md-4 no-padding">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4 class="subtitle">Store</h4>
-                                </div>
-                            </div>
+    <div class="content-container">
+      <div class="container">
+        <div class="row" id="home">
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <img class="features-img" src="/styles/icons/icon_store.svg">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p class="features-description">
-                                        Cubbyhole store your documents online.
-                                        Depending on your plan, you will have a usable storage capacity accorded. <br />
-                                        You just have to upload your files and then you will be able to access them from anywhere!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 no-padding">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4 class="subtitle">Share</h4>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <img class="features-img" src="/styles/icons/icon_share.svg">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p class="features-description">
-                                        You can share your directories with other Cubbyhole users.
-                                        You decide whether to grant read and write access or read-only. <br />
-                                        You can also directly share links to a directory or resource of your own with your friends
-                                        even if they don't have a Cubbyhole account.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 no-padding">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4 class="subtitle">Browse</h4>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <img class="features-img" src="/styles/icons/icon_browse.svg">
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p class="features-description">
-                                        Cubbyhole enables you to browse and organise your files.
-                                        It lets you create, move, copy, delete and rename folders. <br />
-                                        Download and upload your documents from/to the device you are browsing from.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <div class="row space-top-double">
+            <div class="col-md-12">
+              <h1>Cubbyhole</h1>
+              <h2>Sharing <span class="home-highlight">easier</span> with online storage</h2>
             </div>
-        </div>
+          </div>
 
-        <div class="content-container">
-            <div class="container">
-                <div class="row" id="downloads">
+          <div class="row">
+            <div class="col-md-6 home-container-intro">
+              <img class="home-picture" src="/styles/img/home.png">
 
-                    <div class="row space-top">
-                        <div class="col-md-12">
-                            <h1>Downloads</h1>
-                            <h2>Because you want <span class="downloads-highlight">more</span></h2>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img class="downloads-img-medium" src="/styles/img/iphone-a3.png">
-                        </div>
-
-                        <div class="col-md-6 downloads-bloc no-padding">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4 class="subtitle">Cubbyhole Iphone App</h4>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p class="downloads-description">
-                                        Retrieve all the Cubbyhole features to store and manage your documents online on our new Cubbybole app.<br /><br />
-
-                                        Download it now: <a href=""><img class="downloads-logo" src="/styles/img/app-store.png"></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row space-top">
-                        <div class="col-md-6 downloads-bloc no-padding">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4 class="subtitle">Cubbyhole Synchronization Client</h4>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <p class="downloads-description">
-                                        Synchronize all or some of your documents on your local machine.<br /><br />
-
-                                        Download it now: <a href=""><img class="downloads-logo" src="/styles/img/get-sync-client.png"></a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <img class="downloads-img" src="/styles/img/pc2-a.png">
-                        </div>
-                    </div>
-
-                </div>
+              <p class="home-banner">Store & Synchronize your data online from various devices</p>
             </div>
-        </div>
 
-        <div class="content-container">
-            <div class="container">
-                <div class="row" id="plans">
+            <div class="col-md-6 home-container-sign">
+              <div id="unauthenticated-container">
+                <ul class="nav nav-tabs" id="sign-nav">
+                  <li class="sign-nav-item active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+                  <li class="sign-nav-item"><a href="#signup" data-toggle="tab">Sign Up</a></li>
+                </ul>
 
-                    <div class="row space-top">
-                        <div class="col-md-12">
-                            <h1>Plans</h1>
-                            <h2>To meet <span class="plans-highlight">all</span> your needs</h2>
-                        </div>
-                    </div>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="signin">
+                    <form class="sign-form" method="POST" action="/signin">
+                      <div class="input-prepend">
+                        <i class="fa fa-envelope input-icon"></i>
+                        <input class="input-text" type="email" placeholder="Email" required>
+                      </div>
+                      <div class="input-prepend">
+                        <i class="fa fa-lock input-icon"></i>
+                        <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
+                      </div>
 
-                    <div class="row plans-container">
-                        <div class="col-md-4 plans-bloc">
+                      <input type="checkbox" id="home-remember-box">
+                      <label for="home-remember-box" class="home-remember-label">Remember me</label>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h3 class="plans-title">Free</h3>
-                                </div>
-                            </div>
+                      <div id="signin-spinner"></div>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <img class="plans-img" src="/styles/icons/icon_gift.svg">
-                                </div>
-                            </div>
+                      <input type="submit" value="Sign In" class="btn btn-primary sign-btn-submit">
+                    </form>
+                  </div>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <ul class="plans-list">
-                                        <li class="plans-list-item">
-                                            <i class="fa fa-check-circle plans-list-icon"></i> 30 days before expiration
-                                        </li>
-                                        <li class="plans-list-item">
-                                            <i class="fa fa-check-circle plans-list-icon"></i> 100 Go usable storage
-                                        </li>
-                                        <li class="plans-list-item">
-                                            <i class="fa fa-check-circle plans-list-icon"></i> Upload 100 - Download 100 mbps
-                                        </li>
-                                        <li class="plans-list-item">
-                                            <i class="fa fa-check-circle plans-list-icon"></i> 100 Go shared link daily transfer quota
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                  <div class="tab-pane" id="signup">
+                    <form class="sign-form" method="POST" action="/signup">
+                      <div class="input-prepend">
+                        <i class="fa fa-envelope input-icon"></i>
+                        <input class="input-text" type="email" placeholder="Email" required>
+                      </div>
+                      <div class="input-prepend">
+                        <i class="fa fa-lock input-icon"></i>
+                        <input class="input-text" type="password" placeholder="Password" required pattern=".{6,}" title="6 character minimum length">
+                      </div>
+                      <div class="input-prepend">
+                        <i class="fa fa-lock input-icon"></i>
+                        <input class="input-text" type="password" placeholder="Confirm Password" required pattern=".{6,}" title="6 character minimum length">
+                      </div>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="plans-price">
-                                        Free
-                                    </div>
-                                </div>
-                            </div>
+                      <div id="signup-spinner"></div>
 
-                        </div>
-
-                        <div class="col-md-4 plans-bloc">
-
-                             <div class="row">
-                                 <div class="col-md-12">
-                                     <h3 class="plans-title">Pro</h3>
-                                 </div>
-                             </div>
-
-                             <div class="row">
-                                 <div class="col-md-12">
-                                     <img class="plans-img" src="/styles/icons/icon_handshake.svg">
-                                 </div>
-                             </div>
-
-                             <div class="row">
-                                 <div class="col-md-12">
-                                     <ul class="plans-list">
-                                         <li class="plans-list-item">
-                                             <i class="fa fa-check-circle plans-list-icon"></i> 90 days before expiration
-                                         </li>
-                                         <li class="plans-list-item">
-                                             <i class="fa fa-check-circle plans-list-icon"></i> 300 Go usable storage
-                                         </li>
-                                         <li class="plans-list-item">
-                                             <i class="fa fa-check-circle plans-list-icon"></i> Upload 300 - Download 300 mbps
-                                         </li>
-                                         <li class="plans-list-item">
-                                             <i class="fa fa-check-circle plans-list-icon"></i> 300 Go shared link daily transfer quota
-                                         </li>
-                                     </ul>
-                                 </div>
-                             </div>
-
-                             <div class="row">
-                                 <div class="col-md-12">
-                                     <div class="plans-price">
-                                         $14.99<span class="plans-price-small">/month</span>
-                                     </div>
-                                 </div>
-                             </div>
-
-                        </div>
-
-                        <div class="col-md-4 plans-bloc">
-
-                           <div class="row">
-                               <div class="col-md-12">
-                                   <h3 class="plans-title">Enterprise</h3>
-                               </div>
-                           </div>
-
-                            <div class="row">
-                               <div class="col-md-12">
-                                   <img class="plans-img" src="/styles/icons/icon_briefcase.svg">
-                               </div>
-                           </div>
-
-                            <div class="row">
-                               <div class="col-md-12">
-                                   <ul class="plans-list">
-                                       <li class="plans-list-item">
-                                           <i class="fa fa-check-circle plans-list-icon"></i> 365 days before expiration
-                                       </li>
-                                       <li class="plans-list-item">
-                                           <i class="fa fa-check-circle plans-list-icon"></i> 1000 Go usable storage
-                                       </li>
-                                       <li  class="plans-list-item">
-                                           <i class="fa fa-check-circle plans-list-icon"></i> Upload 1000 - Download 1000 mbps
-                                       </li>
-                                       <li  class="plans-list-item">
-                                           <i class="fa fa-check-circle plans-list-icon"></i> 1000 Go shared link daily transfer quota
-                                       </li>
-                                   </ul>
-                               </div>
-                           </div>
-
-                            <div class="row">
-                               <div class="col-md-12">
-                                   <div class="plans-price">
-                                       $24.99<span class="plans-price-small">/month</span>
-                                   </div>
-                               </div>
-                           </div>
-
-                        </div>
-                    </div>
+                      <input type="submit" value="Sign Up" class="btn btn-primary sign-btn-submit">
+                    </form>
+                  </div>
                 </div>
+              </div>
+
+              <div id="authenticated-container">
+                <h3 class="authenticated-title">Welcome back</h3>
+                <h4 class="home-highlight authenticated-title">elo555@yopmail.com</h4>
+
+                <p class="authenticated-title">You can <a href="/webapp.html#/logout">logout here</a> or</p>
+
+                <a href="/webapp.html" class="btn btn-primary sign-btn-submit">Launch Web App</a>
+              </div>
+
             </div>
+          </div>
+
         </div>
+      </div>
+    </div>
 
-        <div class="content-container">
-            <div class="container">
-                <div class="row" id="about">
+    <div class="content-container">
+      <div class="container">
+        <div class="row" id="features">
 
-                    <div class="row space-top">
-                        <div class="col-md-12">
-                            <h1>About</h1>
-                            <h2>We <span class="about-highlight">love</span> what we do</h2>
-                        </div>
-                    </div>
+          <div class="row space-top">
+            <div class="col-md-12">
+              <h1>Features</h1>
+              <h2>One <span class="features-highlight">place</span> for all your documents</h2>
+            </div>
+          </div>
 
-                    <div class="row">
-
-                        <div class="col-md-6 no-padding">
-                            <div class="about-bloc">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4 class="subtitle">Who we are</h4>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p class="about-description">
-                                            Cumorah Interactive is a creative company which has been created in 2002 in San Francisco. Today, it's a worldwide leader in
-                                            creating business web applications to fit companies' needs.
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="about-bloc">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4 class="subtitle">What we do</h4>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <p class="about-description">
-                                            Cubbyhole is a new storage service that allows clients to store and synchronize their data online, from various devices.
-                                        </p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div class="about-bloc">
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4 class="subtitle">Contact us</h4>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-4 about-social-container">
-                                        <img class="about-social-logo" src="/styles/img/facebook.png">
-                                        <a class="about-social-link" href="http://www.facebook.com/cubbyhole">Like us</a>
-                                    </div>
-
-                                    <div class="col-md-4 about-social-container">
-                                        <img class="about-social-logo" src="/styles/img/twitter.png">
-                                        <a class="about-social-link" href="http://www.twitter.com/cubbyhole">Follow us</a>
-                                    </div>
-
-                                    <div class="col-md-4 about-social-container">
-                                        <img class="about-social-logo" src="/styles/img/email.png">
-                                        <a class="about-social-link" href="mailto:contact@cubbyhole.com">Email us</a>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <img class="about-img" src="/styles/img/about.jpg">
-                        </div>
-
-                    </div>
+          <div class="row">
+            <div class="col-md-4 no-padding">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="subtitle">Store</h4>
                 </div>
-            </div>
-        </div>
+              </div>
 
-        <footer>
-            <div class="container">
+              <div class="row">
+                <div class="col-md-12">
+                  <img class="features-img" src="/styles/icons/icon_store.svg">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="features-description">
+                    Cubbyhole store your documents online.
+                    Depending on your plan, you will have a usable storage capacity accorded. <br />
+                    You just have to upload your files and then you will be able to access them from anywhere!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 no-padding">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="subtitle">Share</h4>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <img class="features-img" src="/styles/icons/icon_share.svg">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="features-description">
+                    You can share your directories with other Cubbyhole users.
+                    You decide whether to grant read and write access or read-only. <br />
+                    You can also directly share links to a directory or resource of your own with your friends
+                    even if they don't have a Cubbyhole account.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 no-padding">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="subtitle">Browse</h4>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <img class="features-img" src="/styles/icons/icon_browse.svg">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="features-description">
+                    Cubbyhole enables you to browse and organise your files.
+                    It lets you create, move, copy, delete and rename folders. <br />
+                    Download and upload your documents from/to the device you are browsing from.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="container">
+        <div class="row" id="downloads">
+
+          <div class="row space-top">
+            <div class="col-md-12">
+              <h1>Downloads</h1>
+              <h2>Because you want <span class="downloads-highlight">more</span></h2>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <img class="downloads-img-medium" src="/styles/img/iphone-a3.png">
+            </div>
+
+            <div class="col-md-6 downloads-bloc no-padding">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="subtitle">Cubbyhole Iphone App</h4>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="downloads-description">
+                    Retrieve all the Cubbyhole features to store and manage your documents online on our new Cubbybole app.<br /><br />
+
+                    Download it now: <a href=""><img class="downloads-logo" src="/styles/img/app-store.png"></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row space-top">
+            <div class="col-md-6 downloads-bloc no-padding">
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="subtitle">Cubbyhole Synchronization Client</h4>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="downloads-description">
+                    Synchronize all or some of your documents on your local machine.<br /><br />
+
+                    Download it now: <a href=""><img class="downloads-logo" src="/styles/img/get-sync-client.png"></a>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <img class="downloads-img" src="/styles/img/pc2-a.png">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="container">
+        <div class="row" id="plans">
+
+          <div class="row space-top">
+            <div class="col-md-12">
+              <h1>Plans</h1>
+              <h2>To meet <span class="plans-highlight">all</span> your needs</h2>
+            </div>
+          </div>
+
+          <div class="row plans-container">
+            <div class="col-md-4 plans-bloc">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="plans-title">Free</h3>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <img class="plans-img" src="/styles/icons/icon_gift.svg">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="plans-list">
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> 30 days before expiration
+                    </li>
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> 100 Go usable storage
+                    </li>
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> Upload 100 - Download 100 mbps
+                    </li>
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> 100 Go shared link daily transfer quota
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="plans-price">
+                    Free
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-4 plans-bloc">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="plans-title">Pro</h3>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <img class="plans-img" src="/styles/icons/icon_handshake.svg">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="plans-list">
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> 90 days before expiration
+                    </li>
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> 300 Go usable storage
+                    </li>
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> Upload 300 - Download 300 mbps
+                    </li>
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> 300 Go shared link daily transfer quota
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="plans-price">
+                    $14.99<span class="plans-price-small">/month</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="col-md-4 plans-bloc">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="plans-title">Enterprise</h3>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <img class="plans-img" src="/styles/icons/icon_briefcase.svg">
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="plans-list">
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> 365 days before expiration
+                    </li>
+                    <li class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> 1000 Go usable storage
+                    </li>
+                    <li  class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> Upload 1000 - Download 1000 mbps
+                    </li>
+                    <li  class="plans-list-item">
+                      <i class="fa fa-check-circle plans-list-icon"></i> 1000 Go shared link daily transfer quota
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="plans-price">
+                    $24.99<span class="plans-price-small">/month</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="container">
+        <div class="row" id="about">
+
+          <div class="row space-top">
+            <div class="col-md-12">
+              <h1>About</h1>
+              <h2>We <span class="about-highlight">love</span> what we do</h2>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="col-md-6 no-padding">
+              <div class="about-bloc">
+
                 <div class="row">
-                    <div class="col-md-12">
-                        <p class="footer-description">Designed & built with <i class="fa fa-heart footer-icon"></i> in Toulouse.
-                        © 2014 Cubbyhole. All rights reserved. <a class="footer-link" href="/views/terms.html">Terms of Service</a></p>
-                    </div>
+                  <div class="col-md-12">
+                    <h4 class="subtitle">Who we are</h4>
+                  </div>
                 </div>
-            </div>
-        </footer>
 
-        <div class="modal fade" id="appmodal" tabindex="-1" role="dialog" aria-labelledby="appmodal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title"><span id="modal-title"></span></h4>
-                    </div>
-
-                    <div class="modal-body">
-                        <p id="modal-msg"></p>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
-                    </div>
-
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="about-description">
+                      Cumorah Interactive is a creative company which has been created in 2002 in San Francisco. Today, it's a worldwide leader in
+                      creating business web applications to fit companies' needs.
+                    </p>
+                  </div>
                 </div>
+
+              </div>
+
+              <div class="about-bloc">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4 class="subtitle">What we do</h4>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <p class="about-description">
+                      Cubbyhole is a new storage service that allows clients to store and synchronize their data online, from various devices.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="about-bloc">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <h4 class="subtitle">Contact us</h4>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4 about-social-container">
+                    <img class="about-social-logo" src="/styles/img/facebook.png">
+                    <a class="about-social-link" href="http://www.facebook.com/cubbyhole">Like us</a>
+                  </div>
+
+                  <div class="col-md-4 about-social-container">
+                    <img class="about-social-logo" src="/styles/img/twitter.png">
+                    <a class="about-social-link" href="http://www.twitter.com/cubbyhole">Follow us</a>
+                  </div>
+
+                  <div class="col-md-4 about-social-container">
+                    <img class="about-social-logo" src="/styles/img/email.png">
+                    <a class="about-social-link" href="mailto:contact@cubbyhole.com">Email us</a>
+                  </div>
+                </div>
+
+              </div>
             </div>
+
+            <div class="col-md-6">
+              <img class="about-img" src="/styles/img/about.jpg">
+            </div>
+
+          </div>
         </div>
+      </div>
+    </div>
 
-        <script src="src/lib/jquery/jquery-1.11.0.min.js"></script>
-        <!--script src="src/lib/bootstrap/bootstrap-3.0.3-custom.min.js"></script-->
-        <script src="src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
-        <script src="src/lib/spinjs/spin.js"></script>
-        <script src="src/lib/custom/index-init.js"></script>
-    </body>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <p class="footer-description">Designed & built with <i class="fa fa-heart footer-icon"></i> in Toulouse.
+              © 2014 Cubbyhole. All rights reserved. <a class="footer-link" href="/views/terms.html">Terms of Service</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="modal fade" id="appmodal" tabindex="-1" role="dialog" aria-labelledby="appmodal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><span id="modal-title"></span></h4>
+          </div>
+
+          <div class="modal-body">
+            <p id="modal-msg"></p>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="src/lib/jquery/jquery-1.11.0.min.js"></script>
+    <!--script src="src/lib/bootstrap/bootstrap-3.0.3-custom.min.js"></script-->
+    <script src="src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
+    <script src="src/lib/spinjs/spin.js"></script>
+    <script src="src/lib/custom/index-init.js"></script>
+  </body>
 </html>

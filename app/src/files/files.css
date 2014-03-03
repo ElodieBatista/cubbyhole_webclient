@@ -1,217 +1,217 @@
 /* JQTREE OVERRIDES */
 ul.jqtree-tree li.jqtree-selected > .jqtree-element {
-    color: rgb(255, 29, 37);
+  color: rgb(255, 29, 37);
 }
 
 ul.jqtree-tree li.jqtree-selected > .jqtree-element,
 ul.jqtree-tree li.jqtree-selected > .jqtree-element:hover {
-    background: none;
-    text-shadow: none;
-    display: block;
+  background: none;
+  text-shadow: none;
+  display: block;
 }
 
 ul.jqtree-tree .jqtree-title {
-    color: inherit;
+  color: inherit;
 }
 
 ul.jqtree-tree .jqtree-element {
-    white-space: nowrap;
-    width: 100%;
-    padding: 7px;
-    padding-left: 10px;
-    display: block;
+  white-space: nowrap;
+  width: 100%;
+  padding: 7px;
+  padding-left: 10px;
+  display: block;
 }
 
 ul.jqtree-tree .jqtree-toggler {
-    position: relative;
-    float: left;
-    left: 0;
-    margin-right: 5px;
-    line-height: inherit;
+  position: relative;
+  float: left;
+  left: 0;
+  margin-right: 5px;
+  line-height: inherit;
 }
 
 ul.jqtree-tree .jqtree-toggler:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 ul.jqtree-tree li.jqtree-folder .jqtree-title {
-    padding-right: 15px;
+  padding-right: 15px;
 }
 
 /* BASE */
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    padding-top: 50px;
+  padding-top: 50px;
 }
 
 #panel-left {
-    height: 100%;
-    min-height: 100%;
-    display: block;
+  height: 100%;
+  min-height: 100%;
+  display: block;
 }
 
 .panel-left-content {
-    background-color: rgb(240, 240, 240);
-    color: rgb(50, 50, 50);
-    height: 100%;
-    overflow: auto;
-    padding: 5px;
+  background-color: rgb(240, 240, 240);
+  color: rgb(50, 50, 50);
+  height: 100%;
+  overflow: auto;
+  padding: 5px;
 }
 
 .panel-left-content > ul {
-    margin: 0;
+  margin: 0;
 }
 
 /* FILE EXPLORER */
 #file-explorer-container {
-    height: 100%;
+  height: 100%;
 }
 
 #file-explorer-form-download {
-    display: none;
+  display: none;
 }
 
 #file-explorer-progress-bar {
-    position: fixed;
-    top: 50px;
-    left: 0;
-    z-index: -1;
-    width: 100%;
-    height: 3px;
-    background: rgb(255, 29, 37);
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-    pointer-events: none;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 3px;
+  background: rgb(255, 29, 37);
+  -webkit-transform: translate3d(-100%, 0, 0);
+  transform: translate3d(-100%, 0, 0);
+  pointer-events: none;
 }
 
 #file-explorer-progress-bar.progress-bar-animate {
-    z-index: 100;
-    opacity: 1;
-    -webkit-transition: -webkit-transform 0.3s ease-in;
-    transition: transform 0.3s ease-in;
+  z-index: 100;
+  opacity: 1;
+  -webkit-transition: -webkit-transform 0.3s ease-in;
+  transition: transform 0.3s ease-in;
 }
 
 
 /* GRID VIEW */
 #grid-view {
-    height: 100%;
-    background-color: rgb(255, 255, 255);
-    border: 3px solid white;
-    overflow-y: scroll;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  border: 3px solid white;
+  overflow-y: scroll;
 }
 
 .grid-view-table {
-    width: 100%;
+  width: 100%;
 }
 
 .grid-view-table-header {
-    text-align: left;
-    border-bottom: 2px solid rgb(230, 230, 230);
-    text-transform: uppercase;
-    color: rgb(150, 150, 150);
+  text-align: left;
+  border-bottom: 2px solid rgb(230, 230, 230);
+  text-transform: uppercase;
+  color: rgb(150, 150, 150);
 }
 
 .grid-view-table-header th {
-    font-weight: normal;
-    padding: 5px;
+  font-weight: normal;
+  padding: 5px;
 }
 
 .grid-view-table-tr {
-    height: 40px;
-    border-bottom: 1px solid rgb(240, 240, 240);
+  height: 40px;
+  border-bottom: 1px solid rgb(240, 240, 240);
 }
 
 .grid-view-table td {
-    padding: 5px;
+  padding: 5px;
 }
 
 .grid-view-table-td-first {
-    color: rgb(255, 0, 0);
-    font-variant: small-caps;
-    font-size: 15px;
-    cursor: pointer;
+  color: rgb(255, 0, 0);
+  font-variant: small-caps;
+  font-size: 15px;
+  cursor: pointer;
 }
 
 .grid-view-table-icon {
-    width: 23px;
-    vertical-align: bottom;
-    margin-right: 5px;
+  width: 23px;
+  vertical-align: bottom;
+  margin-right: 5px;
 }
 
 .grid-view-table-filename:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .grid-view-table-tr:not(.itemActive):hover {
-    background-color: rgba(254, 80, 81, 0.1);
+  background-color: rgba(254, 80, 81, 0.1);
 }
 
 #grid-view-msg {
-    text-align: center;
-    margin-top: 100px;
+  text-align: center;
+  margin-top: 100px;
 }
 
 .grid-view-highlight {
-    color: rgb(254, 80, 81);
+  color: rgb(254, 80, 81);
 }
 
 .itemActive {
-    background-color: rgba(254, 80, 81, 0.7);
+  background-color: rgba(254, 80, 81, 0.7);
 }
 
 .itemActive .grid-view-table-td-first {
-    color: white;
+  color: white;
 }
 
 .upload-container-hover {
-    border: 3px solid rgb(255, 29, 37) !important;
+  border: 3px solid rgb(255, 29, 37) !important;
 }
 
 .upload-progress-container {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    left: -15px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: -15px;
 }
 
 .upload-btn {
-    margin: 0 auto;
-    display: block;
+  margin: 0 auto;
+  display: block;
 }
 
 
 /* ACTION BAR */
 .action-bar {
-    display: block;
-    width: 100%;
-    height: 30px;
-    margin-bottom: 10px;
-    padding: 0;
-    margin-top: 10px;
-    background-color: rgb(240, 240, 240);
-    text-align: center;
+  display: block;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+  padding: 0;
+  margin-top: 10px;
+  background-color: rgb(240, 240, 240);
+  text-align: center;
 }
 
 .action-bar-icon {
-    width: 23px;
+  width: 23px;
 }
 
 .action-bar-item {
-    float: right;
-    display: block;
-    height: 30px;
-    line-height: 30px;
-    cursor: pointer;
-    padding-left: 5px;
-    padding-right: 5px;
-    font-size: 12px;
-    color: rgb(50, 50, 50);
+  float: right;
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 12px;
+  color: rgb(50, 50, 50);
 }
 
 .action-bar-item:hover {
-    background-color: rgb(254, 80, 81);
-    color: rgb(255, 255, 255);
+  background-color: rgb(254, 80, 81);
+  color: rgb(255, 255, 255);
 }

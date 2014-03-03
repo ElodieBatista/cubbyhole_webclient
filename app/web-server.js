@@ -105,7 +105,7 @@ StaticServlet.prototype.handleRequest = function(req, res) {
 
 StaticServlet.prototype.sendError_ = function(req, res, error) {
   res.writeHead(500, {
-      'Content-Type': 'text/html'
+    'Content-Type': 'text/html'
   });
   res.write('<!doctype html>\n');
   res.write('<title>Internal Server Error</title>\n');
@@ -118,15 +118,15 @@ StaticServlet.prototype.sendError_ = function(req, res, error) {
 StaticServlet.prototype.sendMissing_ = function(req, res, path) {
   path = path.substring(1);
   res.writeHead(404, {
-      'Content-Type': 'text/html'
+    'Content-Type': 'text/html'
   });
   res.write('<!doctype html>\n');
   res.write('<title>404 Not Found</title>\n');
   res.write('<h1>Not Found</h1>');
   res.write(
     '<p>The requested URL ' +
-    escapeHtml(path) +
-    ' was not found on this server.</p>'
+      escapeHtml(path) +
+      ' was not found on this server.</p>'
   );
   res.end();
   util.puts('404 Not Found: ' + path);
@@ -135,14 +135,14 @@ StaticServlet.prototype.sendMissing_ = function(req, res, path) {
 StaticServlet.prototype.sendForbidden_ = function(req, res, path) {
   path = path.substring(1);
   res.writeHead(403, {
-      'Content-Type': 'text/html'
+    'Content-Type': 'text/html'
   });
   res.write('<!doctype html>\n');
   res.write('<title>403 Forbidden</title>\n');
   res.write('<h1>Forbidden</h1>');
   res.write(
     '<p>You do not have permission to access ' +
-    escapeHtml(path) + ' on this server.</p>'
+      escapeHtml(path) + ' on this server.</p>'
   );
   res.end();
   util.puts('403 Forbidden: ' + path);
@@ -150,16 +150,16 @@ StaticServlet.prototype.sendForbidden_ = function(req, res, path) {
 
 StaticServlet.prototype.sendRedirect_ = function(req, res, redirectUrl) {
   res.writeHead(301, {
-      'Content-Type': 'text/html',
-      'Location': redirectUrl
+    'Content-Type': 'text/html',
+    'Location': redirectUrl
   });
   res.write('<!doctype html>\n');
   res.write('<title>301 Moved Permanently</title>\n');
   res.write('<h1>Moved Permanently</h1>');
   res.write(
     '<p>The document has moved <a href="' +
-    redirectUrl +
-    '">here</a>.</p>'
+      redirectUrl +
+      '">here</a>.</p>'
   );
   res.end();
   util.puts('301 Moved Permanently: ' + redirectUrl);

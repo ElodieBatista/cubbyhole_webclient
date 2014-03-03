@@ -1,64 +1,64 @@
 <div id="file-explorer-container">
 
-    <div id="tree-view" class="panel-left-content col-md-3"></div>
+  <div id="tree-view" class="panel-left-content col-md-3"></div>
 
-    <div id="file-explorer-progress-bar"></div>
+  <div id="file-explorer-progress-bar"></div>
 
-    <div id="grid-view" class="col-md-9" ng-file-drop="onFileSelect(null, $files)" ng-file-drag-over-class="upload-container-hover">
+  <div id="grid-view" class="col-md-9" ng-file-drop="onFileSelect(null, $files)" ng-file-drag-over-class="upload-container-hover">
 
-        <ul class="action-bar">
-            <li class="action-bar-item" data-toggle="modal" ng-click="feOpenModalNewFolder()">
-                <img class="action-bar-icon" src="/styles/icons/icon_folder_add.svg" />
-                <span>Create Folder</span>
-            </li>
-            <li class="action-bar-item" ng-click="feOpenModalNewFiles()">
-                <img class="action-bar-icon" src="/styles/icons/icon_file_add.svg" />
-                <span>Add Files</span>
-            </li>
-            <li class="action-bar-item" ng-show="itemActive" ng-click="feOpenModalRenameItem(itemActive)">
-                <img class="action-bar-icon" src="/styles/icons/icon_edit.svg" />
-                <span>Rename</span>
-            </li>
-            <li class="action-bar-item" ng-show="itemActive" ng-click="feOpenModalDeleteItem(itemActive)">
-                <img class="action-bar-icon" src="/styles/icons/icon_delete.svg" />
-                <span>Delete</span>
-            </li>
-            <li class="action-bar-item" ng-show="itemActive && itemActive.type === 'file' || itemActive.children.length > 0" ng-click="feDownloadItem()">
-                <img class="action-bar-icon" src="/styles/icons/icon_download.svg" />
-                <span>Download</span>
-            </li>
-        </ul>
+    <ul class="action-bar">
+      <li class="action-bar-item" data-toggle="modal" ng-click="feOpenModalNewFolder()">
+        <img class="action-bar-icon" src="/styles/icons/icon_folder_add.svg" />
+        <span>Create Folder</span>
+      </li>
+      <li class="action-bar-item" ng-click="feOpenModalNewFiles()">
+        <img class="action-bar-icon" src="/styles/icons/icon_file_add.svg" />
+        <span>Add Files</span>
+      </li>
+      <li class="action-bar-item" ng-show="itemActive" ng-click="feOpenModalRenameItem(itemActive)">
+        <img class="action-bar-icon" src="/styles/icons/icon_edit.svg" />
+        <span>Rename</span>
+      </li>
+      <li class="action-bar-item" ng-show="itemActive" ng-click="feOpenModalDeleteItem(itemActive)">
+        <img class="action-bar-icon" src="/styles/icons/icon_delete.svg" />
+        <span>Delete</span>
+      </li>
+      <li class="action-bar-item" ng-show="itemActive && itemActive.type === 'file' || itemActive.children.length > 0" ng-click="feDownloadItem()">
+        <img class="action-bar-icon" src="/styles/icons/icon_download.svg" />
+        <span>Download</span>
+      </li>
+    </ul>
 
-        <table class="grid-view-table">
-            <thead>
-                <tr class="grid-view-table-header">
-                    <th>Name</th>
-                    <th>Type</th>
-                </tr>
-            </thead>
-            <tr ng-repeat="file in files" class="grid-view-table-tr" ng-click="toggleItem(file)" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]">
-                <td class="grid-view-table-td-first">
-                    <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
+    <table class="grid-view-table">
+      <thead>
+      <tr class="grid-view-table-header">
+        <th>Name</th>
+        <th>Type</th>
+      </tr>
+      </thead>
+      <tr ng-repeat="file in files" class="grid-view-table-tr" ng-click="toggleItem(file)" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]">
+        <td class="grid-view-table-td-first">
+          <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
 
-                    <span ng-if="file.type === 'folder'" class="grid-view-table-filename" ng-click="feSelectNode(file)">{{file.name}}</span>
-                    <span ng-if="file.type === 'file'" class="grid-view-table-filename" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();">{{file.name}}</span>
-                </td>
-                <td>{{file.type}}</td>
-            </tr>
-        </table>
+          <span ng-if="file.type === 'folder'" class="grid-view-table-filename" ng-click="feSelectNode(file)">{{file.name}}</span>
+          <span ng-if="file.type === 'file'" class="grid-view-table-filename" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();">{{file.name}}</span>
+        </td>
+        <td>{{file.type}}</td>
+      </tr>
+    </table>
 
-        <p id="grid-view-msg" ng-show="files.length === 0">
-            This folder is empty. <span class="grid-view-highlight">Drag and drop</span> some folders and files here!
-        </p>
+    <p id="grid-view-msg" ng-show="files.length === 0">
+      This folder is empty. <span class="grid-view-highlight">Drag and drop</span> some folders and files here!
+    </p>
 
-        <div class="upload-progress-container" ng-show="uploading">
-            <button class="upload-btn" ng-click="upload.abort()">Cancel Upload</button>
-        </div>
-
+    <div class="upload-progress-container" ng-show="uploading">
+      <button class="upload-btn" ng-click="upload.abort()">Cancel Upload</button>
     </div>
 
-    <form id="file-explorer-form-download" method="GET" action="http://localhost:3000/item/{{itemActiveId}}/download/{{token}}">
-    </form>
+  </div>
+
+  <form id="file-explorer-form-download" method="GET" action="http://localhost:3000/item/{{itemActiveId}}/download/{{token}}">
+  </form>
 </div>
 
 <modal modal-opts="modalOpts"></modal>
