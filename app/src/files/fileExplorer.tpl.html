@@ -51,7 +51,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="grid-view-table-tr" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files" ng-click="toggleItem(file)">
+          <tr class="grid-view-table-tr" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)">
             <td class="grid-view-table-td-first">
               <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
 

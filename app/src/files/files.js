@@ -14,11 +14,11 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('FilesCtrl',
-  function FilesCtrl($rootScope, $scope, $routeParams, $resource, $upload) {
+  function FilesCtrl(conf, $rootScope, $scope, $routeParams, $resource, $upload) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 0;
 
-    var Files = $resource($rootScope.srvEndpoint + '/item', {}, {
+    var Files = $resource(conf.epApi + '/item', {}, {
       'get': {
         method: 'GET'
       },
@@ -32,7 +32,7 @@ module.controller('FilesCtrl',
       }
     });
 
-    var File = $resource($rootScope.srvEndpoint + '/item/:id', {id: '@id'}, {
+    var File = $resource(conf.epApi + '/item/:id', {id: '@id'}, {
       'get': {
         method:'GET'
       },
@@ -99,7 +99,7 @@ module.controller('FilesCtrl',
         $scope.uploading = true;
 
         $scope.upload = $upload.upload({
-          url: $rootScope.srvEndpoint + '/item',
+          url: conf.epApi + '/item',
           method: 'POST',
           data: {
             type: 'file',

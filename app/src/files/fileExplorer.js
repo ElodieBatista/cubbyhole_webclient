@@ -178,6 +178,17 @@ module.directive('fileExplorer', function($location) {
       scope.feRenameItem = function(name, id) {
         var node = $tree.tree('getNodeBy', '_id', id);
 
+        var newPos = scope.getNodeNewPos(name, scope.selectedNode);
+
+        if (newPos.pos !== 'Here') {
+          $tree.tree(
+            'moveNode',
+            node,
+            newPos.sibling,
+            newPos.pos.toLowerCase()
+          );
+        }
+
         $tree.tree(
           'updateNode',
           node,
@@ -226,41 +237,37 @@ module.directive('fileExplorer', function($location) {
       scope.feAddNode = function(item) {
         $tree.tree('openNode', scope.selectedNode);
 
-        var child,
-            nodeSibling = null,
-            l = scope.selectedNode.children.length;
+        var newPos = scope.getNodeNewPos(item.name, scope.selectedNode),
+            action = 'addNode';
 
-        if (scope.selectedNode.children.length === 0) {
-          $tree.tree(
-            'appendNode',
-            item,
-            scope.selectedNode
-          );
-          return;
+        if (newPos.pos === 'Here') {
+          action = 'appendNode';
+        } else {
+          action += newPos.pos;
         }
 
-        for (var i = 0; i < l; i++) {
-          child = scope.selectedNode.children[i];
+        $tree.tree(
+          action,
+          item,
+          newPos.sibling
+        );
+      };
 
-          if (item.name <= child.name) {
-            nodeSibling = scope.selectedNode.children[i - 1];
-            break;
+      scope.getNodeNewPos = function(nodeName, nodeParent) {
+        if (nodeParent.children.length === 0) {
+          return {pos:'Here', sibling:nodeParent};
+        }
+
+        for (var i = 0; i < nodeParent.children.length; i++) {
+          if (nodeName.toLowerCase() <= nodeParent.children[i].name.toLowerCase()) {
+            if (i === 0) {
+              return {pos:'Before', sibling:nodeParent.children[0]};
+            } else {
+              return {pos:'After', sibling:nodeParent.children[i - 1]};
+            }
           }
         }
-
-        if (nodeSibling === null) {
-          $tree.tree(
-            'addNodeAfter',
-            item,
-            scope.selectedNode.children[l - 1]
-          );
-        } else {
-          $tree.tree(
-            'addNodeAfter',
-            item,
-            nodeSibling
-          );
-        }
+        return {pos:'After', sibling:nodeParent.children[nodeParent.children.length - 1]};
       };
 
 
