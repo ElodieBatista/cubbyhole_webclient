@@ -51,8 +51,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="grid-view-table-tr" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)">
-            <td class="grid-view-table-td-first">
+          <tr class="grid-view-table-tr" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)"
+              droppable item="file" doDrop="feOnDrop" candrop="file.type === 'folder'">
+            <td class="grid-view-table-td-first" draggable item="file">
               <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
 
               <span class="grid-view-table-filename" ng-if="file.type === 'folder'" ng-click="feSelectNode(file)">{{file.name}}</span>

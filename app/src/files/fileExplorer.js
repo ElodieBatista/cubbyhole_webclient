@@ -292,6 +292,16 @@ module.directive('fileExplorer', function($location) {
       };
 
 
+
+      scope.feOnDrop = function(itemId, itemContainerId) {
+        /*ev.preventDefault();
+        var data = ev.dataTransfer.getData("Text");
+        ev.target.appendChild(document.getElementById(data));*/
+        console.log('fe onDrop ' + itemId + ' in ' + itemContainerId);
+      };
+
+
+
       $('.action-bar-item').mouseenter(function() {
         var img = $(this).find(':first-child');
         var src = img.attr('src');
