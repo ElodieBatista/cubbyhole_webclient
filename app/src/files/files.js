@@ -39,7 +39,8 @@ module.controller('FilesCtrl',
       'put': {
         method:'PUT',
         params: {
-          name:'@name'
+          name:'@name',
+          parent:'@parent'
         }
       },
       'delete': {
@@ -88,6 +89,15 @@ module.controller('FilesCtrl',
           console.log('Can\'t delete the item.');
         });
       }
+    };
+
+
+    $scope.moveItem = function(id, parentId) {
+      File.put({'id':id, 'parent':parentId}, function(res) {
+        $scope.feMoveItem(id, parentId);
+      }, function(error) {
+        console.log('Can\'t move the item.');
+      });
     };
 
 

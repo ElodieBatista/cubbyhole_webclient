@@ -223,7 +223,10 @@ body {
 }
 
 .action-bar-icon {
+  float: left;
   width: 23px;
+  height: 30px;
+  margin-right: 2px;
 }
 
 .action-bar-icon-small {
@@ -246,6 +249,11 @@ body {
   background-color: rgb(254, 80, 81);
 }
 
+.action-bar-item:hover svg.action-bar-icon path,
+.action-bar-item:hover svg.action-bar-icon polygon {
+  fill: rgb(255, 255, 255);
+}
+
 @media screen and (max-width: 600px) {
   .action-bar-item span {
     display: none;
@@ -265,10 +273,10 @@ body {
 }
 
 .dnd-over {
-  color: white !important;
+  color: rgb(255, 255, 255) !important;
   background-color: rgb(201, 234, 179);
 }
 
 .dnd-over .grid-view-table-td-first {
-  color: white !important;
+  color: rgb(255, 255, 255) !important;
 }

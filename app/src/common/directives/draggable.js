@@ -20,7 +20,6 @@ module.directive('draggable', function() {
       el.addEventListener(
         'dragstart',
         function(e) {
-          console.log('drag start');
           e.dataTransfer.setData('item', scope.item._id);
           this.classList.add('dnd-drag');
           return false;
@@ -31,7 +30,6 @@ module.directive('draggable', function() {
       el.addEventListener(
         'dragend',
         function(e) {
-          console.log('drag end');
           this.classList.remove('dnd-drag');
           return false;
         },

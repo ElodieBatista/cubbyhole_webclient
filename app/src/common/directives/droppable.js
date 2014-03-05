@@ -17,19 +17,6 @@ module.directive('droppable', function() {
     link: function (scope, element, attrs) {
       var el = element[0];
 
-      /*el.addEventListener(
-        'dragover',
-        function(e) {
-          console.log('dragover');
-          e.dataTransfer.dropEffect = 'move';
-          // allows us to drop
-          if (e.preventDefault) e.preventDefault();
-          this.classList.add('over');
-          return false;
-        },
-        false
-      );*/
-
       el.addEventListener(
         'dragenter',
         function(e) {
