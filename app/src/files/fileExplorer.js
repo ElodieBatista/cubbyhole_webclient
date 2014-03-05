@@ -107,7 +107,7 @@ module.directive('fileExplorer', function($location) {
       scope.feAddNode = function(item) {
         $tree.tree('openNode', scope.selectedNode);
 
-        var newPos = scope.getNodeNewPos(item.name, scope.selectedNode),
+        var newPos = scope.getNodeNewPos(item, scope.selectedNode, item.name),
           action = 'addNode';
 
         if (newPos.pos === 'Here') {
@@ -132,7 +132,7 @@ module.directive('fileExplorer', function($location) {
       scope.feRenameItem = function(name, id) {
         var node = $tree.tree('getNodeBy', '_id', id);
 
-        var newPos = scope.getNodeNewPos(name, scope.selectedNode);
+        var newPos = scope.getNodeNewPos(node, scope.selectedNode, name);
 
         if (newPos.pos !== 'Here') {
           $tree.tree(
@@ -278,15 +278,17 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.getNodeNewPos = function(nodeName, nodeParent) {
+      scope.getNodeNewPos = function(node, nodeParent, newName) {
         if (nodeParent.children.length === 0) {
           return {pos:'Here', sibling:nodeParent};
         }
 
         for (var i = 0; i < nodeParent.children.length; i++) {
-          if (nodeName.toLowerCase() <= nodeParent.children[i].name.toLowerCase()) {
+          if (newName.toLowerCase() <= nodeParent.children[i].name.toLowerCase()) {
             if (i === 0) {
               return {pos:'Before', sibling:nodeParent.children[0]};
+            } else if (node._id === nodeParent.children[i - 1]._id) {
+                return {pos:'Here', sibling:null};
             } else {
               return {pos:'After', sibling:nodeParent.children[i - 1]};
             }
