@@ -182,6 +182,16 @@ module.directive('fileExplorer', function($location) {
       };
 
 
+      /*scope.feMoveUp = function(node) {
+        $tree.tree(
+          'moveNode',
+          node,
+          scope.selectedNode.parent,
+          'inside'
+        );
+      };*/
+
+
       scope.feOpenModalNewFolder = function() {
         scope.modalOpts = {
           title: 'Create a folder',

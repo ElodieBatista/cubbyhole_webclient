@@ -91,6 +91,11 @@ module.controller('FilesCtrl',
 
 
     $scope.moveItem = function(id, parentId) {
+      // Angular doesn't like _ in html binding
+      if (typeof id === 'object') {
+        id = id._id;
+        parentId = parentId._id;
+      }
       File.put({'id':id, 'parent':parentId}, function(res) {
         $scope.feMoveItem(id, parentId);
       }, function(error) {
