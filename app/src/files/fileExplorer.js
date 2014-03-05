@@ -108,7 +108,7 @@ module.directive('fileExplorer', function($location) {
         $tree.tree('openNode', scope.selectedNode);
 
         var newPos = scope.getNodeNewPos(item, scope.selectedNode, item.name),
-          action = 'addNode';
+            action = 'addNode';
 
         if (newPos.pos === 'Here') {
           action = 'appendNode';
@@ -170,15 +170,25 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feMoveItem = function(id, parentId) {
-        var node = $tree.tree('getNodeBy', '_id', id);
-        var nodeParent = $tree.tree('getNodeBy', '_id', parentId);
+        var node = $tree.tree('getNodeBy', '_id', id),
+            nodeParent = $tree.tree('getNodeBy', '_id', parentId),
+            newPos = scope.getNodeNewPos(node, nodeParent, node.name);
 
-        $tree.tree(
-          'moveNode',
-          node,
-          nodeParent,
-          'inside'
-        );
+        if (newPos.pos !== 'Here') {
+          $tree.tree(
+            'moveNode',
+            node,
+            newPos.sibling,
+            newPos.pos.toLowerCase()
+          );
+        } else {
+          $tree.tree(
+            'moveNode',
+            node,
+            nodeParent,
+            'inside'
+          );
+        }
       };
 
 
