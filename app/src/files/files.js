@@ -60,7 +60,7 @@ module.controller('FilesCtrl',
 
 
     $scope.addFolder = function(form, parent) {
-      if (form.$valid) {
+      if (form.name !== '') {
         Files.post({'type':'folder', 'name':form.name, 'parent':parent}, function(res) {
           $scope.feAddFolder(res.data);
         }, function(error) {
@@ -71,7 +71,7 @@ module.controller('FilesCtrl',
 
 
     $scope.renameItem = function(form, id) {
-      if (form.$valid) {
+      if (form.name !== '') {
         File.put({'name':form.name, 'id':id}, function(res) {
           $scope.feRenameItem(res.data.name, id);
         }, function(err) {
@@ -82,13 +82,11 @@ module.controller('FilesCtrl',
 
 
     $scope.deleteItem = function(form, id) {
-      if (form.$valid) {
-        File.delete({'id':id}, function(res) {
-          $scope.feDeleteItem(id);
-        }, function(error) {
-          console.log('Can\'t delete the item.');
-        });
-      }
+      File.delete({'id':id}, function(res) {
+        $scope.feDeleteItem(id);
+      }, function(error) {
+        console.log('Can\'t delete the item.');
+      });
     };
 
 

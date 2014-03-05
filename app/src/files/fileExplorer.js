@@ -198,6 +198,9 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feOpenModalRenameItem = function(item) {
+        scope.modalform = {};
+        scope.modalform.name = item.name;
+
         scope.modalOpts = {
           title: 'Rename ' + item.name + ' ' + item.type,
           iconClass: 'fa-' + item.type,
@@ -205,7 +208,14 @@ module.directive('fileExplorer', function($location) {
           placeholder: item.name,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Rename',
-          dismiss: scope.dismissModal
+          dismiss: scope.dismissModal,
+          template:
+            '<div class="modal-body">' +
+              '<div class="input-prepend input-prepend-file" ng-class="{\'input-prepend-active\': focused}">' +
+                '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
+                '<input class="input-text" type="text" ng-model="modalform.name" required />' +
+              '</div>' +
+            '</div>'
         };
 
         $('#appmodal').modal('show');

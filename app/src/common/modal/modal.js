@@ -9,7 +9,8 @@ module.directive('modal', function($compile) {
   return {
     restrict: 'E',
     scope: {
-      modalOpts: '=modalOpts'
+      modalOpts: '=modalOpts',
+      modalform: '=modalform'
     },
     templateUrl: '/src/common/modal/modal.tpl.html',
 
@@ -25,7 +26,8 @@ module.directive('modal', function($compile) {
       });
 
       $(elem).on('hide.bs.modal', function (e) {
-        $(this).find('input:not([type="submit"])').val('');
+        scope.modalform.name = '';
+        $(this).find('.input-text-empty-onclose').val('');
       });
     }
   };
