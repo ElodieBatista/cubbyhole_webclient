@@ -280,3 +280,12 @@ body {
 .dnd-over .grid-view-table-td-first {
   color: rgb(255, 255, 255) !important;
 }
+
+.dnd-drag {
+  color: rgb(0, 0, 0) !important;
+  background-color: rgb(255, 255, 255);
+}
+
+.dnd-drag .grid-view-table-td-first {
+  color: rgb(255, 29, 37) !important;
+}

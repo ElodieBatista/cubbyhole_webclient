@@ -97,14 +97,12 @@
       </li>
       <li class="action-bar-item" ng-show="itemActive && selectedNode.parent.parent !== null" ng-click="moveItem(itemActive, selectedNode.parent)">
         <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-          <path fill="#000000" d="M15.353,66.282L5.836,90.725c-0.225,0.579-0.083,1.229,0.357,1.663c0.002,0.003,0.005,0.006,0.011,0.011
-          c0.438,0.421,1.085,0.547,1.655,0.312l24.315-9.931c0.275-0.069,0.529-0.217,0.728-0.424l58.195-60.49
-          c0.354-0.371,0.506-0.895,0.396-1.395l-1.731-8.015c-0.063-0.299-0.226-0.575-0.445-0.785l-5.172-4.983
-          c-0.225-0.213-0.506-0.357-0.806-0.409l-8.085-1.432C74.751,4.76,74.23,4.931,73.868,5.3L15.945,65.552
-          C15.685,65.721,15.473,65.962,15.353,66.282z M86.194,13.17L30.236,71.331l-3.438-3.308L82.865,9.746l3.458,3.32
-          C86.278,13.096,86.236,13.13,86.194,13.17z M24.128,69.742l4.499,4.323l1.375,6.264l-12.488,5.099
-          c-0.475-0.909-1.24-1.83-1.975-2.538l0,0c-0.733-0.702-1.686-1.435-2.615-1.876l4.834-12.401L24.128,69.742z M32.681,78.133
-          l-1.049-4.786L87.267,15.52l1.038,4.796L32.681,78.133z M80.355,8.885L24.726,66.712l-4.796-0.854L75.528,8.031L80.355,8.885z"/>
+          <path fill="#000000" d="M30.5,19l11,10H94v52H6V19h24 M30.5,16h-24C4.843,16,3,16.843,3,18.5v62C3,82.157,4.843,84,6.5,84h88
+          c1.657,0,2.5-1.843,2.5-3.5v-52c0-1.657-0.843-2.5-2.5-2.5H42.66l-10.142-9.22C31.966,16.278,31.246,16,30.5,16L30.5,16z"/>
+          <path fill="#000000" d="M59.206,47.374l-7.191-7.191c-0.543-0.545-1.295-0.883-2.124-0.883c-0.827,0-1.575,0.336-2.118,0.877
+          c-0.001,0-0.002,0.002-0.003,0.002l-7.194,7.195c-1.172,1.172-1.172,3.071,0,4.242c1.172,1.172,3.014,1.172,4.186,0l2.012-2.072
+          v17.813c0,1.656,1.344,3,3,3c1.657,0,3-1.344,3-3V49.543l2.132,2.073c0.585,0.586,1.384,0.879,2.15,0.879s1.55-0.293,2.136-0.879
+          C60.362,50.445,60.376,48.546,59.206,47.374z"/>
         </svg>
         <span>Move Up</span>
       </li>
@@ -161,7 +159,7 @@
         </thead>
         <tbody>
           <tr class="grid-view-table-tr" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)"
-              droppable item="file" doDrop="moveItem" candrop="file.type === 'folder'">
+              droppable item="file" doDrop="moveItem" candrop="file.type === 'folder' && currFileDnD !== file">
             <td class="grid-view-table-td-first" draggable item="file">
               <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
 

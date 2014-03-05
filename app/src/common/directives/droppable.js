@@ -46,7 +46,10 @@ module.directive('droppable', function() {
 
           var itemId = e.dataTransfer.getData('item');
           var itemContainerId = scope.item._id;
-          scope.doDrop(itemId, itemContainerId);
+
+          if (scope.candrop && itemId !== itemContainerId) {
+            scope.doDrop(itemId, itemContainerId);
+          }
 
           return false;
         },
