@@ -289,3 +289,12 @@ body {
 .dnd-drag .grid-view-table-td-first {
   color: rgb(255, 29, 37) !important;
 }
+
+.upload-container-hover .dnd-over {
+  color: rgb(0, 0, 0) !important;
+  background-color: rgb(255, 255, 255);
+}
+
+.upload-container-hover .dnd-over .grid-view-table-td-first {
+  color: rgb(255, 29, 37) !important;
+}

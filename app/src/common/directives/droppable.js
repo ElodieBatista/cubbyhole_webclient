@@ -40,14 +40,12 @@ module.directive('droppable', function() {
       el.addEventListener(
         'drop',
         function(e) {
-          e.stopPropagation();
-
           this.classList.remove('dnd-over');
 
           var itemId = e.dataTransfer.getData('item');
           var itemContainerId = scope.item._id;
 
-          if (scope.candrop && itemId !== itemContainerId) {
+          if (scope.candrop && itemId !== '' && itemId !== itemContainerId) {
             scope.doDrop(itemId, itemContainerId);
           }
 
