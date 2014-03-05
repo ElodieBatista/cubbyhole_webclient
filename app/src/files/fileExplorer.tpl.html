@@ -4,7 +4,7 @@
 
   <div id="file-explorer-progress-bar"></div>
 
-  <div class="col-md-9" id="grid-view" ng-file-drop="onFileSelect(null, $files)" ng-file-drag-over-class="upload-container-hover">
+  <div class="col-md-9" id="grid-view" ng-file-drop="onFileSelect(null, $files)" ng-file-drag-over-class="upload-container-hover" ng-file-drag-over-class-cond="!.dnd-drag">
 
     <ul class="row action-bar">
       <li class="action-bar-item action-bar-item-special" ng-show="selectedNode.parent.parent !== null" ng-click="feSelectNode(selectedNode.parent)">

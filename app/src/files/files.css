@@ -264,6 +264,11 @@ body {
   margin: 5px;
 }
 
-.over {
-  background-color: yellow;
+.dnd-over {
+  color: white !important;
+  background-color: rgb(201, 234, 179);
+}
+
+.dnd-over .grid-view-table-td-first {
+  color: white !important;
 }

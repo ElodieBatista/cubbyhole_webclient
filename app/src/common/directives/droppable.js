@@ -33,9 +33,8 @@ module.directive('droppable', function() {
       el.addEventListener(
         'dragenter',
         function(e) {
-          console.log('dragenter');
           if (scope.candrop) {
-            this.classList.add('over');
+            this.classList.add('dnd-over');
           }
           return false;
         },
@@ -45,8 +44,7 @@ module.directive('droppable', function() {
       el.addEventListener(
         'dragleave',
         function(e) {
-          console.log('dragleave');
-          this.classList.remove('over');
+          this.classList.remove('dnd-over');
           return false;
         },
         false
@@ -55,11 +53,9 @@ module.directive('droppable', function() {
       el.addEventListener(
         'drop',
         function(e) {
-          console.log('drop');
-          // Stops some browsers from redirecting.
-          if (e.stopPropagation) e.stopPropagation();
+          e.stopPropagation();
 
-          this.classList.remove('over');
+          this.classList.remove('dnd-over');
 
           var itemId = e.dataTransfer.getData('item');
           var itemContainerId = scope.item._id;
