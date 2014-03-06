@@ -87,7 +87,7 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feOpenRoot = function() {
-        var node = $tree.tree('getNodeBy', '_id', '-1');
+        var node = $tree.tree('getNodeBy', '_id', scope.rootItem._id);
         $tree.tree('openNode', node);
         scope.feSelectNode(node);
       };
@@ -304,7 +304,11 @@ module.directive('fileExplorer', function($location) {
             }
           }
         }
-        return {pos:'After', sibling:nodeParent.children[nodeParent.children.length - 1]};
+        if (node._id === nodeParent.children[nodeParent.children.length - 1]._id) {
+          return {pos:'Here', sibling:null};
+        } else {
+          return {pos:'After', sibling:nodeParent.children[nodeParent.children.length - 1]};
+        }
       };
 
 

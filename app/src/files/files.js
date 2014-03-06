@@ -53,6 +53,7 @@ module.controller('FilesCtrl',
     $scope.path = $routeParams.path;
 
     Files.get(function(res) {
+      $scope.rootItem = res.data[0];
       $scope.folders = res.data;
     }, function(error) {
       console.log('Can\'t get the files.');
