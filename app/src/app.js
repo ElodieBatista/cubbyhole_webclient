@@ -72,8 +72,6 @@ angular.module('webApp', [
   })
   .run(function($rootScope, $location, $window) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
-      console.log('Route change start');
-
       if (next.authRequired === true && !$rootScope.getToken()) {
         $window.location.href = 'index.html';
       }
