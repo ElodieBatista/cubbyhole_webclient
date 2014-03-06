@@ -186,14 +186,6 @@ body {
   width: 100%;
 }
 
-.itemActive {
-  background-color: rgba(254, 80, 81, 0.7);
-}
-
-.itemActive .grid-view-table-td-first {
-  color: white;
-}
-
 .upload-container-hover {
   border: 3px solid rgb(255, 29, 37) !important;
 }
@@ -215,11 +207,22 @@ body {
 .action-bar {
   display: block;
   width: 100%;
-  height: 30px;
   margin: 10px auto;
   padding: 0;
   text-align: center;
   background-color: rgb(240, 240, 240);
+}
+
+.action-bar-left {
+  float: left;
+  padding: 0;
+  margin: 0;
+}
+
+.action-bar-right {
+  float: right;
+  padding: 0;
+  margin: 0;
 }
 
 .action-bar-icon {
@@ -234,7 +237,7 @@ body {
 }
 
 .action-bar-item {
-  float: right;
+  float: left;
   display: block;
   height: 30px;
   padding: 0 5px;
@@ -255,7 +258,7 @@ body {
   fill: rgb(255, 255, 255);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 720px) {
   .action-bar-item span {
     display: none;
   }
@@ -266,7 +269,7 @@ body {
 }
 
 .action-bar-separator {
-  float: right;
+  float: left;
   display: block;
   height: 20px;
   border-right: solid 1px rgb(50, 50, 50);
@@ -298,4 +301,12 @@ body {
 
 .upload-container-hover .dnd-over .grid-view-table-td-first {
   color: rgb(255, 29, 37) !important;
+}
+
+.itemActive {
+  background-color: rgba(254, 80, 81, 0.7) !important;
+}
+
+.itemActive .grid-view-table-td-first {
+  color: white !important;
 }

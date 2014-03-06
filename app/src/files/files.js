@@ -36,6 +36,12 @@ module.controller('FilesCtrl',
       'get': {
         method:'GET'
       },
+      'post': {
+        method:'POST',
+        params: {
+          parent:'@parent'
+        }
+      },
       'put': {
         method:'PUT',
         params: {
@@ -60,10 +66,10 @@ module.controller('FilesCtrl',
     });
 
 
-    $scope.addFolder = function(form, parent) {
+    $scope.addFolder = function(form, parentId) {
       if (form.name !== '') {
-        Files.post({'type':'folder', 'name':form.name, 'parent':parent}, function(res) {
-          $scope.feAddFolder(res.data);
+        Files.post({'type':'folder', 'name':form.name, 'parent':parentId}, function(res) {
+          $scope.feAddFolder(res.data, parentId);
         }, function(error) {
           console.log('Can\'t create new folder.');
         });
@@ -87,6 +93,15 @@ module.controller('FilesCtrl',
         $scope.feDeleteItem(id);
       }, function(error) {
         console.log('Can\'t delete the item.');
+      });
+    };
+
+
+    $scope.copyItem = function(id, parentId) {
+      File.post({'id':id, 'parent':parentId}, function(res) {
+        $scope.feAddNode(res.data, parentId);
+      }, function(error) {
+        console.log('Can\'t copy the item.');
       });
     };
 
@@ -125,17 +140,15 @@ module.controller('FilesCtrl',
           /* customize how data is added to formData. See #40#issuecomment-28612000 for example */
           //formDataAppender: function(formData, key, val){} //#40#issuecomment-28612000
         }).progress(function(e) {
-            var percent = parseInt(100.0 * e.loaded / e.total);
-            console.log('percent: ' + percent);
-            $scope.feUpdateProgressBar(percent);
-          }).success(function(res, status, headers, config) {
-            console.log(res.data);
-            $scope.uploading = false;
-            $scope.feAddNode(res.data);
-          }).error(function(error) {
-            console.log(error);
-            $scope.uploading = false;
-          });
+          var percent = parseInt(100.0 * e.loaded / e.total);
+          $scope.feUpdateProgressBar(percent);
+        }).success(function(res, status, headers, config) {
+          $scope.uploading = false;
+          $scope.feAddNode(res.data, $scope.selectedNode._id);
+        }).error(function(error) {
+          console.log(error);
+          $scope.uploading = false;
+        });
       }
     };
 

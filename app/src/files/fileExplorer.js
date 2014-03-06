@@ -104,10 +104,11 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feAddNode = function(item) {
-        $tree.tree('openNode', scope.selectedNode);
+      scope.feAddNode = function(item, parentId) {
+        var parent = $tree.tree('getNodeBy', '_id', parentId);
+        $tree.tree('openNode', parent);
 
-        var newPos = scope.getNodeNewPos(item, scope.selectedNode, item.name),
+        var newPos = scope.getNodeNewPos(item, parent, item.name),
             action = 'addNode';
 
         if (newPos.pos === 'Here') {
@@ -124,8 +125,8 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feAddFolder = function(folder) {
-        scope.feAddNode(folder);
+      scope.feAddFolder = function(folder, parentId) {
+        scope.feAddNode(folder, parentId);
       };
 
 
