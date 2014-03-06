@@ -152,10 +152,12 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feRenameItem = function(name, id) {
+      scope.feRenameItem = function(name, id, parentId) {
         var node = $tree.tree('getNodeBy', '_id', id);
+        var parent = $tree.tree('getNodeBy', '_id', parentId);
+        //var parent = scope.selectedNode;
 
-        var newPos = scope.getNodeNewPos(node, scope.selectedNode, name);
+        var newPos = scope.getNodeNewPos(node, parent, name);
 
         if (newPos.pos !== 'Here') {
           $tree.tree(
@@ -192,7 +194,7 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feMoveItem = function(id, parentId) {
+      scope.feMoveItem = function(id, parentId, name) {
         var node = $tree.tree('getNodeBy', '_id', id),
             nodeParent = $tree.tree('getNodeBy', '_id', parentId),
             newPos = scope.getNodeNewPos(node, nodeParent, node.name);
@@ -211,6 +213,10 @@ module.directive('fileExplorer', function($location) {
             nodeParent,
             'inside'
           );
+        }
+
+        if (node.name !== name) {
+          scope.feRenameItem(name, id, nodeParent._id);
         }
       };
 

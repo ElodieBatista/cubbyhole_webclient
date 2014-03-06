@@ -80,7 +80,7 @@ module.controller('FilesCtrl',
     $scope.renameItem = function(form, id) {
       if (form.name !== '') {
         File.put({'name':form.name, 'id':id}, function(res) {
-          $scope.feRenameItem(res.data.name, id);
+          $scope.feRenameItem(res.data.name, id, res.data.parent);
         }, function(err) {
           console.log('Can\'t rename the item.');
         });
@@ -118,7 +118,7 @@ module.controller('FilesCtrl',
         parentId = parentId._id;
       }
       File.put({'id':id, 'parent':parentId}, function(res) {
-        $scope.feMoveItem(id, parentId);
+        $scope.feMoveItem(id, parentId, res.data.name);
       }, function(error) {
         console.log('Can\'t move the item.');
       });
