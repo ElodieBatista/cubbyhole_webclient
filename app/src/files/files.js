@@ -98,6 +98,11 @@ module.controller('FilesCtrl',
 
 
     $scope.copyItem = function(id, parentId) {
+      // Angular doesn't like _ in html binding
+      if (typeof id === 'object') {
+        id = id._id;
+        parentId = parentId._id;
+      }
       File.post({'id':id, 'parent':parentId}, function(res) {
         $scope.feAddNode(res.data, parentId);
       }, function(error) {
