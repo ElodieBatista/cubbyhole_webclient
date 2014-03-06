@@ -192,6 +192,11 @@ module.directive('fileExplorer', function($location) {
       };
 
 
+      scope.feCopy = function(item) {
+        scope.itemCopied = item;
+      };
+
+
       scope.feOpenModalNewFolder = function() {
         scope.modalOpts = {
           title: 'Create a folder',

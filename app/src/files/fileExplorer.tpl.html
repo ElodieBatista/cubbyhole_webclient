@@ -119,8 +119,54 @@
         </svg>
         <span>Rename</span>
       </li>
-      <li class="action-bar-item" ng-show="itemActive && itemActive.type === 'folder'" ng-click="feSelectNode(itemActive)">
+      <li class="action-bar-item" ng-show="itemActive && itemCopied" ng-click="moveItem(itemCopied, selectedNode, true)">
+        <svg class="action-bar-icon" xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">
+              <g>
+                <path fill="#000000" d="M71.11,17.971v12.521H28.882V17.971H12.514V95h74.973V17.971H71.11z
+                M84.35,91.864h-68.7V21.107h10.095v12.521h48.501
+                V21.107H84.35V91.864z"/>
+                <path fill="#000000" d="M66.822,9.476H56.555V5H43.502v4.476H33.178v16.991h33.644V9.476z
+                M46.639,8.136h6.779v6.779h-6.779V8.136z
+                M63.685,23.331H36.315V12.612h7.188v5.44h13.052v-5.44h7.131V23.331z"/>
+                <rect fill="#000000" x="22.437" y="40.085" width="55.125" height="1.136"/>
+                <rect fill="#000000" x="22.437" y="49.756" width="55.125" height="1.136"/>
+                <rect fill="#000000" x="22.437" y="59.427" width="55.125" height="1.136"/>
+                <rect fill="#000000" x="22.437" y="69.098" width="55.125" height="1.136"/>
+                <rect fill="#000000" x="22.437" y="78.769" width="55.125" height="1.136"/>
+              </g>
+              <g>
+                <path fill="#000000" d="M71.11,17.971v12.521H28.882V17.971H12.514V95h74.973V17.971H71.11z
+                M84.35,91.864h-68.7V21.107h10.095v12.521h48.501
+                V21.107H84.35V91.864z"/>
+                <path fill="#000000" d="M66.822,9.476H56.555V5H43.502v4.476H33.178v16.991h33.644V9.476z
+                M46.639,8.136h6.779v6.779h-6.779V8.136z
+                M63.685,23.331H36.315V12.612h7.188v5.44h13.052v-5.44h7.131V23.331z"/>
+                <rect fill="#000000" x="22.437" y="40.085" width="55.125" height="1.136"/>
+                <rect fill="#000000" x="22.437" y="49.756" width="55.125" height="1.136"/>
+                <rect fill="#000000" x="22.437" y="59.427" width="55.125" height="1.136"/>
+                <rect fill="#000000" x="22.437" y="69.098" width="55.125" height="1.136"/>
+                <rect fill="#000000" x="22.437" y="78.769" width="55.125" height="1.136"/>
+              </g>
+        </svg>
+        <span>Paste</span>
+      </li>
+      <li class="action-bar-item" ng-show="itemActive" ng-click="feCopy(itemActive)">
         <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
+          <g>
+            <path fill="#000000" d="M83.278,17.723c-0.104-0.171-0.236-0.325-0.398-0.441l-9.348-8.87c-0.343-0.326-0.812-0.456-1.265-0.385
+            C72.181,8.011,72.092,8,72,8H25.5C24.671,8,24,8.671,24,9.5V15h-5.5c-0.829,0-1.5,0.671-1.5,1.5v78c0,0.828,0.671,1.5,1.5,1.5h56
+            c0.828,0,1.5-0.672,1.5-1.5V89h6.5c0.828,0,1.5-0.672,1.5-1.5V19C84,18.458,83.709,17.987,83.278,17.723z M73,93H20V18h4v69.5
+            c0,0.828,0.671,1.5,1.5,1.5H73V93z M27,86V11h44v7.5c0,0.829,0.672,1.5,1.5,1.5H81v66H27z"/>
+            <path fill="#000000" d="M72,27H36c-0.552,0-1,0.448-1,1s0.448,1,1,1h36c0.553,0,1-0.448,1-1S72.553,27,72,27z"/>
+            <path fill="#000000" d="M72,41H36c-0.552,0-1,0.448-1,1s0.448,1,1,1h36c0.553,0,1-0.448,1-1S72.553,41,72,41z"/>
+            <path fill="#000000" d="M72,53H36c-0.552,0-1,0.447-1,1s0.448,1,1,1h36c0.553,0,1-0.447,1-1S72.553,53,72,53z"/>
+            <path fill="#000000" d="M72,66H36c-0.552,0-1,0.447-1,1s0.448,1,1,1h36c0.553,0,1-0.447,1-1S72.553,66,72,66z"/>
+          </g>
+        </svg>
+        <span>Copy</span>
+      </li>
+      <li class="action-bar-item" ng-show="itemActive && itemActive.type === 'folder'" ng-click="feSelectNode(itemActive)">
+        <svg class="action-bar-icon action-bar-icon-small" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
           <path fill="#000000" d="M100,31.806c0-2.07-1.678-3.75-3.75-3.75h-0.323c-0.348-1.711-1.859-3-3.675-3H41.181l-9.803-11.374l-0.019,0.005
           c-0.681-0.696-1.628-1.13-2.679-1.13H3.75c-2.071,0-3.749,1.679-3.749,3.75v67.38L0,83.693c0,2.071,1.678,3.75,3.748,3.75H3.75
           h16.873h0.002H37.5h0.001H92.25h0.002c2.072,0,3.75-1.679,3.75-3.75v-0.025L100,31.806z M37.5,84.443H20.623H3.748
