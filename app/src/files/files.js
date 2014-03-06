@@ -104,7 +104,7 @@ module.controller('FilesCtrl',
         parentId = parentId._id;
       }
       File.post({'id':id, 'parent':parentId}, function(res) {
-        $scope.feAddNode(res.data, parentId);
+        $scope.feAddNodes(res.data, parentId);
       }, function(error) {
         console.log('Can\'t copy the item.');
       });
