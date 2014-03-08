@@ -32,7 +32,7 @@ module.controller('FilesCtrl',
       }
     });
 
-    var File = $resource(conf.epApi + '/item/:id', {id: '@id'}, {
+    var File = $resource(conf.epApi + '/item/:id', {id:'@id'}, {
       'get': {
         method:'GET'
       },

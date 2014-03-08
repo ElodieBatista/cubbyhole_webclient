@@ -507,6 +507,30 @@ footer {
   padding: 0 12px;
 }
 
+
+/* TABLES */
+td {
+  padding: 5px;
+  white-space: nowrap;
+}
+
+thead {
+  color: rgb(150, 150, 150);
+  text-align: left;
+  text-transform: uppercase;
+  border-bottom: 2px solid rgb(230, 230, 230);
+}
+
+th {
+  padding: 5px;
+  font-weight: normal;
+}
+
+th:first-child {
+  width: 100%;
+}
+
+
 /* COLORS */
 .primary-btn    { background-color: rgb(254, 80, 81);   }
 .secondary-btn  { background-color: rgb(95, 182, 245);  }

@@ -130,33 +130,26 @@ body {
   width: 100%;
 }
 
-.grid-view-table-header {
-  color: rgb(150, 150, 150);
-  text-align: left;
-  text-transform: uppercase;
-  border-bottom: 2px solid rgb(230, 230, 230);
-}
-
-.grid-view-table-header th {
-  padding: 5px;
-  font-weight: normal;
-}
-
 .grid-view-table-tr {
   height: 40px;
   border-bottom: 1px solid rgb(240, 240, 240);
 }
 
-.grid-view-table td {
-  padding: 5px;
-  white-space: nowrap;
-}
-
-.grid-view-table-td-first {
+/*.grid-view-table-td-first {
   color: rgb(255, 29, 37);
   font-variant: small-caps;
   font-size: 15px;
   cursor: pointer;
+}*/
+
+td:first-child {
+  font-variant: small-caps;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.primary td:first-child {
+  color: rgb(255, 29, 37);
 }
 
 .grid-view-table-icon {
@@ -176,14 +169,6 @@ body {
 #grid-view-msg {
   margin-top: 100px;
   text-align: center;
-}
-
-.grid-view-highlight {
-  color: rgb(254, 80, 81);
-}
-
-.grid-view-table-header th:first-child {
-  width: 100%;
 }
 
 .upload-container-hover {
@@ -276,12 +261,16 @@ body {
   margin: 5px;
 }
 
-.dnd-over {
-  color: rgb(255, 255, 255) !important;
-  background-color: rgb(201, 234, 179);
+.itemActive {
+  background-color: rgba(254, 80, 81, 0.7) !important;
 }
 
-.dnd-over .grid-view-table-td-first {
+.dnd-over {
+  color: rgb(255, 255, 255) !important;
+  background-color: rgb(201, 234, 179) !important;
+}
+
+.dnd-over td:first-child {
   color: rgb(255, 255, 255) !important;
 }
 
@@ -290,23 +279,27 @@ body {
   background-color: rgb(255, 255, 255);
 }
 
-.dnd-drag .grid-view-table-td-first {
+.dnd-drag td:first-child {
   color: rgb(255, 29, 37) !important;
 }
 
 .upload-container-hover .dnd-over {
   color: rgb(0, 0, 0) !important;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255) !important;
 }
 
-.upload-container-hover .dnd-over .grid-view-table-td-first {
+.upload-container-hover .dnd-over td:first-child {
   color: rgb(255, 29, 37) !important;
 }
 
-.itemActive {
+.upload-container-hover .dnd-over.itemActive td:first-child {
+  color: white !important;
+}
+
+.upload-container-hover .dnd-over.itemActive {
   background-color: rgba(254, 80, 81, 0.7) !important;
 }
 
-.itemActive .grid-view-table-td-first {
+.itemActive td:first-child {
   color: white !important;
 }

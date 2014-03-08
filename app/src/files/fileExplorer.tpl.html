@@ -197,9 +197,10 @@
     </div>
 
     <div class="row grid-view-table-container">
+
       <table class="col-md-12 grid-view-table">
         <thead>
-          <tr class="grid-view-table-header">
+          <tr>
             <th>Name</th>
             <th>Type</th>
             <th>Size</th>
@@ -212,8 +213,8 @@
             <td class="grid-view-table-td-first" draggable item="file">
               <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
 
-              <span class="grid-view-table-filename" ng-if="file.type === 'folder'" ng-click="feSelectNode(file)">{{file.name}}</span>
-              <span class="grid-view-table-filename" ng-if="file.type === 'file'" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();">{{file.name}}</span>
+              <span class="grid-view-table-filename" ng-if="file.type === 'folder'" ng-click="feSelectNode(file)" ng-bind="file.name"></span>
+              <span class="grid-view-table-filename" ng-if="file.type === 'file'" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();" ng-bind="file.name"></span>
             </td>
             <td>
               <span ng-if="file.type === 'folder'" ng-bind="file.type"></span>
@@ -229,13 +230,13 @@
       </table>
 
       <p class="col-md-12" id="grid-view-msg" ng-show="files.length === 0">
-        This folder is empty. <span class="grid-view-highlight">Drag and drop</span> some folders and files here!
+        This folder is empty. <span class="highlight">Drag and drop</span> some folders and files here!
       </p>
 
     </div>
 
     <div class="upload-progress-container" ng-show="uploading">
-      <button class="upload-btn" ng-click="upload.abort()">Cancel Upload</button>
+      <button class="btn btn-default" ng-click="upload.abort()">Cancel Upload</button>
     </div>
 
   </div>
