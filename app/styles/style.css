@@ -100,6 +100,10 @@ spinner {
   height: 45px;
 }
 
+.appinvisible {
+  visibility: hidden;
+}
+
 
 /* BOOTSTRAP */
 .modal-footer {

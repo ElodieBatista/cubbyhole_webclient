@@ -40,6 +40,8 @@ module.controller('SharingCtrl',
     $scope.items = [];
     $scope.itemActive = null;
 
+    $scope.userId = $rootScope.getProfile().id;
+
     $scope.items = [
       {
         _id: '0',
@@ -47,20 +49,26 @@ module.controller('SharingCtrl',
         size: 225923,
         lastModified: '2014-03-06T08:57:04.103Z',
         path: 'My Cubbyhole,A',
-        owner: 'gaetan@sup.com',
+        owner: {
+          _id: '40',
+          email:'gaetan@sup.com'
+        },
         members: [
           {
-            mail: 'maxime@sup.com',
+            _id: '10',
+            email: 'maxime@sup.com',
             status: 'joined',
             permission: 1
           },
           {
-            mail: 'kevin@sup.com',
+            _id: '20',
+            email: 'kevin@sup.com',
             status: 'joined',
             permission: 1
           },
           {
-            mail: 'elodie@sup.com',
+            _id: '531832618e4278e018000001',
+            email: 'elodie@sup.com',
             status: 'still waiting',
             permission: 0
           }
@@ -72,15 +80,20 @@ module.controller('SharingCtrl',
         size: 1225923,
         lastModified: '2014-03-08T08:57:04.103Z',
         path: 'My Cubbyhole',
-        owner: 'elodie@sup.com',
+        owner: {
+          _id: '531832618e4278e018000001',
+          email:'elodie@sup.com'
+        },
         members: [
           {
-            mail: 'kevin@sup.com',
+            _id: '20',
+            email: 'kevin@sup.com',
             status: 'joined',
             permission: 1
           },
           {
-            mail: 'elodie@sup.com',
+            _id: '531832618e4278e018000001',
+            email: 'elodie@sup.com',
             status: 'still waiting',
             permission: 0
           }

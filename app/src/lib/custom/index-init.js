@@ -7,16 +7,16 @@ $(document).ready(function() {
     $(this).tab('show');
   });
 
+  // Collapse nav bar on click on a btn
+  $('nav a').click(function() {
+    $('nav').collapse('hide');
+  });
+
   // Outline input on focus/blur
   $('.input-text').focus(function() {
     $(this).parent().addClass('input-prepend-active');
   }).blur(function() {
-      $(this).parent().removeClass('input-prepend-active');
-    });
-
-  // Collapse nav bar on click on a btn
-  $('nav a').click(function() {
-    $('nav').collapse('hide');
+    $(this).parent().removeClass('input-prepend-active');
   });
 
   // Animate inputs on error
@@ -80,6 +80,7 @@ $(document).ready(function() {
   // If user's already authenticated
   if (localStorage.profile !== undefined) {
     $('#home-unauthenticated-container').css('display', 'none');
+    $('#home-authenticated-title-email').text(JSON.parse(localStorage.profile).email);
     $('#home-authenticated-container').css('display', 'block');
   } else {
     $('#home-authenticated-container').css('display', 'none');
