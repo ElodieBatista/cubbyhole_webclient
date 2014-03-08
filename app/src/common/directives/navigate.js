@@ -1,7 +1,19 @@
+'use strict';
+
+var module = angular.module('webApp');
+
 /**
- * Created with JetBrains WebStorm.
- * User: Elodie
- * Date: 3/8/14
- * Time: 5:32 PM
- * To change this template use File | Settings | File Templates.
+ *
  */
+module.directive('navigate', function($location) {
+  return {
+    restrict: 'A',
+    scope: {},
+
+    link: function (scope, element, attrs) {
+      element.on('click', function() {
+        $location.search(attrs.navigateParam, attrs.navigateParamVal).path(attrs.navigate);
+      });
+    }
+  };
+});

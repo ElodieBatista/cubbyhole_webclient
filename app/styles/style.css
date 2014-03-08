@@ -487,7 +487,7 @@ footer {
 .btn {
   width: 100%;
   height: 45px;
-  padding: 0;
+  padding: 0 12px;
   color: white;
   text-transform: uppercase;
   font-family: "OpenSans-Regular", Helvetica, Arial, sans-serif;
@@ -504,7 +504,6 @@ footer {
 
 .modal .btn {
   width: auto;
-  padding: 0 12px;
 }
 
 
@@ -529,6 +528,45 @@ th {
 th:first-child {
   width: 100%;
 }
+
+tbody tr {
+  height: 40px;
+  border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+td:first-child {
+  font-variant: small-caps;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.primary td:first-child     { color: rgb(255, 29, 37);    }
+.secondary td:first-child   { color: rgb(63, 169, 245);   }
+.tertiary td:first-child    { color: rgb(255, 147, 30);   }
+.quaternary td:first-child  { color: rgb(122, 201, 67);   }
+.quinary td:first-child     { color: rgb(255, 108, 164);  }
+
+.primary tbody tr:not(.itemActive):hover    { background-color: rgba(254, 80, 81, 0.1);   }
+.secondary tbody tr:not(.itemActive):hover  { background-color: rgba(95, 182, 245, 0.1);  }
+.tertiary tbody tr:not(.itemActive):hover   { background-color: rgba(255, 168, 72, 0.1);  }
+.quaternary tbody tr:not(.itemActive):hover { background-color: rgba(141, 209, 97, 0.1);  }
+.quinary tbody tr:not(.itemActive):hover    { background-color: rgba(255, 149, 189, 0.1); }
+
+.table-icon {
+  width: 23px;
+  margin-right: 5px;
+  vertical-align: bottom;
+}
+
+td:first-child span:hover {
+  text-decoration: underline;
+}
+
+.primary .itemActive    { background-color: rgba(254, 80, 81, 0.7) ;  }
+.secondary .itemActive  { background-color: rgba(95, 182, 245, 0.7);  }
+.tertiary .itemActive   { background-color: rgba(255, 168, 72, 0.7);  }
+.quaternary .itemActive { background-color: rgba(141, 209, 97, 0.7);  }
+.quinary .itemActive    { background-color: rgba(255, 149, 189, 0.7); }
 
 
 /* COLORS */

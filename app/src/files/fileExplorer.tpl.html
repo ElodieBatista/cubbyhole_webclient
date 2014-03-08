@@ -208,13 +208,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="grid-view-table-tr" ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)"
+          <tr ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)"
               droppable item="file" doDrop="moveItem" candrop="file.type === 'folder' && currFileDnD !== file">
-            <td class="grid-view-table-td-first" draggable item="file">
-              <img class="grid-view-table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
+            <td draggable item="file">
+              <img class="table-icon" ng-src="/styles/icons/icon_{{file.type}}.svg" />
 
-              <span class="grid-view-table-filename" ng-if="file.type === 'folder'" ng-click="feSelectNode(file)" ng-bind="file.name"></span>
-              <span class="grid-view-table-filename" ng-if="file.type === 'file'" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();" ng-bind="file.name"></span>
+              <span ng-if="file.type === 'folder'" ng-click="feSelectNode(file)" ng-bind="file.name"></span>
+              <span ng-if="file.type === 'file'" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();" ng-bind="file.name"></span>
             </td>
             <td>
               <span ng-if="file.type === 'folder'" ng-bind="file.type"></span>
@@ -241,7 +241,7 @@
 
   </div>
 
-  <form id="file-explorer-form-download" method="GET" action="http://localhost:3000/item/{{itemActiveId}}/download/{{token}}">
+  <form id="file-explorer-form-download" method="GET" action="{{ 'http://localhost:3000/item/' + itemActive._id + '/download/' + token }}">
   </form>
 </div>
 

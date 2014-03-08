@@ -160,10 +160,8 @@ module.controller('FilesCtrl',
 
     $scope.toggleItem = function(item, forceSelect) {
       if ($scope.itemActive === item && !forceSelect) {
-        $scope.itemActiveId = -1;
         $scope.itemActive = null;
       } else {
-        $scope.itemActiveId = (item === null ? -1 : item._id);
         $scope.itemActive = item;
       }
     };

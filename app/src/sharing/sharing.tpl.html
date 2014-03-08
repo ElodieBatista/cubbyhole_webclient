@@ -1,5 +1,77 @@
 <div class="container container-fill no-padding no-margin">
-  <div class="row row-fill">
-    Sharing
+  <div class="row row-fill secondary">
+
+    <div class="col-md-10 col-md-offset-1" id="sharing-container">
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Owner</th>
+            <th>Size</th>
+            <th>Modified</th>
+          </tr>
+        </thead>
+        <tbody ng-repeat="item in items track by $index">
+          <tr ng-class="{true:'itemActive',false:''}[itemActive.name == item.name]" ng-click="toggleItem(item);">
+            <td>
+              <img class="table-icon" ng-src="/styles/icons/icon_sharedfolder.svg" />
+
+              <span navigate="/files" navigate-param="path" navigate-param-val="{{item.path}}" ng-bind="item.name"></span>
+            </td>
+            <td>
+              <span ng-bind="item.owner"></span>
+            </td>
+            <td>
+              <span ng-bind="item.size | size"></span>
+            </td>
+            <td>{{item.lastModified | date}}</td>
+          </tr>
+          <tr ng-show="itemActive._id === item._id">
+            <td class="shared-options-table-container" colspan="4">
+              <table class="shared-options-container">
+                <tr class="shared-options-header-tr">
+                  <th>Members</th>
+                  <th>Status</th>
+                  <th>Read Only</th>
+                  <th>Read & Write</th>
+                </tr>
+                <tr class="shared-options-tr" ng-repeat="member in item.members">
+                  <td ng-bind="member.mail"></td>
+                  <td ng-bind="member.status"></td>
+                  <td>
+                    <input type="radio" name="ro-{{item._id}}-{{member.mail}}" ng-model="member.permission" value="0">
+                  </td>
+                  <td>
+                    <input type="radio" name="ro-{{item._id}}-{{member.mail}}" ng-model="member.permission" value="1">
+                  </td>
+                </tr>
+                <tr class="shared-options-tr shared-options-form-container shared-options-tr-nohover">
+                  <td>
+                    <div class="input-prepend">
+                      <i class="fa fa-envelope input-icon"></i>
+                      <input class="input-text" type="email" placeholder="Invite People">
+                    </div>
+                  </td>
+                  <td>
+                    <input class="btn secondary-btn" type="submit" value="Invite">
+                  </td>
+                </tr>
+                <tr class="shared-options-tr shared-options-tr-nohover">
+                  <td>
+                    <input class="btn btn-default" type="submit" value="Unshare folder">
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="col-md-12" id="grid-view-msg" ng-show="items.length === 0">
+        You haven't shared any folder yet. Go to your files page to <span class="highlight">share some folders!</span>
+      </p>
+
+    </div>
   </div>
 </div>

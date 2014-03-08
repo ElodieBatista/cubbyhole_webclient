@@ -130,42 +130,6 @@ body {
   width: 100%;
 }
 
-.grid-view-table-tr {
-  height: 40px;
-  border-bottom: 1px solid rgb(240, 240, 240);
-}
-
-/*.grid-view-table-td-first {
-  color: rgb(255, 29, 37);
-  font-variant: small-caps;
-  font-size: 15px;
-  cursor: pointer;
-}*/
-
-td:first-child {
-  font-variant: small-caps;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.primary td:first-child {
-  color: rgb(255, 29, 37);
-}
-
-.grid-view-table-icon {
-  width: 23px;
-  margin-right: 5px;
-  vertical-align: bottom;
-}
-
-.grid-view-table-filename:hover {
-  text-decoration: underline;
-}
-
-.grid-view-table-tr:not(.itemActive):hover {
-  background-color: rgba(254, 80, 81, 0.1);
-}
-
 #grid-view-msg {
   margin-top: 100px;
   text-align: center;
@@ -259,10 +223,6 @@ td:first-child {
   height: 20px;
   border-right: solid 1px rgb(50, 50, 50);
   margin: 5px;
-}
-
-.itemActive {
-  background-color: rgba(254, 80, 81, 0.7) !important;
 }
 
 .dnd-over {
