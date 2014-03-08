@@ -10,7 +10,7 @@ angular.module('webApp', [
   .constant('conf', {
     'epApi': 'http://localhost:3000'
   })
-  .config(function($locationProvider, $httpProvider, $routeProvider) {
+  .config(function(conf, $locationProvider, $httpProvider, $routeProvider, $sceDelegateProvider) {
     $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.token;
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
 
@@ -44,7 +44,7 @@ angular.module('webApp', [
     }];
 
     // Configure an interceptor to watch for unauthorized service calls
-    var interceptor401 = ['$location', '$q', '$rootScope', function($location, $q, $rootScope) {
+    var interceptor401 = ['$location', '$q', '$rootScope', function($location, $q) {
       function comesFromCubbyhole(url) {
         return (url.indexOf(conf.epApi) !== -1);
       }
@@ -69,6 +69,8 @@ angular.module('webApp', [
     $httpProvider.interceptors.push(interceptor401);
 
     $routeProvider.otherwise({redirectTo: '/files'});
+
+    $sceDelegateProvider.resourceUrlWhitelist([conf.epApi + '**', 'self'])
   })
   .run(function($rootScope, $location, $window) {
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
