@@ -311,11 +311,12 @@ module.directive('fileExplorer', function($location) {
 
       scope.feOpenModalShareItem = function(item) {
         scope.modalform = {};
-        scope.modalform.member = [{
-          index: 0,
-          email: '',
-          permission: 0
-        }];
+        scope.modalform.member = {
+          0: {
+            email: '',
+            permission: 0
+          }
+        };
 
         scope.modalOpts = {
           title: 'Share ' + item.name + ' with:',
@@ -346,7 +347,8 @@ module.directive('fileExplorer', function($location) {
                 '</div>' +
                 '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[0].permission" value="0" required>' +
                 '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[0].permission" value="1">' +
-              '<span>end share-member0</span></div>' +
+                '<span class="hidden">end share-member0</span>' +
+              '</div>' +
             '</div>'
         };
 
@@ -360,46 +362,39 @@ module.directive('fileExplorer', function($location) {
         var index = prevIndex + 1;
 
         if ($('#share-member' + index).length === 0) {
-          scope.modalform.member.push({
-            index: index,
+          scope.modalform.member[index] = {
             email: '',
             permission: 0
-          });
+          };
 
           scope.modalOpts.template = scope.modalOpts.template.substr(0, scope.modalOpts.template.length - 6) +
             '<div class="row" id="share-member' + index + '">' +
-            '<div class="col-md-1">' +
-            '<button class="close" ng-click="modalOpts.extraFn2(' + index + ')">&times;</button>' +
+              '<div class="col-md-1">' +
+                '<button class="close" ng-click="modalOpts.extraFn2(' + index + ')">&times;</button>' +
+              '</div>' +
+              '<div class="col-md-7">' +
+                '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused' + index + '}">' +
+                  '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
+                  '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[' + index + '].email" required ng-init="focused' + index + ' = false" ng-focus="focused' + index + ' = true" ng-blur="focused' + index + ' = false" />' +
+                '</div>' +
+              '</div>' +
+              '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[' + index + '].permission" value="0" required>' +
+              '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[' + index + '].permission" value="1">' +
+              '<span class="hidden">end share-member' + index + '</span>' +
             '</div>' +
-            '<div class="col-md-7">' +
-            '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused' + index + '}">' +
-            '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-            '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[' + index + '].email" required ng-init="focused' + index + ' = false" ng-focus="focused' + index + ' = true" ng-blur="focused' + index + ' = false" />' +
-            '</div>' +
-            '</div>' +
-            '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[' + index + '].permission" value="0" required>' +
-            '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[' + index + '].permission" value="1">' +
-            '<span>end share-member' + index + '</span></div></div>'
+          '</div>'
           ;
         }
-
-
       };
 
 
       scope.feModalShareItemDeleteField = function(index) {
-        //$('#share-member' + index).remove();
         var posStart = scope.modalOpts.template.indexOf('<div class="row" id="share-member' + index + '">');
-        var posEnd = scope.modalOpts.template.indexOf('<span>end share-member' + index + '</span>') + 22 + index.toString().length + 7 + 6;
+        var posEnd = scope.modalOpts.template.indexOf('<span class="hidden">end share-member' + index + '</span>') + 37 + index.toString().length + 7 + 6;
         var templateSubStr = scope.modalOpts.template.substring(posStart, posEnd);
         scope.modalOpts.template = scope.modalOpts.template.replace(templateSubStr, '');
 
-        /*for (var i = 0, l = scope.modalform.member.length; i < l; i++) {
-          if (scope.modalform.member[i] && scope.modalform.member[i].index === index) {
-            delete scope.modalform.member[i];
-            break;
-          }
-        }*/
+        delete scope.modalform.member[index];
       };
 
 
