@@ -38,6 +38,9 @@
                   <th ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]">Read & Write</th>
                   <th ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]"></th>
                 </tr>
+                <tr class="shared-options-tr" ng-if="item.members.length === 0">
+                  <td>Just you</td>
+                </tr>
                 <tr class="shared-options-tr" ng-repeat="member in item.members">
                   <td ng-bind="member.email"></td>
                   <td ng-bind="member.status"></td>
