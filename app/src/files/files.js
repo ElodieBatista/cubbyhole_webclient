@@ -54,6 +54,16 @@ module.controller('FilesCtrl',
       }
     });
 
+    var Share = $resource(conf.epApi + '/share', {}, {
+      'post': {
+        method:'POST',
+        params: {
+          id:'@id',
+          with:'@with'
+        }
+      }
+    });
+
     $scope.folders = null;
 
     $scope.path = $routeParams.path;
@@ -122,6 +132,17 @@ module.controller('FilesCtrl',
       }, function(error) {
         console.log('Can\'t move the item.');
       });
+    };
+
+
+    $scope.shareItem = function(form, id) {
+      if (form.member.length > 0) {
+        Share.post({'id':id, 'with':form.member}, function(res) {
+          $scope.feShareItem(id);
+        }, function(err) {
+          console.log('Can\'t share the item.');
+        });
+      }
     };
 
 
