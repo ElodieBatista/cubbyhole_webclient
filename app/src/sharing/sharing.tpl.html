@@ -1,7 +1,7 @@
 <div class="container container-fill no-padding no-margin">
   <div class="row row-fill secondary">
 
-    <div class="col-md-10 col-md-offset-1" id="sharing-container">
+    <div class="col-md-10 col-md-offset-1" id="sharing-container" share-explorer>
 
       <table>
         <thead>
@@ -64,8 +64,8 @@
                 </tr>
                 <tr class="shared-options-tr shared-options-tr-nohover">
                   <td>
-                    <input class="btn btn-default" type="submit" value="Unshare folder" ng-show="item.owner._id === userId">
-                    <input class="btn btn-default" type="submit" value="Leave folder" ng-show="item.owner._id !== userId">
+                    <button class="btn btn-default" ng-show="item.owner._id === userId" ng-click="seAskUnshareConfirm(item)">Unshare folder</button>
+                    <button class="btn btn-default" ng-show="item.owner._id !== userId" ng-click="seAskLeaveSharedItemConfirm(item)">Leave folder</button>
                   </td>
                 </tr>
               </table>
@@ -82,3 +82,5 @@
     </div>
   </div>
 </div>
+
+<modal class="secondary" modal-opts="modalOpts" modalform="modalform"></modal>

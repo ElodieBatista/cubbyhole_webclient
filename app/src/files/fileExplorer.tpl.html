@@ -34,7 +34,7 @@
           </svg>
           <span>Download</span>
         </li>
-        <li class="action-bar-item" ng-show="itemActive && itemActive.type === 'folder'" ng-click="feOpenModalShareItem(itemActive)">
+        <li class="action-bar-item" ng-show="itemActive && itemActive.type === 'folder' && !itemActive.isShared" ng-click="feOpenModalShareItem(itemActive)">
           <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
             <path fill="#000000" d="M41.492,20.287c7.653,0,14.313,4.217,17.811,10.448c1.229-0.389,2.535-0.601,3.893-0.601c5.82,0,10.735,3.858,12.34,9.155
             c10.384,0.961,18.517,9.689,18.517,20.323c0,11.278-9.143,20.42-20.42,20.42H26.368c-11.277,0-20.42-9.142-20.42-20.42

@@ -17,23 +17,13 @@ module.controller('SharingCtrl',
     // Highlight first btn in the nav bar
     $rootScope.navtop = 1;
 
-    var Shares = $resource(conf.epApi + '/share', {}, {
+    var Share = $resource(conf.epApi + '/share', {}, {
       'post': {
         method:'POST',
         params: {
           id:'@id',
-          with:'@with',
-          parent:'@parent'
+          with:'@with'
         }
-      }
-    });
-
-    var Share = $resource(conf.epApi + '/share/:id', {id:'@id'}, {
-      'get': {
-        method: 'GET'
-      },
-      'put': {
-        method: 'GET'
       }
     });
 
@@ -100,6 +90,51 @@ module.controller('SharingCtrl',
         ]
       }
     ];
+
+
+    $scope.shareItem = function(form, id) {
+      if (form.member[0].email.length > 0) {
+        var members = [];
+        for (var prop in form) {
+          members.push(form[prop]);
+        }
+
+        Share.post({'id':id, 'with':members}, function(res) {
+          $scope.feShareItem(id);
+        }, function(err) {
+          console.log('Can\'t share the item.');
+        });
+      }
+    };
+
+
+    $scope.leaveSharedItem = function(form, id) {
+      //Share.post({'id':id, 'with':members}, function(res) {
+        for (var i = 0, l = $scope.items.length; i < l; i++) {
+          if ($scope.items[i]._id === id) {
+            $scope.items.splice(i, 1);
+            break;
+          }
+        }
+      /*}, function(err) {
+        console.log('Can\'t share the item.');
+      });*/
+    };
+
+
+    $scope.unshareItem = function(form, id) {
+      //Share.post({'id':id, 'with':members}, function(res) {
+        for (var i = 0, l = $scope.items.length; i < l; i++) {
+          if ($scope.items[i]._id === id) {
+            $scope.items.splice(i, 1);
+            break;
+          }
+        }
+      /*}, function(err) {
+       console.log('Can\'t share the item.');
+       });*/
+    };
+
 
     $scope.toggleItem = function(item, forceSelect) {
       if ($scope.itemActive === item && !forceSelect) {

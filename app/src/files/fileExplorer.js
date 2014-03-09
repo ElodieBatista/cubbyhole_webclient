@@ -194,9 +194,15 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feShareItem = function(id) {
-        if (scope.itemActive.type === 'file' || scope.itemActive.children.length > 0) {
-          $('#file-explorer-form-download').submit();
-        }
+        var node = $tree.tree('getNodeBy', '_id', id);
+
+        $tree.tree(
+          'updateNode',
+          node,
+          {
+            isShared: true
+          }
+        );
       };
 
 
@@ -240,6 +246,7 @@ module.directive('fileExplorer', function($location) {
           placeholder: 'Folder name',
           submitFnExtraParam: scope.selectedNode._id,
           submitBtnVal: 'Add',
+          submitBtnClass: 'primary-btn',
           dismiss: scope.dismissModal
         };
 
@@ -258,6 +265,7 @@ module.directive('fileExplorer', function($location) {
           placeholder: item.name,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Rename',
+          submitBtnClass: 'primary-btn',
           dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
@@ -278,6 +286,7 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.deleteItem,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Delete',
+          submitBtnClass: 'primary-btn',
           dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
@@ -325,6 +334,7 @@ module.directive('fileExplorer', function($location) {
           placeholder: 'Invite People',
           submitFnExtraParam: item._id,
           submitBtnVal: 'Share',
+          submitBtnClass: 'primary-btn',
           extraFn: scope.feModalShareItemAddFields,
           extraFn2: scope.feModalShareItemDeleteField,
           dismiss: scope.dismissModal,
@@ -404,6 +414,7 @@ module.directive('fileExplorer', function($location) {
         scope.modalOpts = {
           title: item.name,
           submitBtnVal: 'Download',
+          submitBtnClass: 'primary-btn',
           submitFn: scope.feDownloadItem,
           submitFnExtraParam: null,
           dismiss: scope.dismissModal,
