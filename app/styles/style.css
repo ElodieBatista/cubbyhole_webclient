@@ -88,6 +88,10 @@ button:focus {
   outline: 0;
 }
 
+input[type="radio"] {
+  margin-top: 16px;
+}
+
 spinner {
   position: absolute;
   top: 50%;
@@ -508,6 +512,10 @@ footer {
 
 .modal .btn {
   width: auto;
+}
+
+.modal .btn-big {
+  font-size: 23px;
 }
 
 

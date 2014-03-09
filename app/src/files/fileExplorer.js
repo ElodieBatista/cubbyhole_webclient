@@ -320,12 +320,13 @@ module.directive('fileExplorer', function($location) {
 
       scope.feOpenModalShareItem = function(item) {
         scope.modalform = {};
-        scope.modalform.member = {
-          0: {
+        scope.modalform.member = [
+          {
+            index: 0,
             email: '',
             permission: 0
           }
-        };
+        ];
 
         scope.modalOpts = {
           title: 'Share ' + item.name + ' with:',
@@ -341,13 +342,13 @@ module.directive('fileExplorer', function($location) {
           template:
             '<div class="modal-body" id="modal-body-share">' +
               '<div class="row">' +
-                '<span class="col-md-2 col-md-offset-8">Read-Only</span>' +
-                '<span class="col-md-2">Read-Write</span>' +
+                '<span class="col-md-2 col-md-offset-8 modal-mini-title">Read Only</span>' +
+                '<span class="col-md-2 modal-mini-title">Read Write</span>' +
               '</div>' +
 
               '<div class="row" id="share-member0">' +
                 '<div class="col-md-1">' +
-                  '<button class="btn primary-btn" ng-click="modalOpts.extraFn()">+</button>' +
+                  '<button class="btn primary-btn btn-big" ng-click="modalOpts.extraFn()">+</button>' +
                 '</div>' +
                 '<div class="col-md-7">' +
                   '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +
@@ -372,10 +373,11 @@ module.directive('fileExplorer', function($location) {
         var index = prevIndex + 1;
 
         if ($('#share-member' + index).length === 0) {
-          scope.modalform.member[index] = {
+          scope.modalform.member.push({
+            index: index,
             email: '',
             permission: 0
-          };
+          });
 
           scope.modalOpts.template = scope.modalOpts.template.substr(0, scope.modalOpts.template.length - 6) +
             '<div class="row" id="share-member' + index + '">' +
@@ -404,7 +406,7 @@ module.directive('fileExplorer', function($location) {
         var templateSubStr = scope.modalOpts.template.substring(posStart, posEnd);
         scope.modalOpts.template = scope.modalOpts.template.replace(templateSubStr, '');
 
-        delete scope.modalform.member[index];
+        scope.modalform.member.splice(index, 1);
       };
 
 

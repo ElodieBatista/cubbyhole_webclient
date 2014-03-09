@@ -136,13 +136,9 @@ module.controller('FilesCtrl',
 
 
     $scope.shareItem = function(form, id) {
-      if (form.member[0].email.length > 0) {
-        var members = [];
-        for (var prop in form) {
-          members.push(form[prop]);
-        }
+      if (form.member.length > 0) {
 
-        Share.post({'id':id, 'with':members}, function(res) {
+        Share.post({'id':id, 'with':form.member}, function(res) {
           $scope.feShareItem(id);
         }, function(err) {
           console.log('Can\'t share the item.');

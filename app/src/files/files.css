@@ -263,3 +263,7 @@ body {
 .itemActive td:first-child {
   color: white !important;
 }
+
+.modal-mini-title {
+  text-align: center;
+}
