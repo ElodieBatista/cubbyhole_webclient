@@ -48,6 +48,24 @@ module.directive('shareExplorer', function() {
       };
 
 
+      scope.seAskRevokeSharePermissionConfirm = function(item, member) {
+        scope.modalOpts = {
+          title: 'Revoke Permission for ' + member.email,
+          submitBtnVal: 'Revoke',
+          submitBtnClass: 'secondary-btn',
+          submitFn: scope.revokeSharePermission,
+          submitFnExtraParam: {itemId:item._id, memberId:member._id},
+          dismiss: scope.dismissModal,
+          template:
+            '<div class="modal-body">' +
+              '<p>Are you sure you want to revoke sharing permission for ' + member.email + ' on ' + item.name + '?</p>' +
+            '</div>'
+        };
+
+        $('#appmodal').modal('show');
+      };
+
+
       scope.dismissModal = function() {
         $('.modal').modal('hide');
       };

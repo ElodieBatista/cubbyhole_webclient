@@ -124,6 +124,24 @@ module.controller('SharingCtrl',
     };
 
 
+    $scope.revokeSharePermission = function(form, ids) {
+      //Share.post({'id':id, 'with':members}, function(res) {
+        for (var i = 0, l = $scope.items.length; i < l; i++) {
+          if ($scope.items[i]._id === ids.itemId) {
+            for (var j = 0, le = $scope.items[i].members.length; j < le; j++) {
+              if ($scope.items[i].members[j]._id === ids.memberId) {
+                $scope.items[i].members.splice(j, 1);
+                break;
+              }
+            }
+          }
+        }
+      /*}, function(err) {
+       console.log('Can\'t share the item.');
+       });*/
+    };
+
+
     $scope.leaveSharedItem = function(form, id) {
       //Share.post({'id':id, 'with':members}, function(res) {
         for (var i = 0, l = $scope.items.length; i < l; i++) {

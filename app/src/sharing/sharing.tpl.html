@@ -48,7 +48,7 @@
                     <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permission" value="1">
                   </td>
                   <td ng-show="item.owner._id === userId">
-                    <button class="close">&times;</button>
+                    <button class="close" ng-click="seAskRevokeSharePermissionConfirm(item, member)">&times;</button>
                   </td>
                 </tr>
                 <tr class="shared-options-tr shared-options-form-container shared-options-tr-nohover" ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]">
