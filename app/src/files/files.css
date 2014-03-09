@@ -264,6 +264,17 @@ body {
   color: white !important;
 }
 
+#modal-body-share {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
 .modal-mini-title {
   text-align: center;
+}
+
+.modal-mini-close {
+  position: relative;
+  left: 12px;
+  top: 14px;
 }

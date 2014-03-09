@@ -382,7 +382,7 @@ module.directive('fileExplorer', function($location) {
           scope.modalOpts.template = scope.modalOpts.template.substr(0, scope.modalOpts.template.length - 6) +
             '<div class="row" id="share-member' + index + '">' +
               '<div class="col-md-1">' +
-                '<button class="close" ng-click="modalOpts.extraFn2(' + index + ')">&times;</button>' +
+                '<button class="close modal-mini-close" ng-click="modalOpts.extraFn2(' + index + ')">&times;</button>' +
               '</div>' +
               '<div class="col-md-7">' +
                 '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused' + index + '}">' +
