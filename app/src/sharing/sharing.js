@@ -92,18 +92,34 @@ module.controller('SharingCtrl',
     ];
 
 
-    $scope.shareItem = function(form, id) {
-      if (form.member[0].email.length > 0) {
-        var members = [];
-        for (var prop in form) {
-          members.push(form[prop]);
-        }
+    $scope.inviteform = {
+      email: '',
+      permission: 0
+    };
 
-        Share.post({'id':id, 'with':members}, function(res) {
-          $scope.feShareItem(id);
-        }, function(err) {
+
+    $scope.shareItem = function(form, id) {
+      if (form.email && form.email.length > 0) {
+
+        //Share.post({'id':id, 'with':[{ email:form.email, permission:form.permission}]}, function(res) {
+          for (var i = 0, l = $scope.items.length; i < l; i++) {
+            if ($scope.items[i]._id === id) {
+              $scope.items[i].members.push({
+                email: form.email,
+                permission: form.permission,
+                status: 'still waiting'
+              });
+              break;
+            }
+          }
+
+          $scope.inviteform = {
+            email: '',
+            permission: 0
+          };
+        /*}, function(err) {
           console.log('Can\'t share the item.');
-        });
+        });*/
       }
     };
 

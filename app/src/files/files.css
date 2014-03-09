@@ -269,6 +269,10 @@ body {
   overflow-y: auto;
 }
 
+#modal-body-share input[type="radio"] {
+  margin-top: 16px;
+}
+
 .modal-mini-title {
   text-align: center;
 }

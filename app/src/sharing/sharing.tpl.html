@@ -55,11 +55,17 @@
                   <td>
                     <div class="input-prepend">
                       <i class="fa fa-envelope input-icon"></i>
-                      <input class="input-text" type="email" placeholder="Invite People" inputanim>
+                      <input class="input-text" type="email" placeholder="Invite People" ng-model="inviteform.email" inputanim required>
                     </div>
                   </td>
                   <td>
-                    <input class="btn secondary-btn" type="submit" value="Invite">
+                    <label>RO</label>
+                    <input type="radio" name="permission-{{item._id}}" ng-model="inviteform.permission" value="0" required>
+                    <label>RW</label>
+                    <input type="radio" name="permission-{{item._id}}" ng-model="inviteform.permission" value="1">
+                  </td>
+                  <td>
+                    <button class="btn secondary-btn" type="submit" ng-click="shareItem(inviteform, item._id)">Invite</button>
                   </td>
                 </tr>
                 <tr class="shared-options-tr shared-options-tr-nohover">

@@ -88,8 +88,11 @@ button:focus {
   outline: 0;
 }
 
-input[type="radio"] {
-  margin-top: 16px;
+label {
+  line-height: 45px;
+  margin-left: 5px;
+  margin-bottom: 0;
+  font-weight: normal;
 }
 
 spinner {
