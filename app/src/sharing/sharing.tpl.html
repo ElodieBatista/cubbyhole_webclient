@@ -29,21 +29,26 @@
           </tr>
           <tr ng-show="itemActive._id === item._id">
             <td class="shared-options-table-container" colspan="4">
+
               <table class="shared-options-container">
                 <tr class="shared-options-header-tr shared-options-tr-nohover">
                   <th>Members</th>
                   <th>Status</th>
                   <th ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]">Read Only</th>
                   <th ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]">Read & Write</th>
+                  <th ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]"></th>
                 </tr>
                 <tr class="shared-options-tr" ng-repeat="member in item.members">
                   <td ng-bind="member.email"></td>
                   <td ng-bind="member.status"></td>
                   <td ng-show="item.owner._id === userId">
-                    <input type="radio" name="ro-{{item._id}}-{{member.mail}}" ng-model="member.permission" value="0">
+                    <input type="radio" name="ro-{{item._id}}-{{member.email}}" ng-model="member.permission" value="0">
                   </td>
                   <td ng-show="item.owner._id === userId">
-                    <input type="radio" name="ro-{{item._id}}-{{member.mail}}" ng-model="member.permission" value="1">
+                    <input type="radio" name="ro-{{item._id}}-{{member.email}}" ng-model="member.permission" value="1">
+                  </td>
+                  <td ng-show="item.owner._id === userId">
+                    <button class="close">×</button>
                   </td>
                 </tr>
                 <tr class="shared-options-tr shared-options-form-container shared-options-tr-nohover" ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]">
@@ -64,6 +69,7 @@
                   </td>
                 </tr>
               </table>
+
             </td>
           </tr>
         </tbody>
