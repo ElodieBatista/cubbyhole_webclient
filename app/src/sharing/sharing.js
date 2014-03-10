@@ -48,19 +48,19 @@ module.controller('SharingCtrl',
             _id: '10',
             email: 'maxime@sup.com',
             status: 'joined',
-            permission: 1
+            permissions: 1
           },
           {
             _id: '20',
             email: 'kevin@sup.com',
             status: 'joined',
-            permission: 1
+            permissions: 1
           },
           {
             _id: '531832618e4278e018000001',
             email: 'elodie@sup.com',
             status: 'still waiting',
-            permission: 0
+            permissions: 0
           }
         ]
       },
@@ -79,13 +79,13 @@ module.controller('SharingCtrl',
             _id: '20',
             email: 'kevin@sup.com',
             status: 'joined',
-            permission: 1
+            permissions: 1
           },
           {
             _id: '531832618e4278e018000001',
             email: 'elodie@sup.com',
             status: 'still waiting',
-            permission: 0
+            permissions: 0
           }
         ]
       }
@@ -94,7 +94,7 @@ module.controller('SharingCtrl',
 
     $scope.inviteform = {
       email: '',
-      permission: 0
+      permissions: 0
     };
 
 
@@ -106,7 +106,7 @@ module.controller('SharingCtrl',
             if ($scope.items[i]._id === id) {
               $scope.items[i].members.push({
                 email: form.email,
-                permission: form.permission,
+                permissions: form.permissions,
                 status: 'still waiting'
               });
               break;
@@ -115,7 +115,7 @@ module.controller('SharingCtrl',
 
           $scope.inviteform = {
             email: '',
-            permission: 0
+            permissions: 0
           };
         /*}, function(err) {
           console.log('Can\'t share the item.');

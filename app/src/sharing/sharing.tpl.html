@@ -45,10 +45,10 @@
                   <td ng-bind="member.email"></td>
                   <td ng-bind="member.status"></td>
                   <td ng-show="item.owner._id === userId">
-                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permission" value="0">
+                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="0">
                   </td>
                   <td ng-show="item.owner._id === userId">
-                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permission" value="1">
+                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="1">
                   </td>
                   <td ng-show="item.owner._id === userId">
                     <button class="close" ng-click="seAskRevokeSharePermissionConfirm(item, member)">&times;</button>
@@ -63,9 +63,9 @@
                   </td>
                   <td>
                     <label>RO</label>
-                    <input type="radio" name="permission-{{item._id}}" ng-model="inviteform.permission" value="0" required>
+                    <input type="radio" name="permission-{{item._id}}" ng-model="inviteform.permissions" value="0" required>
                     <label>RW</label>
-                    <input type="radio" name="permission-{{item._id}}" ng-model="inviteform.permission" value="1">
+                    <input type="radio" name="permission-{{item._id}}" ng-model="inviteform.permissions" value="1">
                   </td>
                   <td>
                     <button class="btn secondary-btn" type="submit" ng-click="shareItem(inviteform, item._id)">Invite</button>

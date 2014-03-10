@@ -58,7 +58,7 @@ module.directive('shareExplorer', function() {
           dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
-              '<p>Are you sure you want to revoke sharing permission for ' + member.email + ' on ' + item.name + '?</p>' +
+              '<p>Are you sure you want to revoke sharing permissions for ' + member.email + ' on ' + item.name + '?</p>' +
             '</div>'
         };
 
