@@ -136,9 +136,14 @@ module.controller('FilesCtrl',
 
 
     $scope.shareItem = function(form, id) {
-      if (form.member.length > 0) {
+      if (form.member['0'].email.length > 0) {
+        var members = [];
 
-        Share.post({'id':id, 'with':form.member}, function(res) {
+        for (var prop in form.member) {
+          members.push(form.member[prop]);
+        }
+
+        Share.post({'id':id, 'with':members}, function(res) {
           $scope.feShareItem(id);
         }, function(err) {
           console.log('Can\'t share the item.');
@@ -150,7 +155,7 @@ module.controller('FilesCtrl',
     $scope.createSharedLink = function(item) {
       //Share.post({'id':item._id, 'with':form.member}, function(res) {
         var res = {};
-        res.url = 'blabla';
+        res.url = 'http://localhost/blabla';
         item.link = res.url;
         $scope.feOpenModalShareLink(item);
       /*}, function(err) {
@@ -159,10 +164,15 @@ module.controller('FilesCtrl',
     };
 
     $scope.shareLink = function(form, id) {
-      if (form.member.length > 0) {
+      if (form.member['0'].email.length > 0) {
+        var members = [];
 
-        //Share.post({'id':id, 'with':form.member}, function(res) {
-          $scope.feShareLink(id);
+        for (var prop in form.member) {
+          members.push(form.member[prop]);
+        }
+
+        //Share.post({'id':id, 'with':members}, function(res) {
+
         /*}, function(err) {
           console.log('Can\'t share the item.');
         });*/
