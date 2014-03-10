@@ -147,6 +147,29 @@ module.controller('FilesCtrl',
     };
 
 
+    $scope.createSharedLink = function(item) {
+      //Share.post({'id':item._id, 'with':form.member}, function(res) {
+        var res = {};
+        res.url = 'blabla';
+        item.link = res.url;
+        $scope.feOpenModalShareLink(item);
+      /*}, function(err) {
+        console.log('Can\'t share the item.');
+      });*/
+    };
+
+    $scope.shareLink = function(form, id) {
+      if (form.member.length > 0) {
+
+        //Share.post({'id':id, 'with':form.member}, function(res) {
+          $scope.feShareLink(id);
+        /*}, function(err) {
+          console.log('Can\'t share the item.');
+        });*/
+      }
+    };
+
+
     $scope.onFileSelect = function(form, data) {
       var $files = (data.files ? data.files : data);
 

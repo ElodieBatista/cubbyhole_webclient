@@ -99,7 +99,6 @@ module.directive('fileExplorer', function($location) {
         }
 
         $location.path('/files').search({path: node.getPath()});
-
         if (!scope.$$phase) { scope.$apply(); }
       };
 
@@ -153,10 +152,9 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feRenameItem = function(name, id, parentId) {
-        var node = $tree.tree('getNodeBy', '_id', id);
-        var parent = $tree.tree('getNodeBy', '_id', parentId);
-
-        var newPos = scope.getNodeNewPos(node, parent, name);
+        var node = $tree.tree('getNodeBy', '_id', id),
+            parent = $tree.tree('getNodeBy', '_id', parentId),
+            newPos = scope.getNodeNewPos(node, parent, name);
 
         if (newPos.pos !== 'Here') {
           $tree.tree(
@@ -320,13 +318,11 @@ module.directive('fileExplorer', function($location) {
 
       scope.feOpenModalShareItem = function(item) {
         scope.modalform = {};
-        scope.modalform.member = [
-          {
-            index: 0,
-            email: '',
-            permission: 0
-          }
-        ];
+        scope.modalform.member = [{
+          index: 0,
+          email: '',
+          permission: 0
+        }];
 
         scope.modalOpts = {
           title: 'Share ' + item.name + ' with:',
@@ -337,7 +333,7 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Share',
           submitBtnClass: 'primary-btn',
           extraFn: scope.feModalShareItemAddFields,
-          extraFn2: scope.feModalShareItemDeleteField,
+          extraFn2: scope.feModalShareDeleteField,
           dismiss: scope.dismissModal,
           template:
             '<div class="modal-body" id="modal-body-share">' +
@@ -368,9 +364,9 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feModalShareItemAddFields = function() {
-        var htmlId = $('#modal-body-share .row:last-child').attr('id');
-        var prevIndex = parseInt(htmlId.substr(12));
-        var index = prevIndex + 1;
+        var htmlId = $('#modal-body-share .row:last-child').attr('id'),
+            prevIndex = parseInt(htmlId.substr(12)),
+            index = prevIndex + 1;
 
         if ($('#share-member' + index).length === 0) {
           scope.modalform.member.push({
@@ -382,7 +378,7 @@ module.directive('fileExplorer', function($location) {
           scope.modalOpts.template = scope.modalOpts.template.substr(0, scope.modalOpts.template.length - 6) +
             '<div class="row" id="share-member' + index + '">' +
               '<div class="col-md-1">' +
-                '<button class="close modal-mini-close" ng-click="modalOpts.extraFn2(' + index + ')">&times;</button>' +
+                '<button class="close modal-mini-close" ng-click="modalOpts.extraFn2(' + index + ', \'share-member\')">&times;</button>' +
               '</div>' +
               '<div class="col-md-7">' +
                 '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused' + index + '}">' +
@@ -400,13 +396,87 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feModalShareItemDeleteField = function(index) {
-        var posStart = scope.modalOpts.template.indexOf('<div class="row" id="share-member' + index + '">');
-        var posEnd = scope.modalOpts.template.indexOf('<span class="hidden">end share-member' + index + '</span>') + 37 + index.toString().length + 7 + 6;
-        var templateSubStr = scope.modalOpts.template.substring(posStart, posEnd);
+      scope.feModalShareDeleteField = function(index, htmlId) {
+        var posStart = scope.modalOpts.template.indexOf('<div class="row" id="' + htmlId + index + '">'),
+            posEnd = scope.modalOpts.template.indexOf('<span class="hidden">end ' + htmlId + index + '</span>') + 25 + htmlId.toString().length + index.toString().length + 7 + 6,
+            templateSubStr = scope.modalOpts.template.substring(posStart, posEnd);
         scope.modalOpts.template = scope.modalOpts.template.replace(templateSubStr, '');
 
         scope.modalform.member.splice(index, 1);
+      };
+
+
+      scope.feOpenModalShareLink = function(item) {
+        scope.modalform = {};
+        scope.modalform.member = [{
+            index: 0,
+            email: ''
+        }];
+
+        scope.modalOpts = {
+          title: 'Share link for ' + item.name + ' with:',
+          iconClass: 'fa-envelope',
+          submitFn: scope.shareLink,
+          placeholder: 'Invite People',
+          submitFnExtraParam: item._id,
+          submitBtnVal: 'Share Link',
+          submitBtnClass: 'primary-btn',
+          extraFn: scope.feModalShareLinkAddFields,
+          extraFn2: scope.feModalShareDeleteField,
+          link: item.link,
+          dismiss: scope.dismissModal,
+          template:
+            '<div class="modal-body" id="modal-body-share">' +
+              '<div class="row">' +
+                '<p class="col-md-12">{{modalOpts.link}}</p>' +
+              '</div>' +
+
+              '<div class="row" id="share-link-member0">' +
+                '<div class="col-md-1">' +
+                  '<button class="btn primary-btn btn-big" ng-click="modalOpts.extraFn()">+</button>' +
+                '</div>' +
+                '<div class="col-md-7">' +
+                  '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +
+                    '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
+                    '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[0].email" required ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" />' +
+                  '</div>' +
+                '</div>' +
+                '<span class="hidden">end share-link-member0</span>' +
+              '</div>' +
+            '</div>'
+        };
+
+        $('#appmodal').modal('show');
+      };
+
+
+      scope.feModalShareLinkAddFields = function() {
+        var htmlId = $('#modal-body-share .row:last-child').attr('id'),
+            prevIndex = parseInt(htmlId.substr(17)),
+            index = prevIndex + 1;
+
+        if ($('#share-link-member' + index).length === 0) {
+          scope.modalform.member.push({
+            index: index,
+            email: ''
+          });
+
+          scope.modalOpts.template = scope.modalOpts.template.substr(0, scope.modalOpts.template.length - 6) +
+            '<div class="row" id="share-link-member' + index + '">' +
+              '<div class="col-md-1">' +
+                '<button class="close modal-mini-close" ng-click="modalOpts.extraFn2(' + index + ', \'share-link-member\')">&times;</button>' +
+              '</div>' +
+              '<div class="col-md-7">' +
+                '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused' + index + '}">' +
+                  '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
+                  '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[' + index + '].email" required ng-init="focused' + index + ' = false" ng-focus="focused' + index + ' = true" ng-blur="focused' + index + ' = false" />' +
+                '</div>' +
+              '</div>' +
+              '<span class="hidden">end share-link-member' + index + '</span>' +
+            '</div>' +
+          '</div>'
+          ;
+        }
       };
 
 
