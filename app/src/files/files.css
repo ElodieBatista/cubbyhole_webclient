@@ -207,7 +207,14 @@ body {
   fill: rgb(255, 255, 255);
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 770px) {
+  .action-bar-item span {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 1020px) and (min-width: 990px) {
   .action-bar-item span {
     display: none;
   }
@@ -267,6 +274,10 @@ body {
 #modal-body-share {
   max-height: 250px;
   overflow-y: auto;
+}
+
+#modal-body-share p {
+  margin-bottom: 15px;
 }
 
 #modal-body-share input[type="radio"] {
