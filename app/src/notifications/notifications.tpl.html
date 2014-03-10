@@ -1,5 +1,28 @@
 <div class="container container-fill no-padding no-margin">
-  <div class="row row-fill">
-    Notifications
+  <div class="row row-fill quaternary">
+
+    <div class="col-md-10 col-md-offset-1" id="sharing-container" share-explorer>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="notification in notifications track by $index">
+            <td ng-bind="notification.title"></td>
+            <td ng-bind="notification.date | date"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="col-md-12" id="grid-view-msg" ng-show="notifications.length === 0">
+        You don't have any <span class="highlight">notification</span> yet.
+      </p>
+
+    </div>
+
   </div>
 </div>

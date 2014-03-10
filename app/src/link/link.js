@@ -4,16 +4,16 @@ var module = angular.module('webApp');
 
 module.config(function config($routeProvider) {
   $routeProvider
-    .when('/notifications',
+    .when('/link/:id',
     {
-      templateUrl: '/src/notifications/notifications.tpl.html',
-      controller: 'NotificationsCtrl',
-      authRequired: true
+      templateUrl: '/src/link/link.tpl.html',
+      controller: 'LinkCtrl',
+      authRequired: false
     })
 });
 
-module.controller('NotificationsCtrl',
-  function NotificationsCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
+module.controller('LinkCtrl',
+  function LinkCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 3;
 
@@ -36,7 +36,7 @@ module.controller('NotificationsCtrl',
           title: 'Notif 2',
           date: '2014-03-10T08:51:42.928Z'
         }
-     ];
+      ];
     }, function(error) {
       console.log('Can\'t get the notifications.');
     });
