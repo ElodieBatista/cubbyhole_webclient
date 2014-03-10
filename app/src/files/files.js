@@ -153,14 +153,18 @@ module.controller('FilesCtrl',
 
 
     $scope.createSharedLink = function(item) {
-      //Share.post({'id':item._id, 'with':form.member}, function(res) {
-        var res = {};
-        res.url = 'http://localhost/blabla';
-        item.link = res.url;
+      if (!item.link) {
+        //Share.post({'id':item._id, 'with':form.member}, function(res) {
+          var res = {};
+          res.url = 'http://localhost/blabla';
+          item.link = res.url;
+          $scope.feOpenModalShareLink(item);
+        /*}, function(err) {
+         console.log('Can\'t share the item.');
+         });*/
+      } else {
         $scope.feOpenModalShareLink(item);
-      /*}, function(err) {
-        console.log('Can\'t share the item.');
-      });*/
+      }
     };
 
     $scope.shareLink = function(form, id) {
