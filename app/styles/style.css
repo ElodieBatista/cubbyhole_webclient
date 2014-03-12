@@ -36,6 +36,10 @@ h2 {
   font-size: 20px;
 }
 
+h5 {
+  font-size: 16px;
+}
+
 .subtitle {
   margin: 0 auto 20px;
   font-size: 25px;
@@ -48,6 +52,10 @@ h2 {
 
 .space-top-double {
   padding-top: 115px;
+}
+
+.center {
+  text-align: center;
 }
 
 .no-padding {
@@ -143,6 +151,11 @@ input[type="file"] {
   display: inline-block;
 }
 
+.progress {
+  margin-bottom: 37px;
+  border-radius: 0;
+}
+
 
 /* NAVTOP */
 .navtop-container {
@@ -201,23 +214,23 @@ input[type="file"] {
   background-color: inherit;
 }
 
-.navtop-items-list .active:nth-child(1) a {
+.navtop-items-list .active:nth-child(1) > a {
   color: rgb(255, 29, 37) !important;
 }
 
-.navtop-items-list .active:nth-child(2) a {
+.navtop-items-list .active:nth-child(2) > a {
   color: rgb(63, 169, 245) !important;
 }
 
-.navtop-items-list .active:nth-child(3) a {
+.navtop-items-list .active:nth-child(3) > a {
   color: rgb(255, 147, 30) !important;
 }
 
-.navtop-items-list .active:nth-child(4) a {
+.navtop-items-list .active:nth-child(4) > a {
   color: rgb(122, 201, 67) !important;
 }
 
-.navtop-items-list .active:nth-child(5) a {
+.navtop-items-list .active:nth-child(5) > a {
   color: rgb(255, 108, 164) !important;
 }
 
@@ -589,11 +602,11 @@ td:first-child span:hover {
 
 
 /* COLORS */
-.primary-btn    { background-color: rgb(254, 80, 81);   }
-.secondary-btn  { background-color: rgb(95, 182, 245);  }
-.tertiary-btn   { background-color: rgb(255, 168, 72);  }
-.quaternary-btn { background-color: rgb(141, 209, 97);  }
-.quinary-btn    { background-color: rgb(255, 149, 189); }
+.primary-btn, .primary .progress-bar        { background-color: rgb(254, 80, 81);   }
+.secondary-btn, .secondary .progress-bar    { background-color: rgb(95, 182, 245);  }
+.tertiary-btn, .tertiary .progress-bar      { background-color: rgb(255, 168, 72);  }
+.quaternary-btn, .quaternary .progress-bar  { background-color: rgb(141, 209, 97);  }
+.quinary-btn, .quinary .progress-bar        { background-color: rgb(255, 149, 189); }
 
 .primary-btn:hover,
 .primary-btn:focus,

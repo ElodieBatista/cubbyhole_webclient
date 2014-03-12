@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="src/files/files.css">
     <link rel="stylesheet" href="src/sharing/sharing.css">
+    <link rel="stylesheet" href="src/user/user.css">
   </head>
 
   <body id="ng-app" ng-app="webApp">
@@ -44,7 +45,7 @@
             <li class="navtop-item dropdown" ng-class="{active: navtop == 4}">
               <a data-toggle="dropdown" href="">Me &nbsp;&nbsp;<i class="fa fa-angle-down"></i></a>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <li><span ng-bind="getProfile().email"></span></li>
+                <li><a href="#/user" ng-bind="getProfile().email"></a></li>
                 <li><a href="#/logout">Log out</a></li>
               </ul>
             </li>
@@ -91,5 +92,6 @@
     <script src="src/sharing/shareExplorer.js"></script>
     <script src="src/links/links.js"></script>
     <script src="src/notifications/notifications.js"></script>
+    <script src="src/user/user.js"></script>
   </body>
 </html>

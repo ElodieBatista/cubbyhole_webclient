@@ -19,7 +19,7 @@ module.directive('error', function() {
           },
           POST: {
             404: 'This item doesn\'t exist.',
-            422: 'This item\'s parent doesn\'t exist'
+            422: 'This item\'s parent doesn\'t exist.'
           },
           DELETE: {
             404: 'This item doesn\'t exist.'
@@ -27,7 +27,7 @@ module.directive('error', function() {
           PUT: {
             401: 'You are not authorized to update this item.',
             404: 'This item doesn\'t exist.',
-            422: ''
+            422: 'This item\'s parent doesn\'t exist.'
           }
         },
         share: {
