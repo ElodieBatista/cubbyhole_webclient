@@ -10,50 +10,31 @@ angular.module('webApp', [
   .constant('conf', {
     'epApi': 'http://localhost:3000'
   })
-  .config(function(conf, $locationProvider, $httpProvider, $routeProvider, $sceDelegateProvider) {
+  .config(function(conf, $locationProvider, $httpProvider, $routeProvider, $sceDelegateProvider, $provide) {
     $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.token;
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
 
-    var interceptorHttp = ['$q', '$injector', '$rootScope', function($q, $injector, $rootScope) {
-      var $http;
+    function comesFromCubbyhole(url) {
+      return (url.indexOf(conf.epApi) !== -1);
+    }
 
-      function success(response) {
-        // Get $http via $injector to avoid circular dependency problem
-        $http = $http || $injector.get('$http');
-
-        if ($http.pendingRequests.length < 1) {
-          $rootScope.displaySpinner = false;
-        }
-        return response;
-      }
-
-      function error(response) {
-        // get $http via $injector to avoid circular dependency problem
-        $http = $http || $injector.get('$http');
-
-        if ($http.pendingRequests.length < 1) {
-          $rootScope.displaySpinner = false;
-        }
-        return $q.reject(response);
-      }
-
-      return function (promise) {
-        $rootScope.displaySpinner = true;
-        return promise.then(success, error);
-      };
-    }];
-
-    // Configure an interceptor to watch for unauthorized service calls
-    var interceptor401 = ['$location', '$q', '$rootScope', function($location, $q) {
-      function comesFromCubbyhole(url) {
-        return (url.indexOf(conf.epApi) !== -1);
-      }
-
+    $provide.factory('httpInterceptor', function($q, $rootScope, $location) {
       return {
-        response: function (response) {
-          return response;
+        'request': function(config) {
+          if (config.url.indexOf(conf.epApi) !== -1) {
+            $rootScope.displaySpinner = true;
+          }
+          return config || $q.when(config);
         },
-        responseError: function (response) {
+
+        'response': function(response) {
+          if (response.config.url.indexOf(conf.epApi) !== -1) {
+            $rootScope.displaySpinner = false;
+          }
+          return response || $q.when(response);
+        },
+
+        'responseError': function (response) {
           if (response.status === 401 && comesFromCubbyhole(response.config.url)) {
             console.log('401 detected from the server, exiting local session.');
             $location.path('/logout');
@@ -62,11 +43,10 @@ angular.module('webApp', [
             return $q.reject(response);
           }
         }
-      }
-    }];
+      };
+    });
 
-    $httpProvider.interceptors.push(interceptorHttp);
-    $httpProvider.interceptors.push(interceptor401);
+    $httpProvider.interceptors.push('httpInterceptor');
 
     $routeProvider.otherwise({redirectTo: '/files'});
 
