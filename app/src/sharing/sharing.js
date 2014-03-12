@@ -38,12 +38,18 @@ module.controller('SharingCtrl',
     });
 
     $scope.items = [];
+
+    $scope.path = $routeParams.id;
     $scope.itemActive = null;
 
     $scope.userId = $rootScope.getProfile().id;
 
     Shares.get(function(res) {
       $scope.items = res.data;
+
+      if ($scope.path !== undefined) {
+        $scope.itemActive = $scope.getItem($scope.path);
+      }
     }, function(err) { $scope.errorShow(err, color); });
 
 
@@ -57,12 +63,7 @@ module.controller('SharingCtrl',
       if (form.email && form.email.length > 0) {
 
         Shares.post({'id':id, 'with':[{ email:form.email, permissions:form.permissions}]}, function(res) {
-          for (var i = 0, l = $scope.items.length; i < l; i++) {
-            if ($scope.items[i]._id === id) {
-              $scope.items[i].members = res.data.members;
-              break;
-            }
-          }
+          $scope.getItem(id).members = res.data.members;
 
           $scope.inviteform = {
             email: '',
@@ -75,14 +76,11 @@ module.controller('SharingCtrl',
 
     $scope.revokeSharePermission = function(form, ids) {
       //Share.post({'id':id, 'with':members}, function(res) {
-        for (var i = 0, l = $scope.items.length; i < l; i++) {
-          if ($scope.items[i]._id === ids.itemId) {
-            for (var j = 0, le = $scope.items[i].members.length; j < le; j++) {
-              if ($scope.items[i].members[j]._id === ids.memberId) {
-                $scope.items[i].members.splice(j, 1);
-                break;
-              }
-            }
+        var item = $scope.getItem(ids.itemId);
+        for (var j = 0, le = item.members.length; j < le; j++) {
+          if (item.members[j]._id === ids.memberId) {
+            item.members.splice(j, 1);
+            break;
           }
         }
       /*}, function(err) {
@@ -125,6 +123,15 @@ module.controller('SharingCtrl',
         $scope.itemActiveId = (item === null ? -1 : item._id);
         $scope.itemActive = item;
       }
+    };
+
+    $scope.getItem = function(id) {
+      for (var i = 0, l = $scope.items.length; i < l; i++) {
+        if ($scope.items[i]._id === id) {
+          return $scope.items[i];
+        }
+      }
+      return null;
     };
   }
 );

@@ -24,7 +24,7 @@
               droppable item="file" doDrop="moveItem" candrop="file.type === 'folder' && currFileDnD !== file">
             <td draggable item="file">
               <img class="table-icon" ng-if="!file.isShared" ng-src="/styles/icons/icon_{{file.type}}.svg" />
-              <img class="table-icon" ng-if="file.type === 'folder' && file.isShared === 'true'" ng-src="/styles/icons/icon_sharedfolder.svg" />
+              <img class="table-icon" ng-if="file.type === 'folder' && file.isShared === true" ng-src="/styles/icons/icon_sharedfolder.svg" />
 
               <span ng-if="file.type === 'folder'" ng-click="feSelectNode(file)" ng-bind="file.name"></span>
               <span ng-if="file.type === 'file'" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();" ng-bind="file.name"></span>
