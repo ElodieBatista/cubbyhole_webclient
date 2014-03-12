@@ -152,6 +152,7 @@ input[type="file"] {
 }
 
 .progress {
+  padding: 0;
   border-radius: 0;
 }
 
@@ -601,11 +602,11 @@ td:first-child span:hover {
 
 
 /* COLORS */
-.primary-btn, .primary .progress-bar        { background-color: rgb(254, 80, 81);   }
-.secondary-btn, .secondary .progress-bar    { background-color: rgb(95, 182, 245);  }
-.tertiary-btn, .tertiary .progress-bar      { background-color: rgb(255, 168, 72);  }
-.quaternary-btn, .quaternary .progress-bar  { background-color: rgb(141, 209, 97);  }
-.quinary-btn, .quinary .progress-bar        { background-color: rgb(255, 149, 189); }
+.primary-btn    { background-color: rgb(254, 80, 81);   }
+.secondary-btn  { background-color: rgb(95, 182, 245);  }
+.tertiary-btn   { background-color: rgb(255, 168, 72);  }
+.quaternary-btn { background-color: rgb(141, 209, 97);  }
+.quinary-btn    { background-color: rgb(255, 149, 189); }
 
 .primary-btn:hover,
 .primary-btn:focus,

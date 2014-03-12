@@ -19,3 +19,7 @@
 .user-icon:hover path {
   fill: rgb(255, 108, 164);
 }
+
+.user-stats {
+  text-align: right;
+}
