@@ -43,7 +43,8 @@
                 </tr>
                 <tr class="shared-options-tr" ng-repeat="member in item.members">
                   <td ng-bind="member.email"></td>
-                  <td ng-bind="member.status"></td>
+                  <td ng-if="member.accepted">Joined</td>
+                  <td ng-if="!member.accepted">Still waiting</td>
                   <td ng-show="item.owner._id === userId">
                     <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="0">
                   </td>

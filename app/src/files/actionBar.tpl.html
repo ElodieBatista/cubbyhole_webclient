@@ -87,7 +87,7 @@
       </svg>
       <span>Copy</span>
     </li>
-    <li class="action-bar-item" ng-show="itemCopied" ng-click="copyItem(itemCopied, selectedNode)">
+    <li class="action-bar-item" ng-show="itemCopied" ng-click="copyItem(itemCopied._id, selectedNode._id)">
       <svg class="action-bar-icon" xmlns:x="http://ns.adobe.com/Extensibility/1.0/" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" xmlns:graph="http://ns.adobe.com/Graphs/1.0/" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">
         <g>
           <path fill="#000000" d="M71.11,17.971v12.521H28.882V17.971H12.514V95h74.973V17.971H71.11z
@@ -131,7 +131,7 @@
       </svg>
       <span>Rename</span>
     </li>
-    <li class="action-bar-item" ng-show="itemActive && selectedNode.parent.parent !== null" ng-click="moveItem(itemActive, selectedNode.parent)">
+    <li class="action-bar-item" ng-show="itemActive && selectedNode.parent.parent !== null" ng-click="moveItem(itemActive._id, selectedNode.parent._id)">
       <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
         <path fill="#000000" d="M30.5,19l11,10H94v52H6V19h24 M30.5,16h-24C4.843,16,3,16.843,3,18.5v62C3,82.157,4.843,84,6.5,84h88
         c1.657,0,2.5-1.843,2.5-3.5v-52c0-1.657-0.843-2.5-2.5-2.5H42.66l-10.142-9.22C31.966,16.278,31.246,16,30.5,16L30.5,16z"/>
