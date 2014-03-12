@@ -58,6 +58,10 @@ h2 {
   margin: 0;
 }
 
+.no-underline:hover {
+  text-decoration: none !important;
+}
+
 .row {
   margin: 0;
 }

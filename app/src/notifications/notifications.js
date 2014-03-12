@@ -29,12 +29,14 @@ module.controller('NotificationsCtrl',
       //$scope.notifications = res.data;
       $scope.notifications = [
         {
-          title: 'Notif 1',
-          date: '2014-03-06T08:51:42.928Z'
+          type: 'S',
+          date: '2014-03-06T08:51:42.928Z',
+          text: 'user1 wants to share the folder abc with you.'
         },
         {
-          title: 'Notif 2',
-          date: '2014-03-10T08:51:42.928Z'
+          type: 'D',
+          date: '2014-03-10T08:51:42.928Z',
+          text: 'user1 removed xyz in abc.'
         }
      ];
     }, function(error) {

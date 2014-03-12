@@ -12,7 +12,12 @@
         </thead>
         <tbody>
           <tr ng-repeat="notification in notifications track by $index">
-            <td ng-bind="notification.type"></td>
+            <td ng-switch on="notification.type">
+              <img class="table-icon" ng-switch-when="D" src="/styles/icons/icon_delete.svg">
+              <img class="table-icon" ng-switch-when="S" src="/styles/icons/icon_shared.svg">
+
+              <span class="no-underline" ng-bind="notification.text"></span>
+            </td>
             <td ng-bind="notification.date | date"></td>
           </tr>
         </tbody>
