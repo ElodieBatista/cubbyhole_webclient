@@ -3,12 +3,11 @@
 var module = angular.module('webApp');
 
 /**
- *
+ * Displays a modal with an error msg corresponding to the route and the status
  */
 module.directive('error', function() {
   return {
-    restrict: 'E',
-    templateUrl: '/src/common/error/error.tpl.html',
+    restrict: 'A',
 
     link: function (scope, element, attrs) {
       var errors = {
@@ -16,11 +15,11 @@ module.directive('error', function() {
         item: {
           GET: {
             404: 'This item doesn\'t exist.',
-            405: 'You can\'t download this folder because it is empty.',
+            405: 'You can\'t download this folder because it is empty.'
           },
           POST: {
             404: 'This item doesn\'t exist.',
-            422: 'This item\'s parent doesn\'t exist',
+            422: 'This item\'s parent doesn\'t exist'
           },
           DELETE: {
             404: 'This item doesn\'t exist.'

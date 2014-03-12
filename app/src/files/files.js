@@ -17,6 +17,7 @@ module.controller('FilesCtrl',
   function FilesCtrl(conf, $rootScope, $scope, $routeParams, $resource, $upload) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 0;
+    var color = 'primary';
 
     var Files = $resource(conf.epApi + '/item', {}, {
       'get': {
@@ -71,18 +72,14 @@ module.controller('FilesCtrl',
     Files.get(function(res) {
       $scope.rootItem = res.data[0];
       $scope.folders = res.data;
-    }, function(error) {
-      console.log('Can\'t get the files.');
-    });
+    }, function(err) { $scope.errorShow(err, color); });
 
 
     $scope.addFolder = function(form, parentId) {
       if (form.name !== '') {
         Files.post({'type':'folder', 'name':form.name, 'parent':parentId}, function(res) {
           $scope.feAddFolder(res.data, parentId);
-        }, function(error) {
-          console.log('Can\'t create new folder.');
-        });
+        }, function(err) { $scope.errorShow(err, color); });
       }
     };
 
@@ -91,9 +88,7 @@ module.controller('FilesCtrl',
       if (form.name !== '') {
         File.put({'name':form.name, 'id':id}, function(res) {
           $scope.feRenameItem(res.data.name, id, res.data.parent);
-        }, function(err) {
-          console.log('Can\'t rename the item.');
-        });
+        }, function(err) { $scope.errorShow(err, color); });
       }
     };
 
@@ -101,37 +96,21 @@ module.controller('FilesCtrl',
     $scope.deleteItem = function(form, id) {
       File.delete({'id':id}, function(res) {
         $scope.feDeleteItem(id);
-      }, function(error) {
-        console.log('Can\'t delete the item.');
-      });
+      }, function(err) { $scope.errorShow(err, color); });
     };
 
 
     $scope.copyItem = function(id, parentId) {
-      // Angular doesn't like _ in html binding
-      if (typeof id === 'object') {
-        id = id._id;
-        parentId = parentId._id;
-      }
       File.post({'id':id, 'parent':parentId}, function(res) {
         $scope.feAddNodes(res.data, parentId);
-      }, function(error) {
-        console.log('Can\'t copy the item.');
-      });
+      }, function(err) { $scope.errorShow(err, color); });
     };
 
 
     $scope.moveItem = function(id, parentId) {
-      // Angular doesn't like _ in html binding
-      if (typeof id === 'object') {
-        id = id._id;
-        parentId = parentId._id;
-      }
       File.put({'id':id, 'parent':parentId}, function(res) {
         $scope.feMoveItem(id, parentId, res.data.name);
-      }, function(error) {
-        console.log('Can\'t move the item.');
-      });
+      }, function(err) { $scope.errorShow(err, color); });
     };
 
 
@@ -145,9 +124,7 @@ module.controller('FilesCtrl',
 
         Share.post({'id':id, 'with':members}, function(res) {
           $scope.feShareItem(id);
-        }, function(err) {
-          console.log('Can\'t share the item.');
-        });
+        }, function(err) { $scope.errorShow(err, color); });
       }
     };
 
@@ -209,8 +186,8 @@ module.controller('FilesCtrl',
         }).success(function(res, status, headers, config) {
           $scope.uploading = false;
           $scope.feAddNode(res.data, $scope.selectedNode._id);
-        }).error(function(error) {
-          console.log(error);
+        }).error(function(err) {
+          $scope.errorShow(err, color);
           $scope.uploading = false;
         });
       }

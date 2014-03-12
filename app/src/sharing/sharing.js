@@ -16,8 +16,12 @@ module.controller('SharingCtrl',
   function SharingCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 1;
+    var color = 'secondary';
 
-    var Share = $resource(conf.epApi + '/share', {}, {
+    var Shares = $resource(conf.epApi + '/share', {}, {
+      'get': {
+        method:'GET'
+      },
       'post': {
         method:'POST',
         params: {
@@ -27,69 +31,20 @@ module.controller('SharingCtrl',
       }
     });
 
+    var Share = $resource(conf.epApi + '/share/:id', {id:'@id'}, {
+      'delete': {
+        method:'DELETE'
+      }
+    });
+
     $scope.items = [];
     $scope.itemActive = null;
 
     $scope.userId = $rootScope.getProfile().id;
 
-    $scope.items = [
-      {
-        _id: '0',
-        name: 'All Projects M1',
-        size: 225923,
-        lastModified: '2014-03-06T08:57:04.103Z',
-        path: 'My Cubbyhole,A',
-        owner: {
-          _id: '40',
-          email:'gaetan@sup.com'
-        },
-        members: [
-          {
-            _id: '10',
-            email: 'maxime@sup.com',
-            status: 'joined',
-            permissions: 1
-          },
-          {
-            _id: '20',
-            email: 'kevin@sup.com',
-            status: 'joined',
-            permissions: 1
-          },
-          {
-            _id: '531832618e4278e018000001',
-            email: 'elodie@sup.com',
-            status: 'still waiting',
-            permissions: 0
-          }
-        ]
-      },
-      {
-        _id: '1',
-        name: 'Test',
-        size: 1225923,
-        lastModified: '2014-03-08T08:57:04.103Z',
-        path: 'My Cubbyhole',
-        owner: {
-          _id: '531832618e4278e018000001',
-          email:'elodie@sup.com'
-        },
-        members: [
-          {
-            _id: '20',
-            email: 'kevin@sup.com',
-            status: 'joined',
-            permissions: 1
-          },
-          {
-            _id: '531832618e4278e018000001',
-            email: 'elodie@sup.com',
-            status: 'still waiting',
-            permissions: 0
-          }
-        ]
-      }
-    ];
+    Shares.get(function(res) {
+      $scope.items = res.data;
+    }, function(err) { $scope.errorShow(err, color); });
 
 
     $scope.inviteform = {
@@ -101,14 +56,10 @@ module.controller('SharingCtrl',
     $scope.shareItem = function(form, id) {
       if (form.email && form.email.length > 0) {
 
-        //Share.post({'id':id, 'with':[{ email:form.email, permission:form.permission}]}, function(res) {
+        Shares.post({'id':id, 'with':[{ email:form.email, permissions:form.permissions}]}, function(res) {
           for (var i = 0, l = $scope.items.length; i < l; i++) {
             if ($scope.items[i]._id === id) {
-              $scope.items[i].members.push({
-                email: form.email,
-                permissions: form.permissions,
-                status: 'still waiting'
-              });
+              $scope.items[i].members = res.data.members;
               break;
             }
           }
@@ -117,9 +68,7 @@ module.controller('SharingCtrl',
             email: '',
             permissions: 0
           };
-        /*}, function(err) {
-          console.log('Can\'t share the item.');
-        });*/
+        }, function(err) { $scope.errorShow(err, color); });
       }
     };
 
@@ -157,16 +106,14 @@ module.controller('SharingCtrl',
 
 
     $scope.unshareItem = function(form, id) {
-      //Share.post({'id':id, 'with':members}, function(res) {
+      Share.delete({'id':id}, function(res) {
         for (var i = 0, l = $scope.items.length; i < l; i++) {
           if ($scope.items[i]._id === id) {
             $scope.items.splice(i, 1);
             break;
           }
         }
-      /*}, function(err) {
-       console.log('Can\'t share the item.');
-       });*/
+      }, function(err) { $scope.errorShow(err, color); });
     };
 
 
