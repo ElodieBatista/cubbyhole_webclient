@@ -1,14 +1,10 @@
 .user-title {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 .user-big-title {
   margin-bottom: 83px;
-}
-
-.user-medium-title {
-  margin-top: -9px;
 }
 
 .user-icon {
@@ -27,10 +23,13 @@
 .quinary .plans-bloc {
   background-color: rgb(255, 255, 255) !important;
   color: rgb(90, 90, 90) !important;
+  border: 1px solid rgb(255, 255, 255);
 }
 
 .quinary .plans-bloc:hover {
   box-shadow: none;
+  -webkit-transform: none;
+  transform: none;
 }
 
 .quinary .plans-bloc .btn {
@@ -38,31 +37,62 @@
 }
 
 
-.quinary .plans-bloc:nth-child(1):not(.plan-chosen):hover {
+.quinary .plans-bloc:nth-child(3n + 1):not(.plan-chosen):hover {
   border: 1px solid rgb(122, 201, 67);
 }
 
-.quinary .plans-bloc:nth-child(1):not(.plan-chosen) .plans-title {
+.quinary .plans-bloc:nth-child(3n + 2):not(.plan-chosen):hover {
+  border: 1px solid rgb(255, 147, 30);
+}
+
+.quinary .plans-bloc:nth-child(3n + 3):not(.plan-chosen):hover {
+  border: 1px solid rgb(255, 29, 37);
+}
+
+
+.quinary .plans-bloc:nth-child(3n + 1):not(.plan-chosen) .plans-title {
   color: rgb(122, 201, 67);
   border-bottom: 1px solid rgb(122, 201, 67);
 }
 
-.quinary .plans-bloc:nth-child(2):not(.plan-chosen):hover {
-  border: 1px solid rgb(255, 147, 30);
-}
-
-.quinary .plans-bloc:nth-child(2):not(.plan-chosen) .plans-title {
+.quinary .plans-bloc:nth-child(3n + 2):not(.plan-chosen) .plans-title {
   color: rgb(255, 147, 30);
   border-bottom: 1px solid rgb(255, 147, 30);
 }
 
-.quinary .plans-bloc:nth-child(3):not(.plan-chosen):hover {
-  border: 1px solid rgb(255, 29, 37);
-}
-
-.quinary .plans-bloc:nth-child(3):not(.plan-chosen) .plans-title {
+.quinary .plans-bloc:nth-child(3n + 3):not(.plan-chosen) .plans-title {
   color: rgb(255, 29, 37);
   border-bottom: 1px solid rgb(255, 29, 37);
+}
+
+.quinary .plans-bloc:nth-child(3n + 1):not(.plan-chosen) .btn {
+  background-color: rgb(141, 209, 97);
+}
+
+.quinary .plans-bloc:nth-child(3n + 1):not(.plan-chosen) .btn:hover,
+.quinary .plans-bloc:nth-child(3n + 1):not(.plan-chosen) .btn:focus,
+.quinary .plans-bloc:nth-child(3n + 1):not(.plan-chosen) .btn:active {
+  background-color: rgb(122, 201, 67);
+}
+
+.quinary .plans-bloc:nth-child(3n + 2):not(.plan-chosen) .btn {
+  background-color: rgb(255, 168, 72);
+}
+
+.quinary .plans-bloc:nth-child(3n + 2):not(.plan-chosen) .btn:hover,
+.quinary .plans-bloc:nth-child(3n + 2):not(.plan-chosen) .btn:focus,
+.quinary .plans-bloc:nth-child(3n + 2):not(.plan-chosen) .btn:active {
+  background-color: rgb(255, 147, 30);
+}
+
+.quinary .plans-bloc:nth-child(3n + 3):not(.plan-chosen) .btn {
+  background-color: rgb(254, 80, 81);
+}
+
+.quinary .plans-bloc:nth-child(3n + 3):not(.plan-chosen) .btn:hover,
+.quinary .plans-bloc:nth-child(3n + 3):not(.plan-chosen) .btn:focus,
+.quinary .plans-bloc:nth-child(3n + 3):not(.plan-chosen) .btn:active {
+  background-color: rgb(255, 29, 37);
 }
 
 .quinary .plans-title {
@@ -71,6 +101,10 @@
 
 .quinary .plans-bloc.plan-chosen {
   border: 1px solid rgb(255, 108, 164);
+}
+
+.quinary .plans-bloc.plan-chosen .btn {
+  visibility: hidden;
 }
 
 .quinary .plans-bloc.plan-chosen .plans-title {
