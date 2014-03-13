@@ -297,136 +297,7 @@
             </div>
           </div>
 
-          <div class="row plans-container">
-            <div class="col-md-4 plans-bloc">
-
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="plans-title">Free</h3>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <img class="plans-img" src="/styles/icons/icon_free_plan_black.svg" alt="icon plan">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <ul class="plans-list">
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> 30 days before expiration
-                    </li>
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> 100 Go usable storage
-                    </li>
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> Upload 100 - Download 100 mbps
-                    </li>
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> 100 Go shared link daily transfer quota
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="plans-price">
-                    Free
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-md-4 plans-bloc">
-
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="plans-title">Pro</h3>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <img class="plans-img" src="/styles/icons/icon_pro_plan_white.svg" alt="icon plan">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <ul class="plans-list">
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> 90 days before expiration
-                    </li>
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> 300 Go usable storage
-                    </li>
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> Upload 300 - Download 300 mbps
-                    </li>
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> 300 Go shared link daily transfer quota
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="plans-price">
-                    $14.99<span class="plans-price-small">/month</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            <div class="col-md-4 plans-bloc">
-
-              <div class="row">
-                <div class="col-md-12">
-                  <h3 class="plans-title">Enterprise</h3>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <img class="plans-img" src="/styles/icons/icon_business_plan_white.svg" alt="icon plan">
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <ul class="plans-list">
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> 365 days before expiration
-                    </li>
-                    <li class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> 1000 Go usable storage
-                    </li>
-                    <li  class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> Upload 1000 - Download 1000 mbps
-                    </li>
-                    <li  class="plans-list-item">
-                      <i class="fa fa-check-circle plans-list-icon"></i> 1000 Go shared link daily transfer quota
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="plans-price">
-                    $24.99<span class="plans-price-small">/month</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
+          <div class="row plans-container"></div>
         </div>
       </div>
     </div>
@@ -556,5 +427,66 @@
     <script src="src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
     <script src="src/lib/spinjs/spin.js"></script>
     <script src="src/lib/custom/index-init.js"></script>
+    <script src="src/lib/handlebars/handlebars.js"></script>
+
+    <script id="plan-template" type="text/x-handlebars-template">
+      {{#each plans}}
+      <div class="col-md-4 plans-bloc">
+
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="plans-title">{{name}}</h3>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            {{#ifMod @index 3}}
+              <img class="plans-img" src="/styles/icons/icon_{{name}}_plan_black.svg" alt="icon plan">
+            {{else}}
+              <img class="plans-img" src="/styles/icons/icon_{{name}}_plan_white.svg" alt="icon plan">
+            {{/ifMod}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="plans-list">
+              <li class="plans-list-item">
+                <i class="fa fa-check-circle plans-list-icon"></i>
+                {{#ifCond duration 0}}
+                  Never expires
+                {{else}}
+                  {{duration}} days before expiration
+                {{/ifCond}}
+              </li>
+              <li class="plans-list-item">
+                <i class="fa fa-check-circle plans-list-icon"></i> {{storage}} Go usable storage
+              </li>
+              <li class="plans-list-item">
+                <i class="fa fa-check-circle plans-list-icon"></i> {{bandwidth}} mbps of bandwidth
+              </li>
+              <li class="plans-list-item">
+                <i class="fa fa-check-circle plans-list-icon"></i> {{sharedQuota}} Go of Shared Quota
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="plans-price">
+              {{#ifCond price 0}}
+                Free
+              {{else}}
+                ${{price}}<span class="plans-price-small">/month</span>
+              {{/ifCond}}
+            </div>
+          </div>
+        </div>
+
+      </div>
+      {{/each}}
+    </script>
   </body>
 </html>

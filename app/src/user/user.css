@@ -28,8 +28,6 @@
 
 .quinary .plans-bloc:hover {
   box-shadow: none;
-  -webkit-transform: none;
-  transform: none;
 }
 
 .quinary .plans-bloc .btn {

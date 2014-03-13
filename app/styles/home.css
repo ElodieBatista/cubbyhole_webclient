@@ -96,6 +96,7 @@
 }
 
 .plans-bloc {
+  margin-bottom: 10px;
   padding: 20px;
   color: rgb(44, 44, 44);
   -webkit-transition: all 0.1s ease-out;
@@ -115,16 +116,16 @@
           transform: scale(1.05, 1.05);
 }
 
-.plans-bloc:nth-child(1) {
+.plans-bloc:nth-child(3n + 1) {
   background-color: rgb(255, 255, 255);
 }
 
-.plans-bloc:nth-child(2) {
+.plans-bloc:nth-child(3n + 2) {
   color: rgb(255, 255, 255);
   background-color: rgb(122, 201, 67);
 }
 
-.plans-bloc:nth-child(3) {
+.plans-bloc:nth-child(3n + 3) {
   color: rgb(255, 255, 255);
   background-color: rgb(90, 90, 90);
 }
