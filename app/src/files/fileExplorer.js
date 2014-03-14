@@ -321,7 +321,7 @@ module.directive('fileExplorer', function($location) {
         scope.modalform.member = {
           0: {
             email: '',
-            permission: 0
+            permissions: 0
           }
         };
 
@@ -353,8 +353,8 @@ module.directive('fileExplorer', function($location) {
                     '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[\'0\'].email" required ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" />' +
                   '</div>' +
                 '</div>' +
-                '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permission" value="0" required>' +
-                '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permission" value="1">' +
+                '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permissions" value="0" required>' +
+                '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permissions" value="1">' +
                 '<span class="hidden">end share-member0</span>' +
               '</div>' +
             '</div>'
@@ -372,7 +372,7 @@ module.directive('fileExplorer', function($location) {
         if ($('#share-member' + index).length === 0) {
           scope.modalform.member[index] = {
             email: '',
-            permission: 0
+            permissions: 0
           };
 
           scope.modalOpts.template = scope.modalOpts.template.substr(0, scope.modalOpts.template.length - 6) +
@@ -386,8 +386,8 @@ module.directive('fileExplorer', function($location) {
                   '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[\'' + index + '\'].email" required ng-init="focused' + index + ' = false" ng-focus="focused' + index + ' = true" ng-blur="focused' + index + ' = false" />' +
                 '</div>' +
               '</div>' +
-              '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[\'' + index + '\'].permission" value="0" required>' +
-              '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[\'' + index + '\'].permission" value="1">' +
+              '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[\'' + index + '\'].permissions" value="0" required>' +
+              '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[\'' + index + '\'].permissions" value="1">' +
               '<span class="hidden">end share-member' + index + '</span>' +
             '</div>' +
           '</div>'
