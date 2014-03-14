@@ -82,19 +82,17 @@ module.controller('SharingCtrl',
       }
     };
 
-    $scope.change = function() {
-      console.log('Changed');
-    };
 
-
-    $scope.updateSharePermission = function(form, params) {
-      Share.put({'id':params.id, 'member':params.memberId, 'permissions':params.permissions}, function(res) {
-        /*for (var i = 0, l = $scope.items.length; i < l; i++) {
-          if ($scope.items[i]._id === id) {
-            $scope.items.splice(i, 1);
-            break;
-          }
-        }*/
+    $scope.updateSharePermission = function(itemId, memberId) {
+      var item = $scope.getItem(itemId),
+          permissions;
+      for (var j = 0, le = item.members.length; j < le; j++) {
+        if (item.members[j]._id === memberId) {
+          permissions = item.members[j].permissions;
+          break;
+        }
+      }
+      Share.put({'id':itemId, 'member':memberId, 'permissions':permissions}, function(res) {
       }, function(err) { $scope.errorShow(err, color); });
     };
 

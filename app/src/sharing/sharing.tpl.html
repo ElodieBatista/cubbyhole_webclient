@@ -46,10 +46,10 @@
                   <td ng-if="member.accepted">Joined</td>
                   <td ng-if="!member.accepted">Still waiting</td>
                   <td ng-show="item.owner._id === userId">
-                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="0">
+                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="0" ng-change="updateSharePermission(item._id, member._id)">
                   </td>
                   <td ng-show="item.owner._id === userId">
-                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="1">
+                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="1" ng-change="updateSharePermission(item._id, member._id)">
                   </td>
                   <td ng-show="item.owner._id === userId">
                     <button class="close" ng-click="seAskRevokeSharePermissionConfirm(item, member)">&times;</button>
