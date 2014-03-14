@@ -56,11 +56,8 @@ module.controller('UserCtrl',
 
       $scope.stats = {
         storage: ($scope.user.usedStorage * 100) / $scope.user.currentPlan.storage,
-        //storage: 60,
         sharedQuota: ($scope.user.usedSharedQuota * 100) / $scope.user.currentPlan.sharedQuota,
-        //sharedQuota: 20,
         bandwidth: ($scope.user.usedBandwidth * 100) / $scope.user.currentPlan.bandwidth
-        //bandwidth: 75
       };
 
       $scope.statsStyles = {

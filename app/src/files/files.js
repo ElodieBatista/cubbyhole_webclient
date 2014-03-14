@@ -163,33 +163,44 @@ module.controller('FilesCtrl',
 
     $scope.onFileSelect = function(form, data) {
       var $files = (data.files ? data.files : data);
+      var err = { custom: -1, param: '<br />' } ;
 
       for (var i = 0; i < $files.length; i++) {
         var file = $files[i];
-        $scope.uploading = true;
 
-        $scope.upload = $upload.upload({
-          url: conf.epApi + '/item',
-          method: 'POST',
-          data: {
-            type: 'file',
-            parent: $scope.selectedNode._id
-          },
-          file: file
-          /* set file formData name for 'Content-Desposition' header. Default: 'file' */
-          //fileFormDataName: myFile, //OR for HTML5 multiple upload only a list: ['name1', 'name2', ...]
-          /* customize how data is added to formData. See #40#issuecomment-28612000 for example */
-          //formDataAppender: function(formData, key, val){} //#40#issuecomment-28612000
-        }).progress(function(e) {
-          var percent = parseInt(100.0 * e.loaded / e.total);
-          $scope.feUpdateProgressBar(percent);
-        }).success(function(res, status, headers, config) {
-          $scope.uploading = false;
-          $scope.feAddNode(res.data, $scope.selectedNode._id);
-        }).error(function(err) {
-          $scope.errorShow(err, color);
-          $scope.uploading = false;
-        });
+        if (file.type !== '') {
+          $scope.uploading = true;
+
+          $scope.upload = $upload.upload({
+            url: conf.epApi + '/item',
+            method: 'POST',
+            data: {
+              type: 'file',
+              parent: $scope.selectedNode._id
+            },
+            file: file
+            /* set file formData name for 'Content-Desposition' header. Default: 'file' */
+            //fileFormDataName: myFile, //OR for HTML5 multiple upload only a list: ['name1', 'name2', ...]
+            /* customize how data is added to formData. See #40#issuecomment-28612000 for example */
+            //formDataAppender: function(formData, key, val){} //#40#issuecomment-28612000
+          }).progress(function(e) {
+            var percent = parseInt(100.0 * e.loaded / e.total);
+            $scope.feUpdateProgressBar(percent);
+          }).success(function(res, status, headers, config) {
+            $scope.uploading = false;
+            $scope.feAddNode(res.data, $scope.selectedNode._id);
+          }).error(function(err) {
+            $scope.errorShow(err, color);
+            $scope.uploading = false;
+          });
+        } else {
+          err.custom = 0;
+          err.param += file.name + '<br />';
+        }
+      }
+
+      if (err.custom !== -1) {
+        $scope.errorShow(err, color);
       }
     };
 

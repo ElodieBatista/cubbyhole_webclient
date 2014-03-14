@@ -48,10 +48,6 @@
 
     </div>
 
-    <div class="upload-progress-container" ng-show="uploading">
-      <button class="btn btn-default" ng-click="upload.abort()">Cancel Upload</button>
-    </div>
-
   </div>
 
   <form id="file-explorer-form-download" method="GET" action="{{ 'http://localhost:3000/item/' + itemActive._id + '/download/' + token }}">

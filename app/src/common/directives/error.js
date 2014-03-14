@@ -11,6 +11,9 @@ module.directive('error', function() {
 
     link: function (scope, element, attrs) {
       var errors = {
+        custom: {
+          0: 'Impossible to upload these items: '
+        },
         500: 'Something went wrong. Please, try again later.',
         item: {
           GET: {
@@ -47,28 +50,34 @@ module.directive('error', function() {
 
 
       scope.errorShow = function(error, color) {
-        console.log(error.config.url + ' ' + error.status);
-
-        error.config.url = error.config.url.replace('//', '');
-
         $('#appmodal').modal('hide');
 
-        var route,
-            errorText;
+        var errorText = '';
 
-        if (error.status !== 500) {
-          var pos1 = error.config.url.indexOf('/');
-          var pos2 = error.config.url.indexOf('/', pos1 + 1);
-
-          if (pos2 === -1) {
-            route = error.config.url.substring(pos1 + 1);
-          } else {
-            route = error.config.url.substring(pos1 + 1, pos2);
-          }
-          errorText = errors[route][error.config.method][error.status];
+        if (error.custom !== undefined) {
+          errorText = errors.custom[error.custom] + error.param;
         } else {
-          errorText = errors['500'];
+          console.log(error.config.url + ' ' + error.status);
+
+          error.config.url = error.config.url.replace('//', '');
+
+          var route;
+
+          if (error.status !== 500) {
+            var pos1 = error.config.url.indexOf('/');
+            var pos2 = error.config.url.indexOf('/', pos1 + 1);
+
+            if (pos2 === -1) {
+              route = error.config.url.substring(pos1 + 1);
+            } else {
+              route = error.config.url.substring(pos1 + 1, pos2);
+            }
+            errorText = errors[route][error.config.method][error.status];
+          } else {
+            errorText = errors['500'];
+          }
         }
+
 
         scope.modalOpts = {
           title: 'Error',
