@@ -114,7 +114,7 @@
             <div class="col-md-12">
               <div class="plans-price">
                 <span ng-if="plan.price === 0">Free</span>
-                <span ng-if="plan.price > 0">${{plan.price}}<span class="plans-price-small">/month</span></span>
+                <span ng-if="plan.price > 0">${{plan.price}}<span class="plans-price-small">/{{plan.duration}} days</span></span>
               </div>
             </div>
           </div>
