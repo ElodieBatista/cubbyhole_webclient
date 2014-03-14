@@ -21,19 +21,28 @@ module.controller('SharingCtrl',
     var Shares = $resource(conf.epApi + '/share', {}, {
       'get': {
         method:'GET'
-      },
-      'post': {
-        method:'POST',
-        params: {
-          id:'@id',
-          with:'@with'
-        }
       }
     });
 
     var Share = $resource(conf.epApi + '/share/:id', {id:'@id'}, {
-      'delete': {
-        method:'DELETE'
+      'post': {
+        method:'POST',
+        params: {
+          with:'@with'
+        }
+      },
+      'put': {
+        method:'PUT',
+        params: {
+          member:'@member',
+          permissions:'@permissions'
+        }
+      },
+      'delete': { // Stop sharing if owner/ Leave shared folder if member
+        method:'DELETE',
+        params: {
+          member:'@member' // If member, revoke permission
+        }
       }
     });
 
@@ -62,7 +71,7 @@ module.controller('SharingCtrl',
     $scope.shareItem = function(form, id) {
       if (form.email && form.email.length > 0) {
 
-        Shares.post({'id':id, 'with':[{ email:form.email, permissions:form.permissions}]}, function(res) {
+        Share.post({'id':id, 'with':[{ email:form.email, permissions:form.permissions}]}, function(res) {
           $scope.getItem(id).members = res.data.members;
 
           $scope.inviteform = {
@@ -74,8 +83,20 @@ module.controller('SharingCtrl',
     };
 
 
+    $scope.updateSharePermission = function(form, params) {
+      Share.put({'id':id, 'member':params.memberId, 'permissions':params.permissions}, function(res) {
+        /*for (var i = 0, l = $scope.items.length; i < l; i++) {
+          if ($scope.items[i]._id === id) {
+            $scope.items.splice(i, 1);
+            break;
+          }
+        }*/
+      }, function(err) { $scope.errorShow(err, color); });
+    };
+
+
     $scope.revokeSharePermission = function(form, ids) {
-      //Share.post({'id':id, 'with':members}, function(res) {
+      Share.delete({'id':ids.itemId, 'member':ids.memberId}, function(res) {
         var item = $scope.getItem(ids.itemId);
         for (var j = 0, le = item.members.length; j < le; j++) {
           if (item.members[j]._id === ids.memberId) {
@@ -83,23 +104,19 @@ module.controller('SharingCtrl',
             break;
           }
         }
-      /*}, function(err) {
-       console.log('Can\'t share the item.');
-       });*/
+      }, function(err) { $scope.errorShow(err, color); });
     };
 
 
     $scope.leaveSharedItem = function(form, id) {
-      //Share.post({'id':id, 'with':members}, function(res) {
+      Share.delete({'id':id}, function(res) {
         for (var i = 0, l = $scope.items.length; i < l; i++) {
           if ($scope.items[i]._id === id) {
             $scope.items.splice(i, 1);
             break;
           }
         }
-      /*}, function(err) {
-        console.log('Can\'t share the item.');
-      });*/
+      }, function(err) { $scope.errorShow(err, color); });
     };
 
 
