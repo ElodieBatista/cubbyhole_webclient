@@ -82,9 +82,13 @@ module.controller('SharingCtrl',
       }
     };
 
+    $scope.change = function() {
+      console.log('Changed');
+    };
+
 
     $scope.updateSharePermission = function(form, params) {
-      Share.put({'id':id, 'member':params.memberId, 'permissions':params.permissions}, function(res) {
+      Share.put({'id':params.id, 'member':params.memberId, 'permissions':params.permissions}, function(res) {
         /*for (var i = 0, l = $scope.items.length; i < l; i++) {
           if ($scope.items[i]._id === id) {
             $scope.items.splice(i, 1);

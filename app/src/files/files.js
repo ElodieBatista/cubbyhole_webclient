@@ -55,11 +55,10 @@ module.controller('FilesCtrl',
       }
     });
 
-    var Share = $resource(conf.epApi + '/share', {}, {
+    var Share = $resource(conf.epApi + '/share/:id', {}, {
       'post': {
         method:'POST',
         params: {
-          id:'@id',
           with:'@with'
         }
       }
