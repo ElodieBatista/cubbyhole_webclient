@@ -124,25 +124,26 @@ module.directive('fileExplorer', function($location) {
       };
 
 
+      scope.feIterate = function(node, callback) {
+        var child, _i, _len, _ref;
+        if (node.children) {
+          _ref = node.children;
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            child = _ref[_i];
+            callback(child, child.parent);
+            if (child.children.length > 0) {
+              scope.feIterate(child, callback);
+            }
+          }
+          return null;
+        }
+      };
+
+
       scope.feAddNodes = function(item, parentId) {
         scope.feAddNode(item, parentId);
 
-        var feIterate = function(node, callback) {
-          var child, _i, _len, _ref;
-          if (node.children) {
-            _ref = node.children;
-            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-              child = _ref[_i];
-              callback(child, child.parent);
-              if (child.children.length > 0) {
-                feIterate(child, callback);
-              }
-            }
-            return null;
-          }
-        };
-
-        feIterate(item, scope.feAddNode);
+        scope.feIterate(item, scope.feAddNode);
       };
 
 
@@ -191,16 +192,23 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feShareItem = function(id) {
+      scope.feShareItems = function(id) {
         var node = $tree.tree('getNodeBy', '_id', id);
 
-        $tree.tree(
-          'updateNode',
-          node,
-          {
-            isShared: true
-          }
-        );
+        scope.feIterate(node, scope.feShareItem);
+      };
+
+
+      scope.feShareItem = function(node) {
+        if (node.type === 'folder') {
+          $tree.tree(
+            'updateNode',
+            node,
+            {
+              isShared: true
+            }
+          );
+        }
       };
 
 

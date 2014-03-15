@@ -122,7 +122,7 @@ module.controller('FilesCtrl',
         }
 
         Share.post({'id':id, 'with':members}, function(res) {
-          $scope.feShareItem(id);
+          $scope.feShareItems(id);
         }, function(err) { $scope.errorShow(err, color); });
       }
     };
