@@ -34,8 +34,8 @@
                 <tr class="shared-options-header-tr shared-options-tr-nohover">
                   <th>Members</th>
                   <th>Status</th>
-                  <th ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]">Read Only</th>
-                  <th ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]">Read & Write</th>
+                  <th>Read Only</th>
+                  <th>Read & Write</th>
                   <th ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]"></th>
                 </tr>
                 <tr class="shared-options-tr" ng-if="item.members.length === 0">
@@ -48,8 +48,14 @@
                   <td ng-show="item.owner._id === userId">
                     <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="0" ng-change="updateSharePermission(item._id, member._id)">
                   </td>
+                  <td ng-hide="item.owner._id === userId">
+                    <img class="shared-permissions-img" src="/styles/icons/icon_check.svg" ng-show="member.permissions === 0" />
+                  </td>
                   <td ng-show="item.owner._id === userId">
                     <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="1" ng-change="updateSharePermission(item._id, member._id)">
+                  </td>
+                  <td ng-hide="item.owner._id === userId">
+                    <img class="shared-permissions-img" src="/styles/icons/icon_check.svg" ng-show="member.permissions === 1" />
                   </td>
                   <td ng-show="item.owner._id === userId">
                     <button class="close" ng-click="seAskRevokeSharePermissionConfirm(item, member)">&times;</button>

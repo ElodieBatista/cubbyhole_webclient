@@ -30,7 +30,9 @@
 }
 
 .shared-options-tr td:nth-child(3),
-.shared-options-tr td:nth-child(4) {
+.shared-options-tr td:nth-child(4),
+.shared-options-tr td:nth-child(5),
+.shared-options-tr td:nth-child(6) {
   text-align: center;
 }
 
@@ -62,4 +64,8 @@
   padding-bottom: 0 !important;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
+}
+
+.shared-permissions-img {
+  width: 30px;
 }
