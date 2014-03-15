@@ -90,6 +90,13 @@ module.controller('SharingCtrl',
     };
 
 
+    $scope.confirmShare = function(id, member) {
+      Share.put({'id':id}, function(res) {
+        member.accepted = true;
+      }, function(err) { $scope.errorShow(err, color); });
+    };
+
+
     $scope.updateSharePermission = function(itemId, memberId) {
       var item = $scope.getItem(itemId),
           permissions;

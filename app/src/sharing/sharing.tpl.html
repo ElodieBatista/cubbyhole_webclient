@@ -36,7 +36,7 @@
                   <th>Status</th>
                   <th>Read Only</th>
                   <th>Read & Write</th>
-                  <th ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]"></th>
+                  <th></th>
                 </tr>
                 <tr class="shared-options-tr" ng-if="item.members.length === 0">
                   <td>Just you</td>
@@ -59,6 +59,9 @@
                   </td>
                   <td ng-show="item.owner._id === userId">
                     <button class="close" ng-click="seAskRevokeSharePermissionConfirm(item, member)">&times;</button>
+                  </td>
+                  <td ng-show="!member.accepted">
+                    <button class="btn secondary-btn" type="submit" ng-click="confirmShare(item._id, member)">Confirm</button>
                   </td>
                 </tr>
                 <tr class="shared-options-tr shared-options-form-container shared-options-tr-nohover" ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]">
