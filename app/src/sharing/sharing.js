@@ -8,12 +8,13 @@ module.config(function config($routeProvider) {
     {
       templateUrl: '/src/sharing/sharing.tpl.html',
       controller: 'SharingCtrl',
+      reloadOnSearch: false,
       authRequired: true
     })
 });
 
 module.controller('SharingCtrl',
-  function SharingCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
+  function SharingCtrl(conf, $rootScope, $scope, $routeParams, $resource, $location) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 1;
     var color = 'secondary';
@@ -142,11 +143,12 @@ module.controller('SharingCtrl',
 
     $scope.toggleItem = function(item, forceSelect) {
       if ($scope.itemActive === item && !forceSelect) {
-        $scope.itemActiveId = -1;
         $scope.itemActive = null;
+        $location.search('id', null);
       } else {
-        $scope.itemActiveId = (item === null ? -1 : item._id);
         $scope.itemActive = item;
+        $location.path('/sharing').search({id: $scope.itemActive._id});
+        if (!$scope.$$phase) { $scope.$apply(); }
       }
     };
 
