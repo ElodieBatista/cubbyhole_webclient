@@ -194,7 +194,7 @@ module.directive('fileExplorer', function($location) {
 
       scope.feShareItems = function(id) {
         var node = $tree.tree('getNodeBy', '_id', id);
-
+        scope.feShareItem(node);
         scope.feIterate(node, scope.feShareItem);
       };
 
