@@ -21,7 +21,7 @@ angular.module('webApp', [
     $provide.factory('httpInterceptor', function($q, $rootScope, $location) {
       return {
         'request': function(config) {
-          if (config.url.indexOf(conf.epApi) !== -1) {
+          if (comesFromCubbyhole(config.url)) {
             $rootScope.displaySpinner = true;
           }
           return config || $q.when(config);
@@ -35,13 +35,15 @@ angular.module('webApp', [
         },
 
         'responseError': function (response) {
-          if (response.status === 401 && comesFromCubbyhole(response.config.url)) {
-            console.log('401 detected from the server, exiting local session.');
-            $location.path('/logout');
-            return $q.reject(response);
-          } else {
-            return $q.reject(response);
+          if (comesFromCubbyhole(response.config.url)) {
+            $rootScope.displaySpinner = false;
+
+            if (response.status === 401) {
+              console.log('401 detected from the server, exiting local session.');
+              $location.path('/logout');
+            }
           }
+          return $q.reject(response);
         }
       };
     });
