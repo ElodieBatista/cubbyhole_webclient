@@ -33,8 +33,11 @@ module.directive('fileExplorer', function($location) {
 
                 scope.toggleItem(null);
 
-                $location.path('/files').search({path: scope.selectedNode.getPath()});
+                if (scope.itemCopied) {
+                  scope.canPaste = scope.isNodeChildOf(scope.itemCopied, scope.selectedNode);
+                }
 
+                $location.path('/files').search({path: scope.selectedNode.getPath()});
                 if (!scope.$$phase) { scope.$apply(); }
               }
             }
@@ -241,6 +244,7 @@ module.directive('fileExplorer', function($location) {
 
       scope.feCopy = function(item) {
         scope.itemCopied = item;
+        scope.canPaste = scope.isNodeChildOf(scope.itemCopied, scope.selectedNode);
       };
 
 
@@ -553,6 +557,35 @@ module.directive('fileExplorer', function($location) {
             $progressBar.removeClass('progress-bar-animate');
           }, 500);
         }
+      };
+
+
+      scope.isNodeChildOf = function(parent, possibleChild) {
+        var iterate = function(parent, possibleChild, result) {
+          var _i, _len;
+          if (parent._id === possibleChild._id) {
+            return 1;
+          }
+          if (parent.children) {
+            for (_i = 0, _len = parent.children.length; _i < _len; _i++) {
+              if (parent.children[_i]._id === possibleChild._id) {
+                result++;
+              }
+              result += iterate(parent.children[_i], possibleChild, result);
+            }
+            return result;
+          }
+        };
+
+        var result = iterate(parent, possibleChild, 0);
+        console.log(result);
+
+        if (result === 0) {
+          result = false;
+        } else {
+          result = true;
+        }
+        return !result;
       };
 
 
