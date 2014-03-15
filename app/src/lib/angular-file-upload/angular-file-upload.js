@@ -167,7 +167,7 @@
             applyClassOver = ($(classOverCond.substring(1)).length === 0);
           }
 
-          if (applyClassOver) {
+          if (applyClassOver && attr['ngFileDroppable'] == 'true') {
             elem.addClass(attr['ngFileDragOverClass'] || "dragover");
           }
         }, false);
@@ -179,19 +179,21 @@
         elem[0].addEventListener("drop", function(evt) {
           evt.stopPropagation();
           evt.preventDefault();
-          elem.removeClass(attr['ngFileDragOverClass'] || "dragover");
-          var files = [], fileList = evt.dataTransfer.files, i;
-          if (fileList != null) {
-            for (i = 0; i < fileList.length; i++) {
-              files.push(fileList.item(i));
+          if (attr['ngFileDroppable'] === 'true') {
+            elem.removeClass(attr['ngFileDragOverClass'] || "dragover");
+            var files = [], fileList = evt.dataTransfer.files, i;
+            if (fileList != null) {
+              for (i = 0; i < fileList.length; i++) {
+                files.push(fileList.item(i));
+              }
             }
-          }
-          $timeout(function() {
-            fn(scope, {
-              $files : files,
-              $event : evt
+            $timeout(function() {
+              fn(scope, {
+                $files : files,
+                $event : evt
+              });
             });
-          });
+          }
         }, false);
       }
     };

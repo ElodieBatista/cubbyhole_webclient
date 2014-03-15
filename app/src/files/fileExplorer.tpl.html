@@ -4,7 +4,7 @@
 
   <div id="file-explorer-progress-bar"></div>
 
-  <div class="col-md-9" id="grid-view" ng-file-drop="onFileSelect(null, $files)" ng-file-drag-over-class="upload-container-hover" ng-file-drag-over-class-cond="!.dnd-drag">
+  <div class="col-md-9" id="grid-view" ng-file-drop="onFileSelect(null, $files)" ng-file-droppable="{{selectedNode.permissions !== 0}}" ng-file-drag-over-class="upload-container-hover" ng-file-drag-over-class-cond="!.dnd-drag">
 
     <action-bar></action-bar>
 
@@ -21,8 +21,8 @@
         </thead>
         <tbody>
           <tr ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)"
-              droppable item="file" doDrop="moveItem" candrop="file.type === 'folder' && currFileDnD !== file && (file.permissions === undefined || file.permissions === 1)">
-            <td draggable candrag="(file.permissions === undefined || file.permissions === 1)" item="file">
+              droppable item="file" doDrop="moveItem" candrop="file.type === 'folder' && currFileDnD !== file && file.permissions !== 0">
+            <td draggable candrag="(file.permissions !== 0)" item="file">
               <img class="table-icon" ng-if="!file.isShared" ng-src="/styles/icons/icon_{{file.type}}.svg" />
               <img class="table-icon" ng-if="file.type === 'folder' && file.isShared === true" ng-src="/styles/icons/icon_sharedfolder.svg" />
 
