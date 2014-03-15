@@ -484,6 +484,28 @@
             return $.inArray(node, this.children);
         };
 
+
+        Node.prototype.isChildOf = function(parent) {
+          var iterate = function(parent, possibleChild, result) {
+            var _i, _len;
+            if (parent._id === possibleChild._id) {
+              return 1;
+            }
+            if (parent.children) {
+              for (_i = 0, _len = parent.children.length; _i < _len; _i++) {
+                if (parent.children[_i]._id === possibleChild._id) {
+                  result++;
+                }
+                result += iterate(parent.children[_i], possibleChild, result);
+              }
+              return result;
+            }
+          };
+
+          return (iterate(parent, this, 0) === 0);
+        };
+
+
         /*
          Does the tree have children?
 
