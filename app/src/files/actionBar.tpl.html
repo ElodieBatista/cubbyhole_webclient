@@ -133,7 +133,7 @@
       </svg>
       <span>Paste</span>
     </li>
-    <li class="action-bar-item" ng-show="itemActive" ng-click="feOpenModalRenameItem(itemActive)">
+    <li class="action-bar-item" ng-show="itemActive && itemActive.permissions !== 0" ng-click="feOpenModalRenameItem(itemActive)">
       <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
         <path fill="#000000" d="M15.353,66.282L5.836,90.725c-0.225,0.579-0.083,1.229,0.357,1.663c0.002,0.003,0.005,0.006,0.011,0.011
         c0.438,0.421,1.085,0.547,1.655,0.312l24.315-9.931c0.275-0.069,0.529-0.217,0.728-0.424l58.195-60.49
@@ -146,7 +146,7 @@
       </svg>
       <span>Rename</span>
     </li>
-    <li class="action-bar-item" ng-show="itemActive && selectedNode.parent.parent !== null" ng-click="moveItem(itemActive._id, selectedNode.parent._id)">
+    <li class="action-bar-item" ng-show="itemActive && selectedNode.parent.parent !== null && itemActive.permissions !== 0" ng-click="moveItem(itemActive._id, selectedNode.parent._id)">
       <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
         <path fill="#000000" d="M30.5,19l11,10H94v52H6V19h24 M30.5,16h-24C4.843,16,3,16.843,3,18.5v62C3,82.157,4.843,84,6.5,84h88
         c1.657,0,2.5-1.843,2.5-3.5v-52c0-1.657-0.843-2.5-2.5-2.5H42.66l-10.142-9.22C31.966,16.278,31.246,16,30.5,16L30.5,16z"/>
@@ -157,7 +157,7 @@
       </svg>
       <span>Move Up</span>
     </li>
-    <li class="action-bar-item" ng-show="itemActive" ng-click="feOpenModalDeleteItem(itemActive)">
+    <li class="action-bar-item" ng-show="itemActive && itemActive.permissions !== 0" ng-click="feOpenModalDeleteItem(itemActive)">
       <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
         <g transform="translate(0.000000,2000.000000) scale(0.100000,-0.100000)">
           <path fill="#000000" d="M356.924,19999.627c-26.738-3.477-49.59-23.662-56.396-49.893c-1.748-6.709-2.305-12.598-2.305-23.408
@@ -204,8 +204,8 @@
       <span>Delete</span>
     </li>
 
-    <li class="action-bar-separator" ng-show="itemActive"></li>
-    <li class="action-bar-item" data-toggle="modal" ng-click="feOpenModalNewFolder()">
+    <li class="action-bar-separator" ng-show="itemActive && selectedNode.permissions !== 0"></li>
+    <li class="action-bar-item" data-toggle="modal" ng-click="feOpenModalNewFolder()" ng-show="selectedNode.permissions !== 0">
       <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
         <path fill="#000000" d="M92.092,58.906C89.264,56.078,85.688,54.465,82,54.04V26.806C82,25.149,80.657,24,79,24H36.502l-8.203-7.364
         C27.746,16.128,27.023,16,26.272,16H6.5C4.843,16,3,16.843,3,18.5V70c0,1.657,1.843,3,3.5,3h56.637
@@ -216,7 +216,7 @@
       </svg>
       <span>Create Folder</span>
     </li>
-    <li class="action-bar-item" ng-click="feOpenModalNewFiles()">
+    <li class="action-bar-item" ng-click="feOpenModalNewFiles()" ng-show="selectedNode.permissions !== 0">
       <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
         <g>
           <path fill="#000000" d="M29,23h36c0.553,0,1-0.448,1-1s-0.447-1-1-1H29c-0.552,0-1,0.448-1,1S28.448,23,29,23z"/>
