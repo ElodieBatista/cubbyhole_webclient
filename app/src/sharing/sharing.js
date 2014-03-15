@@ -46,6 +46,12 @@ module.controller('SharingCtrl',
       }
     });
 
+    var ShareRevoke = $resource(conf.epApi + '/share/:id/:member', {id:'@id', member:'@member'}, {
+      'delete': { // If member, revoke permission
+        method:'DELETE'
+      }
+    });
+
     $scope.items = [];
 
     $scope.path = $routeParams.id;
@@ -98,7 +104,7 @@ module.controller('SharingCtrl',
 
 
     $scope.revokeSharePermission = function(form, ids) {
-      Share.delete({'id':ids.itemId, 'member':ids.memberId}, function(res) {
+      ShareRevoke.delete({'id':ids.itemId, 'member':ids.memberId}, function(res) {
         var item = $scope.getItem(ids.itemId);
         for (var j = 0, le = item.members.length; j < le; j++) {
           if (item.members[j]._id === ids.memberId) {
