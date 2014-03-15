@@ -20,7 +20,7 @@ module.directive('droppable', function() {
       el.addEventListener(
         'dragenter',
         function(e) {
-          if (scope.candrop) {
+          if (scope.candrop && !el.classList.contains('dnd-drag')) {
             this.classList.add('dnd-over');
           }
           return false;
