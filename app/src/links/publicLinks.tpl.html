@@ -45,7 +45,9 @@
 
           <img class="link-icon" ng-src="styles/icons/icon_{{link.item.type}}_zip.svg">
 
-          <a class="btn primary-btn" href="/webapp.html">Download {{link.item.name}}</a>
+          <form method="GET" action="{{ 'http://localhost:3000/item/' + itemActive._id + '/download/' + token }}">
+            <input class="btn primary-btn" type="submit" value="Download {{link.item.name}}">
+          </form>
         </div>
       </div>
 
