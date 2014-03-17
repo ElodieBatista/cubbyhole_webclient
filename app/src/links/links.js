@@ -16,8 +16,8 @@ module.config(function config($routeProvider) {
 module.controller('LinksCtrl',
   function LinksCtrl(conf, $rootScope, $scope, $routeParams, $resource, $upload) {
     // Highlight first btn in the nav bar
-    $rootScope.navtop = 2;
-
+    $rootScope.navtop = 3;
+    var color = 'tertiary';
 
   }
 );

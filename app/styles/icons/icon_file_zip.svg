@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="78.3783783784px" height="100px" viewBox="0 0 87 111" version="1.1">
+    <title>zip</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs/>
+    <g id="file-format" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <path d="M10,97.9975586 L10,12 C10,10 12,10 12,10 L58,10 L76,28 L76,98 C76,100 74,100 74,100 L12,100 C12,100 10,100 10,97.9975586 Z M13,95.1177051 L13,14.88 C13,13 14.8208955,13 14.8208955,13 L55,13 L55,29 C55,31 57,31 57,31 L73,31 L73,95.12 C73,97 71.1791045,97 71.1791045,97 L14.8208955,97 C14.8208955,97 13,97 13,95.1177051 Z M37,13 L37,18 L42,18 L42,13 L37,13 Z M42,18 L42,23 L47,23 L47,18 L42,18 Z M37,23 L37,28 L42,28 L42,23 L37,23 Z M42,28 L42,33 L47,33 L47,28 L42,28 Z M37,33 L37,38 L42,38 L42,33 L37,33 Z M42,38 L42,43 L47,43 L47,38 L42,38 Z M37,43 L37,48 L42,48 L42,43 L37,43 Z M42,48 L42,53 L47,53 L47,48 L42,48 Z M45.0362549,54 L39.0834961,54 L37,66 C37,66 37.8499756,69.9906017 42,69.9906006 C46.1500244,69.9905996 47,66 47,66 L45.0362549,54 Z M42,67 C43.1045696,67 44,65.6568543 44,64 C44,62.3431457 43.1045696,61 42,61 C40.8954304,61 40,62.3431457 40,64 C40,65.6568543 40.8954304,67 42,67 Z M42,67" id="zip" fill="#000000" sketch:type="MSShapeGroup"/>
+    </g>
+</svg>

@@ -1,0 +1,65 @@
+<div class="content-container full-height">
+  <div class="container">
+    <div class="row primary" id="home">
+
+      <div class="row space-top-double">
+        <div class="col-md-12">
+          <h1>Cubbyhole</h1>
+          <h2>Sharing <span class="highlight">easier</span> with online storage</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div ng-if="getProfile() === undefined">
+            <h4 class="subtitle">Welcome</h4>
+
+            <p>
+              Cubbyhole is a new storage service that allows clients to store and synchronize their data online,
+              from various devices.
+            </p>
+
+            <p>
+              Discover our services and <a href="/webapp.html">sign up today</a> to become a Cubbyhole member.
+            </p>
+          </div>
+
+          <div ng-if="getProfile() !== undefined">
+            <h4 class="subtitle">Welcome back</h4>
+
+            <p ng-bind="getProfile().email"></p>
+
+            <p>
+              <a href="/webapp.html">Click here</a> to launch the web app.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-md-6">
+          <h4 class="subtitle">Download</h4>
+
+          <p>
+            {{link.from}} has shared {{link.item.name}} with you.
+          </p>
+
+          <img class="link-icon" ng-src="styles/icons/icon_{{link.item.type}}_zip.svg">
+
+          <a class="btn primary-btn" href="/webapp.html">Download {{link.item.name}}</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="bottom-fixed">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <p class="footer-description">Designed & built with <i class="fa fa-heart footer-icon"></i> in Toulouse.
+          © 2014 Cubbyhole. All rights reserved. <a class="footer-link" href="/views/terms.html">Terms of Service</a></p>
+      </div>
+    </div>
+  </div>
+</footer>
