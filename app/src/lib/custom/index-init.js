@@ -195,15 +195,6 @@ $(document).ready(function() {
   });
 
 
-  /*$.ajax({
-    type: 'GET',
-    url: srvEndpoint + '/plan'
-  }).done(function(data) {
-
-    }).fail(function(data) {
-
-    });*/
-
   Handlebars.registerHelper('ifCond', function(a, b, options) {
     if (a === b) {
       return options.fn(this);
@@ -216,41 +207,16 @@ $(document).ready(function() {
     }
     return options.inverse(this);
   });
-  var source = $('#plan-template').html();
-  var template = Handlebars.compile(source);
-  // TEMP
-  var context = {
-    plans: [
-      {
-        _id: 'xxxyyyzzz456123',
-        name: 'free',
-        duration: 0,
-        storage: 100,
-        sharedQuota: 100,
-        bandwidth: 100,
-        price: 0
-      },
-      {
-        _id: 'abcdefghi123456',
-        name: 'pro',
-        duration: 90,
-        storage: 300,
-        sharedQuota: 300,
-        bandwidth: 300,
-        price: 14.99
-      },
-      {
-        _id: 'aaabbbccc111222',
-        name: 'business',
-        duration: 365,
-        storage: 1000,
-        sharedQuota: 1000,
-        bandwidth: 1000,
-        price: 24.99
-      }
-    ]
-  };
 
-  var html = template(context);
-  $('.plans-container:first').append(html);
+  $.ajax({
+    type: 'GET',
+    url: srvEndpoint + '/plan'
+  }).done(function(res) {
+      var source = $('#plan-template').html();
+      var template = Handlebars.compile(source);
+      var html = template(res);
+      $('.plans-container:first').append(html);
+    }).fail(function(error) {
+      console.log('Error getting the plans: ' + error);
+    });
 });

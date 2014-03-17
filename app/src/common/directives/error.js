@@ -45,6 +45,16 @@ module.directive('error', function() {
           DELETE: {
             404: 'This item doesn\'t exist.'
           }
+        },
+        user: {
+          GET: {
+            404: 'This user doesn\'t exist.'
+          }
+        },
+        plan: {
+          GET: {
+            404: 'This plan doesn\'t exist.'
+          }
         }
       };
 

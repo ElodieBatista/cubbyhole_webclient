@@ -430,7 +430,7 @@
     <script src="src/lib/handlebars/handlebars.js"></script>
 
     <script id="plan-template" type="text/x-handlebars-template">
-      {{#each plans}}
+      {{#each data}}
       <div class="col-md-4 plans-bloc">
 
         <div class="row">
@@ -464,7 +464,7 @@
                 <i class="fa fa-check-circle plans-list-icon"></i> {{storage}} Go usable storage
               </li>
               <li class="plans-list-item">
-                <i class="fa fa-check-circle plans-list-icon"></i> {{bandwidth}} mbps of bandwidth
+                <i class="fa fa-check-circle plans-list-icon"></i> {{bandwidth.upload}} & {{bandwidth.download}} mbps of bandwidth
               </li>
               <li class="plans-list-item">
                 <i class="fa fa-check-circle plans-list-icon"></i> {{sharedQuota}} Go of Shared Quota

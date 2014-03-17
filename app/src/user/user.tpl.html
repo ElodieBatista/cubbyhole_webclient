@@ -15,7 +15,7 @@
 
         <h5 class="user-title">Registered on {{user.registrationDate | date}}</h5>
 
-        <h5 class="user-title">{{user.plan.name}}Free Plan</h5>
+        <h5 class="user-title">{{user.currentPlan.plan.name}} Plan</h5>
       </div>
 
       <div class="col-md-6">
@@ -29,7 +29,7 @@
               {{stats.storage}}%
             </div>
           </div>
-          <span class="col-md-4 user-stats">{{user.usedStorage}}MB / {{user.currentPlan.storage}}MB</span>
+          <span class="col-md-4 user-stats">{{user.currentPlan.usage.storage}}MB / {{user.currentPlan.plan.storage}}MB</span>
         </div>
 
         <h5>Shared Quota</h5>
@@ -40,18 +40,31 @@
               {{stats.sharedQuota}}%
             </div>
           </div>
-          <span class="col-md-4 user-stats">{{user.usedSharedQuota}}MB / {{user.currentPlan.sharedQuota}}MB</span>
+          <span class="col-md-4 user-stats">{{user.currentPlan.usage.share}}MB / {{user.currentPlan.plan.sharedQuota}}MB</span>
         </div>
 
         <h5>Bandwidth</h5>
 
+        <h6>Upload</h6>
+
         <div class="row">
           <div class="col-md-8 progress">
-            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-class="statsStyles.bandwidth" style="width: {{stats.bandwidth}}%;">
-              {{stats.bandwidth}}%
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-class="statsStyles.bandwidth" style="width: {{stats.bandwidthUpload}}%;">
+              {{stats.bandwidthUpload}}%
             </div>
           </div>
-          <span class="col-md-4 user-stats">{{user.usedBandwidth}}MB / {{user.currentPlan.bandwidth}}MB</span>
+          <span class="col-md-4 user-stats">{{user.currentPlan.usage.bandwidth}}MB / {{user.currentPlan.plan.bandwidth.upload}}MB</span>
+        </div>
+
+        <h6>Download</h6>
+
+        <div class="row">
+          <div class="col-md-8 progress">
+            <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" ng-class="statsStyles.bandwidth" style="width: {{stats.bandwidthDownload}}%;">
+              {{stats.bandwidthDownload}}%
+            </div>
+          </div>
+          <span class="col-md-4 user-stats">{{user.currentPlan.usage.bandwidth}}MB / {{user.currentPlan.plan.bandwidth.download}}MB</span>
         </div>
 
       </div>
@@ -101,7 +114,7 @@
                   <i class="fa fa-check-circle plans-list-icon"></i> {{plan.storage}} Go usable storage
                 </li>
                 <li class="plans-list-item">
-                  <i class="fa fa-check-circle plans-list-icon"></i> {{plan.bandwidth}} mbps of bandwidth
+                  <i class="fa fa-check-circle plans-list-icon"></i> {{plan.bandwidth.upload}} & {{plan.bandwidth.download}} mbps of bandwidth
                 </li>
                 <li class="plans-list-item">
                   <i class="fa fa-check-circle plans-list-icon"></i> {{plan.sharedQuota}} Go of Shared Quota
