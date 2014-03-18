@@ -72,23 +72,29 @@ module.controller('SharingCtrl',
 
 
     $scope.shareItem = function(form, id) {
-      if (form.email && form.email.length > 0) {
+      if (form.member['0'].email.length > 0) {
+        var members = [];
 
-        Share.post({'id':id, 'with':[{ email:form.email, permissions:form.permissions}]}, function(res) {
+        for (var prop in form.member) {
+          members.push(form.member[prop]);
+        }
+
+        Share.post({'id':id, 'with':members}, function(res) {
           $scope.getItem(id).members = res.data.members;
-
-          $scope.inviteform = {
-            email: '',
-            permissions: 0
-          };
         }, function(err) { $scope.errorShow(err); });
       }
     };
 
 
-    $scope.confirmShare = function(id, member) {
-      Share.put({'id':id}, function(res) {
-        member.accepted = true;
+    $scope.confirmShare = function(itemId, memberId) {
+      Share.put({'id':itemId}, function(res) {
+        var item = $scope.getItem(itemId);
+        for (var j = 0, le = item.members.length; j < le; j++) {
+          if (item.members[j]._id === memberId) {
+            item.members[j].accepted = true;
+            break;
+          }
+        }
       }, function(err) { $scope.errorShow(err); });
     };
 

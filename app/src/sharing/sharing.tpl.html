@@ -1,7 +1,9 @@
 <div class="container container-fill no-padding no-margin">
   <div class="row row-fill secondary">
 
-    <div class="col-md-10 col-md-offset-1" id="sharing-container" share-explorer>
+    <div class="col-md-10 col-md-offset-1" share-explorer>
+
+      <div ng-include src="'/src/sharing/sharingActionBar.tpl.html'"></div>
 
       <table>
         <thead>
@@ -64,29 +66,7 @@
                     <button class="btn secondary-btn" type="submit" ng-click="confirmShare(item._id, member)">Confirm</button>
                   </td>
                 </tr>
-                <tr class="shared-options-tr shared-options-form-container shared-options-tr-nohover" ng-class="{true:'appinvisible',false:''}[item.owner._id !== userId]">
-                  <td>
-                    <div class="input-prepend">
-                      <i class="fa fa-envelope input-icon"></i>
-                      <input class="input-text" type="email" placeholder="Invite People" ng-model="inviteform.email" inputanim required>
-                    </div>
-                  </td>
-                  <td>
-                    <label>RO</label>
-                    <input type="radio" name="permission-{{item._id}}" ng-model="inviteform.permissions" value="0" required>
-                    <label>RW</label>
-                    <input type="radio" name="permission-{{item._id}}" ng-model="inviteform.permissions" value="1">
-                  </td>
-                  <td>
-                    <button class="btn secondary-btn" type="submit" ng-click="shareItem(inviteform, item._id)">Invite</button>
-                  </td>
-                </tr>
-                <tr class="shared-options-tr shared-options-tr-nohover">
-                  <td>
-                    <button class="btn btn-default" ng-show="item.owner._id === userId" ng-click="seAskUnshareConfirm(item)">Unshare folder</button>
-                    <button class="btn btn-default" ng-show="item.owner._id !== userId" ng-click="seAskLeaveSharedItemConfirm(item)">Leave folder</button>
-                  </td>
-                </tr>
+                <tr></tr>
               </table>
 
             </td>
