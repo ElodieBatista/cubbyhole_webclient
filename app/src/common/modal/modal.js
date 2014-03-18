@@ -10,11 +10,14 @@ module.directive('modal', function($compile) {
     restrict: 'E',
     scope: {
       modalOpts: '=modalOpts',
-      modalform: '=modalform'
+      modalform: '=modalform',
+      modalColor: '=modalColor'
     },
     templateUrl: '/src/common/modal/modal.tpl.html',
 
     link: function(scope, elem, attrs) {
+      scope.submitBtnClass = scope.modalColor + '-btn';
+
       scope.$watch('modalOpts.template', function(newValue, oldValue) {
         if (newValue !== undefined && newValue !== null) {
           $(elem).find('#modal-body-custom').html($compile(scope.modalOpts.template)(scope));

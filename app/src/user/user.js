@@ -16,7 +16,6 @@ module.controller('UserCtrl',
   function SharingCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 4;
-    var color = 'quinary';
 
     $scope.getColorClass = function(percent) {
       if (percent < 50) {
@@ -56,11 +55,11 @@ module.controller('UserCtrl',
         bandwidthUpload: $scope.getColorClass($scope.stats.bandwidthUpload),
         bandwidthDownload: $scope.getColorClass($scope.stats.bandwidthDownload)
       };
-    }, function(err) { $scope.errorShow(err, color); });
+    }, function(err) { $scope.errorShow(err); });
 
 
     Plans.get(function(res) {
       $scope.plans = res.data;
-    }, function(err) { $scope.errorShow(err, color); });
+    }, function(err) { $scope.errorShow(err); });
   }
 );

@@ -16,7 +16,6 @@ module.directive('shareExplorer', function() {
         scope.modalOpts = {
           title: item.name,
           submitBtnVal: 'Unshare',
-          submitBtnClass: 'secondary-btn',
           submitFn: scope.unshareItem,
           submitFnExtraParam: item._id,
           dismiss: scope.dismissModal,
@@ -34,7 +33,6 @@ module.directive('shareExplorer', function() {
         scope.modalOpts = {
           title: item.name,
           submitBtnVal: 'Leave',
-          submitBtnClass: 'secondary-btn',
           submitFn: scope.leaveSharedItem,
           submitFnExtraParam: item._id,
           dismiss: scope.dismissModal,
@@ -52,7 +50,6 @@ module.directive('shareExplorer', function() {
         scope.modalOpts = {
           title: 'Revoke Permission for ' + member.email,
           submitBtnVal: 'Revoke',
-          submitBtnClass: 'secondary-btn',
           submitFn: scope.revokeSharePermission,
           submitFnExtraParam: {itemId:item._id, memberId:member._id},
           dismiss: scope.dismissModal,

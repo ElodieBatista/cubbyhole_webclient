@@ -254,7 +254,6 @@ module.directive('fileExplorer', function($location) {
           placeholder: 'Folder name',
           submitFnExtraParam: scope.selectedNode._id,
           submitBtnVal: 'Add',
-          submitBtnClass: 'primary-btn',
           dismiss: scope.dismissModal
         };
 
@@ -273,7 +272,6 @@ module.directive('fileExplorer', function($location) {
           placeholder: item.name,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Rename',
-          submitBtnClass: 'primary-btn',
           dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
@@ -294,7 +292,6 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.deleteItem,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Delete',
-          submitBtnClass: 'primary-btn',
           dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
@@ -342,7 +339,6 @@ module.directive('fileExplorer', function($location) {
           placeholder: 'Invite People',
           submitFnExtraParam: item._id,
           submitBtnVal: 'Share',
-          submitBtnClass: 'primary-btn',
           extraFn: scope.feModalShareItemAddFields,
           extraFn2: scope.feModalShareDeleteField,
           dismiss: scope.dismissModal,
@@ -355,7 +351,7 @@ module.directive('fileExplorer', function($location) {
 
               '<div class="row" id="share-member0">' +
               '<div class="col-md-1">' +
-              '<button class="btn btn-big" ng-class="modalOpts.submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
+              '<button class="btn btn-big" ng-class="submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
               '</div>' +
               '<div class="col-md-7">' +
               '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +
@@ -431,7 +427,6 @@ module.directive('fileExplorer', function($location) {
           placeholder: 'Invite People',
           submitFnExtraParam: item._id,
           submitBtnVal: 'Share Link',
-          submitBtnClass: 'primary-btn',
           extraFn: scope.feModalShareLinkAddFields,
           extraFn2: scope.feModalShareDeleteField,
           link: item.link,
@@ -452,7 +447,7 @@ module.directive('fileExplorer', function($location) {
 
               '<div class="row" id="share-link-member0">' +
               '<div class="col-md-1">' +
-              '<button class="btn btn-big" ng-class="modalOpts.submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
+              '<button class="btn btn-big" ng-class="submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
               '</div>' +
               '<div class="col-md-7">' +
               '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +
@@ -504,7 +499,6 @@ module.directive('fileExplorer', function($location) {
         scope.modalOpts = {
           title: item.name,
           submitBtnVal: 'Download',
-          submitBtnClass: 'primary-btn',
           submitFn: scope.feDownloadItem,
           submitFnExtraParam: null,
           dismiss: scope.dismissModal,

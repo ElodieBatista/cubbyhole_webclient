@@ -59,7 +59,7 @@ module.directive('error', function() {
       };
 
 
-      scope.errorShow = function(error, color) {
+      scope.errorShow = function(error) {
         $('#appmodal').modal('hide');
 
         var errorText = '';
@@ -93,7 +93,6 @@ module.directive('error', function() {
           title: 'Error',
           submitFn: scope.dismissModal,
           submitBtnVal: 'Ok',
-          submitBtnClass: color + '-btn',
           dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +

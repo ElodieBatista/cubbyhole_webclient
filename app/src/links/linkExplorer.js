@@ -18,7 +18,6 @@ module.directive('linkExplorer', function($location) {
           submitFn: scope.deleteLink,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Delete',
-          submitBtnClass: 'tertiary-btn',
           dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
@@ -45,7 +44,6 @@ module.directive('linkExplorer', function($location) {
           placeholder: 'Invite People',
           submitFnExtraParam: item._id,
           submitBtnVal: 'Share Link',
-          submitBtnClass: 'tertiary-btn',
           extraFn: scope.leModalShareLinkAddFields,
           extraFn2: scope.leModalShareDeleteField,
           link: item.link.url,
@@ -66,7 +64,7 @@ module.directive('linkExplorer', function($location) {
 
               '<div class="row" id="share-link-member0">' +
               '<div class="col-md-1">' +
-              '<button class="btn btn-big" ng-class="modalOpts.submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
+              '<button class="btn btn-big" ng-class="submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
               '</div>' +
               '<div class="col-md-7">' +
               '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +

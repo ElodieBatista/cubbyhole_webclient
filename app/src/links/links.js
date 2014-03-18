@@ -17,7 +17,6 @@ module.controller('LinksCtrl',
   function LinksCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 2;
-    var color = 'tertiary';
 
     var Links = $resource(conf.epApi + '/link', {}, {
       'get': {
@@ -62,7 +61,7 @@ module.controller('LinksCtrl',
           }
         }
       ];
-    }, function(err) { $scope.errorShow(err, color); });
+    }, function(err) { $scope.errorShow(err); });
 
 
     $scope.deleteLink = function(form, id) {

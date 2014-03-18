@@ -17,7 +17,6 @@ module.controller('SharingCtrl',
   function SharingCtrl(conf, $rootScope, $scope, $routeParams, $resource, $location) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 1;
-    var color = 'secondary';
 
     var Shares = $resource(conf.epApi + '/share', {}, {
       'get': {
@@ -63,7 +62,7 @@ module.controller('SharingCtrl',
       if ($scope.path !== undefined) {
         $scope.itemActive = $scope.getItem($scope.path);
       }
-    }, function(err) { $scope.errorShow(err, color); });
+    }, function(err) { $scope.errorShow(err); });
 
 
     $scope.inviteform = {
@@ -82,7 +81,7 @@ module.controller('SharingCtrl',
             email: '',
             permissions: 0
           };
-        }, function(err) { $scope.errorShow(err, color); });
+        }, function(err) { $scope.errorShow(err); });
       }
     };
 
@@ -90,7 +89,7 @@ module.controller('SharingCtrl',
     $scope.confirmShare = function(id, member) {
       Share.put({'id':id}, function(res) {
         member.accepted = true;
-      }, function(err) { $scope.errorShow(err, color); });
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
@@ -104,7 +103,7 @@ module.controller('SharingCtrl',
         }
       }
       Share.put({'id':itemId, 'member':memberId, 'permissions':permissions}, function(res) {
-      }, function(err) { $scope.errorShow(err, color); });
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
@@ -117,7 +116,7 @@ module.controller('SharingCtrl',
             break;
           }
         }
-      }, function(err) { $scope.errorShow(err, color); });
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
@@ -129,7 +128,7 @@ module.controller('SharingCtrl',
             break;
           }
         }
-      }, function(err) { $scope.errorShow(err, color); });
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
@@ -141,7 +140,7 @@ module.controller('SharingCtrl',
             break;
           }
         }
-      }, function(err) { $scope.errorShow(err, color); });
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
