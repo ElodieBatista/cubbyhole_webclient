@@ -355,7 +355,7 @@ module.directive('fileExplorer', function($location) {
 
               '<div class="row" id="share-member0">' +
               '<div class="col-md-1">' +
-              '<button class="btn primary-btn btn-big" ng-click="modalOpts.extraFn()">+</button>' +
+              '<button class="btn btn-big" ng-class="modalOpts.submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
               '</div>' +
               '<div class="col-md-7">' +
               '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +
@@ -440,7 +440,7 @@ module.directive('fileExplorer', function($location) {
             '<div class="modal-body" id="modal-body-share">' +
               '<div class="row">' +
               '<p class="col-md-12">' +
-              'You just made this ' + item.type + ' public. People can now access it at: <a href="{{modalOpts.link}}">{{modalOpts.link}}</a>' +
+              'You just made this ' + item.type + ' public. People can now access it at: <a href="{{modalOpts.link}}" ng-bind="modalOpts.link"></a>' +
               '</p>' +
               '</div>' +
 
@@ -452,7 +452,7 @@ module.directive('fileExplorer', function($location) {
 
               '<div class="row" id="share-link-member0">' +
               '<div class="col-md-1">' +
-              '<button class="btn primary-btn btn-big" ng-click="modalOpts.extraFn()">+</button>' +
+              '<button class="btn btn-big" ng-class="modalOpts.submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
               '</div>' +
               '<div class="col-md-7">' +
               '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +

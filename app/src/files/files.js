@@ -64,7 +64,6 @@ module.controller('FilesCtrl',
       }
     });
 
-    $scope.folders = null;
 
     $scope.path = $routeParams.path;
 

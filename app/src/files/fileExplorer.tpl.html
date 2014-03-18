@@ -6,7 +6,7 @@
 
   <div class="col-md-9" id="grid-view" ng-file-drop="onFileSelect(null, $files)" ng-file-droppable="{{selectedNode.permissions !== 0}}" ng-file-drag-over-class="upload-container-hover" ng-file-drag-over-class-cond="!.dnd-drag">
 
-    <action-bar></action-bar>
+    <div ng-include src="'/src/files/filesActionBar.tpl.html'"></div>
 
     <div class="row grid-view-table-container">
 
@@ -24,8 +24,7 @@
               droppable item="file" doDrop="moveItem" candrop="file.type === 'folder' && file.permissions !== 0">
             <td draggable candrag="(file.permissions !== 0)" item="file">
               <img class="table-icon" ng-if="!file.isShared" ng-src="/styles/icons/icon_{{file.type}}.svg" />
-              <img class="table-icon" ng-if="file.type === 'folder' && file.isShared === true" ng-src="/styles/icons/icon_sharedfolder.svg" />
-              <img class="table-icon" ng-if="file.type === 'file' && file.isShared === true" ng-src="/styles/icons/icon_sharedfile.svg" />
+              <img class="table-icon" ng-if="file.isShared === true" ng-src="/styles/icons/icon_shared{{file.type}}.svg" />
 
               <span ng-if="file.type === 'folder'" ng-click="feSelectNode(file)" ng-bind="file.name"></span>
               <span ng-if="file.type === 'file'" ng-click="feAskDownloadConfirm(file); $event.stopPropagation();" ng-bind="file.name"></span>

@@ -40,10 +40,7 @@ module.controller('SharingCtrl',
         }
       },
       'delete': { // Stop sharing if owner/ Leave shared folder if member
-        method:'DELETE',
-        params: {
-          member:'@member' // If member, revoke permission
-        }
+        method:'DELETE'
       }
     });
 
