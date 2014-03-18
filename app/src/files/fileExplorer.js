@@ -253,8 +253,7 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.addFolder,
           placeholder: 'Folder name',
           submitFnExtraParam: scope.selectedNode._id,
-          submitBtnVal: 'Add',
-          dismiss: scope.dismissModal
+          submitBtnVal: 'Add'
         };
 
         $('#appmodal').modal('show');
@@ -272,7 +271,6 @@ module.directive('fileExplorer', function($location) {
           placeholder: item.name,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Rename',
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<div class="input-prepend input-prepend-file" ng-class="{\'input-prepend-active\': focused}">' +
@@ -292,7 +290,6 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.deleteItem,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Delete',
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<p>Are you sure you want to delete this ' + item.type + '?</p>' +
@@ -310,7 +307,6 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Add',
           submitFn: scope.onFileSelect,
           submitFnExtraParam: null,
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<div class="input-prepend input-prepend-file" ng-class="{\'input-prepend-active\': focused}">' +
@@ -341,7 +337,6 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Share',
           extraFn: scope.feModalShareItemAddFields,
           extraFn2: scope.feModalShareDeleteField,
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body" id="modal-body-share">' +
               '<div class="row">' +
@@ -430,7 +425,6 @@ module.directive('fileExplorer', function($location) {
           extraFn: scope.feModalShareLinkAddFields,
           extraFn2: scope.feModalShareDeleteField,
           link: item.link,
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body" id="modal-body-share">' +
               '<div class="row">' +
@@ -501,7 +495,6 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Download',
           submitFn: scope.feDownloadItem,
           submitFnExtraParam: null,
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<p>Do you want to download this ' + item.type + '?</p>' +
@@ -549,11 +542,6 @@ module.directive('fileExplorer', function($location) {
             $progressBar.removeClass('progress-bar-animate');
           }, 500);
         }
-      };
-
-
-      scope.dismissModal = function() {
-        $('.modal').modal('hide');
       };
     }
   };

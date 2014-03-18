@@ -32,6 +32,10 @@ module.directive('modal', function($compile) {
         scope.modalform.name = '';
         $(this).find('.input-text-empty-onclose').val('');
       });
+
+      scope.dismissModal = function() {
+        $('.modal').modal('hide');
+      };
     }
   };
 });

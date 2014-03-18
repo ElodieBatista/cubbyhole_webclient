@@ -91,9 +91,7 @@ module.directive('error', function() {
 
         scope.modalOpts = {
           title: 'Error',
-          submitFn: scope.dismissModal,
           submitBtnVal: 'Ok',
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<p>' + errorText + '</p>' +
@@ -101,10 +99,6 @@ module.directive('error', function() {
         };
 
         $('#errormodal #appmodal').modal('show');
-      };
-
-      scope.dismissModal = function() {
-        $('.modal').modal('hide');
       };
     }
   };

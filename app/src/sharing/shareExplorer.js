@@ -18,7 +18,6 @@ module.directive('shareExplorer', function() {
           submitBtnVal: 'Unshare',
           submitFn: scope.unshareItem,
           submitFnExtraParam: item._id,
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<p>Are you sure you want to unshare this folder?</p>' +
@@ -35,7 +34,6 @@ module.directive('shareExplorer', function() {
           submitBtnVal: 'Leave',
           submitFn: scope.leaveSharedItem,
           submitFnExtraParam: item._id,
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<p>Are you sure you want to leave this folder?</p>' +
@@ -52,7 +50,6 @@ module.directive('shareExplorer', function() {
           submitBtnVal: 'Revoke',
           submitFn: scope.revokeSharePermission,
           submitFnExtraParam: {itemId:item._id, memberId:member._id},
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<p>Are you sure you want to revoke sharing permissions for ' + member.email + ' on ' + item.name + '?</p>' +
@@ -60,11 +57,6 @@ module.directive('shareExplorer', function() {
         };
 
         $('#appmodal').modal('show');
-      };
-
-
-      scope.dismissModal = function() {
-        $('.modal').modal('hide');
       };
     }
   };

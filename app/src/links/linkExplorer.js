@@ -18,7 +18,6 @@ module.directive('linkExplorer', function($location) {
           submitFn: scope.deleteLink,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Delete',
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body">' +
               '<p>Are you sure you want to delete this link?</p>' +
@@ -47,7 +46,6 @@ module.directive('linkExplorer', function($location) {
           extraFn: scope.leModalShareLinkAddFields,
           extraFn2: scope.leModalShareDeleteField,
           link: item.link.url,
-          dismiss: scope.dismissModal,
           template:
             '<div class="modal-body" id="modal-body-share">' +
               '<div class="row">' +
@@ -116,11 +114,6 @@ module.directive('linkExplorer', function($location) {
         scope.modalOpts.template = scope.modalOpts.template.replace(templateSubStr, '');
 
         delete scope.modalform.member[index];
-      };
-
-
-      scope.dismissModal = function() {
-        $('.modal').modal('hide');
       };
     }
   };
