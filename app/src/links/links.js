@@ -35,7 +35,7 @@ module.controller('LinksCtrl',
       //$scope.links = res.data;
       $scope.items = [
         {
-          name: 'my folder',
+          name: 'A',
           type: 'folder',
           path: 'My Cubbyhole, A',
           owner: {
@@ -48,7 +48,7 @@ module.controller('LinksCtrl',
           }
         },
         {
-          name: 'my file',
+          name: 'B',
           type: 'file',
           path: 'My Cubbyhole, A',
           owner: {

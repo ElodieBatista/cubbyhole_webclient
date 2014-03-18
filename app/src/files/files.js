@@ -81,10 +81,10 @@ module.controller('FilesCtrl',
     };
 
 
-    $scope.renameItem = function(form, id) {
-      if (form.name !== '') {
-        File.put({'name':form.name, 'id':id}, function(res) {
-          $scope.feRenameItem(res.data.name, id, res.data.parent);
+    $scope.renameItem = function(form, item) {
+      if (form.name !== '' && form.name !== item.name) {
+        File.put({'name':form.name, 'id':item._id}, function(res) {
+          $scope.feRenameItem(res.data.name, item._id, res.data.parent);
         }, function(err) { $scope.errorShow(err); });
       }
     };

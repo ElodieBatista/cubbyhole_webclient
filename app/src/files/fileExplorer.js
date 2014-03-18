@@ -266,7 +266,7 @@ module.directive('fileExplorer', function($location) {
           title: 'Rename ' + item.name + ' ' + item.type,
           iconClass: 'fa-' + item.type,
           submitFn: scope.renameItem,
-          submitFnExtraParam: item._id,
+          submitFnExtraParam: item,
           submitBtnVal: 'Rename',
           template:
             '<div class="modal-body">' +
