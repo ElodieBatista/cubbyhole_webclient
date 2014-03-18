@@ -46,6 +46,17 @@ module.directive('error', function() {
             404: 'This item doesn\'t exist.'
           }
         },
+        link: { // TEMP
+          GET: {
+            404: 'This link doesn\'t exist.'
+          },
+          POST: {
+            404: 'This link doesn\'t exist.'
+          },
+          DELETE: {
+            404: 'This link doesn\'t exist.'
+          }
+        },
         user: {
           GET: {
             404: 'This user doesn\'t exist.'

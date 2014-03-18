@@ -4,7 +4,7 @@ var module = angular.module('webApp');
 
 module.config(function config($routeProvider) {
   $routeProvider
-    .when('/sh',
+    .when('/sh/:id',
     {
       templateUrl: '/src/links/publicLinks.tpl.html',
       controller: 'PublicLinksCtrl'
@@ -12,8 +12,19 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('PublicLinksCtrl',
-  function PublicLinksCtrl(conf, $rootScope, $scope, $routeParams, $resource, $upload) {
-    var color = 'primary';
+  function PublicLinksCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
+    var Item = $resource(conf.epApi + '/item/:id', {id:'@id'}, {
+      'get': {
+        method:'GET'
+      }
+    });
+
+
+    Item.get({'id':$routeParams.id}, function(res) {
+      $scope.item = res.data;
+    }, function(err) { $scope.errorShow(err); });
+
+
 
     $scope.link = {
       from: 'User1',

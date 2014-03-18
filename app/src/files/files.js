@@ -18,7 +18,7 @@ module.controller('FilesCtrl',
     // Highlight first btn in the nav bar
     $rootScope.navtop = 0;
 
-    var Files = $resource(conf.epApi + '/item', {}, {
+    var Items = $resource(conf.epApi + '/item', {}, {
       'get': {
         method: 'GET'
       },
@@ -32,10 +32,7 @@ module.controller('FilesCtrl',
       }
     });
 
-    var File = $resource(conf.epApi + '/item/:id', {id:'@id'}, {
-      'get': {
-        method:'GET'
-      },
+    var Item = $resource(conf.epApi + '/item/:id', {id:'@id'}, {
       'post': {
         method:'POST',
         params: {
@@ -78,7 +75,7 @@ module.controller('FilesCtrl',
 
     $scope.path = $routeParams.path;
 
-    Files.get(function(res) {
+    Items.get(function(res) {
       $scope.rootItem = res.data[0];
       $scope.folders = res.data;
     }, function(err) { $scope.errorShow(err); });
@@ -86,7 +83,7 @@ module.controller('FilesCtrl',
 
     $scope.addFolder = function(form, parentId) {
       if (form.name !== '') {
-        Files.post({'type':'folder', 'name':form.name, 'parent':parentId}, function(res) {
+        Items.post({'type':'folder', 'name':form.name, 'parent':parentId}, function(res) {
           $scope.feAddFolder(res.data, parentId);
         }, function(err) { $scope.errorShow(err); });
       }
@@ -95,7 +92,7 @@ module.controller('FilesCtrl',
 
     $scope.renameItem = function(form, item) {
       if (form.name !== '' && form.name !== item.name) {
-        File.put({'name':form.name, 'id':item._id}, function(res) {
+        Item.put({'name':form.name, 'id':item._id}, function(res) {
           $scope.feRenameItem(res.data.name, item._id, res.data.parent);
         }, function(err) { $scope.errorShow(err); });
       }
@@ -103,21 +100,21 @@ module.controller('FilesCtrl',
 
 
     $scope.deleteItem = function(form, id) {
-      File.delete({'id':id}, function(res) {
+      Item.delete({'id':id}, function(res) {
         $scope.feDeleteItem(id);
       }, function(err) { $scope.errorShow(err); });
     };
 
 
     $scope.copyItem = function(id, parentId) {
-      File.post({'id':id, 'parent':parentId}, function(res) {
+      Item.post({'id':id, 'parent':parentId}, function(res) {
         $scope.feAddNodes(res.data, parentId);
       }, function(err) { $scope.errorShow(err); });
     };
 
 
     $scope.moveItem = function(id, parentId) {
-      File.put({'id':id, 'parent':parentId}, function(res) {
+      Item.put({'id':id, 'parent':parentId}, function(res) {
         $scope.feMoveItem(id, parentId, res.data.name);
       }, function(err) { $scope.errorShow(err); });
     };

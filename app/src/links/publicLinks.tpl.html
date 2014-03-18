@@ -40,13 +40,13 @@
           <h4 class="subtitle">Download</h4>
 
           <p>
-            {{link.from}} has shared {{link.item.name}} with you.
+            {{item.owner.email}} has shared {{item.name}} with you.
           </p>
 
-          <img class="link-icon" ng-src="styles/icons/icon_{{link.item.type}}_zip.svg">
+          <img class="link-icon" ng-src="styles/icons/icon_{{item.type}}_zip.svg">
 
-          <form method="GET" action="{{ 'http://localhost:3000/item/' + itemActive._id + '/download/' + token }}">
-            <input class="btn primary-btn" type="submit" value="Download {{link.item.name}}">
+          <form method="GET" action="{{ 'http://localhost:3000/item/' + item._id + '/download' }}">
+            <input class="btn primary-btn" type="submit" value="Download {{item.name}}">
           </form>
         </div>
       </div>
