@@ -5,7 +5,7 @@ var module = angular.module('webApp');
 /**
  *
  */
-module.directive('linkExplorer', function($location) {
+module.directive('linkExplorer', function() {
   return {
     restrict: 'A',
     scope: '{}',

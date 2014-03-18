@@ -15,7 +15,7 @@ module.directive('fileExplorer', function($location) {
       scope.token = localStorage.token;
 
       var $tree,
-        $progressBar = $('#file-explorer-progress-bar');
+          $progressBar = $('#file-explorer-progress-bar');
 
       scope.$watch(attrs.items, function(newValue) {
         if (newValue !== undefined && newValue !== null) {
@@ -181,9 +181,7 @@ module.directive('fileExplorer', function($location) {
 
       scope.feDeleteItem = function(id) {
         var node = $tree.tree('getNodeBy', '_id', id);
-
         $tree.tree('removeNode', node);
-
         scope.toggleItem(null);
       };
 
@@ -274,10 +272,10 @@ module.directive('fileExplorer', function($location) {
           template:
             '<div class="modal-body">' +
               '<div class="input-prepend input-prepend-file" ng-class="{\'input-prepend-active\': focused}">' +
-              '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-              '<input class="input-text" type="text" ng-model="modalform.name" required />' +
+                '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
+                '<input class="input-text" type="text" ng-model="modalform.name" required />' +
               '</div>' +
-              '</div>'
+            '</div>'
         };
 
         $('#appmodal').modal('show');
@@ -293,7 +291,7 @@ module.directive('fileExplorer', function($location) {
           template:
             '<div class="modal-body">' +
               '<p>Are you sure you want to delete this ' + item.type + '?</p>' +
-              '</div>'
+            '</div>'
         };
 
         $('#appmodal').modal('show');
@@ -310,9 +308,9 @@ module.directive('fileExplorer', function($location) {
           template:
             '<div class="modal-body">' +
               '<div class="input-prepend input-prepend-file" ng-class="{\'input-prepend-active\': focused}">' +
-              '<input class="input-text" type="file" ng-file-select="modalOpts.submitFnExtraParam = $files;" multiple required />' +
+                '<input class="input-text" type="file" ng-file-select="modalOpts.submitFnExtraParam = $files;" multiple required />' +
               '</div>' +
-              '</div>'
+            '</div>'
         };
 
         $('#appmodal').modal('show');
@@ -340,25 +338,25 @@ module.directive('fileExplorer', function($location) {
           template:
             '<div class="modal-body" id="modal-body-share">' +
               '<div class="row">' +
-              '<span class="col-md-2 col-md-offset-8 modal-mini-title">Read Only</span>' +
-              '<span class="col-md-2 modal-mini-title">Read Write</span>' +
+                '<span class="col-md-2 col-md-offset-8 modal-mini-title">Read Only</span>' +
+                '<span class="col-md-2 modal-mini-title">Read Write</span>' +
               '</div>' +
 
               '<div class="row" id="share-member0">' +
-              '<div class="col-md-1">' +
-              '<button class="btn btn-big" ng-class="submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
+                '<div class="col-md-1">' +
+                  '<button class="btn btn-big" ng-class="submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
+                '</div>' +
+                '<div class="col-md-7">' +
+                  '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +
+                    '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
+                    '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[\'0\'].email" required ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" />' +
+                  '</div>' +
+                '</div>' +
+                '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permissions" value="0" required>' +
+                '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permissions" value="1">' +
+                '<span class="hidden">end share-member0</span>' +
               '</div>' +
-              '<div class="col-md-7">' +
-              '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +
-              '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-              '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[\'0\'].email" required ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" />' +
-              '</div>' +
-              '</div>' +
-              '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permissions" value="0" required>' +
-              '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permissions" value="1">' +
-              '<span class="hidden">end share-member0</span>' +
-              '</div>' +
-              '</div>'
+            '</div>'
         };
 
         $('#appmodal').modal('show');
@@ -498,7 +496,7 @@ module.directive('fileExplorer', function($location) {
           template:
             '<div class="modal-body">' +
               '<p>Do you want to download this ' + item.type + '?</p>' +
-              '</div>'
+            '</div>'
         };
 
         $('#appmodal').modal('show');
