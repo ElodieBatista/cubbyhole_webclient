@@ -36,6 +36,8 @@ module.controller('LinksCtrl',
       }
     });
 
+    $scope.userId = $rootScope.getProfile().id;
+
 
     Links.get(function(res) {
       $scope.items = res.data;

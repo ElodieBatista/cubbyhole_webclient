@@ -2,9 +2,9 @@
 
   <ul class="action-bar-right">
     <li class="action-bar-item" ng-show="itemActive" ng-click="leOpenModalShareLink(itemActive)">
-      <svg class="action-bar-icon" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      <svg class="action-bar-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
-        <path fill="#020304" d="M22.317,13.386l-5.325,9.502l-0.005,0.007c-0.701,1.243-1.827,2.08-3.08,2.425
+        <path fill="#000000" d="M22.317,13.386l-5.325,9.502l-0.005,0.007c-0.701,1.243-1.827,2.08-3.08,2.425
           c-1.488,0.411-3.076,0.105-4.312-0.826l0.553-0.983c0.981,0.788,2.264,1.054,3.475,0.719c0.975-0.269,1.85-0.911,2.396-1.862
           c0.015-0.03,0.029-0.059,0.051-0.088l5.313-9.473c0.004-0.01,0.012-0.022,0.018-0.032c0.547-0.975,0.654-2.093,0.392-3.11
           c-0.261-1.002-0.884-1.903-1.808-2.467c-0.024-0.013-0.049-0.025-0.072-0.042C18.972,6.607,17.896,6.5,16.919,6.77
@@ -12,7 +12,7 @@
           c-0.943-1.623-0.971-3.659-0.047-5.307l5.356-9.549c0.697-1.246,1.826-2.084,3.083-2.431c1.243-0.343,2.613-0.205,3.813,0.495
           c0.03,0.015,0.06,0.032,0.085,0.052c1.186,0.722,1.984,1.873,2.314,3.147c0.334,1.28,0.198,2.691-0.479,3.928
           C22.354,13.332,22.338,13.359,22.317,13.386z"/>
-        <path fill="#020304" d="M14.826,13.385l-5.329,9.502v0.001v0.001c-1.389,2.477-4.482,3.34-6.895,1.938
+        <path fill="#000000" d="M14.826,13.385l-5.329,9.502v0.001v0.001c-1.389,2.477-4.482,3.34-6.895,1.938
           c-0.028-0.014-0.055-0.03-0.08-0.048c-2.39-1.45-3.209-4.645-1.819-7.121L6.056,8.11c0.006-0.011,0.013-0.022,0.02-0.033
           c0.701-1.228,1.821-2.055,3.065-2.399c1.487-0.41,3.076-0.105,4.313,0.827L12.902,7.49c-0.981-0.788-2.27-1.055-3.479-0.721
           C8.446,7.041,7.567,7.687,7.021,8.646c-0.005,0.011-0.01,0.02-0.016,0.029L1.65,18.225c-1.094,1.951-0.439,4.474,1.458,5.601
@@ -23,9 +23,9 @@
       <span>Share Link</span>
     </li>
     <li class="action-bar-item" ng-show="itemActive" navigate="/files" navigate-param="path" navigate-param-val="{{item.path}}">
-      <svg class="action-bar-icon" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      <svg class="action-bar-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
-        <path fill="#020304" d="M23.023,10.627c0-0.499-0.387-0.902-0.861-0.902h-0.076c-0.079-0.412-0.427-0.722-0.846-0.722H9.494
+        <path fill="#000000" d="M23.023,10.627c0-0.499-0.387-0.902-0.861-0.902h-0.076c-0.079-0.412-0.427-0.722-0.846-0.722H9.494
           L7.239,6.27L7.236,6.271C7.079,6.104,6.861,6,6.619,6H0.884C0.408,6,0.023,6.403,0.023,6.901v16.197V23.1
           c0,0.498,0.385,0.9,0.861,0.9l0,0h3.882l0,0h3.882l0,0H21.24l0,0c0.479,0,0.862-0.403,0.862-0.9v-0.006L23.023,10.627z
            M8.648,23.281H4.766H0.884c-0.089,0-0.163-0.074-0.171-0.165l0.917-12.452c0.002-0.019,0.002-0.037,0.002-0.055
@@ -34,7 +34,7 @@
       </svg>
       <span>Open</span>
     </li>
-    <li class="action-bar-item" ng-show="itemActive" ng-click="leOpenModalDeleteLink(itemActive)">
+    <li class="action-bar-item" ng-show="itemActive && itemActive.owner._id === userId" ng-click="leOpenModalDeleteLink(itemActive)">
       <svg class="action-bar-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
         <g transform="translate(0.000000,2000.000000) scale(0.100000,-0.100000)">
