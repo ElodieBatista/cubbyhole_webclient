@@ -38,7 +38,7 @@ module.controller('LinksCtrl',
 
 
     Links.get(function(res) {
-      $scope.links = res.data;
+      $scope.items = res.data;
     }, function(err) { $scope.errorShow(err); });
 
 
