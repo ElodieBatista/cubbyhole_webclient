@@ -266,12 +266,11 @@ module.directive('fileExplorer', function($location) {
           title: 'Rename ' + item.name + ' ' + item.type,
           iconClass: 'fa-' + item.type,
           submitFn: scope.renameItem,
-          placeholder: item.name,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Rename',
           template:
             '<div class="modal-body">' +
-              '<div class="input-prepend input-prepend-file" ng-class="{\'input-prepend-active\': focused}">' +
+              '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused}">' +
                 '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
                 '<input class="input-text" type="text" ng-model="modalform.name" required />' +
               '</div>' +
