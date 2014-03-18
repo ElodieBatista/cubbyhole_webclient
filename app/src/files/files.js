@@ -63,6 +63,18 @@ module.controller('FilesCtrl',
       }
     });
 
+    var Link = $resource(conf.epApi + '/link/:id', {id:'@id'}, {
+      'post': {
+        method:'POST'
+      },
+      'put': {
+        method:'PUT',
+        params: {
+          with:'@with'
+        }
+      }
+    });
+
 
     $scope.path = $routeParams.path;
 
@@ -128,14 +140,11 @@ module.controller('FilesCtrl',
 
     $scope.createSharedLink = function(item) {
       if (!item.link) {
-        //Share.post({'id':item._id, 'with':form.member}, function(res) {
-          var res = {};
-          res.url = 'http://localhost/blabla';
-          item.link = res.url;
+        Link.post({'id':item._id}, function(res) {
+          item.isPublic = true;
+          item.link = res.link;
           $scope.feOpenModalShareLink(item);
-        /*}, function(err) {
-         console.log('Can\'t share the item.');
-         });*/
+        }, function(err) { $scope.errorShow(err); });
       } else {
         $scope.feOpenModalShareLink(item);
       }
@@ -149,11 +158,9 @@ module.controller('FilesCtrl',
           members.push(form.member[prop]);
         }
 
-        //Share.post({'id':id, 'with':members}, function(res) {
+        Link.put({'id':id, 'with':members}, function(res) {
 
-        /*}, function(err) {
-          console.log('Can\'t share the item.');
-        });*/
+        }, function(err) { $scope.errorShow(err); });
       }
     };
 

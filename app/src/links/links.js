@@ -25,6 +25,12 @@ module.controller('LinksCtrl',
     });
 
     var Link = $resource(conf.epApi + '/link/:id', {id:'@id'}, {
+      'put': {
+        method:'PUT',
+        params: {
+          with:'@with'
+        }
+      },
       'delete': {
         method:'DELETE'
       }
@@ -32,47 +38,19 @@ module.controller('LinksCtrl',
 
 
     Links.get(function(res) {
-      //$scope.links = res.data;
-      $scope.items = [
-        {
-          name: 'A',
-          type: 'folder',
-          path: 'My Cubbyhole, A',
-          owner: {
-            email: 'elodie111@yopmail.com'
-          },
-          isShared: false,
-          link: {
-            url: '/webapp.html#/sh/aaabbbccc111222333',
-            creationDate: '2014-03-17T20:08:00.928Z'
-          }
-        },
-        {
-          name: 'B',
-          type: 'file',
-          path: 'My Cubbyhole, A',
-          owner: {
-            email: 'elodie111@yopmail.com'
-          },
-          isShared: true,
-          link: {
-            url: '/webapp.html#/sh/aaabbbccc111222444',
-            creationDate: '2014-03-17T20:08:00.928Z'
-          }
-        }
-      ];
+      $scope.links = res.data;
     }, function(err) { $scope.errorShow(err); });
 
 
     $scope.deleteLink = function(form, id) {
-      //Link.delete({'id':id}, function(res) {
+      Link.delete({'id':id}, function(res) {
         for (var i = 0, l = $scope.items.length; i < l; i++) {
           if ($scope.items[i]._id === id) {
             $scope.items.splice(i, 1);
             break;
           }
         }
-      //}, function(err) { $scope.errorShow(err, color); });
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
@@ -84,11 +62,8 @@ module.controller('LinksCtrl',
           members.push(form.member[prop]);
         }
 
-        //Link.post({'id':id, 'with':members}, function(res) {
-
-        /*}, function(err) {
-         console.log('Can\'t share the item.');
-         });*/
+        Link.put({'id':id, 'with':members}, function(res) {
+        }, function(err) { $scope.errorShow(err); });
       }
     };
 

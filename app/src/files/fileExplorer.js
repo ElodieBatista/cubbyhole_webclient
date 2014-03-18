@@ -421,7 +421,7 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Share Link',
           extraFn: scope.feModalShareLinkAddFields,
           extraFn2: scope.feModalShareDeleteField,
-          link: item.link,
+          link: item.link.url,
           template:
             '<div class="modal-body" id="modal-body-share">' +
               '<div class="row">' +
