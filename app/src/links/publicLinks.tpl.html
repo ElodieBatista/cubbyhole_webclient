@@ -43,7 +43,7 @@
             {{item.owner.email}} has shared {{item.name}} with you.
           </p>
 
-          <img class="link-icon" ng-src="styles/icons/icon_{{item.type}}_zip.svg">
+          <img class="link-icon" ng-if="item.isPublic" ng-src="/styles/icons/icon_{{item.type}}_zip.svg">
 
           <form method="GET" action="{{ 'http://localhost:3000/item/' + item._id + '/download' }}">
             <input class="btn primary-btn" type="submit" value="Download {{item.name}}">
