@@ -17,6 +17,7 @@
             <th>Type</th>
             <th>Size</th>
             <th>Modified</th>
+            <th>Link</th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +39,10 @@
               <span ng-if="file.type === 'file'" ng-bind="file.meta.size | size"></span>
             </td>
             <td>{{file.lastModified | date}}</td>
+            <td ng-if="!file.isPublic">-</td>
+            <td ng-if="file.isPublic">
+              <a ng-href="{{file.link.url}}"><img class="table-icon" ng-src="/styles/icons/icon_link.svg" /></a>
+            </td>
           </tr>
         </tbody>
       </table>

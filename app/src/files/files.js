@@ -139,7 +139,7 @@ module.controller('FilesCtrl',
       if (!item.link) {
         Link.post({'id':item._id}, function(res) {
           item.isPublic = true;
-          item.link = res.link;
+          item.link = res.data.link;
           $scope.feOpenModalShareLink(item);
         }, function(err) { $scope.errorShow(err); });
       } else {

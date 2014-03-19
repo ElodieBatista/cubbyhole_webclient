@@ -62,9 +62,7 @@
                   <td ng-show="item.owner._id === userId">
                     <button class="close" ng-click="seAskRevokeSharePermissionConfirm(item, member)">&times;</button>
                   </td>
-                  <td ng-show="!member.accepted && member._id === getProfile().id">
-                    <button class="btn secondary-btn" type="submit" ng-click="confirmShare(item._id, member)">Confirm</button>
-                  </td>
+                  <td ng-show="item.owner._id !== userId"></td>
                 </tr>
                 <tr></tr>
               </table>
