@@ -13,8 +13,13 @@ module.directive('navigate', function($location) {
     link: function (scope, element, attrs) {
       element.on('click', function() {
         $location.$$search = {};
-        $location.search(attrs.navigateParam, attrs.navigateParamVal).path(attrs.navigate);
-        if (!scope.$$phase) { scope.$apply(); }
+
+        if (attrs.navigate === 'external') {
+          window.location = attrs.navigateParamVal;
+        } else {
+          $location.search(attrs.navigateParam, attrs.navigateParamVal).path(attrs.navigate);
+          if (!scope.$$phase) { scope.$apply(); }
+        }
       });
     }
   };

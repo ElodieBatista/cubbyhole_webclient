@@ -19,7 +19,7 @@
               <img class="table-icon" ng-if="!item.isShared" ng-src="/styles/icons/icon_{{item.type}}.svg" />
               <img class="table-icon" ng-if="item.isShared === true" ng-src="/styles/icons/icon_shared{{item.type}}.svg" />
 
-              <a ng-href="{{item.link.url}}" ng-bind="item.name"></a>
+              <span navigate="external" navigate-param-val="{{item.link.url}}" ng-bind="item.name"></span>
             </td>
             <td>
               <span ng-bind="item.owner.email"></span>

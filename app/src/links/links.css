@@ -3,10 +3,6 @@
   margin: 0 auto;
 }
 
-.itemActive td:first-child a {
-  color: rgb(255, 255, 255) !important;
-}
-
 .tertiary .action-bar-item:hover {
   color: rgb(255, 255, 255);
   background-color: rgb(255, 147, 30);

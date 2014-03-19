@@ -136,7 +136,7 @@ module.controller('FilesCtrl',
 
 
     $scope.createSharedLink = function(item) {
-      if (!item.link) {
+      if (!item.isPublic) {
         Link.post({'id':item._id}, function(res) {
           item.isPublic = true;
           item.link = res.data.link;
