@@ -8,7 +8,7 @@
         <table class="col-md-12 no-actionbar">
           <thead>
             <tr>
-              <th>Title</th>
+              <th>Message</th>
               <th>Date</th>
             </tr>
           </thead>
@@ -18,7 +18,7 @@
                 <img class="table-icon" ng-switch-when="D" src="/styles/icons/icon_delete.svg">
                 <img class="table-icon" ng-switch-when="S" src="/styles/icons/icon_shared.svg">
 
-                <span class="notification-text no-underline" ng-bind="notification.text"></span>
+                <span class="notification-text no-underline" ng-bind="notification.message"></span>
               </td>
               <td ng-bind="notification.date | date"></td>
             </tr>

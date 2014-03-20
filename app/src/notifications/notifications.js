@@ -26,21 +26,7 @@ module.controller('NotificationsCtrl',
     $scope.notifications = null;
 
     Notifications.get(function(res) {
-      //$scope.notifications = res.data;
-      $scope.notifications = [
-        {
-          type: 'S',
-          date: '2014-03-06T08:51:42.928Z',
-          text: 'user1 wants to share the folder abc with you.'
-        },
-        {
-          type: 'D',
-          date: '2014-03-10T08:51:42.928Z',
-          text: 'user1 removed xyz in abc.'
-        }
-     ];
-    }, function(error) {
-      console.log('Can\'t get the notifications.');
-    });
+      $scope.notifications = res.data;
+    }, function(err) { $scope.errorShow(err); });
   }
 );
