@@ -5,76 +5,80 @@
 
       <div ng-include src="'/src/sharing/sharingActionBar.tpl.html'"></div>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Owner</th>
-            <th>Size</th>
-            <th>Modified</th>
-          </tr>
-        </thead>
-        <tbody ng-repeat="item in items track by $index">
-          <tr ng-class="{true:'itemActive',false:''}[itemActive.name == item.name]" ng-click="toggleItem(item);">
-            <td>
-              <img class="table-icon" ng-src="/styles/icons/icon_sharedfolder.svg" />
+      <div class="row grid-view-table-container">
 
-              <span navigate="/files" navigate-param="path" navigate-param-val="{{item.path}}" ng-bind="item.name"></span>
-            </td>
-            <td>
-              <span ng-bind="item.owner.email"></span>
-            </td>
-            <td>
-              <span ng-bind="item.meta.size | size"></span>
-            </td>
-            <td>{{item.lastModified | date}}</td>
-          </tr>
-          <tr ng-show="itemActive._id === item._id">
-            <td class="shared-options-table-container" colspan="4">
+        <table class="col-md-12">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Owner</th>
+              <th>Size</th>
+              <th>Modified</th>
+            </tr>
+          </thead>
+          <tbody ng-repeat="item in items track by $index">
+            <tr ng-class="{true:'itemActive',false:''}[itemActive.name == item.name]" ng-click="toggleItem(item);">
+              <td>
+                <img class="table-icon" ng-src="/styles/icons/icon_sharedfolder.svg" />
 
-              <table class="shared-options-container">
-                <tr class="shared-options-header-tr shared-options-tr-nohover">
-                  <th>Members</th>
-                  <th>Status</th>
-                  <th>Read Only</th>
-                  <th>Read & Write</th>
-                  <th></th>
-                </tr>
-                <tr class="shared-options-tr" ng-if="item.members.length === 0">
-                  <td>Just you</td>
-                </tr>
-                <tr class="shared-options-tr" ng-repeat="member in item.members">
-                  <td ng-bind="member.email"></td>
-                  <td ng-if="member.accepted">Joined</td>
-                  <td ng-if="!member.accepted">Still waiting</td>
-                  <td ng-show="item.owner._id === userId">
-                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="0" ng-change="updateSharePermission(item._id, member._id)">
-                  </td>
-                  <td ng-hide="item.owner._id === userId">
-                    <img class="shared-permissions-img" src="/styles/icons/icon_check.svg" ng-show="member.permissions === 0" />
-                  </td>
-                  <td ng-show="item.owner._id === userId">
-                    <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="1" ng-change="updateSharePermission(item._id, member._id)">
-                  </td>
-                  <td ng-hide="item.owner._id === userId">
-                    <img class="shared-permissions-img" src="/styles/icons/icon_check.svg" ng-show="member.permissions === 1" />
-                  </td>
-                  <td ng-show="item.owner._id === userId">
-                    <button class="close" ng-click="seAskRevokeSharePermissionConfirm(item, member)">&times;</button>
-                  </td>
-                  <td ng-show="item.owner._id !== userId"></td>
-                </tr>
-                <tr></tr>
-              </table>
+                <span navigate="/files" navigate-param="path" navigate-param-val="{{item.path}}" ng-bind="item.name"></span>
+              </td>
+              <td>
+                <span ng-bind="item.owner.email"></span>
+              </td>
+              <td>
+                <span ng-bind="item.meta.size | size"></span>
+              </td>
+              <td>{{item.lastModified | date}}</td>
+            </tr>
+            <tr ng-show="itemActive._id === item._id">
+              <td class="shared-options-table-container" colspan="4">
 
-            </td>
-          </tr>
-        </tbody>
-      </table>
+                <table class="shared-options-container">
+                  <tr class="shared-options-header-tr shared-options-tr-nohover">
+                    <th>Members</th>
+                    <th>Status</th>
+                    <th>Read Only</th>
+                    <th>Read & Write</th>
+                    <th></th>
+                  </tr>
+                  <tr class="shared-options-tr" ng-if="item.members.length === 0">
+                    <td>Just you</td>
+                  </tr>
+                  <tr class="shared-options-tr" ng-repeat="member in item.members">
+                    <td ng-bind="member.email"></td>
+                    <td ng-if="member.accepted">Joined</td>
+                    <td ng-if="!member.accepted">Still waiting</td>
+                    <td ng-show="item.owner._id === userId">
+                      <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="0" ng-change="updateSharePermission(item._id, member._id)">
+                    </td>
+                    <td ng-hide="item.owner._id === userId">
+                      <img class="shared-permissions-img" src="/styles/icons/icon_check.svg" ng-show="member.permissions === 0" />
+                    </td>
+                    <td ng-show="item.owner._id === userId">
+                      <input type="radio" name="permission-{{item._id}}-{{member.email}}" ng-model="member.permissions" value="1" ng-change="updateSharePermission(item._id, member._id)">
+                    </td>
+                    <td ng-hide="item.owner._id === userId">
+                      <img class="shared-permissions-img" src="/styles/icons/icon_check.svg" ng-show="member.permissions === 1" />
+                    </td>
+                    <td ng-show="item.owner._id === userId">
+                      <button class="close" ng-click="seAskRevokeSharePermissionConfirm(item, member)">&times;</button>
+                    </td>
+                    <td ng-show="item.owner._id !== userId"></td>
+                  </tr>
+                  <tr></tr>
+                </table>
 
-      <p class="col-md-12" id="grid-view-msg" ng-show="items.length === 0">
-        You haven't shared any folder yet. Go to your files page to <span class="highlight">share some folders!</span>
-      </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="col-md-12" id="grid-view-msg" ng-show="items.length === 0">
+          You haven't shared any folder yet. Go to your files page to <span class="highlight">share some folders!</span>
+        </p>
+
+      </div>
 
     </div>
   </div>
