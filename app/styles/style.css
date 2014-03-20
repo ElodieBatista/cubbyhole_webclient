@@ -604,6 +604,10 @@ td:first-child {
   vertical-align: bottom;
 }
 
+.table-icon-clickable {
+  cursor: pointer;
+}
+
 td:first-child span:hover {
   text-decoration: underline;
 }

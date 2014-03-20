@@ -40,7 +40,7 @@
             <td>{{file.lastModified | date}}</td>
             <td ng-if="!file.isPublic">-</td>
             <td ng-if="file.isPublic">
-              <a ng-href="{{file.link.url}}"><img class="table-icon" ng-src="/styles/icons/icon_link.svg" /></a>
+              <img class="table-icon table-icon-clickable" navigate="external" navigate-param-val="http://localhost:8000/webapp.html#{{file.link.url}}" ng-src="/styles/icons/icon_link.svg" />
             </td>
           </tr>
         </tbody>
