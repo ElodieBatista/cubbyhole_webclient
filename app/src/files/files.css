@@ -152,87 +152,7 @@ body {
 }
 
 
-/* ACTION BAR */
-.action-bar {
-  display: block;
-  width: 100%;
-  height: 30px;
-  margin: 10px auto;
-  padding: 0;
-  text-align: center;
-  background-color: rgb(240, 240, 240);
-}
-
-.action-bar-left {
-  float: left;
-  padding: 0;
-  margin: 0;
-}
-
-.action-bar-right {
-  float: right;
-  padding: 0;
-  margin: 0;
-}
-
-.action-bar-icon {
-  float: left;
-  width: 23px;
-  height: 30px;
-  margin-right: 2px;
-}
-
-.action-bar-icon-small {
-  width: 19px;
-}
-
-.action-bar-item {
-  float: left;
-  display: block;
-  height: 30px;
-  padding: 0 5px;
-  color: rgb(50, 50, 50);
-  font-size: 12px;
-  line-height: 30px;
-  cursor: pointer;
-}
-
-.primary .action-bar-item:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(254, 80, 81);
-}
-
-.action-bar-item:hover svg.action-bar-icon path,
-.action-bar-item:hover svg.action-bar-icon rect,
-.action-bar-item:hover svg.action-bar-icon polygon {
-  fill: rgb(255, 255, 255);
-}
-
-@media screen and (max-width: 770px) {
-  .action-bar-item span {
-    display: none;
-  }
-}
-
-
-@media screen and (max-width: 1020px) and (min-width: 990px) {
-  .action-bar-item span {
-    display: none;
-  }
-}
-
-.action-bar-item-special {
-  float: left;
-}
-
-.action-bar-separator {
-  float: left;
-  display: block;
-  height: 20px;
-  border-right: solid 1px rgb(50, 50, 50);
-  margin: 5px;
-}
-
+/* DRAG & DROP */
 .dnd-over {
   color: rgb(255, 255, 255) !important;
   background-color: rgb(201, 234, 179) !important;
@@ -272,6 +192,8 @@ body {
   color: white !important;
 }
 
+
+/* MODALS */
 #modal-body-share {
   max-height: 250px;
   overflow-y: auto;

@@ -2,8 +2,3 @@
   display: block;
   margin: 0 auto;
 }
-
-.tertiary .action-bar-item:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(255, 147, 30);
-}
