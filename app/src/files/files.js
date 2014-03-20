@@ -156,7 +156,6 @@ module.controller('FilesCtrl',
         }
 
         Link.put({'id':id, 'with':members}, function(res) {
-
         }, function(err) { $scope.errorShow(err); });
       }
     };

@@ -769,7 +769,3 @@ td:first-child span:hover {
   border-right: solid 1px rgb(50, 50, 50);
   margin: 5px;
 }
-
-.no-actionbar {
-  margin-top: 50px;
-}

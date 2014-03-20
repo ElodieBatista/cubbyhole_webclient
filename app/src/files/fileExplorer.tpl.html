@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-class="{true:'itemActive',false:''}[itemActive.name == file.name]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)"
+          <tr ng-class="{true:'itemActive',false:''}[itemActive._id == file._id]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)"
               droppable item="file" doDrop="moveItem" candrop="file.type === 'folder' && file.permissions !== 0">
             <td draggable candrag="(file.permissions !== 0)" item="file">
               <img class="table-icon" ng-if="!file.isShared" ng-src="/styles/icons/icon_{{file.type}}.svg" />

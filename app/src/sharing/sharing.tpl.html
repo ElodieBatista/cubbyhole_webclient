@@ -17,7 +17,7 @@
             </tr>
           </thead>
           <tbody ng-repeat="item in items track by $index">
-            <tr ng-class="{true:'itemActive',false:''}[itemActive.name == item.name]" ng-click="toggleItem(item);">
+            <tr ng-class="{true:'itemActive',false:''}[itemActive._id == item._id]" ng-click="toggleItem(item);">
               <td>
                 <img class="table-icon" ng-src="/styles/icons/icon_sharedfolder.svg" />
 
