@@ -127,6 +127,9 @@ $(document).ready(function() {
           case 401:
             msg = 'Please, check your emails to verify your address.';
             break;
+          case 403:
+            msg = 'Your account has been deactivated by our administrator. For more information, please send an email to cubbyhole.contact@gmail.com';
+            break;
           default:
             msg = 'Something went wrong. Please, try again later.';
             break;
