@@ -272,7 +272,7 @@ module.directive('fileExplorer', function($location) {
             '<div class="modal-body">' +
               '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused}">' +
                 '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-                '<input class="input-text" type="text" ng-model="modalform.name" required />' +
+                '<input class="input-text" type="text" ng-model="modalform.name" required ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false" />' +
               '</div>' +
             '</div>'
         };

@@ -31,7 +31,7 @@
           <a class="navbar-brand" href="./"><i class="navtop-icon fa fa-th"></i> Cubbyhole</a>
         </div>
 
-        <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" ng-if="getProfile() !== undefined" role="navigation">
+        <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" ng-if="getProfile() !== undefined && getProfile() !== null" role="navigation">
           <ul class="nav navbar-nav navbar-right navtop-items-list">
             <li class="navtop-item" ng-class="{active: navtop == 0}">
               <a href="webapp.html#/files">Files</a>
@@ -55,7 +55,7 @@
           </ul>
         </nav>
 
-        <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" ng-if="getProfile() === undefined" role="navigation">
+        <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" ng-if="getProfile() === undefined || getProfile() === null" role="navigation">
           <ul class="nav navbar-nav navbar-right navtop-items-list">
             <li class="navtop-item">
               <a href="/#home">Home</a>

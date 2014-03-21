@@ -13,7 +13,7 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('UserCtrl',
-  function SharingCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
+  function UserCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 4;
 
