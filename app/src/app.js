@@ -11,7 +11,7 @@ angular.module('webApp', [
     'epApi': 'http://localhost:3000'
   })
   .config(function(conf, $locationProvider, $httpProvider, $routeProvider, $sceDelegateProvider, $provide) {
-    $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.token;
+    $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.getItem('cubbyhole-webapp-token');
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/json';
 
     function comesFromCubbyhole(url) {
@@ -64,8 +64,8 @@ angular.module('webApp', [
     $rootScope.getToken = function() {
       if ($rootScope.token) {
         return $rootScope.token;
-      } else if (localStorage.token) {
-        $rootScope.token = localStorage.token;
+      } else if (localStorage.getItem('cubbyhole-webapp-token')) {
+        $rootScope.token = localStorage.getItem('cubbyhole-webapp-token');
         return $rootScope.token;
       } else {
         return null;
@@ -75,8 +75,8 @@ angular.module('webApp', [
     $rootScope.getProfile = function() {
       if ($rootScope.profile) {
         return $rootScope.profile;
-      } else if (localStorage.profile) {
-        $rootScope.profile = JSON.parse(localStorage.profile);
+      } else if (localStorage.getItem('cubbyhole-webapp-profile')) {
+        $rootScope.profile = JSON.parse(localStorage.getItem('cubbyhole-webapp-profile'));
         return $rootScope.profile;
       } else {
         return null;
