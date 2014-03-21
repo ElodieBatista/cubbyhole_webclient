@@ -24,7 +24,7 @@
       </svg>
       <span>Confirm</span>
     </li>
-    <li class="action-bar-item" ng-show="itemActive && itemActive.owner._id !== userId" ng-click="seAskLeaveSharedItemConfirm(itemActive)">
+    <li class="action-bar-item" ng-show="itemActive && itemActive.owner._id !== userId" ng-click="seOpenModalLeaveSharedItem(itemActive)">
       <svg class="action-bar-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
         <path fill="#000000" d="M6.729,7.293L9.421,9.94h12.845v13.765H0.734V7.293h5.873 M6.729,6.5H0.856C0.451,6.5,0,6.723,0,7.161
@@ -37,7 +37,7 @@
       </svg>
       <span>Leave</span>
     </li>
-    <li class="action-bar-item" ng-show="itemActive && itemActive.owner._id === userId" ng-click="seAskUnshareConfirm(itemActive)">
+    <li class="action-bar-item" ng-show="itemActive && itemActive.owner._id === userId" ng-click="seOpenModalUnshareItem(itemActive)">
       <svg class="action-bar-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
         <g>

@@ -18,10 +18,7 @@ module.directive('linkExplorer', function() {
           submitFn: scope.deleteLink,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Delete',
-          template:
-            '<div class="modal-body">' +
-              '<p>Are you sure you want to delete this link?</p>' +
-            '</div>'
+          templateUrl: 'src/links/tpls/deleteLink.tpl.html'
         };
 
         $('#appmodal').modal('show');

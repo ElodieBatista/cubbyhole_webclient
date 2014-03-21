@@ -62,7 +62,7 @@
                       <img class="shared-permissions-img" src="/styles/icons/icon_check.svg" ng-show="member.permissions === 1" />
                     </td>
                     <td ng-show="item.owner._id === userId">
-                      <button class="close" ng-click="seAskRevokeSharePermissionConfirm(item, member)">&times;</button>
+                      <button class="close" ng-click="seOpenModalRevokeSharePermission(item, member)">&times;</button>
                     </td>
                     <td ng-show="item.owner._id !== userId"></td>
                   </tr>

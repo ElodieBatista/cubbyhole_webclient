@@ -23,48 +23,43 @@ module.directive('shareExplorer', function() {
       };
 
 
-      scope.seAskUnshareConfirm = function(item) {
+      scope.seOpenModalUnshareItem = function(item) {
         scope.modalOpts = {
           title: item.name,
           submitBtnVal: 'Unshare',
           submitFn: scope.unshareItem,
           submitFnExtraParam: item._id,
-          template:
-            '<div class="modal-body">' +
-              '<p>Are you sure you want to unshare this folder?</p>' +
-            '</div>'
+          templateUrl: 'src/sharing/tpls/unshareItem.tpl.html'
         };
 
         $('#appmodal').modal('show');
       };
 
 
-      scope.seAskLeaveSharedItemConfirm = function(item) {
+      scope.seOpenModalLeaveSharedItem = function(item) {
         scope.modalOpts = {
           title: item.name,
           submitBtnVal: 'Leave',
           submitFn: scope.leaveSharedItem,
           submitFnExtraParam: item._id,
-          template:
-            '<div class="modal-body">' +
-              '<p>Are you sure you want to leave this folder?</p>' +
-            '</div>'
+          templateUrl: 'src/sharing/tpls/leaveSharedItem.tpl.html'
         };
 
         $('#appmodal').modal('show');
       };
 
 
-      scope.seAskRevokeSharePermissionConfirm = function(item, member) {
+      scope.seOpenModalRevokeSharePermission = function(item, member) {
         scope.modalOpts = {
           title: 'Revoke Permission for ' + member.email,
           submitBtnVal: 'Revoke',
           submitFn: scope.revokeSharePermission,
           submitFnExtraParam: {itemId:item._id, memberId:member._id},
-          template:
-            '<div class="modal-body">' +
-              '<p>Are you sure you want to revoke sharing permissions for ' + member.email + ' on ' + item.name + '?</p>' +
-            '</div>'
+          obj: {
+            member: member,
+            item: item
+          },
+          templateUrl: 'src/sharing/tpls/revokeSharePermission.tpl.html'
         };
 
         $('#appmodal').modal('show');
