@@ -502,6 +502,22 @@ module.directive('fileExplorer', function($location) {
       };
 
 
+      scope.feAskLeaveSharedItemConfirm = function(item) {
+        scope.modalOpts = {
+          title: item.name,
+          submitBtnVal: 'Leave',
+          submitFn: scope.leaveSharedItem,
+          submitFnExtraParam: item._id,
+          template:
+            '<div class="modal-body">' +
+              '<p>Are you sure you want to delete this shared folder?</p>' +
+            '</div>'
+        };
+
+        $('#appmodal').modal('show');
+      };
+
+
       scope.getNodeNewPos = function(node, nodeParent, newName) {
         if (nodeParent.children.length === 0) {
           return {pos:'Here', sibling:nodeParent};

@@ -17,6 +17,7 @@ module.controller('FilesCtrl',
   function FilesCtrl(conf, $rootScope, $scope, $routeParams, $resource, $upload) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 0;
+    $scope.userId = $rootScope.getProfile().id;
 
     var Items = $resource(conf.epApi + '/item', {}, {
       'get': {
@@ -57,6 +58,9 @@ module.controller('FilesCtrl',
         params: {
           with:'@with'
         }
+      },
+      'delete': { // Stop sharing if owner/ Leave shared folder if member
+        method:'DELETE'
       }
     });
 
@@ -158,6 +162,13 @@ module.controller('FilesCtrl',
         Link.put({'id':id, 'with':members}, function(res) {
         }, function(err) { $scope.errorShow(err); });
       }
+    };
+
+
+    $scope.leaveSharedItem = function(form, id) {
+      Share.delete({'id':id}, function(res) {
+        $scope.feDeleteItem(id);
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
