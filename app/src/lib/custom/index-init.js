@@ -109,8 +109,6 @@ $(document).ready(function() {
     }).done(function(data) {
         spinner.stop();
 
-        console.log('Sign in success: ' + JSON.stringify(data.profile));
-
         // Passing auth data to Angular via the localStorage and the key 'dataAuth'
         localStorage.setItem('dataAuth', JSON.stringify(data.profile));
 

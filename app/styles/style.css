@@ -12,6 +12,7 @@
 body {
   font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
   font-size: 14px;
+  padding-top: 50px;
 }
 
 a {
@@ -548,6 +549,13 @@ footer {
 
 
 /* TABLES */
+.grid-view-table-container {
+  height: -webkit-calc(100% - 50px);
+  height: -moz-calc(100% - 50px);
+  height: calc(100% - 50px);
+  overflow-y: auto;
+}
+
 td {
   padding: 5px;
   white-space: nowrap;
@@ -569,6 +577,7 @@ thead {
 th {
   padding: 5px;
   font-weight: normal;
+  white-space: nowrap;
 }
 
 th:first-child {
@@ -749,6 +758,10 @@ td:first-child span:hover {
   fill: rgb(255, 255, 255);
 }
 
+.action-bar-item:hover svg.action-bar-icon line {
+  stroke: rgb(255, 255, 255);
+}
+
 @media screen and (max-width: 770px) {
   .action-bar-item span {
     display: none;
@@ -772,4 +785,8 @@ td:first-child span:hover {
   height: 20px;
   border-right: solid 1px rgb(50, 50, 50);
   margin: 5px;
+}
+
+.itemActive td:first-child {
+  color: white !important;
 }

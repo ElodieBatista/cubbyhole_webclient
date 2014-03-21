@@ -119,13 +119,6 @@ body {
   border: 3px solid white;
 }
 
-.grid-view-table-container {
-  height: -webkit-calc(100% - 50px);
-  height: -moz-calc(100% - 50px);
-  height: calc(100% - 50px);
-  overflow-y: auto;
-}
-
 .grid-view-table {
   width: 100%;
 }
@@ -186,10 +179,6 @@ body {
 
 .upload-container-hover .dnd-over.itemActive {
   background-color: rgba(254, 80, 81, 0.7) !important;
-}
-
-.itemActive td:first-child {
-  color: white !important;
 }
 
 

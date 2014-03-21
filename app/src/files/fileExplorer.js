@@ -12,10 +12,9 @@ module.directive('fileExplorer', function($location) {
     templateUrl: '/src/files/fileExplorer.tpl.html',
 
     link: function (scope, element, attrs) {
-      scope.token = localStorage.token;
-
       var $tree,
           $progressBar = $('#file-explorer-progress-bar');
+
 
       scope.$watch(attrs.items, function(newValue) {
         if (newValue !== undefined && newValue !== null) {
@@ -60,7 +59,7 @@ module.directive('fileExplorer', function($location) {
           if (scope.path !== undefined && scope.path !== '') {
             // Unroll the tree & Select the last node of the url
             var node,
-              nodesName = scope.path.split(',');
+                nodesName = scope.path.split(',');
 
             for (var i = 0, l = nodesName.length; i < l; i++) {
               node = $tree.tree('getNodeBy', 'name', nodesName[i], node);
@@ -145,7 +144,6 @@ module.directive('fileExplorer', function($location) {
 
       scope.feAddNodes = function(item, parentId) {
         scope.feAddNode(item, parentId);
-
         scope.feIterate(item, scope.feAddNode);
       };
 
@@ -157,8 +155,8 @@ module.directive('fileExplorer', function($location) {
 
       scope.feRenameItem = function(name, id, parentId) {
         var node = $tree.tree('getNodeBy', '_id', id),
-          parent = $tree.tree('getNodeBy', '_id', parentId),
-          newPos = scope.getNodeNewPos(node, parent, name);
+            parent = $tree.tree('getNodeBy', '_id', parentId),
+            newPos = scope.getNodeNewPos(node, parent, name);
 
         if (newPos.pos !== 'Here') {
           $tree.tree(
@@ -213,8 +211,8 @@ module.directive('fileExplorer', function($location) {
 
       scope.feMoveItem = function(id, parentId, name) {
         var node = $tree.tree('getNodeBy', '_id', id),
-          nodeParent = $tree.tree('getNodeBy', '_id', parentId),
-          newPos = scope.getNodeNewPos(node, nodeParent, node.name);
+            nodeParent = $tree.tree('getNodeBy', '_id', parentId),
+            newPos = scope.getNodeNewPos(node, nodeParent, node.name);
 
         if (newPos.pos !== 'Here') {
           $tree.tree(
@@ -251,7 +249,8 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.addFolder,
           placeholder: 'Folder name',
           submitFnExtraParam: scope.selectedNode._id,
-          submitBtnVal: 'Add'
+          submitBtnVal: 'Add',
+          templateUrl: 'src/files/tpls/newFolder.tpl.html'
         };
 
         $('#appmodal').modal('show');
@@ -268,13 +267,7 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.renameItem,
           submitFnExtraParam: item,
           submitBtnVal: 'Rename',
-          template:
-            '<div class="modal-body">' +
-              '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused}">' +
-                '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-                '<input class="input-text" type="text" ng-model="modalform.name" required ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false" />' +
-              '</div>' +
-            '</div>'
+          templateUrl: 'src/files/tpls/renameItem.tpl.html'
         };
 
         $('#appmodal').modal('show');
@@ -287,10 +280,8 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.deleteItem,
           submitFnExtraParam: item._id,
           submitBtnVal: 'Delete',
-          template:
-            '<div class="modal-body">' +
-              '<p>Are you sure you want to delete this ' + item.type + '?</p>' +
-            '</div>'
+          obj: item,
+          templateUrl: 'src/files/tpls/deleteItem.tpl.html'
         };
 
         $('#appmodal').modal('show');
@@ -304,12 +295,7 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Add',
           submitFn: scope.onFileSelect,
           submitFnExtraParam: null,
-          template:
-            '<div class="modal-body">' +
-              '<div class="input-prepend input-prepend-file" ng-class="{\'input-prepend-active\': focused}">' +
-                '<input class="input-text" type="file" ng-file-select="modalOpts.submitFnExtraParam = $files;" multiple required />' +
-              '</div>' +
-            '</div>'
+          templateUrl: 'src/files/tpls/addFiles.tpl.html'
         };
 
         $('#appmodal').modal('show');
@@ -457,8 +443,8 @@ module.directive('fileExplorer', function($location) {
 
       scope.feModalShareLinkAddFields = function() {
         var htmlId = $('#modal-body-share .row:last-child').attr('id'),
-          prevIndex = parseInt(htmlId.substr(17)),
-          index = prevIndex + 1;
+            prevIndex = parseInt(htmlId.substr(17)),
+            index = prevIndex + 1;
 
         if ($('#share-link-member' + index).length === 0) {
           scope.modalform.member[index] = {
@@ -484,7 +470,7 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feAskDownloadConfirm = function(item) {
+      scope.feOpenModalDownloadItem = function(item) {
         scope.toggleItem(item, true);
 
         scope.modalOpts = {
@@ -492,26 +478,21 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Download',
           submitFn: scope.feDownloadItem,
           submitFnExtraParam: null,
-          template:
-            '<div class="modal-body">' +
-              '<p>Do you want to download this ' + item.type + '?</p>' +
-            '</div>'
+          obj: item,
+          templateUrl: 'src/files/tpls/downloadItem.tpl.html'
         };
 
         $('#appmodal').modal('show');
       };
 
 
-      scope.feAskLeaveSharedItemConfirm = function(item) {
+      scope.feOpenModalLeaveSharedItem = function(item) {
         scope.modalOpts = {
           title: item.name,
           submitBtnVal: 'Leave',
           submitFn: scope.leaveSharedItem,
           submitFnExtraParam: item._id,
-          template:
-            '<div class="modal-body">' +
-              '<p>Are you sure you want to delete this shared folder?</p>' +
-            '</div>'
+          template: 'src/files/tpls/leaveSharedItem.tpl.html'
         };
 
         $('#appmodal').modal('show');

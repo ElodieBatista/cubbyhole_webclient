@@ -1,0 +1,4 @@
+<div class="input-prepend" ng-class="{'input-prepend-active': focused}">
+  <i class="fa input-icon" ng-class="modalOpts.iconClass"></i>
+  <input class="input-text input-text-empty-onclose" type="text" placeholder="{{modalOpts.placeholder}}" required ng-model="modalform.name" ng-init="focused = false" ng-focus="focused = true" ng-blur="focused = false" />
+</div>

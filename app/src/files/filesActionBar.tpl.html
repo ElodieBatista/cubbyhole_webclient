@@ -147,7 +147,7 @@
       <span>Rename</span>
     </li>
     <li class="action-bar-item" ng-show="itemActive && selectedNode.parent.parent !== null && itemActive.permissions !== 0" ng-click="moveItem(itemActive._id, selectedNode.parent._id)">
-      <svg class="action-bar-icon" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+      <svg class="action-bar-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
       <g>
         <path fill="#000000" d="M6.729,6.793l2.692,2.647h12.845v13.765H0.734V6.793h5.873 M6.729,6H0.856C0.451,6,0,6.223,0,6.661v16.413
@@ -162,7 +162,7 @@
     <span>Move Up</span>
   </li>
 
-  <li class="action-bar-item" ng-show="itemActive && itemActive.owner._id !== userId" ng-click="feAskLeaveSharedItemConfirm(itemActive)">
+  <li class="action-bar-item" ng-show="itemActive && itemActive.owner !== userId" ng-click="feOpenModalLeaveSharedItem(itemActive)">
     <svg class="action-bar-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
       <g transform="translate(0.000000,2000.000000) scale(0.100000,-0.100000)">

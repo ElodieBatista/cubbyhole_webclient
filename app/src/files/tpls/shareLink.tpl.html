@@ -1,0 +1,26 @@
+<div class="modal-body" id="modal-body-share">
+  <div class="row">
+    <p class="col-md-12">
+      You just made this {{modalOpts.obj.type}} public. People can now access it at: <a href="{{modalOpts.link}}" ng-bind="modalOpts.link"></a>
+      </p>
+    </div>
+
+  <div class="row">
+    <p class="col-md-12">
+      Notify your friends to send them the link:
+      </p>
+    </div>
+
+  <div class="row" id="share-link-member0">
+    <div class="col-md-1">
+      <button class="btn btn-big" ng-class="submitBtnClass" ng-click="modalOpts.extraFn()">+</button>
+      </div>
+    <div class="col-md-7">
+      <div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">
+        <i class="fa input-icon" ng-class="modalOpts.iconClass"></i>
+        <input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[\'0\'].email" required ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" />
+        </div>
+      </div>
+    <span class="hidden">end share-link-member0</span>
+    </div>
+  </div>
