@@ -58,9 +58,6 @@ module.controller('FilesCtrl',
         params: {
           with:'@with'
         }
-      },
-      'delete': { // Stop sharing if owner/ Leave shared folder if member
-        method:'DELETE'
       }
     });
 
@@ -162,13 +159,6 @@ module.controller('FilesCtrl',
         Link.put({'id':id, 'with':members}, function(res) {
         }, function(err) { $scope.errorShow(err); });
       }
-    };
-
-
-    $scope.leaveSharedItem = function(form, id) {
-      Share.delete({'id':id}, function(res) {
-        $scope.feDeleteItem(id);
-      }, function(err) { $scope.errorShow(err); });
     };
 
 
