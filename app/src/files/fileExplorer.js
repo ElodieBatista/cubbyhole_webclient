@@ -358,19 +358,6 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feOpenModalLeaveSharedItem = function(item) {
-        scope.modalOpts = {
-          title: item.name,
-          submitBtnVal: 'Leave',
-          submitFn: scope.leaveSharedItem,
-          submitFnExtraParam: item._id,
-          template: 'src/files/tpls/leaveSharedItem.tpl.html'
-        };
-
-        $('#appmodal').modal('show');
-      };
-
-
       scope.getNodeNewPos = function(node, nodeParent, newName) {
         if (nodeParent.children.length === 0) {
           return {pos:'Here', sibling:nodeParent};

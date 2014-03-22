@@ -3,7 +3,7 @@
 var module = angular.module('webApp');
 
 /**
- *
+ * Handles navigation on HTML elements other than <a></a> & handles external urls
  */
 module.directive('navigate', function($location, $window) {
   return {

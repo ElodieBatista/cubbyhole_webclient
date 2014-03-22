@@ -8,11 +8,8 @@
       </div>
 
       <form role="form" name="modalform" ng-submit="modalOpts.submitFn(modalform, modalOpts.submitFnExtraParam); dismissModal();">
-        <div class="modal-body" ng-if="modalOpts.templateUrl !== undefined">
+        <div class="modal-body">
           <div ng-include src="modalOpts.templateUrl"></div>
-        </div>
-
-        <div class="modal-body" id="modal-body-custom" ng-if="modalOpts.template !== undefined">
         </div>
 
         <div class="modal-footer">

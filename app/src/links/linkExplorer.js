@@ -9,7 +9,6 @@ module.directive('linkExplorer', function() {
   return {
     restrict: 'A',
     scope: '{}',
-    template: '',
 
     link: function (scope, element, attrs) {
       scope.leOpenModalDeleteLink = function(item) {

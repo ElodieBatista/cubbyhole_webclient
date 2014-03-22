@@ -76,7 +76,7 @@ $(document).ready(function() {
   }
 
   // Display sign in/sign up forms if unauthenticated otherwise, display a btn to launch the webapp
-  if (localStorage.getItem('cubbyhole-webapp-profile') !== undefined) {
+  if (localStorage.getItem('cubbyhole-webapp-profile') !== undefined && localStorage.getItem('cubbyhole-webapp-profile') !== null) {
     $('#home-unauthenticated-container').css('display', 'none');
     $('#home-authenticated-title-email').text(JSON.parse(localStorage.getItem('cubbyhole-webapp-profile')).email);
     $('#home-authenticated-container').css('display', 'block');

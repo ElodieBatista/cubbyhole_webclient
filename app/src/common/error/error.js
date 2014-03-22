@@ -104,10 +104,8 @@ module.directive('error', function() {
         scope.modalOpts = {
           title: 'Error',
           submitBtnVal: 'Ok',
-          template:
-            '<div class="modal-body">' +
-              '<p>' + errorText + '</p>' +
-            '</div>'
+          errorText: errorText,
+          templateUrl: 'src/common/error/error.tpl.html'
         };
 
         $('#errormodal #appmodal').modal('show');

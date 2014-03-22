@@ -9,7 +9,6 @@ module.directive('shareExplorer', function() {
   return {
     restrict: 'A',
     scope: '{}',
-    template: '',
 
     link: function (scope, element, attrs) {
       scope.canConfirm = function(id) {
