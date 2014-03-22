@@ -1,7 +1,7 @@
-<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
-<g>
-	<rect x="0.406" y="19.567" transform="matrix(0.7103 0.7039 -0.7039 0.7103 15.3096 2.8794)" width="7.501" height="0.944"/>
-	<polygon points="6.45,21.7 21.173,6.986 21.84,7.656 7.115,22.371 	"/>
-</g>
+	<g>
+		<rect fill="#000000" x="0.406" y="19.567" transform="matrix(0.7103 0.7039 -0.7039 0.7103 15.3096 2.8794)" width="7.501" height="0.944"/>
+		<polygon fill="#000000" points="6.45,21.7 21.173,6.986 21.84,7.656 7.115,22.371 	"/>
+	</g>
 </svg>
