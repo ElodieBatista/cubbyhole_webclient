@@ -5,7 +5,7 @@ var module = angular.module('webApp');
 /**
  *
  */
-module.directive('navigate', function($location) {
+module.directive('navigate', function($location, $window) {
   return {
     restrict: 'A',
     scope: {},
@@ -15,7 +15,7 @@ module.directive('navigate', function($location) {
         $location.$$search = {};
 
         if (attrs.navigate === 'external') {
-          window.location = attrs.navigateParamVal;
+          $window.location.href = attrs.navigateParamVal;
         } else {
           $location.search(attrs.navigateParam, attrs.navigateParamVal).path(attrs.navigate);
           if (!scope.$$phase) { scope.$apply(); }

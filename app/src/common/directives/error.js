@@ -15,6 +15,7 @@ module.directive('error', function() {
           0: 'Impossible to upload these items: '
         },
         500: 'Something went wrong. Please, try again later.',
+        400: 'The request is not recognized. Please, try again later.',
         item: {
           GET: {
             404: 'This item doesn\'t exist.',
