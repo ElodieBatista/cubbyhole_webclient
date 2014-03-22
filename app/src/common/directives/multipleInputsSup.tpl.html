@@ -1,0 +1,14 @@
+<div class="row multiple-input">
+
+  <div class="col-md-1">
+    <button class="close modal-mini-close" ng-click="deleteInput()">&times;</button>
+  </div>
+
+  <div class="col-md-7">
+    <div class="input-prepend" ng-class="{'input-prepend-active': focused1 }">
+      <i class="fa input-icon fa-envelope"></i>
+      <input class="input-text" type="email" placeholder="Email" ng-model="form[index]" required ng-init="focused1 = false" ng-focus="focused1 = true" ng-blur="focused1 = false" />
+    </div>
+  </div>
+
+</div>

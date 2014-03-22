@@ -1,0 +1,23 @@
+<form name="myform" ng-submit="submitInputs(myform)">
+
+  <div class="multiple-inputs-container">
+
+    <div class="row multiple-input">
+
+      <div class="col-md-1">
+        <a class="btn btn-big primary-btn" ng-click="addInput()">+</a>
+      </div>
+
+      <div class="col-md-7">
+        <div class="input-prepend" ng-class="{'input-prepend-active': focused0}">
+          <i class="fa input-icon fa-envelope"></i>
+          <input class="input-text" type="email" placeholder="Email" required ng-model="myform.emails['0']" ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <input class="btn btn-big primary" type="submit" value="Send" />
+
+</form>

@@ -245,9 +245,7 @@ module.directive('fileExplorer', function($location) {
       scope.feOpenModalNewFolder = function() {
         scope.modalOpts = {
           title: 'Create a folder',
-          iconClass: 'fa-folder',
           submitFn: scope.addFolder,
-          placeholder: 'Folder name',
           submitFnExtraParam: scope.selectedNode._id,
           submitBtnVal: 'Add',
           templateUrl: 'src/files/tpls/newFolder.tpl.html'
@@ -291,10 +289,8 @@ module.directive('fileExplorer', function($location) {
       scope.feOpenModalNewFiles = function() {
         scope.modalOpts = {
           title: 'Upload files',
-          iconClass: 'fa-file',
           submitBtnVal: 'Add',
           submitFn: scope.onFileSelect,
-          submitFnExtraParam: null,
           templateUrl: 'src/files/tpls/addFiles.tpl.html'
         };
 
