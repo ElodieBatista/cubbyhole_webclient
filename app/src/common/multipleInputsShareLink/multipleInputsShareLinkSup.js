@@ -2,9 +2,6 @@
 
 var module = angular.module('webApp');
 
-/**
- *
- */
 module.directive('multipleInputsShareLinkSup', function() {
   return {
     restrict: 'E',

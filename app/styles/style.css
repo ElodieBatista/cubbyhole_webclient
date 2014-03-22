@@ -795,3 +795,8 @@ td:first-child span:hover {
 .itemActive td:first-child {
   color: white !important;
 }
+
+.multiple-input input[type="radio"] {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

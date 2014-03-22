@@ -2,9 +2,6 @@
 
 var module = angular.module('webApp');
 
-/**
- *
- */
 module.directive('multipleInputsShareLink', function($compile) {
   return {
     restrict: 'E',
@@ -16,7 +13,9 @@ module.directive('multipleInputsShareLink', function($compile) {
 
     link: function (scope, element, attrs) {
       scope.addInput = function() {
-        $(element).find('.multiple-inputs-container:last-of-type').append($compile('<multiple-inputs-share-link-sup multiple-inputs-form="form"></multiple-inputs-share-link-sup>')(scope));
+        $(element).find('.multiple-inputs-container:last-of-type').append(
+          $compile('<multiple-inputs-share-link-sup multiple-inputs-form="form"></multiple-inputs-share-link-sup>')(scope)
+        );
       };
     }
   };

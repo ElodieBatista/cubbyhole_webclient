@@ -5,7 +5,7 @@ var module = angular.module('webApp');
 /**
  * Defines the way to display a modal
  */
-module.directive('modal', function($compile) {
+module.directive('modal', function() {
   return {
     restrict: 'E',
     scope: {
@@ -18,11 +18,11 @@ module.directive('modal', function($compile) {
     link: function(scope, elem, attrs) {
       scope.submitBtnClass = scope.modalColor + '-btn';
 
-      $(elem).on('shown.bs.modal', function (e) {
+      $(elem).on('shown.bs.modal', function(e) {
         $(this).find('input:not([type="file"]):not([type="submit"]):first').focus();
       });
 
-      $(elem).on('hide.bs.modal', function (e) {
+      $(elem).on('hide.bs.modal', function(e) {
         $(this).find('.input-text-empty-onclose').val('');
       });
 
