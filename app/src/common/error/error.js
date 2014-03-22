@@ -14,10 +14,13 @@ module.directive('error', function() {
         custom: {
           0: 'Impossible to upload these items: '
         },
+
         500: 'Something went wrong. Please, try again later.',
         400: 'The request is not recognized. Please, try again later.',
+
         item: {
           GET: {
+            403: 'You are not allowed to access this item.',
             404: 'This item doesn\'t exist.',
             405: 'You can\'t download this folder because it is empty.'
           },
@@ -26,45 +29,63 @@ module.directive('error', function() {
             422: 'This item\'s parent doesn\'t exist.'
           },
           DELETE: {
+            403: 'You are not allowed to delete this item.',
             404: 'This item doesn\'t exist.'
           },
           PUT: {
             401: 'You are not authorized to update this item.',
-            404: 'This item doesn\'t exist.',
-            422: 'This item\'s parent doesn\'t exist.'
+            404: 'This item doesn\'t exist.'
           }
         },
+
         share: {
-          GET: {
-            403: 'You don\'t have access to this item.',
-            404: 'This item doesn\'t exist.'
-          },
           POST: {
+            403: 'You are not allowed to access this item.',
             404: 'This item doesn\'t exist.',
             422: 'One or several of the members you entered are not Cubbyhole users.'
           },
           DELETE: {
             404: 'This item doesn\'t exist.'
+          },
+          PUT: {
+            404: 'This item doesn\'t exist.'
           }
         },
-        link: { // TEMP
-          GET: {
-            404: 'This link doesn\'t exist.'
-          },
+
+        link: {
           POST: {
-            404: 'This link doesn\'t exist.'
+            403: 'You are not allowed to access this item.',
+            404: 'This item doesn\'t exist.'
           },
           DELETE: {
-            404: 'This link doesn\'t exist.'
+            404: 'This item doesn\'t exist.'
+          },
+          PUT: {
+            404: 'This item doesn\'t exist.'
           }
         },
+
+        notification: {
+          DELETE: {
+            403: 'You are not allowed to delete this notification.',
+            404: 'This notification doesn\'t exist.'
+          }
+        },
+
         user: {
           GET: {
             404: 'This user doesn\'t exist.'
+          },
+          PUT: {
+            404: 'This user doesn\'t exist.'
           }
         },
+
         plan: {
           GET: {
+            404: 'This plan doesn\'t exist.'
+          },
+          DELETE: {
             404: 'This plan doesn\'t exist.'
           }
         }
