@@ -23,15 +23,5 @@ module.controller('PublicLinksCtrl',
     Item.get({'id':$routeParams.id}, function(res) {
       $scope.item = res.data;
     }, function(err) { $scope.errorShow(err); });
-
-
-
-    $scope.link = {
-      from: 'User1',
-      item: {
-        name: 'ABC',
-        type: 'folder'
-      }
-    }
   }
 );

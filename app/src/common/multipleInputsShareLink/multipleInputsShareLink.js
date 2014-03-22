@@ -9,7 +9,8 @@ module.directive('multipleInputsShareLink', function($compile) {
   return {
     restrict: 'E',
     scope: {
-      form: '=multipleInputsForm'
+      form: '=multipleInputsForm',
+      btnClass: '=btnClass'
     },
     templateUrl: 'src/common/multipleInputsShareLink/multipleInputsShareLink.tpl.html',
 
