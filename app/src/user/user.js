@@ -13,7 +13,7 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('UserCtrl',
-  function UserCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
+  function UserCtrl(conf, $rootScope, $scope, apiService) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 4;
 
@@ -27,19 +27,7 @@ module.controller('UserCtrl',
       }
     };
 
-    var User = $resource(conf.epApi + '/user/:id', {id:$rootScope.getProfile().id}, {
-      'get': {
-        method: 'GET'
-      }
-    });
-
-    var Plans = $resource(conf.epApi + '/plan', {}, {
-      'get': {
-        method: 'GET'
-      }
-    });
-
-    User.get(function(res) {
+    apiService.User.get(function(res) {
       $scope.user = res.data;
 
       $scope.stats = {
@@ -58,7 +46,7 @@ module.controller('UserCtrl',
     }, function(err) { $scope.errorShow(err); });
 
 
-    Plans.get(function(res) {
+    apiService.Plans.get(function(res) {
       $scope.plans = res.data;
     }, function(err) { $scope.errorShow(err); });
   }

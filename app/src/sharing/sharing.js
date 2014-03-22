@@ -14,40 +14,9 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('SharingCtrl',
-  function SharingCtrl(conf, $rootScope, $scope, $routeParams, $resource, $location) {
+  function SharingCtrl(conf, $rootScope, $scope, $routeParams, $location, apiService) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 1;
-
-    var Shares = $resource(conf.epApi + '/share', {}, {
-      'get': {
-        method:'GET'
-      }
-    });
-
-    var Share = $resource(conf.epApi + '/share/:id', {id:'@id'}, {
-      'post': {
-        method:'POST',
-        params: {
-          with:'@with'
-        }
-      },
-      'put': {
-        method:'PUT',
-        params: {
-          member:'@member',
-          permissions:'@permissions'
-        }
-      },
-      'delete': { // Stop sharing if owner/ Leave shared folder if member
-        method:'DELETE'
-      }
-    });
-
-    var ShareRevoke = $resource(conf.epApi + '/share/:id/:member', {id:'@id', member:'@member'}, {
-      'delete': { // If member, revoke permission
-        method:'DELETE'
-      }
-    });
 
     $scope.items = [];
 
@@ -56,7 +25,7 @@ module.controller('SharingCtrl',
 
     $scope.userId = $rootScope.getProfile().id;
 
-    Shares.get(function(res) {
+    apiService.Shares.get(function(res) {
       $scope.items = res.data;
 
       if ($scope.path !== undefined) {
@@ -79,7 +48,7 @@ module.controller('SharingCtrl',
           members.push(form.member[prop]);
         }
 
-        Share.post({'id':id, 'with':members}, function(res) {
+        apiService.Share.post({'id':id, 'with':members}, function(res) {
           $scope.getItem(id).members = res.data.members;
         }, function(err) { $scope.errorShow(err); });
       }
@@ -87,7 +56,7 @@ module.controller('SharingCtrl',
 
 
     $scope.confirmShare = function(itemId, memberId) {
-      Share.put({'id':itemId}, function(res) {
+      apiService.Share.put({'id':itemId}, function(res) {
         var item = $scope.getItem(itemId);
         for (var j = 0, le = item.members.length; j < le; j++) {
           if (item.members[j]._id === memberId) {
@@ -108,13 +77,13 @@ module.controller('SharingCtrl',
           break;
         }
       }
-      Share.put({'id':itemId, 'member':memberId, 'permissions':permissions}, function(res) {
+      apiService.Share.put({'id':itemId, 'member':memberId, 'permissions':permissions}, function(res) {
       }, function(err) { $scope.errorShow(err); });
     };
 
 
     $scope.revokeSharePermission = function(form, ids) {
-      ShareRevoke.delete({'id':ids.itemId, 'member':ids.memberId}, function(res) {
+      apiService.ShareRevoke.delete({'id':ids.itemId, 'member':ids.memberId}, function(res) {
         var item = $scope.getItem(ids.itemId);
         for (var j = 0, le = item.members.length; j < le; j++) {
           if (item.members[j]._id === ids.memberId) {
@@ -127,7 +96,7 @@ module.controller('SharingCtrl',
 
 
     $scope.leaveSharedItem = function(form, id) {
-      Share.delete({'id':id}, function(res) {
+      apiService.Share.delete({'id':id}, function(res) {
         for (var i = 0, l = $scope.items.length; i < l; i++) {
           if ($scope.items[i]._id === id) {
             $scope.items.splice(i, 1);
@@ -139,7 +108,7 @@ module.controller('SharingCtrl',
 
 
     $scope.unshareItem = function(form, id) {
-      Share.delete({'id':id}, function(res) {
+      apiService.Share.delete({'id':id}, function(res) {
         for (var i = 0, l = $scope.items.length; i < l; i++) {
           if ($scope.items[i]._id === id) {
             $scope.items.splice(i, 1);

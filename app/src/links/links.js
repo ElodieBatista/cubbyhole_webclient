@@ -14,38 +14,20 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('LinksCtrl',
-  function LinksCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
+  function LinksCtrl(conf, $rootScope, $scope, apiService) {
     // Highlight first btn in the nav bar
     $rootScope.navtop = 2;
-
-    var Links = $resource(conf.epApi + '/link', {}, {
-      'get': {
-        method: 'GET'
-      }
-    });
-
-    var Link = $resource(conf.epApi + '/link/:id', {id:'@id'}, {
-      'put': {
-        method:'PUT',
-        params: {
-          with:'@with'
-        }
-      },
-      'delete': {
-        method:'DELETE'
-      }
-    });
 
     $scope.userId = $rootScope.getProfile().id;
 
 
-    Links.get(function(res) {
+    apiService.Links.get(function(res) {
       $scope.items = res.data;
     }, function(err) { $scope.errorShow(err); });
 
 
     $scope.deleteLink = function(form, id) {
-      Link.delete({'id':id}, function(res) {
+      apiService.Link.delete({'id':id}, function(res) {
         for (var i = 0, l = $scope.items.length; i < l; i++) {
           if ($scope.items[i]._id === id) {
             $scope.items.splice(i, 1);
@@ -65,7 +47,7 @@ module.controller('LinksCtrl',
           members.push(form.member[prop]);
         }
 
-        Link.put({'id':id, 'with':members}, function(res) {
+        apiService.Link.put({'id':id, 'with':members}, function(res) {
         }, function(err) { $scope.errorShow(err); });
       }
     };
