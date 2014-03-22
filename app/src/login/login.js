@@ -13,9 +13,9 @@ module.config(function config($routeProvider) {
 
 module.controller('LoginCtrl',
   function LoginCtrl($rootScope, $scope, $location, $http) {
-    var profile = JSON.parse(localStorage.getItem('dataAuth'));
+    var profile = JSON.parse(localStorage.getItem('cubbyhole-webapp-dataAuth'));
 
-    localStorage.removeItem('dataAuth');
+    localStorage.removeItem('cubbyhole-webapp-dataAuth');
     localStorage.setItem('cubbyhole-webapp-token', profile.token);
     localStorage.setItem('cubbyhole-webapp-profile', JSON.stringify(profile));
     $http.defaults.headers.common['X-Cub-AuthToken'] = profile.token;

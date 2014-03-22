@@ -64,8 +64,7 @@ $(document).ready(function() {
   };
   var spinner = new Spinner(opts);
 
-
-  // Handle email param
+  // Handle email param in ul
   var emailParamPos = window.location.href.indexOf('?email=');
   if (emailParamPos !== -1) {
     var emailParam = window.location.href.substring(emailParamPos + 7);
@@ -76,25 +75,23 @@ $(document).ready(function() {
     }
   }
 
-
-  // If user's already authenticated
-  if (localStorage.profile !== undefined) {
+  // Display sign in/sign up forms if unauthenticated otherwise, display a btn to launch the webapp
+  if (localStorage.getItem('cubbyhole-webapp-profile') !== undefined) {
     $('#home-unauthenticated-container').css('display', 'none');
-    $('#home-authenticated-title-email').text(JSON.parse(localStorage.profile).email);
+    $('#home-authenticated-title-email').text(JSON.parse(localStorage.getItem('cubbyhole-webapp-profile')).email);
     $('#home-authenticated-container').css('display', 'block');
   } else {
     $('#home-authenticated-container').css('display', 'none');
     $('#home-unauthenticated-container').css('display', 'block');
   }
 
-
   // Sign In
   $('#signin form').submit(function(e) {
     e.preventDefault();
 
     var email = $(this).find('input')[0].value,
-      pass = $(this).find('input')[1].value,
-      rememberMe = $(this).find('input')[2].checked;
+        pass = $(this).find('input')[1].value,
+        rememberMe = $(this).find('input')[2].checked;
 
     spinner.spin(document.getElementById('signin-spinner'));
 
@@ -109,8 +106,8 @@ $(document).ready(function() {
     }).done(function(data) {
         spinner.stop();
 
-        // Passing auth data to Angular via the localStorage and the key 'dataAuth'
-        localStorage.setItem('dataAuth', JSON.stringify(data.profile));
+        // Passing auth data to Angular via the localStorage
+        localStorage.setItem('cubbyhole-webapp-dataAuth', JSON.stringify(data.profile));
 
         window.location.href = 'webapp.html#/login';
       }).fail(function(data) {
@@ -140,14 +137,13 @@ $(document).ready(function() {
       });
   });
 
-
   // Sign Up
   $('#signup form').submit(function(e) {
     e.preventDefault();
 
     var email = $(this).find('input')[0].value,
-      pass = $(this).find('input')[1].value,
-      pass2 = $(this).find('input')[2].value;
+        pass = $(this).find('input')[1].value,
+        pass2 = $(this).find('input')[2].value;
 
     if (pass !== pass2) {
       $('#modal-title').text('Error');
@@ -181,7 +177,7 @@ $(document).ready(function() {
 
         switch (data.status) {
           case 422:
-            msg = 'This email address already exists. Please, sign in.';
+            msg = 'This email address already exists. Please, try another one.';
             break;
           default:
             msg = 'Something went wrong. Please, try again later.';
@@ -195,18 +191,12 @@ $(document).ready(function() {
       });
   });
 
-
+  // Plans
   Handlebars.registerHelper('ifCond', function(a, b, options) {
-    if (a === b) {
-      return options.fn(this);
-    }
-    return options.inverse(this);
+    return (a === b ? options.fn(this) : options.inverse(this));
   });
   Handlebars.registerHelper('ifMod', function(a, b, options) {
-    if ((a % b) === 0) {
-      return options.fn(this);
-    }
-    return options.inverse(this);
+    return ((a % b) === 0 ? options.fn(this) : options.inverse(this));
   });
 
   $.ajax({
