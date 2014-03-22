@@ -299,170 +299,47 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feOpenModalShareItem = function(item) {
-        scope.modalform = {};
-        scope.modalform.member = {
-          0: {
-            email: '',
-            permissions: 0
+        scope.modalform = {
+          member: {
+            0: {
+              email: '',
+              permissions: 0
+            }
           }
         };
 
         scope.modalOpts = {
           title: 'Share ' + item.name + ' with:',
-          iconClass: 'fa-envelope',
           submitFn: scope.shareItem,
-          placeholder: 'Invite People',
           submitFnExtraParam: item._id,
           submitBtnVal: 'Share',
-          extraFn: scope.feModalShareItemAddFields,
-          extraFn2: scope.feModalShareDeleteField,
-          template:
-            '<div class="modal-body" id="modal-body-share">' +
-              '<div class="row">' +
-                '<span class="col-md-2 col-md-offset-8 modal-mini-title">Read Only</span>' +
-                '<span class="col-md-2 modal-mini-title">Read Write</span>' +
-              '</div>' +
-
-              '<div class="row" id="share-member0">' +
-                '<div class="col-md-1">' +
-                  '<button class="btn btn-big" ng-class="submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
-                '</div>' +
-                '<div class="col-md-7">' +
-                  '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +
-                    '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-                    '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[\'0\'].email" required ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" />' +
-                  '</div>' +
-                '</div>' +
-                '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permissions" value="0" required>' +
-                '<input class="col-md-2" type="radio" name="permission-0" ng-model="modalform.member[\'0\'].permissions" value="1">' +
-                '<span class="hidden">end share-member0</span>' +
-              '</div>' +
-            '</div>'
+          templateUrl: 'src/files/tpls/shareItem.tpl.html'
         };
 
         $('#appmodal').modal('show');
       };
 
 
-      scope.feModalShareItemAddFields = function() {
-        var htmlId = $('#modal-body-share .row:last-child').attr('id'),
-          prevIndex = parseInt(htmlId.substr(12)),
-          index = prevIndex + 1;
-
-        if ($('#share-member' + index).length === 0) {
-          scope.modalform.member[index] = {
-            email: '',
-            permissions: 0
-          };
-
-          scope.modalOpts.template = scope.modalOpts.template.substr(0, scope.modalOpts.template.length - 6) +
-            '<div class="row" id="share-member' + index + '">' +
-            '<div class="col-md-1">' +
-            '<button class="close modal-mini-close" ng-click="modalOpts.extraFn2(' + index + ', \'share-member\')">&times;</button>' +
-            '</div>' +
-            '<div class="col-md-7">' +
-            '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused' + index + '}">' +
-            '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-            '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[\'' + index + '\'].email" required ng-init="focused' + index + ' = false" ng-focus="focused' + index + ' = true" ng-blur="focused' + index + ' = false" />' +
-            '</div>' +
-            '</div>' +
-            '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[\'' + index + '\'].permissions" value="0" required>' +
-            '<input class="col-md-2" type="radio" name="permission-' + index + '" ng-model="modalform.member[\'' + index + '\'].permissions" value="1">' +
-            '<span class="hidden">end share-member' + index + '</span>' +
-            '</div>' +
-            '</div>'
-          ;
-        }
-      };
-
-
-      scope.feModalShareDeleteField = function(index, htmlId) {
-        var posStart = scope.modalOpts.template.indexOf('<div class="row" id="' + htmlId + index + '">'),
-          posEnd = scope.modalOpts.template.indexOf('<span class="hidden">end ' + htmlId + index + '</span>') + 25 + htmlId.toString().length + index.toString().length + 7 + 6,
-          templateSubStr = scope.modalOpts.template.substring(posStart, posEnd);
-        scope.modalOpts.template = scope.modalOpts.template.replace(templateSubStr, '');
-
-        delete scope.modalform.member[index];
-      };
-
-
       scope.feOpenModalShareLink = function(item) {
-        scope.modalform = {};
-        scope.modalform.member = {
-          0: {
-            email: ''
+        scope.modalform = {
+          member: {
+            0: {
+              email: ''
+            }
           }
         };
 
         scope.modalOpts = {
           title: 'Share link for ' + item.name + ' with:',
-          iconClass: 'fa-envelope',
           submitFn: scope.shareLink,
-          placeholder: 'Invite People',
           submitFnExtraParam: item._id,
           submitBtnVal: 'Share Link',
-          extraFn: scope.feModalShareLinkAddFields,
-          extraFn2: scope.feModalShareDeleteField,
+          obj: item,
           link: item.link.url,
-          template:
-            '<div class="modal-body" id="modal-body-share">' +
-              '<div class="row">' +
-              '<p class="col-md-12">' +
-              'You just made this ' + item.type + ' public. People can now access it at: <a href="{{modalOpts.link}}" ng-bind="modalOpts.link"></a>' +
-              '</p>' +
-              '</div>' +
-
-              '<div class="row">' +
-              '<p class="col-md-12">' +
-              'Notify your friends to send them the link:' +
-              '</p>' +
-              '</div>' +
-
-              '<div class="row" id="share-link-member0">' +
-              '<div class="col-md-1">' +
-              '<button class="btn btn-big" ng-class="submitBtnClass" ng-click="modalOpts.extraFn()">+</button>' +
-              '</div>' +
-              '<div class="col-md-7">' +
-              '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused0}">' +
-              '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-              '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[\'0\'].email" required ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" />' +
-              '</div>' +
-              '</div>' +
-              '<span class="hidden">end share-link-member0</span>' +
-              '</div>' +
-              '</div>'
+          templateUrl: 'src/files/tpls/shareLink.tpl.html'
         };
 
         $('#appmodal').modal('show');
-      };
-
-
-      scope.feModalShareLinkAddFields = function() {
-        var htmlId = $('#modal-body-share .row:last-child').attr('id'),
-            prevIndex = parseInt(htmlId.substr(17)),
-            index = prevIndex + 1;
-
-        if ($('#share-link-member' + index).length === 0) {
-          scope.modalform.member[index] = {
-            email: ''
-          };
-
-          scope.modalOpts.template = scope.modalOpts.template.substr(0, scope.modalOpts.template.length - 6) +
-            '<div class="row" id="share-link-member' + index + '">' +
-            '<div class="col-md-1">' +
-            '<button class="close modal-mini-close" ng-click="modalOpts.extraFn2(' + index + ', \'share-link-member\')">&times;</button>' +
-            '</div>' +
-            '<div class="col-md-7">' +
-            '<div class="input-prepend" ng-class="{\'input-prepend-active\': focused' + index + '}">' +
-            '<i class="fa input-icon" ng-class="modalOpts.iconClass"></i>' +
-            '<input class="input-text" type="email" placeholder="{{modalOpts.placeholder}}" ng-model="modalform.member[' + index + '].email" required ng-init="focused' + index + ' = false" ng-focus="focused' + index + ' = true" ng-blur="focused' + index + ' = false" />' +
-            '</div>' +
-            '</div>' +
-            '<span class="hidden">end share-link-member' + index + '</span>' +
-            '</div>' +
-            '</div>'
-          ;
-        }
       };
 
 
@@ -473,7 +350,6 @@ module.directive('fileExplorer', function($location) {
           title: item.name,
           submitBtnVal: 'Download',
           submitFn: scope.feDownloadItem,
-          submitFnExtraParam: null,
           obj: item,
           templateUrl: 'src/files/tpls/downloadItem.tpl.html'
         };

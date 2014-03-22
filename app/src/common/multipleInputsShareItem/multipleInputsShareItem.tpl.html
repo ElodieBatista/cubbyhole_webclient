@@ -1,0 +1,21 @@
+<div class="multiple-inputs-container">
+
+  <div class="row multiple-input">
+
+    <div class="col-md-1">
+      <a class="btn btn-big primary-btn" ng-click="addInput()">+</a>
+    </div>
+
+    <div class="col-md-7">
+      <div class="input-prepend" ng-class="{'input-prepend-active': focused0}">
+        <i class="fa input-icon fa-envelope"></i>
+        <input class="input-text" type="email" placeholder="Invite People" required ng-model="form.member['0'].email" ng-init="focused0 = false" ng-focus="focused0 = true" ng-blur="focused0 = false" />
+      </div>
+    </div>
+
+    <input class="col-md-2" type="radio" name="permission-0" ng-model="form.member['0'].permissions" value="0" required>
+    <input class="col-md-2" type="radio" name="permission-0" ng-model="form.member['0'].permissions" value="1">
+
+  </div>
+
+</div>
