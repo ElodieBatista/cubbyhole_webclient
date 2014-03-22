@@ -335,7 +335,6 @@ module.directive('fileExplorer', function($location) {
           submitFnExtraParam: item._id,
           submitBtnVal: 'Share Link',
           obj: item,
-          link: item.link.url,
           templateUrl: 'src/files/tpls/shareLink.tpl.html'
         };
 

@@ -202,6 +202,10 @@ body {
   white-space: nowrap;
 }
 
+.modal-mini-paragraphs {
+  margin-bottom: 15px !important;
+}
+
 .modal-mini-close {
   position: relative;
   left: 12px;

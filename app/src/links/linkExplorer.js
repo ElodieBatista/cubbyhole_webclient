@@ -39,7 +39,6 @@ module.directive('linkExplorer', function() {
           submitFnExtraParam: item._id,
           submitBtnVal: 'Share Link',
           obj: item,
-          link: item.link.url,
           templateUrl: 'src/links/tpls/shareLink.tpl.html'
         };
 

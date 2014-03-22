@@ -59,6 +59,10 @@ h5 {
   text-align: center;
 }
 
+.clickable {
+  cursor: pointer;
+}
+
 .no-padding {
   padding: 0;
 }
@@ -616,10 +620,6 @@ td:first-child {
   width: 25px;
   margin-right: 5px;
   vertical-align: bottom;
-}
-
-.table-icon-clickable {
-  cursor: pointer;
 }
 
 td:first-child span:hover {

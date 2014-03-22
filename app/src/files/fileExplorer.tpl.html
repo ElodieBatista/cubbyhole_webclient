@@ -5,7 +5,6 @@
   <div id="file-explorer-progress-bar"></div>
 
   <div class="col-md-9" id="grid-view" ng-file-drop="onFileSelect(null, $files)" ng-file-droppable="{{selectedNode.permissions !== 0}}" ng-file-drag-over-class="upload-container-hover" ng-file-drag-over-class-cond="!.dnd-drag">
-
     <div ng-include src="'/src/files/filesActionBar.tpl.html'"></div>
 
     <div class="row grid-view-table-container">
@@ -21,7 +20,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-class="{true:'itemActive',false:''}[itemActive._id == file._id]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)"
+          <tr ng-class="{true:'itemActive',false:''}[itemActive._id === file._id]" ng-repeat="file in files track by $index" ng-click="toggleItem(file)"
               droppable item="file" doDrop="moveItem" candrop="file.type === 'folder' && file.permissions !== 0">
             <td draggable candrag="(file.permissions !== 0)" item="file">
               <img class="table-icon" ng-if="!file.isShared" ng-src="/styles/icons/icon_{{file.type}}.svg" />
@@ -40,7 +39,7 @@
             <td>{{file.lastModified | date}}</td>
             <td ng-if="!file.isPublic">-</td>
             <td ng-if="file.isPublic">
-              <img class="table-icon table-icon-clickable" navigate="external" navigate-param-val="http://localhost:8000/webapp.html#{{file.link.url}}" ng-src="/styles/icons/icon_link.svg" />
+              <img class="table-icon clickable" navigate="external" navigate-param-val="http://localhost:8000/webapp.html#{{file.link.url}}" ng-src="/styles/icons/icon_link.svg" />
             </td>
           </tr>
         </tbody>
@@ -51,11 +50,8 @@
       </p>
 
     </div>
-
   </div>
 
   <form id="file-explorer-form-download" method="GET" action="{{ 'http://localhost:3000/item/' + itemActive._id + '/download/' + getToken() }}">
   </form>
 </div>
-
-<modal modal-opts="modalOpts" modalform="modalform" modal-color="'primary'"></modal>
