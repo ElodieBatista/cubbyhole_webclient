@@ -1,9 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
-<path fill="#010202" d="M21.119,8.329c-0.51-0.51-1.337-0.51-1.847,0L8.194,19.408L3.73,14.944c-0.51-0.51-1.337-0.51-1.847,0
-	s-0.51,1.336,0,1.847l5.387,5.387c0.255,0.255,0.589,0.383,0.924,0.383c0.334,0,0.668-0.128,0.923-0.383L21.12,10.176
-	C21.629,9.666,21.629,8.839,21.119,8.329z"/>
+<g>
+	<rect x="0.406" y="19.567" transform="matrix(0.7103 0.7039 -0.7039 0.7103 15.3096 2.8794)" width="7.501" height="0.944"/>
+	<polygon points="6.45,21.7 21.173,6.986 21.84,7.656 7.115,22.371 	"/>
+</g>
 </svg>
