@@ -17,23 +17,21 @@ module.controller('FilesCtrl',
   function FilesCtrl(conf, $rootScope, $scope, $routeParams, $upload, apiService) {
     $scope.path = $routeParams.path;
 
+
     apiService.Items.get(function(res) {
-      $scope.rootItem = res.data[0];
       $scope.folders = res.data;
     }, function(err) { $scope.errorShow(err); });
 
 
     $scope.addFolder = function(form, parentId) {
-      if (form.name !== '') {
-        apiService.Items.post({'type':'folder', 'name':form.name, 'parent':parentId}, function(res) {
-          $scope.feAddFolder(res.data, parentId);
-        }, function(err) { $scope.errorShow(err); });
-      }
+      apiService.Items.post({'type':'folder', 'name':form.name, 'parent':parentId}, function(res) {
+        $scope.feAddFolder(res.data, parentId);
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
     $scope.renameItem = function(form, item) {
-      if (form.name !== '' && form.name !== item.name) {
+      if (form.name !== item.name) {
         apiService.Item.put({'name':form.name, 'id':item._id}, function(res) {
           $scope.feRenameItem(res.data.name, item._id, res.data.parent);
         }, function(err) { $scope.errorShow(err); });
@@ -63,54 +61,45 @@ module.controller('FilesCtrl',
 
 
     $scope.shareItem = function(form, id) {
-      if (form.member['0'].email.length > 0) {
-        var members = [];
-
-        for (var prop in form.member) {
-          members.push(form.member[prop]);
-        }
-
-        apiService.Share.post({'id':id, 'with':members}, function(res) {
-          $scope.feShareItems(id);
-        }, function(err) { $scope.errorShow(err); });
+      var members = [];
+      for (var prop in form.member) {
+        members.push(form.member[prop]);
       }
+
+      apiService.Share.post({'id':id, 'with':members}, function(res) {
+        $scope.feShareItems(id);
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
     $scope.createSharedLink = function(item) {
       if (!item.isPublic) {
         apiService.Link.post({'id':item._id}, function(res) {
-          item.isPublic = true;
-          item.link = res.data.link;
-          $scope.feOpenModalShareLink(item);
+          $scope.feOpenModalShareLink(res.data);
         }, function(err) { $scope.errorShow(err); });
       } else {
         $scope.feOpenModalShareLink(item);
       }
     };
 
+
     $scope.shareLink = function(form, id) {
-      if (form.member['0'].email.length > 0) {
-        var members = [];
-
-        for (var prop in form.member) {
-          members.push(form.member[prop]);
-        }
-
-        apiService.Link.put({'id':id, 'with':members}, function(res) {
-        }, function(err) { $scope.errorShow(err); });
+      var members = [];
+      for (var prop in form.member) {
+        members.push(form.member[prop]);
       }
+
+      apiService.Link.put({'id':id, 'with':members}, function(res) {
+      }, function(err) { $scope.errorShow(err); });
     };
 
 
     $scope.onFileSelect = function(form, data) {
-      var $files = (data.files ? data.files : data);
-      var err = { custom: -1, param: '<br />' } ;
+      var $files = (data.files ? data.files : data),
+          err = { custom: -1, param: '<br />' } ;
 
       for (var i = 0; i < $files.length; i++) {
-        var file = $files[i];
-
-        if (file.type !== '') {
+        if ($files[i].type !== '') {
           $scope.uploading = true;
 
           $scope.upload = $upload.upload({
@@ -120,7 +109,7 @@ module.controller('FilesCtrl',
               type: 'file',
               parent: $scope.selectedNode._id
             },
-            file: file
+            file: $files[i]
           }).progress(function(e) {
             var percent = parseInt(100.0 * e.loaded / e.total);
             $scope.feUpdateProgressBar(percent);
@@ -133,21 +122,12 @@ module.controller('FilesCtrl',
           });
         } else {
           err.custom = 0;
-          err.param += file.name + '<br />';
+          err.param += $files[i].name + '<br />';
         }
       }
 
       if (err.custom !== -1) {
         $scope.errorShow(err);
-      }
-    };
-
-
-    $scope.toggleItem = function(item, forceSelect) {
-      if ($scope.itemActive === item && !forceSelect) {
-        $scope.itemActive = null;
-      } else {
-        $scope.itemActive = item;
       }
     };
   }

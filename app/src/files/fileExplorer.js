@@ -16,6 +16,15 @@ module.directive('fileExplorer', function($location) {
           $progressBar = $('#file-explorer-progress-bar');
 
 
+      scope.toggleItem = function(item, forceSelect) {
+        if (scope.itemActive === item && !forceSelect) {
+          scope.itemActive = null;
+        } else {
+          scope.itemActive = item;
+        }
+      };
+
+
       scope.$watch(attrs.items, function(newValue) {
         if (newValue !== undefined && newValue !== null) {
           scope.items = newValue;
@@ -89,7 +98,7 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feOpenRoot = function() {
-        var node = $tree.tree('getNodeBy', '_id', scope.rootItem._id);
+        var node = $tree.tree('getNodeBy', '_id', scope.items[0]._id);
         $tree.tree('openNode', node);
         scope.feSelectNode(node);
       };
@@ -321,6 +330,15 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feOpenModalShareLink = function(item) {
+        var node = $tree.tree('getNodeBy', '_id', item._id);
+        $tree.tree(
+          'updateNode',
+          node,
+          {
+            lastModified: item.lastModified
+          }
+        );
+
         scope.modalform = {
           member: {
             0: {
@@ -385,7 +403,6 @@ module.directive('fileExplorer', function($location) {
         if (!$progressBar.hasClass('progress-bar-animate')) {
           $progressBar.addClass('progress-bar-animate');
         }
-
         $progressBar.css('transform', 'translate3d(' + (percent - 100) + '%,0,0)');
 
         if (percent === 100) {
