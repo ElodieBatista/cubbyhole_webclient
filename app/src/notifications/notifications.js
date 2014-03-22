@@ -14,9 +14,6 @@ module.config(function config($routeProvider) {
 
 module.controller('NotificationsCtrl',
   function NotificationsCtrl(conf, $rootScope, $scope, apiService) {
-    // Highlight btn in the nav bar
-    $rootScope.navtop = 3;
-
     $scope.notifications = null;
 
 

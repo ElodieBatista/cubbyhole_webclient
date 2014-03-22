@@ -15,9 +15,6 @@ module.config(function config($routeProvider) {
 
 module.controller('SharingCtrl',
   function SharingCtrl(conf, $rootScope, $scope, $routeParams, $location, apiService) {
-    // Highlight first btn in the nav bar
-    $rootScope.navtop = 1;
-
     $scope.items = [];
 
     $scope.path = $routeParams.id;

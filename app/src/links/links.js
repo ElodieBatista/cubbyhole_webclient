@@ -15,9 +15,6 @@ module.config(function config($routeProvider) {
 
 module.controller('LinksCtrl',
   function LinksCtrl(conf, $rootScope, $scope, apiService) {
-    // Highlight first btn in the nav bar
-    $rootScope.navtop = 2;
-
     $scope.userId = $rootScope.getProfile().id;
 
 

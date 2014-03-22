@@ -15,9 +15,6 @@ module.config(function config($routeProvider) {
 
 module.controller('FilesCtrl',
   function FilesCtrl(conf, $rootScope, $scope, $routeParams, $upload, apiService) {
-    // Highlight first btn in the nav bar
-    $rootScope.navtop = 0;
-
     $scope.path = $routeParams.path;
 
     apiService.Items.get(function(res) {

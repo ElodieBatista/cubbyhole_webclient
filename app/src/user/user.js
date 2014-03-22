@@ -14,9 +14,6 @@ module.config(function config($routeProvider) {
 
 module.controller('UserCtrl',
   function UserCtrl(conf, $rootScope, $scope, apiService) {
-    // Highlight first btn in the nav bar
-    $rootScope.navtop = 4;
-
     $scope.getColorClass = function(percent) {
       if (percent < 50) {
         return 'quaternary-btn';
