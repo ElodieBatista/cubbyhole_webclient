@@ -8,7 +8,7 @@
 
   <ul class="action-bar-right">
 
-    <li class="action-bar-item" ng-show="itemActive && itemActive.type === 'file' || itemActive.children.length > 0" ng-click="feDownloadItem()">
+    <li class="action-bar-item" ng-show="itemActive" ng-click="feDownloadItem()">
       <ng-include class="action-bar-icon" src="'/styles/icons/icon_download.svg'"></ng-include>
       <span>Download</span>
     </li>

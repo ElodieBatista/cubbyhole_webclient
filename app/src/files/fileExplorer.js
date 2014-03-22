@@ -194,9 +194,7 @@ module.directive('fileExplorer', function($location) {
 
 
       scope.feDownloadItem = function() {
-        if (scope.itemActive.type === 'file' || scope.itemActive.children.length > 0) {
-          $('#file-explorer-form-download').submit();
-        }
+        $('#file-explorer-form-download').submit();
       };
 
 
