@@ -14,7 +14,7 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('FilesCtrl',
-  function FilesCtrl(conf, $rootScope, $scope, $routeParams, $upload, apiService) {
+  function FilesCtrl(conf, $scope, $routeParams, $upload, apiService) {
     $scope.path = $routeParams.path;
 
 

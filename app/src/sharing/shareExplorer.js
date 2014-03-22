@@ -2,15 +2,24 @@
 
 var module = angular.module('webApp');
 
-/**
- *
- */
-module.directive('shareExplorer', function() {
+module.directive('shareExplorer', function($location) {
   return {
     restrict: 'A',
     scope: '{}',
 
     link: function (scope, element, attrs) {
+      scope.toggleItem = function(item, forceSelect) {
+        if (scope.itemActive === item && !forceSelect) {
+          scope.itemActive = null;
+          $location.search('id', null);
+        } else {
+          scope.itemActive = item;
+          $location.path('/sharing').search({id: scope.itemActive._id});
+          if (!scope.$$phase) { scope.$apply(); }
+        }
+      };
+
+
       scope.canConfirm = function(id) {
           for (var i = 0, l = scope.itemActive.members.length; i < l; i++) {
             if (scope.itemActive.members[i]._id === id &&
@@ -30,7 +39,6 @@ module.directive('shareExplorer', function() {
           submitFnExtraParam: item._id,
           templateUrl: 'src/sharing/tpls/unshareItem.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
@@ -43,7 +51,6 @@ module.directive('shareExplorer', function() {
           submitFnExtraParam: item._id,
           templateUrl: 'src/sharing/tpls/leaveSharedItem.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
@@ -60,7 +67,6 @@ module.directive('shareExplorer', function() {
           },
           templateUrl: 'src/sharing/tpls/revokeSharePermission.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
@@ -82,7 +88,6 @@ module.directive('shareExplorer', function() {
           submitBtnVal: 'Share',
           templateUrl: 'src/sharing/tpls/shareItem.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
     }

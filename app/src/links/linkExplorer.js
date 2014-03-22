@@ -2,15 +2,21 @@
 
 var module = angular.module('webApp');
 
-/**
- *
- */
 module.directive('linkExplorer', function() {
   return {
     restrict: 'A',
     scope: '{}',
 
     link: function (scope, element, attrs) {
+      scope.toggleItem = function(item, forceSelect) {
+        if (scope.itemActive === item && !forceSelect) {
+          scope.itemActive = null;
+        } else {
+          scope.itemActive = item;
+        }
+      };
+
+
       scope.leOpenModalDeleteLink = function(item) {
         scope.modalOpts = {
           title: 'Delete ' + item.name + ' link',
@@ -19,7 +25,6 @@ module.directive('linkExplorer', function() {
           submitBtnVal: 'Delete',
           templateUrl: 'src/links/tpls/deleteLink.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
@@ -41,7 +46,6 @@ module.directive('linkExplorer', function() {
           obj: item,
           templateUrl: 'src/links/tpls/shareLink.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
     }

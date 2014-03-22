@@ -19,6 +19,9 @@ module.factory('apiService', function(conf, $resource, $rootScope) {
     }),
 
     Item: $resource(conf.epApi + '/item/:id', {id:'@id'}, {
+      'get': {
+        method:'GET'
+      },
       'post': {
         method:'POST',
         params: {

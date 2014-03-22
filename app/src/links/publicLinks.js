@@ -12,15 +12,8 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('PublicLinksCtrl',
-  function PublicLinksCtrl(conf, $rootScope, $scope, $routeParams, $resource) {
-    var Item = $resource(conf.epApi + '/item/:id', {id:'@id'}, {
-      'get': {
-        method:'GET'
-      }
-    });
-
-
-    Item.get({'id':$routeParams.id}, function(res) {
+  function PublicLinksCtrl($scope, $routeParams, apiService) {
+    apiService.Item.get({'id':$routeParams.id}, function(res) {
       $scope.item = res.data;
     }, function(err) { $scope.errorShow(err); });
   }

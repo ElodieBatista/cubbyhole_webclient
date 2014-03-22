@@ -13,16 +13,13 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('NotificationsCtrl',
-  function NotificationsCtrl(conf, $rootScope, $scope, apiService) {
-    $scope.notifications = null;
-
-
+  function NotificationsCtrl($scope, apiService) {
     apiService.Notifications.get(function(res) {
       $scope.notifications = res.data;
     }, function(err) { $scope.errorShow(err); });
 
 
-    $scope.deleteNotification = function(id) {
+    $scope.deleteNotification = function(form, id) {
       apiService.Notification.delete({'id':id}, function(res) {
         for (var i = 0, l = $scope.notifications.length; i < l; i++) {
           if ($scope.notifications[i]._id === id) {
@@ -32,15 +29,6 @@ module.controller('NotificationsCtrl',
           }
         }
       }, function(err) { $scope.errorShow(err); });
-    };
-
-
-    $scope.toggleItem = function(item, forceSelect) {
-      if ($scope.itemActive === item && !forceSelect) {
-        $scope.itemActive = null;
-      } else {
-        $scope.itemActive = item;
-      }
     };
   }
 );

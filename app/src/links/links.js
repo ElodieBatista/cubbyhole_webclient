@@ -14,10 +14,7 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('LinksCtrl',
-  function LinksCtrl(conf, $rootScope, $scope, apiService) {
-    $scope.userId = $rootScope.getProfile().id;
-
-
+  function LinksCtrl($scope, apiService) {
     apiService.Links.get(function(res) {
       $scope.items = res.data;
     }, function(err) { $scope.errorShow(err); });
@@ -37,25 +34,13 @@ module.controller('LinksCtrl',
 
 
     $scope.shareLink = function(form, id) {
-      if (form.member['0'].email.length > 0) {
-        var members = [];
-
-        for (var prop in form.member) {
-          members.push(form.member[prop]);
-        }
-
-        apiService.Link.put({'id':id, 'with':members}, function(res) {
-        }, function(err) { $scope.errorShow(err); });
+      var members = [];
+      for (var prop in form.member) {
+        members.push(form.member[prop]);
       }
-    };
 
-
-    $scope.toggleItem = function(item, forceSelect) {
-      if ($scope.itemActive === item && !forceSelect) {
-        $scope.itemActive = null;
-      } else {
-        $scope.itemActive = item;
-      }
+      apiService.Link.put({'id':id, 'with':members}, function(res) {
+      }, function(err) { $scope.errorShow(err); });
     };
   }
 );

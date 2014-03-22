@@ -259,14 +259,14 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Add',
           templateUrl: 'src/files/tpls/newFolder.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
 
       scope.feOpenModalRenameItem = function(item) {
-        scope.modalform = {};
-        scope.modalform.name = item.name;
+        scope.modalform = {
+          name: item.name
+        };
 
         scope.modalOpts = {
           title: 'Rename ' + item.name + ' ' + item.type,
@@ -276,7 +276,6 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Rename',
           templateUrl: 'src/files/tpls/renameItem.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
@@ -290,7 +289,6 @@ module.directive('fileExplorer', function($location) {
           obj: item,
           templateUrl: 'src/files/tpls/deleteItem.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
@@ -302,7 +300,6 @@ module.directive('fileExplorer', function($location) {
           submitFn: scope.onFileSelect,
           templateUrl: 'src/files/tpls/addFiles.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
@@ -324,7 +321,6 @@ module.directive('fileExplorer', function($location) {
           submitBtnVal: 'Share',
           templateUrl: 'src/files/tpls/shareItem.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
@@ -355,7 +351,6 @@ module.directive('fileExplorer', function($location) {
           obj: item,
           templateUrl: 'src/files/tpls/shareLink.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
@@ -370,7 +365,6 @@ module.directive('fileExplorer', function($location) {
           obj: item,
           templateUrl: 'src/files/tpls/downloadItem.tpl.html'
         };
-
         $('#appmodal').modal('show');
       };
 
