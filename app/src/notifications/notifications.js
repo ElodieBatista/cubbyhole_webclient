@@ -40,6 +40,7 @@ module.controller('NotificationsCtrl',
         for (var i = 0, l = $scope.notifications.length; i < l; i++) {
           if ($scope.notifications[i]._id === id) {
             $scope.notifications.splice(i, 1);
+            $scope.toggleItem(null);
             break;
           }
         }
