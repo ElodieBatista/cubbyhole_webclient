@@ -7,15 +7,6 @@
   margin-bottom: 83px;
 }
 
-.user-icon {
-  width: 23px;
-  height: 23px;
-}
-
-.user-icon:hover path {
-  fill: rgb(255, 108, 164);
-}
-
 .user-stats {
   text-align: right;
 }
@@ -34,18 +25,9 @@
   margin-top: 15px;
 }
 
-
-.quinary .plans-bloc:nth-child(3n + 1):not(.plan-chosen):hover {
-  border: 1px solid rgb(122, 201, 67);
-}
-
-.quinary .plans-bloc:nth-child(3n + 2):not(.plan-chosen):hover {
-  border: 1px solid rgb(255, 147, 30);
-}
-
-.quinary .plans-bloc:nth-child(3n + 3):not(.plan-chosen):hover {
-  border: 1px solid rgb(255, 29, 37);
-}
+.quinary .plans-bloc:nth-child(3n + 1):not(.plan-chosen):hover {  border: 1px solid rgb(122, 201, 67);  }
+.quinary .plans-bloc:nth-child(3n + 2):not(.plan-chosen):hover {  border: 1px solid rgb(255, 147, 30);  }
+.quinary .plans-bloc:nth-child(3n + 3):not(.plan-chosen):hover {  border: 1px solid rgb(255, 29, 37);   }
 
 
 .quinary .plans-bloc:nth-child(3n + 1):not(.plan-chosen) .plans-title {

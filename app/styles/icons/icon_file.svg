@@ -1,37 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-<g id="Captions">
-</g>
-<g id="Your_Icon">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
+<g>
 	<g>
 		<g>
-			<path d="M58.062,18.355H26.286v63.289h47.428V34.007L58.062,18.355z M60.429,24.068l7.572,7.573h-7.572V24.068z M71.348,79.278     H28.652V20.721h29.41v13.286h13.285V79.278z"/>
+			<path fill="#000000" d="M13.793,6H4.756v18h13.488V10.452L13.793,6z M14.466,7.625l2.153,2.154h-2.153V7.625z M17.571,23.328
+				H5.429V6.673h8.364v3.778h3.778V23.328L17.571,23.328z"/>
 		</g>
 		<g>
-			<rect x="33.083" y="26.4" width="16.564" height="2.367"/>
+			<rect x="6.688" y="8.288" fill="#000000" width="4.711" height="0.673"/>
 		</g>
 		<g>
-			<rect x="33.083" y="31.37" width="16.564" height="2.367"/>
+			<rect x="6.688" y="9.702" fill="#000000" width="4.711" height="0.673"/>
 		</g>
 		<g>
-			<rect x="33.083" y="43.675" width="33.131" height="2.367"/>
+			<rect x="6.688" y="13.201" fill="#000000" width="9.423" height="0.673"/>
 		</g>
 		<g>
-			<rect x="33.083" y="38.942" width="33.131" height="2.367"/>
+			<rect x="6.688" y="11.855" fill="#000000" width="9.423" height="0.673"/>
 		</g>
 		<g>
-			<rect x="33.083" y="48.408" width="33.131" height="2.366"/>
+			<rect x="6.688" y="14.547" fill="#000000" width="9.423" height="0.673"/>
 		</g>
 		<g>
-			<rect x="33.083" y="53.141" width="33.131" height="2.367"/>
+			<rect x="6.688" y="15.893" fill="#000000" width="9.423" height="0.673"/>
 		</g>
 		<g>
-			<rect x="33.083" y="57.875" width="33.131" height="2.365"/>
+			<rect x="6.688" y="17.24" fill="#000000" width="9.423" height="0.672"/>
 		</g>
 		<g>
-			<rect x="33.083" y="71.127" width="18.931" height="2.367"/>
+			<rect x="6.688" y="21.01" fill="#000000" width="5.385" height="0.672"/>
 		</g>
 		<g>
-			<rect x="33.083" y="62.134" width="9.465" height="2.367"/>
+			<rect x="6.688" y="18.451" fill="#000000" width="2.692" height="0.674"/>
 		</g>
 	</g>
 </g>

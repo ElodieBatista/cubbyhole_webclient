@@ -41,15 +41,7 @@ ul.jqtree-tree ul.jqtree_common {
   margin-left: 16px;
 }
 
-/* BASE */
-html, body {
-  height: 100%;
-}
-
-body {
-  padding-top: 50px;
-}
-
+/* PANEL LEFT */
 #panel-left {
   display: block;
   height: 100%;
@@ -179,35 +171,4 @@ body {
 
 .upload-container-hover .dnd-over.itemActive {
   background-color: rgba(254, 80, 81, 0.7) !important;
-}
-
-
-/* MODALS */
-#modal-body-share {
-  max-height: 250px;
-  overflow-y: auto;
-}
-
-#modal-body-share p {
-  margin-bottom: 15px;
-}
-
-#modal-body-share input[type="radio"] {
-  margin-top: 16px;
-}
-
-.modal-mini-title {
-  margin-bottom: 15px;
-  text-align: center;
-  white-space: nowrap;
-}
-
-.modal-mini-paragraphs {
-  margin-bottom: 15px !important;
-}
-
-.modal-mini-close {
-  position: relative;
-  left: 12px;
-  top: 14px;
 }

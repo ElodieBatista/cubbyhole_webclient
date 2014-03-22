@@ -9,6 +9,10 @@
 }
 
 /* BASE */
+html, body {
+  height: 100%;
+}
+
 body {
   font-family: "OpenSans-Light", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -59,6 +63,11 @@ h5 {
   text-align: center;
 }
 
+.block-center {
+  display: block;
+  margin: 0 auto;
+}
+
 .clickable {
   cursor: pointer;
 }
@@ -106,9 +115,8 @@ button:focus {
 }
 
 label {
+  margin: auto auto 0 5px;
   line-height: 45px;
-  margin-left: 5px;
-  margin-bottom: 0;
   font-weight: normal;
 }
 
@@ -175,6 +183,24 @@ input[type="file"] {
 }
 
 
+/* MODALS */
+.modal-mini-title {
+  margin-bottom: 15px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.modal-mini-paragraphs {
+  margin-bottom: 15px !important;
+}
+
+.modal-mini-close {
+  position: relative;
+  left: 12px;
+  top: 14px;
+}
+
+
 /* NAVTOP */
 .navtop-container {
   text-transform: uppercase;
@@ -232,25 +258,11 @@ input[type="file"] {
   background-color: inherit;
 }
 
-.navtop-items-list .active:nth-child(1) > a {
-  color: rgb(255, 29, 37) !important;
-}
-
-.navtop-items-list .active:nth-child(2) > a {
-  color: rgb(63, 169, 245) !important;
-}
-
-.navtop-items-list .active:nth-child(3) > a {
-  color: rgb(255, 147, 30) !important;
-}
-
-.navtop-items-list .active:nth-child(4) > a {
-  color: rgb(122, 201, 67) !important;
-}
-
-.navtop-items-list .active:nth-child(5) > a {
-  color: rgb(255, 108, 164) !important;
-}
+.navtop-items-list .active:nth-child(1) > a { color: rgb(255, 29, 37) !important;   }
+.navtop-items-list .active:nth-child(2) > a { color: rgb(63, 169, 245) !important;  }
+.navtop-items-list .active:nth-child(3) > a { color: rgb(255, 147, 30) !important;  }
+.navtop-items-list .active:nth-child(4) > a { color: rgb(122, 201, 67) !important;  }
+.navtop-items-list .active:nth-child(5) > a { color: rgb(255, 108, 164) !important; }
 
 .navtop-item:hover {
   background-position: 0 0;
@@ -287,25 +299,11 @@ input[type="file"] {
   color: white !important;
 }
 
-.navtop-items-list .navtop-item:nth-child(1) .dropdown-menu a:hover {
-  background-color: rgb(255, 29, 37);
-}
-
-.navtop-items-list .navtop-item:nth-child(2) .dropdown-menu a:hover {
-  background-color: rgb(63, 169, 245);
-}
-
-.navtop-items-list .navtop-item:nth-child(3) .dropdown-menu a:hover {
-  background-color: rgb(255, 147, 30);
-}
-
-.navtop-items-list .navtop-item:nth-child(4) .dropdown-menu a:hover {
-  background-color: rgb(122, 201, 67);
-}
-
-.navtop-items-list .navtop-item:nth-child(5) .dropdown-menu a:hover {
-  background-color: rgb(255, 108, 164);
-}
+.navtop-items-list .navtop-item:nth-child(1) .dropdown-menu a:hover { background-color: rgb(255, 29, 37);   }
+.navtop-items-list .navtop-item:nth-child(2) .dropdown-menu a:hover { background-color: rgb(63, 169, 245);  }
+.navtop-items-list .navtop-item:nth-child(3) .dropdown-menu a:hover { background-color: rgb(255, 147, 30);  }
+.navtop-items-list .navtop-item:nth-child(4) .dropdown-menu a:hover { background-color: rgb(122, 201, 67);  }
+.navtop-items-list .navtop-item:nth-child(5) .dropdown-menu a:hover { background-color: rgb(255, 108, 164); }
 
 .navtop-items-list .navtop-item:nth-child(1),
 .navtop-items-list .navtop-item:nth-child(1).open > a {
@@ -442,10 +440,10 @@ input[type="file"] {
   background-repeat: no-repeat;
   background-position: 0 40px;
   -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
+     -moz-transition: all 0.2s ease-out;
+      -ms-transition: all 0.2s ease-out;
+       -o-transition: all 0.2s ease-out;
+          transition: all 0.2s ease-out;
 }
 
 .sign-nav-item:hover {
@@ -501,10 +499,10 @@ footer {
   border: 1px solid rgb(230, 230, 230);
   background-color: rgb(255, 255, 255);
   -webkit-transition: all 0.2s ease-out;
-  -moz-transition: all 0.2s ease-out;
-  -ms-transition: all 0.2s ease-out;
-  -o-transition: all 0.2s ease-out;
-  transition: all 0.2s ease-out;
+     -moz-transition: all 0.2s ease-out;
+      -ms-transition: all 0.2s ease-out;
+       -o-transition: all 0.2s ease-out;
+          transition: all 0.2s ease-out;
 }
 
 .input-prepend-file {
@@ -556,6 +554,53 @@ footer {
   font-size: 22px;
 }
 
+.multiple-input input[type="radio"] {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.primary-btn    { background-color: rgb(254, 80, 81);   }
+.secondary-btn  { background-color: rgb(95, 182, 245);  }
+.tertiary-btn   { background-color: rgb(255, 168, 72);  }
+.quaternary-btn { background-color: rgb(141, 209, 97);  }
+.quinary-btn    { background-color: rgb(255, 149, 189); }
+
+.primary-btn:hover,
+.primary-btn:focus,
+.primary-btn:active {
+  background-color: rgb(255, 29, 37);
+}
+
+.secondary-btn:hover,
+.secondary-btn:focus,
+.secondary-btn:active {
+  background-color: rgb(63, 169, 245);
+}
+
+.tertiary-btn:hover,
+.tertiary-btn:focus,
+.tertiary-btn:active {
+  background-color: rgb(255, 147, 30);
+}
+
+.quaternary-btn:hover,
+.quaternary-btn:focus,
+.quaternary-btn:active {
+  background-color: rgb(122, 201, 67);
+}
+
+.quinary-btn:hover,
+.quinary-btn:focus,
+.quinary-btn:active {
+  background-color: rgb(255, 108, 164);
+}
+
+.primary .input-prepend-active    { border-color: rgb(255, 29, 37);    }
+.secondary .input-prepend-active  { border-color: rgb(63, 169, 245);   }
+.tertiary .input-prepend-active   { border-color: rgb(255, 147, 30);   }
+.quaternary .input-prepend-active { border-color: rgb(122, 201, 67);   }
+.quinary .input-prepend-active    { border-color: rgb(255, 108, 164);  }
+
 
 /* TABLES */
 .grid-view-table-container {
@@ -604,6 +649,10 @@ td:first-child {
   cursor: pointer;
 }
 
+td:first-child span {
+  line-height: 30px;
+}
+
 .primary td:first-child     { color: rgb(255, 29, 37);    }
 .secondary td:first-child   { color: rgb(63, 169, 245);   }
 .tertiary td:first-child    { color: rgb(255, 147, 30);   }
@@ -626,7 +675,7 @@ td:first-child span:hover {
   text-decoration: underline;
 }
 
-.primary .itemActive    { background-color: rgba(254, 80, 81, 0.7) ;  }
+.primary .itemActive    { background-color: rgba(254, 80, 81, 0.7);   }
 .secondary .itemActive  { background-color: rgba(95, 182, 245, 0.7);  }
 .tertiary .itemActive   { background-color: rgba(255, 168, 72, 0.7);  }
 .quaternary .itemActive { background-color: rgba(141, 209, 97, 0.7);  }
@@ -634,48 +683,6 @@ td:first-child span:hover {
 
 
 /* COLORS */
-.primary-btn    { background-color: rgb(254, 80, 81);   }
-.secondary-btn  { background-color: rgb(95, 182, 245);  }
-.tertiary-btn   { background-color: rgb(255, 168, 72);  }
-.quaternary-btn { background-color: rgb(141, 209, 97);  }
-.quinary-btn    { background-color: rgb(255, 149, 189); }
-
-.primary-btn:hover,
-.primary-btn:focus,
-.primary-btn:active {
-  background-color: rgb(255, 29, 37);
-}
-
-.secondary-btn:hover,
-.secondary-btn:focus,
-.secondary-btn:active {
-  background-color: rgb(63, 169, 245);
-}
-
-.tertiary-btn:hover,
-.tertiary-btn:focus,
-.tertiary-btn:active {
-  background-color: rgb(255, 147, 30);
-}
-
-.quaternary-btn:hover,
-.quaternary-btn:focus,
-.quaternary-btn:active {
-  background-color: rgb(122, 201, 67);
-}
-
-.quinary-btn:hover,
-.quinary-btn:focus,
-.quinary-btn:active {
-  background-color: rgb(255, 108, 164);
-}
-
-.primary .input-prepend-active    { border-color: rgb(255, 29, 37);    }
-.secondary .input-prepend-active  { border-color: rgb(63, 169, 245);   }
-.tertiary .input-prepend-active   { border-color: rgb(255, 147, 30);   }
-.quaternary .input-prepend-active { border-color: rgb(122, 201, 67);   }
-.quinary .input-prepend-active    { border-color: rgb(255, 108, 164);  }
-
 .primary .highlight,
 .primary .subtitle {
   color: rgb(255, 29, 37);
@@ -732,10 +739,6 @@ td:first-child span:hover {
   margin-right: 2px;
 }
 
-.action-bar-icon-small {
-  width: 19px;
-}
-
 .action-bar-item {
   float: left;
   display: block;
@@ -763,16 +766,11 @@ td:first-child span:hover {
   fill: rgb(255, 255, 255);
 }
 
-.action-bar-item:hover .action-bar-icon svg line {
-  stroke: rgb(255, 255, 255);
-}
-
 @media screen and (max-width: 770px) {
   .action-bar-item span {
     display: none;
   }
 }
-
 
 @media screen and (max-width: 1020px) and (min-width: 990px) {
   .action-bar-item span {
@@ -790,9 +788,4 @@ td:first-child span:hover {
 
 .itemActive td:first-child {
   color: white !important;
-}
-
-.multiple-input input[type="radio"] {
-  margin-top: 16px;
-  margin-bottom: 16px;
 }

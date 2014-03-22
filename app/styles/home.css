@@ -222,14 +222,6 @@
   text-decoration: none;
 }
 
-.about-social-container:nth-child(1) .about-social-link:hover {
-  color: rgb(0, 64, 137);
-}
-
-.about-social-container:nth-child(2) .about-social-link:hover {
-  color: rgb(0, 171, 227);
-}
-
-.about-social-container:nth-child(3) .about-social-link:hover {
-  color: rgb(255, 108, 164);
-}
+.about-social-container:nth-child(1) .about-social-link:hover { color: rgb(0, 64, 137);     }
+.about-social-container:nth-child(2) .about-social-link:hover { color: rgb(0, 171, 227);    }
+.about-social-container:nth-child(3) .about-social-link:hover { color: rgb(255, 108, 164);  }
