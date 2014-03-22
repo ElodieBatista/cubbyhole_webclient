@@ -757,13 +757,13 @@ td:first-child span:hover {
 .quaternary .action-bar-item:hover  { background-color: rgb(122, 201, 67);  }
 .quinary .action-bar-item:hover     { background-color: rgb(255, 108, 164); }
 
-.action-bar-item:hover svg.action-bar-icon path,
-.action-bar-item:hover svg.action-bar-icon rect,
-.action-bar-item:hover svg.action-bar-icon polygon {
+.action-bar-item:hover .action-bar-icon svg path,
+.action-bar-item:hover .action-bar-icon svg rect,
+.action-bar-item:hover .action-bar-icon svg polygon {
   fill: rgb(255, 255, 255);
 }
 
-.action-bar-item:hover svg.action-bar-icon line {
+.action-bar-item:hover .action-bar-icon svg line {
   stroke: rgb(255, 255, 255);
 }
 
@@ -778,10 +778,6 @@ td:first-child span:hover {
   .action-bar-item span {
     display: none;
   }
-}
-
-.action-bar-item-special {
-  float: left;
 }
 
 .action-bar-separator {

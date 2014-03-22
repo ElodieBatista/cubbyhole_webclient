@@ -1,51 +1,25 @@
 <div class="row action-bar">
-
   <ul class="action-bar-right">
+
     <li class="action-bar-item" ng-show="itemActive && itemActive.owner._id === userId" ng-click="seOpenModalShareItem(itemActive)">
-      <svg class="action-bar-icon" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-       width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
-        <path fill="#000000" d="M18.84,17.765c-1.449,0-2.729,0.649-3.473,1.631L8.07,16.223C8.229,15.841,8.32,15.43,8.32,15
-        c0-0.431-0.091-0.841-0.25-1.224l7.297-3.172c0.744,0.981,2.021,1.631,3.473,1.631c2.295,0,4.16-1.622,4.16-3.617S21.135,5,18.84,5
-        c-2.294,0-4.16,1.623-4.16,3.617c0,0.431,0.092,0.841,0.25,1.224l-7.297,3.172c-0.745-0.98-2.023-1.63-3.473-1.63
-        C1.866,11.383,0,13.005,0,15s1.867,3.617,4.16,3.617c1.451,0,2.728-0.649,3.473-1.63l7.297,3.173
-        c-0.158,0.381-0.25,0.793-0.25,1.222c0,1.994,1.866,3.618,4.16,3.618c2.295,0,4.16-1.623,4.16-3.618S21.135,17.765,18.84,17.765z
-         M18.84,5.852c1.754,0,3.18,1.24,3.18,2.765c0,1.525-1.426,2.766-3.18,2.766s-3.18-1.24-3.18-2.766
-        C15.66,7.092,17.086,5.852,18.84,5.852z M4.16,17.765c-1.753,0-3.18-1.241-3.18-2.765c0-1.525,1.426-2.766,3.18-2.766
-        S7.34,13.475,7.34,15C7.339,16.523,5.913,17.765,4.16,17.765z M18.84,24.147c-1.754,0-3.18-1.24-3.18-2.765
-        c0-1.525,1.426-2.766,3.18-2.766s3.18,1.24,3.18,2.766C22.02,22.907,20.594,24.147,18.84,24.147z"/>
-      </svg>
+      <ng-include class="action-bar-icon" src="'/styles/icons/icon_share.svg'"></ng-include>
       <span>Invite</span>
     </li>
+
     <li class="action-bar-item" ng-show="itemActive && canConfirm(userId)" ng-click="confirmShare(itemActive._id, userId)">
-      <svg class="action-bar-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
-        <path d="M80.467,28.54c-1.562-1.562-4.096-1.562-5.658,0L40.868,62.48L27.194,48.806c-1.562-1.562-4.095-1.562-5.657,0
-        c-1.562,1.562-1.562,4.095,0,5.657L38.04,70.966c0.781,0.781,1.805,1.172,2.829,1.172s2.047-0.391,2.829-1.172l36.77-36.769
-        C82.028,32.634,82.028,30.102,80.467,28.54z"/>
-      </svg>
+      <ng-include class="action-bar-icon" src="'/styles/icons/icon_check.svg'"></ng-include>
       <span>Confirm</span>
     </li>
+
     <li class="action-bar-item" ng-show="itemActive && itemActive.owner._id !== userId" ng-click="seOpenModalLeaveSharedItem(itemActive)">
-      <svg class="action-bar-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-         width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
-        <path fill="#000000" d="M6.729,7.293L9.421,9.94h12.845v13.765H0.734V7.293h5.873 M6.729,6.5H0.856C0.451,6.5,0,6.723,0,7.161
-        v16.413C0,24.012,0.451,24.5,0.856,24.5h21.533c0.404,0,0.61-0.488,0.61-0.927V9.808c0-0.438-0.206-0.662-0.61-0.662H9.704
-        L7.223,6.707C7.087,6.574,6.911,6.5,6.729,6.5L6.729,6.5z"/>
-        <path fill="#000000" d="M3.487,14.508l-1.895,1.769c-0.144,0.134-0.231,0.318-0.23,0.521s0.091,0.385,0.234,0.518l0,0l1.914,1.751
-        c0.313,0.285,0.813,0.283,1.124-0.005c0.309-0.289,0.307-0.739-0.005-1.024l-0.551-0.489l4.717-0.022
-        c0.438-0.002,0.791-0.333,0.789-0.737c-0.002-0.405-0.359-0.733-0.797-0.731L4.07,16.079l0.546-0.524
-        c0.155-0.145,0.23-0.34,0.229-0.526c-0.001-0.188-0.078-0.378-0.234-0.52C4.3,14.222,3.796,14.221,3.487,14.508z"/>
-      </svg>
+      <ng-include class="action-bar-icon" src="'/styles/icons/icon_leave.svg'"></ng-include>
       <span>Leave</span>
     </li>
+
     <li class="action-bar-item" ng-show="itemActive && itemActive.owner._id === userId" ng-click="seOpenModalUnshareItem(itemActive)">
-      <svg class="action-bar-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-         width="23px" height="30px" viewBox="0 0 23 30" enable-background="new 0 0 23 30" xml:space="preserve">
-        <g>
-          <polygon fill="#010202" points="19.801,24.5 11.5,16.199 3.199,24.5 2.5,23.801 10.801,15.5 2.5,7.199 3.199,6.5 11.5,14.801
-            19.801,6.5 20.5,7.199 12.199,15.5 20.5,23.801 	"/>
-        </g>
-      </svg>
+      <ng-include class="action-bar-icon" src="'/styles/icons/icon_cross.svg'"></ng-include>
       <span>Unshare</span>
     </li>
+
   </ul>
 </div>
