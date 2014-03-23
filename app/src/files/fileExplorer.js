@@ -329,7 +329,9 @@ module.directive('fileExplorer', function($location) {
           'updateNode',
           node,
           {
-            lastModified: item.lastModified
+            lastModified: item.lastModified,
+            isPublic: item.isPublic,
+            link: item.link
           }
         );
 
