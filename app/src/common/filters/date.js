@@ -3,7 +3,7 @@
 var module = angular.module('webApp');
 
 /**
- * Format date MM/DD/YYYY
+ * Format date MM/DD/YYYY HH:MM:SS
  */
 module.filter('date', function() {
   return function(dateStr) {

@@ -120,6 +120,11 @@ label {
   font-weight: normal;
 }
 
+select {
+  width: 100%;
+  border: none;
+}
+
 spinner {
   position: absolute;
   top: 50%;
@@ -632,6 +637,10 @@ footer {
 .tertiary .input-prepend-active   { border-color: rgb(255, 147, 30);   }
 .quaternary .input-prepend-active { border-color: rgb(122, 201, 67);   }
 .quinary .input-prepend-active    { border-color: rgb(255, 108, 164);  }
+
+.option-default {
+  color: rgb(170, 170, 170);
+}
 
 
 /* TABLES */
