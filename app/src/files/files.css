@@ -115,11 +115,6 @@ ul.jqtree-tree ul.jqtree_common {
   width: 100%;
 }
 
-#grid-view-msg {
-  margin-top: 100px;
-  text-align: center;
-}
-
 .upload-container-hover {
   border: 3px solid rgb(255, 29, 37) !important;
 }
