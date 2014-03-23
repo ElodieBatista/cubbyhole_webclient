@@ -1,17 +1,22 @@
 <div class="row multiple-input">
 
-  <div class="col-md-1">
-    <button class="close modal-mini-close" ng-click="deleteInput()">&times;</button>
+  <div class="col-xs-1 no-padding center">
+    <a class="close modal-mini-close modal-btn-plus" ng-click="deleteInput()">&times;</a>
   </div>
 
-  <div class="col-md-7">
+  <div class="col-xs-7 no-padding">
     <div class="input-prepend" ng-class="{'input-prepend-active': focused1 }">
       <i class="fa input-icon fa-envelope"></i>
       <input class="input-text" type="email" placeholder="Invite People" ng-model="form.member[index].email" required ng-init="focused1 = false" ng-focus="focused1 = true" ng-blur="focused1 = false" />
     </div>
   </div>
 
-  <input class="col-md-2" type="radio" name="permission-{{index}}" ng-model="form.member[index].permissions" value="0" required>
-  <input class="col-md-2" type="radio" name="permission-{{index}}" ng-model="form.member[index].permissions" value="1">
+  <div class="col-xs-2 no-padding center">
+    <input class="col-md-2" type="radio" name="permission-{{index}}" ng-model="form.member[index].permissions" value="0" required>
+  </div>
+
+  <div class="col-xs-2 no-padding center">
+    <input class="col-md-2" type="radio" name="permission-{{index}}" ng-model="form.member[index].permissions" value="1">
+  </div>
 
 </div>
