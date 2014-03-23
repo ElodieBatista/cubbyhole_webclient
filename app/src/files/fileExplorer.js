@@ -162,7 +162,7 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feRenameItem = function(name, id, parentId) {
+      scope.feRenameItem = function(name, id, parentId, lastModified) {
         var node = $tree.tree('getNodeBy', '_id', id),
             parent = $tree.tree('getNodeBy', '_id', parentId),
             newPos = scope.getNodeNewPos(node, parent, name);
@@ -180,7 +180,8 @@ module.directive('fileExplorer', function($location) {
           'updateNode',
           node,
           {
-            name: name
+            name: name,
+            lastModified: lastModified
           }
         );
       };
@@ -216,7 +217,7 @@ module.directive('fileExplorer', function($location) {
       };
 
 
-      scope.feMoveItem = function(id, parentId, name) {
+      scope.feMoveItem = function(id, parentId, name, lastModified) {
         var node = $tree.tree('getNodeBy', '_id', id),
             nodeParent = $tree.tree('getNodeBy', '_id', parentId),
             newPos = scope.getNodeNewPos(node, nodeParent, node.name);
@@ -237,8 +238,16 @@ module.directive('fileExplorer', function($location) {
           );
         }
 
+        $tree.tree(
+          'updateNode',
+          node,
+          {
+            lastModified: lastModified
+          }
+        );
+
         if (node.name !== name) {
-          scope.feRenameItem(name, id, nodeParent._id);
+          scope.feRenameItem(name, id, nodeParent._id, lastModified);
         }
       };
 

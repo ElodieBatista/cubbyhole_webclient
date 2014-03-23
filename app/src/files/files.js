@@ -33,7 +33,7 @@ module.controller('FilesCtrl',
     $scope.renameItem = function(form, item) {
       if (form.name !== item.name) {
         apiService.Item.put({'name':form.name, 'id':item._id}, function(res) {
-          $scope.feRenameItem(res.data.name, item._id, res.data.parent);
+          $scope.feRenameItem(res.data.name, item._id, res.data.parent, res.data.lastModified);
         }, function(err) { $scope.errorShow(err); });
       }
     };
@@ -55,7 +55,7 @@ module.controller('FilesCtrl',
 
     $scope.moveItem = function(id, parentId) {
       apiService.Item.put({'id':id, 'parent':parentId}, function(res) {
-        $scope.feMoveItem(id, parentId, res.data.name);
+        $scope.feMoveItem(id, parentId, res.data.name, res.data.lastModified);
       }, function(err) { $scope.errorShow(err); });
     };
 
