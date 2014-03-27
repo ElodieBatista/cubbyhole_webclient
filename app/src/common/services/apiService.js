@@ -108,7 +108,7 @@ module.factory('apiService', function(conf, $resource, $rootScope) {
     }),
 
 
-    User: $resource(conf.epApi + '/user/:id', {id:$rootScope.getProfile().id}, {
+    User: $resource(conf.epApi + '/user/:id', {id:'@id'}, {
       'get': {
         method: 'GET'
       }

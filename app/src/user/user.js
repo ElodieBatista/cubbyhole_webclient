@@ -24,7 +24,7 @@ module.controller('UserCtrl',
       }
     };
 
-    apiService.User.get(function(res) {
+    apiService.User.get({id:$rootScope.getProfile().id}, function(res) {
       $scope.user = res.data;
 
       $scope.stats = {
