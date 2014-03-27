@@ -7,10 +7,12 @@ var module = angular.module('webApp');
  */
 module.filter('size', function() {
   return function(bytes) {
-    var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-    if (bytes === 0) return '0 Bytes';
-    var i = parseInt(Math.log(bytes) / Math.log(1024));
-    var result = bytes / Math.pow(1024, i);
-    return result.toFixed(2) + ' ' + sizes[i];
+  	if      (bytes>=1000000000) {bytes=(bytes/1000000000).toFixed(2)+' GB';}
+  	else if (bytes>=1000000)    {bytes=(bytes/1000000).toFixed(2)+' MB';}
+  	else if (bytes>=1000)       {bytes=(bytes/1000).toFixed(2)+' KB';}
+  	else if (bytes>1)           {bytes=bytes+' bytes';}
+  	else if (bytes==1)          {bytes=bytes+' byte';}
+  	else                        {bytes='0 byte';}
+  	return bytes;
   };
 });
