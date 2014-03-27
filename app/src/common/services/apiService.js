@@ -2,7 +2,7 @@
 
 var module = angular.module('webApp');
 
-module.factory('apiService', function(conf, $resource, $rootScope) {
+module.factory('apiService', function(conf, $resource) {
   return {
     Items: $resource(conf.epApi + '/item', {}, {
       'get': {

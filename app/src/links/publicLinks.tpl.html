@@ -11,7 +11,7 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div ng-if="getProfile() === undefined">
+          <div ng-if="getProfile() === undefined || getProfile() === null">
             <h4 class="subtitle">Welcome</h4>
 
             <p>
@@ -24,7 +24,7 @@
             </p>
           </div>
 
-          <div ng-if="getProfile() !== undefined">
+          <div ng-if="getProfile() !== undefined && getProfile() !== null">
             <h4 class="subtitle">Welcome back</h4>
 
             <p ng-bind="getProfile().email"></p>
@@ -45,7 +45,11 @@
 
           <img class="block-center" ng-if="item.isPublic" ng-src="/styles/icons/icon_{{item.type}}_zip.svg">
 
-          <form method="GET" action="{{ 'http://localhost:3000/item/' + item._id + '/download' }}">
+          <form ng-if="getProfile() !== undefined && getProfile() !== null" method="GET" action="{{ 'http://localhost:3000/item/' + item._id + '/download/' + getToken() }}">
+            <input class="btn primary-btn" type="submit" value="Download {{item.name}}">
+          </form>
+
+          <form ng-if="getProfile() === undefined || getProfile() === null" method="GET" action="{{ 'http://localhost:3000/item/' + item._id + '/download' }}">
             <input class="btn primary-btn" type="submit" value="Download {{item.name}}">
           </form>
         </div>
