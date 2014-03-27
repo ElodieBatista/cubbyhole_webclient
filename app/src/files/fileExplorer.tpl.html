@@ -7,7 +7,7 @@
   <div class="col-md-9" id="grid-view" ng-file-drop="onFileSelect(null, $files)" ng-file-droppable="{{selectedNode.permissions !== 0}}" ng-file-drag-over-class="upload-container-hover" ng-file-drag-over-class-cond="!.dnd-drag">
     <div ng-include src="'/src/files/filesActionBar.tpl.html'"></div>
 
-    <div class="row grid-view-table-container">
+    <div class="row grid-view-table-container" id="file-explorer-table-container">
 
       <table class="col-md-12 grid-view-table">
         <thead>

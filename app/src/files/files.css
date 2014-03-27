@@ -95,6 +95,12 @@ ul.jqtree-tree ul.jqtree_common {
           transition: transform 0.3s ease-in;
 }
 
+#file-explorer-table-container {
+  height: -webkit-calc(100% - 50px);
+  height: -moz-calc(100% - 50px);
+  height: calc(100% - 50px);
+}
+
 
 /* TREE VIEW */
 @media screen and (max-width: 991px) {
