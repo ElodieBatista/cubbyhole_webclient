@@ -39,7 +39,7 @@
             <td>{{file.lastModified | date}}</td>
             <td ng-if="!file.isPublic">-</td>
             <td ng-if="file.isPublic">
-              <img class="table-icon clickable" navigate="external" navigate-param-val="http://localhost:8000/webapp.html#{{file.link.url}}" ng-src="/styles/icons/icon_link.svg" />
+              <img class="table-icon clickable" navigate="external" navigate-param-val="{{conf.epWeb}}/webapp.html#{{file.link.url}}" ng-src="/styles/icons/icon_link.svg" />
             </td>
           </tr>
         </tbody>
@@ -52,6 +52,6 @@
     </div>
   </div>
 
-  <form id="file-explorer-form-download" method="GET" action="{{ 'http://localhost:3000/item/' + itemActive._id + '/download/' + getToken() }}">
+  <form id="file-explorer-form-download" method="GET" action="{{ apiEp + 'item/' + itemActive._id + '/download/' + getToken() }}">
   </form>
 </div>

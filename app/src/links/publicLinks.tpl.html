@@ -20,7 +20,7 @@
             </p>
 
             <p>
-              Discover our services and <a href="/webapp.html">sign up today</a> to become a Cubbyhole member.
+              Discover our services and <a ng-href="{{conf.epWeb}}/index.html">sign up today</a> to become a Cubbyhole member.
             </p>
           </div>
 
@@ -30,7 +30,7 @@
             <p ng-bind="getProfile().email"></p>
 
             <p>
-              <a href="/webapp.html">Click here</a> to launch the web app.
+              <a ng-href="{{conf.epWeb}}/webapp.html">Click here</a> to launch the web app.
             </p>
           </div>
 
@@ -45,11 +45,11 @@
 
           <img class="block-center" ng-if="item.isPublic" ng-src="/styles/icons/icon_{{item.type}}_zip.svg">
 
-          <form ng-if="getProfile() !== undefined && getProfile() !== null" method="GET" action="{{ 'http://localhost:3000/item/' + item._id + '/download/' + getToken() }}">
+          <form ng-if="getProfile() !== undefined && getProfile() !== null" method="GET" action="{{ conf.epApi + '/item/' + item._id + '/download/' + getToken() }}">
             <input class="btn primary-btn" type="submit" value="Download {{item.name}}">
           </form>
 
-          <form ng-if="getProfile() === undefined || getProfile() === null" method="GET" action="{{ 'http://localhost:3000/item/' + item._id + '/download' }}">
+          <form ng-if="getProfile() === undefined || getProfile() === null" method="GET" action="{{ conf.epApi + '/item/' + item._id + '/download' }}">
             <input class="btn primary-btn" type="submit" value="Download {{item.name}}">
           </form>
         </div>

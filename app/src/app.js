@@ -8,7 +8,8 @@ angular.module('webApp', [
     'angularFileUpload'
   ])
   .constant('conf', {
-    'epApi': 'http://localhost:3000'
+    'epApi': 'http://localhost:3000',
+    'epWeb': 'http://localhost:8000'
   })
   .config(function(conf, $locationProvider, $httpProvider, $routeProvider, $sceDelegateProvider, $provide) {
     $httpProvider.defaults.headers.common['X-Cub-AuthToken'] = localStorage.getItem('cubbyhole-webapp-token');
@@ -54,7 +55,9 @@ angular.module('webApp', [
 
     $sceDelegateProvider.resourceUrlWhitelist([conf.epApi + '**', 'self'])
   })
-  .run(function($rootScope, $location, $window) {
+  .run(function(conf, $rootScope, $location, $window) {
+    $rootScope.conf = conf;
+
     $rootScope.$on('$routeChangeStart', function(event, next, current) {
       if (next.authRequired === true && !$rootScope.getToken()) {
         $window.location.href = 'index.html';

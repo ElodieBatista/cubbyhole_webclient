@@ -6,7 +6,7 @@
       <span>Share Link</span>
     </li>
 
-    <li class="action-bar-item" ng-show="itemActive" navigate="external" navigate-param-val="http://localhost:8000/webapp.html#{{itemActive.link.url}}">
+    <li class="action-bar-item" ng-show="itemActive" navigate="external" navigate-param-val="{{conf.epWeb}}/webapp.html#{{itemActive.link.url}}">
       <ng-include class="action-bar-icon" src="'/styles/icons/icon_open.svg'"></ng-include>
       <span>Open</span>
     </li>
