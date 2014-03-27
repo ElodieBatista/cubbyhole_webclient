@@ -1,6 +1,6 @@
 .user-title {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 
 .user-big-title {
@@ -9,6 +9,10 @@
 
 .user-stats {
   text-align: right;
+}
+
+.progress-bar {
+  color: rgb(0, 0, 0);
 }
 
 .quinary .plans-bloc {

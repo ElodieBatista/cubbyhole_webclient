@@ -29,16 +29,12 @@ module.controller('UserCtrl',
 
       $scope.stats = {
         storage: ($scope.user.currentPlan.usage.storage * 100) / $scope.user.currentPlan.plan.storage,
-        sharedQuota: ($scope.user.currentPlan.usage.share * 100) / $scope.user.currentPlan.plan.sharedQuota,
-        bandwidthUpload: ($scope.user.currentPlan.usage.bandwidth.upload * 100) / $scope.user.currentPlan.plan.bandwidth.upload,
-        bandwidthDownload: ($scope.user.currentPlan.usage.bandwidth.download * 100) / $scope.user.currentPlan.plan.bandwidth.download
+        sharedQuota: ($scope.user.currentPlan.usage.share * 100) / $scope.user.currentPlan.plan.sharedQuota
       };
 
       $scope.statsStyles = {
         storage: $scope.getColorClass($scope.stats.storage),
-        sharedQuota: $scope.getColorClass($scope.stats.sharedQuota),
-        bandwidthUpload: $scope.getColorClass($scope.stats.bandwidthUpload),
-        bandwidthDownload: $scope.getColorClass($scope.stats.bandwidthDownload)
+        sharedQuota: $scope.getColorClass($scope.stats.sharedQuota)
       };
     }, function(err) { $scope.errorShow(err); });
 
