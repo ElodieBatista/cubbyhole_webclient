@@ -1,5 +1,5 @@
 <div class="content-container">
-  <div class="container quinary">
+  <div class="container quinary" user-explorer>
 
     <div class="row space-top">
       <div class="col-md-12">
@@ -16,6 +16,8 @@
         <h5 class="user-title">Registered on {{user.registrationDate | date}}</h5>
 
         <h5 class="user-title">{{user.currentPlan.plan.name}} Plan</h5>
+
+        <h5 class="user-title"><a href="" ng-click="ueOpenModalDeleteUser()">Delete my account</a></h5>
       </div>
 
       <div class="col-md-6">

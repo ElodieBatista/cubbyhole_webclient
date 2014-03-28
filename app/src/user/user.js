@@ -13,7 +13,7 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('UserCtrl',
-  function UserCtrl(conf, $rootScope, $scope, apiService) {
+  function UserCtrl(conf, $rootScope, $scope, $location, apiService) {
     $scope.getColorClass = function(percent) {
       if (percent < 50) {
         return 'quaternary-btn';
@@ -42,5 +42,12 @@ module.controller('UserCtrl',
     apiService.Plans.get(function(res) {
       $scope.plans = res.data;
     }, function(err) { $scope.errorShow(err); });
+
+
+    $scope.deleteUser = function() {
+      apiService.Users.delete(function(res) {
+        $location.path('/logout');
+      }, function(err) { $scope.errorShow(err); });
+    };
   }
 );

@@ -1,7 +1,22 @@
-/**
- * Created with JetBrains WebStorm.
- * User: Elodie
- * Date: 3/28/14
- * Time: 11:39 AM
- * To change this template use File | Settings | File Templates.
- */
+'use strict';
+
+var module = angular.module('webApp');
+
+module.directive('userExplorer', function() {
+  return {
+    restrict: 'A',
+    scope: '{}',
+
+    link: function (scope, element, attrs) {
+      scope.ueOpenModalDeleteUser = function() {
+        scope.modalOpts = {
+          title: 'Delete my Account',
+          submitBtnVal: 'Delete',
+          submitFn: scope.deleteUser,
+          templateUrl: 'src/user/tpls/deleteUser.tpl.html'
+        };
+        $('#appmodal').modal('show');
+      };
+    }
+  };
+});

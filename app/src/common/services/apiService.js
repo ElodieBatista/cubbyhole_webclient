@@ -108,6 +108,13 @@ module.factory('apiService', function(conf, $resource) {
     }),
 
 
+    Users: $resource(conf.epApi + '/user/', {}, {
+      'delete': {
+        method: 'DELETE'
+      }
+    }),
+
+
     User: $resource(conf.epApi + '/user/:id', {id:'@id'}, {
       'get': {
         method: 'GET'
