@@ -58,12 +58,5 @@ module.controller('UserCtrl',
         $location.path('/logout');
       }, function(err) { $scope.errorShow(err); });
     };
-
-
-    $scope.subscribe = function(id) {
-      apiService.PlanSubscription.post({id:id}, function(res) {
-
-      }, function(err) { $scope.errorShow(err); });
-    };
   }
 );

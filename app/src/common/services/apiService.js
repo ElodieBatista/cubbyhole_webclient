@@ -126,15 +126,6 @@ module.factory('apiService', function(conf, $resource) {
       'get': {
         method: 'GET'
       }
-    }),
-
-    PlanSubscription: $resource(conf.epApi + '/plan/subscribe', {}, {
-      'post': {
-        method: 'POST'
-      },
-      params: {
-        id:'@id'
-      }
     })
   };
 });
