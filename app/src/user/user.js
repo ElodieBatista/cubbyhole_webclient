@@ -13,7 +13,7 @@ module.config(function config($routeProvider) {
 });
 
 module.controller('UserCtrl',
-  function UserCtrl(conf, $rootScope, $scope, $location, apiService) {
+  function UserCtrl(conf, $rootScope, $scope, $routeParams, $location, apiService) {
     $scope.getColorClass = function(percent) {
       if (percent < 50) {
         return 'quaternary-btn';
@@ -44,9 +44,25 @@ module.controller('UserCtrl',
     }, function(err) { $scope.errorShow(err); });
 
 
+    if ($routeParams.paid) {
+      $scope.$watch('ueOpenModalPaid', function(newValue) {
+        if (newValue !== undefined && newValue !== null) {
+          $scope.ueOpenModalPaid($routeParams.paid);
+        }
+      });
+    }
+
+
     $scope.deleteUser = function() {
       apiService.Users.delete(function(res) {
         $location.path('/logout');
+      }, function(err) { $scope.errorShow(err); });
+    };
+
+
+    $scope.subscribe = function(id) {
+      apiService.PlanSubscription.post({id:id}, function(res) {
+
       }, function(err) { $scope.errorShow(err); });
     };
   }

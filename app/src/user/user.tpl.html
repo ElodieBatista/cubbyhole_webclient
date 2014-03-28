@@ -112,7 +112,8 @@
 
           <div class="row">
             <div class="col-md-12">
-              <button class="btn">Update to {{plan.name}}</button>
+              <button class="btn" ng-if="plan._id !== user.currentPlan.plan._id" ng-click="subscribe(plan._id)">Upgrade to {{plan.name}}</button>
+              <button class="btn" ng-if="plan._id === user.currentPlan.plan._id" disabled>Active plan</button>
             </div>
           </div>
 

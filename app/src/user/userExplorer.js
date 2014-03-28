@@ -17,6 +17,17 @@ module.directive('userExplorer', function() {
         };
         $('#appmodal').modal('show');
       };
+
+
+      scope.ueOpenModalPaid = function(name) {
+        scope.modalOpts = {
+          title: 'Congratulations',
+          submitBtnVal: 'OK',
+          name: name,
+          templateUrl: 'src/user/tpls/paid.tpl.html'
+        };
+        $('#appmodal').modal('show');
+      }
     }
   };
 });
