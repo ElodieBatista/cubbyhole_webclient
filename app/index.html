@@ -440,9 +440,9 @@
         <div class="row">
           <div class="col-md-12">
             {{#ifMod @index 3}}
-              <img class="plans-img" src="/styles/icons/icon_{{name}}_plan_black.svg" alt="icon plan">
+              <img class="plans-img" src="/styles/icons/icon_{{#toLowerCase}}{{name}}{{/toLowerCase}}_plan_black.svg" alt="icon plan">
             {{else}}
-              <img class="plans-img" src="/styles/icons/icon_{{name}}_plan_white.svg" alt="icon plan">
+              <img class="plans-img" src="/styles/icons/icon_{{#toLowerCase}}{{name}}{{/toLowerCase}}_plan_white.svg" alt="icon plan">
             {{/ifMod}}
           </div>
         </div>

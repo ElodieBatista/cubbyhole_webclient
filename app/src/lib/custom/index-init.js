@@ -199,6 +199,10 @@ $(document).ready(function() {
     return ((a % b) === 0 ? options.fn(this) : options.inverse(this));
   });
 
+  Handlebars.registerHelper('toLowerCase', function(options) {
+    return options.fn(this).toLowerCase();
+  });
+
   $.ajax({
     type: 'GET',
     url: srvEndpoint + '/plan'
