@@ -1,14 +1,14 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
     <g>
-        <rect x="65" y="14.576" width="20" height="19.999"/>
-        <rect x="65" y="39.575" width="20" height="20.001"/>
-        <rect x="40.002" y="14.576" width="19.999" height="19.999"/>
-        <rect x="40.002" y="39.575" width="19.999" height="20.001"/>
-        <rect x="15" y="14.576" width="20.001" height="19.999"/>
-        <rect x="15" y="39.575" width="20.001" height="20.001"/>
-        <rect x="65" y="64.428" width="20" height="19.996"/>
-        <rect x="40.002" y="64.428" width="19.999" height="19.996"/>
-        <rect x="15" y="64.428" width="20.001" height="19.996"/>
+        <rect fill="#323232" x="65" y="14.576" width="20" height="19.999"/>
+        <rect fill="#323232" x="65" y="39.575" width="20" height="20.001"/>
+        <rect fill="#323232" x="40.002" y="14.576" width="19.999" height="19.999"/>
+        <rect fill="#323232" x="40.002" y="39.575" width="19.999" height="20.001"/>
+        <rect fill="#323232" x="15" y="14.576" width="20.001" height="19.999"/>
+        <rect fill="#323232" x="15" y="39.575" width="20.001" height="20.001"/>
+        <rect fill="#323232" x="65" y="64.428" width="20" height="19.996"/>
+        <rect fill="#323232" x="40.002" y="64.428" width="19.999" height="19.996"/>
+        <rect fill="#323232" x="15" y="64.428" width="20.001" height="19.996"/>
     </g>
 </svg>
