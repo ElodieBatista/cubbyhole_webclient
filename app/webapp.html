@@ -31,21 +31,21 @@
         <nav class="collapse navbar-collapse bs-navbar-collapse navtop-items-container" role="navigation">
           <ul class="nav navbar-nav navbar-right navtop-items-list" ng-if="getProfile() !== undefined && getProfile() !== null">
             <li class="navtop-item" ng-class="{ active: isActive('/files')}">
-              <a href="webapp.html#/files">Files</a>
+              <a href="webapp.html#/files" onclick="collapseNavbar();">Files</a>
             </li>
             <li class="navtop-item" ng-class="{ active: isActive('/sharing')}">
-              <a href="webapp.html#/sharing">Sharing</a>
+              <a href="webapp.html#/sharing" onclick="collapseNavbar();">Sharing</a>
             </li>
             <li class="navtop-item" ng-class="{ active: isActive('/links')}">
-              <a href="webapp.html#/links">Links</a>
+              <a href="webapp.html#/links" onclick="collapseNavbar();">Links</a>
             </li>
             <li class="navtop-item" ng-class="{ active: isActive('/notifications')}">
-              <a href="webapp.html#/notifications">Notifications</a>
+              <a href="webapp.html#/notifications" onclick="collapseNavbar();">Notifications</a>
             </li>
             <li class="navtop-item dropdown" ng-class="{ active: isActive('/user')}">
               <a data-toggle="dropdown" href="">Me &nbsp;&nbsp;<i class="fa fa-angle-down"></i></a>
               <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <li><a href="webapp.html#/user" ng-bind="getProfile().email"></a></li>
+                <li><a href="webapp.html#/user" ng-bind="getProfile().email" onclick="collapseNavbar();"></a></li>
                 <li><a href="webapp.html#/logout">Log out</a></li>
               </ul>
             </li>
@@ -53,7 +53,7 @@
 
           <ul class="nav navbar-nav navbar-right navtop-items-list" ng-if="getProfile() === undefined || getProfile() === null">
             <li class="navtop-item active">
-              <a href="index.html">Home</a>
+              <a href="index.html" onclick="collapseNavbar();">Home</a>
             </li>
           </ul>
         </nav>
@@ -68,6 +68,7 @@
     <modal error id="errormodal" modal-opts="modalOpts" modalform="modalform" modal-color="'primary'"></modal>
 
     <script src="src/lib/jquery/jquery-1.11.0.min.js"></script>
+    <script src="src/lib/custom/navbar-init.js"></script>
     <script src="src/lib/bootstrap/bootstrap-3.0.3-complete.min.js"></script>
     <script src="src/lib/spinjs/spin.js"></script>
     <script src="src/lib/angular-file-upload/angular-file-upload-html5-shim.min.js"></script>
