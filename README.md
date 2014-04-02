@@ -27,3 +27,11 @@ Go to /src/app.js & replace lines 11 and 12
     		'epApi': 'http://localhost:3000',
     		'epWeb': 'http://localhost:8000'
   	})
+
+
+# Testing Paypal
+
+Use these credentials:
+
+	cubbyholebuyer@gmail.com
+	Supinf0cubbyhole
