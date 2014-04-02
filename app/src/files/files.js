@@ -98,8 +98,8 @@ module.controller('FilesCtrl',
       var $files = (data.files ? data.files : data),
           err = { custom: -1, param: '<br />' } ;
 
-      for (var i = 0; i < $files.length; i++) {
-        if ($files[i].type !== '') {
+      //for (var i = 0; i < $files.length; i++) {
+        //if ($files[i].type !== '') {
           $scope.uploading = true;
 
           $scope.upload = $upload.upload({
@@ -109,7 +109,7 @@ module.controller('FilesCtrl',
               type: 'file',
               parent: $scope.selectedNode._id
             },
-            file: $files[i]
+            file: $files//$files[i]
           }).progress(function(e) {
             var percent = parseInt(100.0 * e.loaded / e.total);
             $scope.feUpdateProgressBar(percent);
@@ -120,11 +120,11 @@ module.controller('FilesCtrl',
             $scope.errorShow(err);
             $scope.uploading = false;
           });
-        } else {
+        /*} else {
           err.custom = 0;
           err.param += $files[i].name + '<br />';
-        }
-      }
+        }*/
+      //}
 
       if (err.custom !== -1) {
         $scope.errorShow(err);
