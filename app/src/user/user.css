@@ -3,16 +3,40 @@
   margin-bottom: 20px;
 }
 
-.user-big-title {
-  margin-bottom: 83px;
+.user-subtitle {
+  text-align: center;
 }
 
 .user-stats {
-  text-align: right;
+  font-size: 14px;
+}
+
+.user-avatar-container {
+  text-align: center;
+}
+
+.user-avatar {
+  border-radius: 50%;
+  border: 3px solid rgb(200, 200, 200);
+  width: 100%;
+  margin-top: 40px;
+}
+
+@media screen and (max-width: 991px) {
+  .user-avatar {
+    max-width: 200px;
+    margin: 0 auto;
+  }
 }
 
 .progress-bar {
   color: rgb(0, 0, 0);
+}
+
+.user-progress {
+  width: 75%;
+  margin: 0 auto;
+  height: 18px;
 }
 
 .quinary .plans-bloc {
