@@ -25,7 +25,7 @@ module.controller('FilesCtrl',
 
     $scope.addFolder = function(form, parentId) {
       apiService.Items.post({'type':'folder', 'name':form.name, 'parent':parentId}, function(res) {
-        $scope.feAddFolder(res.data, parentId);
+        $scope.feAddFolder(res.data[0], parentId);
       }, function(err) { $scope.errorShow(err); });
     };
 
@@ -98,33 +98,28 @@ module.controller('FilesCtrl',
       var $files = (data.files ? data.files : data),
           err = { custom: -1, param: '<br />' } ;
 
-      //for (var i = 0; i < $files.length; i++) {
-        //if ($files[i].type !== '') {
-          $scope.uploading = true;
+      $scope.uploading = true;
 
-          $scope.upload = $upload.upload({
-            url: conf.epApi + '/item',
-            method: 'POST',
-            data: {
-              type: 'file',
-              parent: $scope.selectedNode._id
-            },
-            file: $files//$files[i]
-          }).progress(function(e) {
-            var percent = parseInt(100.0 * e.loaded / e.total);
-            $scope.feUpdateProgressBar(percent);
-          }).success(function(res, status, headers, config) {
-            $scope.uploading = false;
-            $scope.feAddNode(res.data, $scope.selectedNode._id);
-          }).error(function(err) {
-            $scope.errorShow(err);
-            $scope.uploading = false;
-          });
-        /*} else {
-          err.custom = 0;
-          err.param += $files[i].name + '<br />';
-        }*/
-      //}
+      $scope.upload = $upload.upload({
+        url: conf.epApi + '/item',
+        method: 'POST',
+        data: {
+          type: 'file',
+          parent: $scope.selectedNode._id
+        },
+        file: $files
+      }).progress(function(e) {
+        var percent = parseInt(100.0 * e.loaded / e.total);
+        $scope.feUpdateProgressBar(percent);
+      }).success(function(res, status, headers, config) {
+        $scope.uploading = false;
+        for (var i = 0; i < res.data.length; i++) {
+          $scope.feAddNode(res.data[i], $scope.selectedNode._id);
+        }
+      }).error(function(err) {
+        $scope.errorShow(err);
+        $scope.uploading = false;
+      });
 
       if (err.custom !== -1) {
         $scope.errorShow(err);
