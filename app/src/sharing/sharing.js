@@ -69,6 +69,7 @@ module.controller('SharingCtrl',
         for (var i = 0, l = $scope.items.length; i < l; i++) {
           if ($scope.items[i]._id === id) {
             $scope.items.splice(i, 1);
+            $scope.toggleItem(null);
             break;
           }
         }
