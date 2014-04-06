@@ -12,7 +12,8 @@ module.directive('error', function(apiService) {
     link: function (scope, element, attrs) {
       var errors = {
         custom: {
-          0: 'Impossible to upload these items: '
+          0: 'Impossible to upload these items: ',
+          1: 'Passwords don\'t match'
         },
         500: 'Something went wrong. Please, try again later.',
         400: 'The request is not recognized. Please, try again later.'

@@ -28,7 +28,7 @@ module.directive('modal', function($rootScope) {
       });
 
       scope.dismissModal = function() {
-        $('.modal').modal('hide');
+        $('#appmodal').modal('hide');
       };
     }
   };

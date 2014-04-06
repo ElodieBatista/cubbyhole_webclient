@@ -168,7 +168,7 @@ $(document).ready(function() {
         $('#modal-title').text('Success');
         $('#modal-msg').text('Congratulations! You\'ve just created a Cubbyhole account for ' + email + '. Check your emails to verify your address.');
         $('#appmodal').modal('show');
-        $('input:not([type="submit"]').val('');
+        $('input:not([type="submit"])').val('');
         $('#sign-nav a:first').tab('show');
       }).fail(function(data) {
         spinner.stop();

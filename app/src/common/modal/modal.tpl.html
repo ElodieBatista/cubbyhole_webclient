@@ -7,7 +7,7 @@
         <h4 class="modal-title" ng-bind="modalOpts.title"></h4>
       </div>
 
-      <form role="form" name="modalform" ng-submit="modalOpts.submitFn(modalform, modalOpts.submitFnExtraParam); dismissModal();">
+      <form role="form" name="modalform" ng-submit="dismissModal(); modalOpts.submitFn(modalform, modalOpts.submitFnExtraParam);">
         <div class="modal-body">
           <div ng-include src="modalOpts.templateUrl"></div>
         </div>

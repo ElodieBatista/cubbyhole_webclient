@@ -65,5 +65,19 @@ module.controller('UserCtrl',
         $location.path('/logout');
       }, function(err) { $scope.errorShow(err); });
     };
+
+
+    $scope.changePassword = function(form) {
+      if (form.newpass !== form.newpass2) {
+        var err = {
+          custom: 1,
+          param: ''
+        };
+        $scope.errorShow(err);
+      }
+      //apiService.Auth.put(function(res) {
+        $scope.ueOpenModalChangePasswordSuccess();
+      //}, function(err) { $scope.errorShow(err); });*/
+    };
   }
 );

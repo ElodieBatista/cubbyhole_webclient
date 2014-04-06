@@ -12,6 +12,8 @@
         <h2 class="user-big-title">Your <span class="highlight">Account</span></h2>
         <h5 class="highlight user-title" ng-bind="user.email"></h5>
 
+        <h5 class="user-title"><a href="" ng-click="ueOpenModalChangePassword()">Change Password</a></h5>
+
         <h5 class="user-title">Registered on {{user.registrationDate | date}}</h5>
 
         <h5 class="user-title">{{user.currentPlan.plan.name}} Plan</h5>
@@ -59,8 +61,8 @@
 <div class="content-container"></div>
 
 <div class="content-container">
-  <div class="container">
-    <div class="row quinary">
+  <div class="container quinary">
+    <div class="row">
 
       <div class="row space-top">
         <div class="col-md-12">
