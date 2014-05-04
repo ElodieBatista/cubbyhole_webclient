@@ -85,6 +85,12 @@ $(document).ready(function() {
     $('#home-unauthenticated-container').css('display', 'block');
   }
 
+  var ipAddress;
+  $.getJSON('http://jsonip.appspot.com',
+  function(data) {
+    ipAddress = data.ip;
+  });
+
   // Sign In
   $('#signin form').submit(function(e) {
     e.preventDefault();
@@ -160,7 +166,8 @@ $(document).ready(function() {
       url: srvEndpoint + '/auth/signup',
       data: {
         email: email,
-        pass: pass
+        pass: pass,
+        ip: ipAddress
       }
     }).done(function(data) {
         spinner.stop();
