@@ -86,8 +86,7 @@ $(document).ready(function() {
   }
 
   var ipAddress;
-  $.getJSON('http://jsonip.appspot.com',
-  function(data) {
+  $.getJSON('http://jsonip.appspot.com', function(data) {
     ipAddress = data.ip;
   });
 
