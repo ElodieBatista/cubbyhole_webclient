@@ -499,6 +499,27 @@ input[type="file"] {
   border: none;
 }
 
+#signin-link {
+  display: block;
+  margin-top: 10px;
+  color: rgb(150, 150, 150);
+  text-align: center;
+}
+
+#signin-link:hover {
+  color: rgb(255, 29, 37);
+  text-decoration: none;
+}
+
+.quick-error-msg {
+  color: rgb(255, 29, 37);
+  text-align: center;
+  display: block;
+  margin-bottom: 10px !important;
+  margin-top: -10px !important;
+  height: 15px;
+}
+
 
 /* FOOTER */
 footer {

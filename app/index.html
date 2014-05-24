@@ -91,6 +91,8 @@
                       <div id="signin-spinner"></div>
 
                       <input class="btn primary-btn" type="submit" value="Sign In">
+
+                      <a id="signin-link" href="">Forgot Password?</a>
                     </form>
                   </div>
 
@@ -417,6 +419,69 @@
           <div class="modal-footer">
             <button class="btn primary-btn" data-dismiss="modal">Ok</button>
           </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade primary" id="forgotpassmodal" tabindex="-1" role="dialog" aria-labelledby="forgotpassmodal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><span>Forgot Password</span></h4>
+          </div>
+
+          <form id="forgotpass-form" method="POST" action="/forgotpass">
+            <div class="modal-body">
+              <div class="input-prepend">
+                <i class="fa fa-envelope input-icon"></i>
+                <input class="input-text" type="email" placeholder="Email" required>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+              <button class="btn primary-btn" type="submit">Reset</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade primary" id="resetpassmodal" tabindex="-1" role="dialog" aria-labelledby="resetpassmodal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title"><span>Reset Password</span></h4>
+          </div>
+
+          <form id="resetpass-form" method="POST" action="/resetpass">
+            <div class="modal-body">
+              <p class="quick-error-msg">
+                <span id="resetpass-error-msg"></span>
+              </p>
+
+              <div class="input-prepend">
+                <i class="fa fa-lock input-icon"></i>
+                <input class="input-text" type="password" placeholder="Enter New Password" required pattern=".{6,}" title="6 character minimum length">
+              </div>
+
+              <div class="input-prepend">
+                <i class="fa fa-lock input-icon"></i>
+                <input class="input-text" type="password" placeholder="Confirm New Password" required pattern=".{6,}" title="6 character minimum length">
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+              <button class="btn primary-btn" type="submit">Reset</button>
+            </div>
+          </form>
 
         </div>
       </div>

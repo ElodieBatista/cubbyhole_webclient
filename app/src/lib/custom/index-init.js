@@ -22,6 +22,10 @@ $(document).ready(function() {
   // Animate inputs on error
   var inputsToAnimate = [];
   $('#appmodal').on('hidden.bs.modal', function (e) {
+    animateInputs();
+  });
+
+  function animateInputs() {
     if (inputsToAnimate.length > 0) {
       var i, l;
 
@@ -36,7 +40,7 @@ $(document).ready(function() {
         inputsToAnimate = [];
       }, 1000);
     }
-  });
+  }
 
   function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -64,7 +68,7 @@ $(document).ready(function() {
   };
   var spinner = new Spinner(opts);
 
-  // Handle email param in ul
+  // Handle email param in url
   var emailParamPos = window.location.href.indexOf('?email=');
   if (emailParamPos !== -1) {
     var emailParam = window.location.href.substring(emailParamPos + 7);
@@ -73,6 +77,14 @@ $(document).ready(function() {
       $('#signin form').find('input')[0].value = emailParam;
       $('#signin form').find('input')[1].focus();
     }
+  }
+
+  // Handle token param in url to change password
+  var tokenParamPos = window.location.href.indexOf('?token=');
+  if (tokenParamPos !== -1) {
+    var tokenParam = window.location.href.substring(tokenParamPos + 7);
+
+    $('#resetpassmodal').modal('show');
   }
 
   // Display sign in/sign up forms if unauthenticated otherwise, display a btn to launch the webapp
@@ -195,6 +207,98 @@ $(document).ready(function() {
         inputsToAnimate = [$('#signup form').find('input[type="email"]')];
         $('#appmodal').modal('show');
       });
+  });
+
+  // Forgot Password
+  $('#signin-link').click(function(e) {
+    e.preventDefault();
+    $('#forgotpassmodal').modal('show');
+  });
+
+  $('#forgotpass-form').submit(function(e) {
+    e.preventDefault();
+
+    var email = $(this).find('input')[0].value;
+
+    $.ajax({
+      type: 'POST',
+      url: srvEndpoint + '/auth/forgotpass',
+      data: {
+        email: email
+      }
+    }).done(function(data) {
+      $('#forgotpassmodal').modal('hide');
+
+      $('#modal-title').text('Check your emails');
+      $('#modal-msg').text('We\'ve just sent you an email with a link to reset your password.');
+      $('#appmodal').modal('show');
+      $('input:not([type="submit"])').val('');
+    }).fail(function(data) {
+      $('#forgotpassmodal').modal('hide');
+
+      var msg = '';
+
+      switch (data.status) {
+        default:
+          msg = 'Something went wrong. Please, try again later.';
+          break;
+      }
+
+      $('#modal-title').text('Error');
+      $('#modal-msg').text(msg);
+      $('#appmodal').modal('show');
+    })
+  });
+
+  // Reset Password
+  $('#resetpass-form').submit(function(e) {
+    e.preventDefault();
+
+    var pass = $(this).find('input')[0].value,
+      pass2 = $(this).find('input')[1].value;
+
+    if (pass !== pass2) {
+      $('#resetpass-error-msg').text('Passwords don\'t match.')
+                               .fadeIn('fast');
+
+      setTimeout(function() {
+        $('#resetpass-error-msg').fadeOut();
+      }, 1000);
+
+      inputsToAnimate = [$(this).find('input[type="password"]')];
+      animateInputs();
+      return;
+    }
+
+    $.ajax({
+      type: 'POST',
+      url: srvEndpoint + '/auth/resetpass',
+      data: {
+        pass: pass,
+        token: tokenParam
+      }
+    }).done(function(data) {
+      $('#resetpassmodal').modal('hide');
+
+      // Passing auth data to Angular via the localStorage
+      localStorage.setItem('cubbyhole-webapp-dataAuth', JSON.stringify(data.profile));
+
+      window.location.href = 'webapp.html#/login';
+    }).fail(function(data) {
+      $('#resetpassmodal').modal('hide');
+
+      var msg = '';
+
+      switch (data.status) {
+        default:
+          msg = 'Something went wrong. Please, try again later.';
+          break;
+      }
+
+      $('#modal-title').text('Error');
+      $('#modal-msg').text(msg);
+      $('#appmodal').modal('show');
+    })
   });
 
   // Plans
