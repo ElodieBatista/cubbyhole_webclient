@@ -79,10 +79,10 @@ $(document).ready(function() {
     }
   }
 
-  // Handle token param in url to change password
-  var tokenParamPos = window.location.href.indexOf('?token=');
+  // Handle reset password token param in url to change password
+  var tokenParamPos = window.location.href.indexOf('?resetPassword=');
   if (tokenParamPos !== -1) {
-    var tokenParam = window.location.href.substring(tokenParamPos + 7);
+    var tokenParam = window.location.href.substring(tokenParamPos + 15);
 
     $('#resetpassmodal').modal('show');
   }
@@ -221,11 +221,8 @@ $(document).ready(function() {
     var email = $(this).find('input')[0].value;
 
     $.ajax({
-      type: 'POST',
-      url: srvEndpoint + '/auth/forgotpass',
-      data: {
-        email: email
-      }
+      type: 'GET',
+      url: srvEndpoint + '/user/' + email + '/password'
     }).done(function(data) {
       $('#forgotpassmodal').modal('hide');
 
@@ -271,11 +268,10 @@ $(document).ready(function() {
     }
 
     $.ajax({
-      type: 'POST',
-      url: srvEndpoint + '/auth/resetpass',
+      type: 'PUT',
+      url: srvEndpoint + '/user/password/' + tokenParam,
       data: {
-        pass: pass,
-        token: tokenParam
+        pass: pass
       }
     }).done(function(data) {
       $('#resetpassmodal').modal('hide');
