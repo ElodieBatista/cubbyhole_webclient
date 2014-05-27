@@ -21,7 +21,7 @@ module.directive('draggable', function() {
         'dragstart',
         function(e) {
           if (scope.candrag) {
-            e.dataTransfer.setData('item', scope.item._id);
+            e.dataTransfer.setData('text', scope.item._id);
             this.parentNode.classList.add('dnd-drag');
           }
           return false;

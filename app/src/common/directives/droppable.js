@@ -39,7 +39,7 @@ module.directive('droppable', function() {
         function(e) {
           this.classList.remove('dnd-over');
 
-          var itemId = e.dataTransfer.getData('item');
+          var itemId = e.dataTransfer.getData('text');
           var itemContainerId = scope.item._id;
 
           if (scope.candrop && itemId !== '' && itemId !== itemContainerId) {
