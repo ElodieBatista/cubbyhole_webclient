@@ -98,31 +98,33 @@ module.controller('FilesCtrl',
       var $files = (data.files ? data.files : data),
           err = { custom: -1, param: '<br />' } ;
 
-      $scope.uploading = true;
+      if ($files.length > 0) {
+        $scope.uploading = true;
 
-      $scope.upload = $upload.upload({
-        url: conf.epApi + '/item',
-        method: 'POST',
-        data: {
-          type: 'file',
-          parent: $scope.selectedNode._id
-        },
-        file: $files
-      }).progress(function(e) {
-        var percent = parseInt(100.0 * e.loaded / e.total);
-        $scope.feUpdateProgressBar(percent);
-      }).success(function(res, status, headers, config) {
-        $scope.uploading = false;
-        for (var i = 0; i < res.data.length; i++) {
-          $scope.feAddNode(res.data[i], $scope.selectedNode._id);
+        $scope.upload = $upload.upload({
+          url: conf.epApi + '/item',
+          method: 'POST',
+          data: {
+            type: 'file',
+            parent: $scope.selectedNode._id
+          },
+          file: $files
+        }).progress(function (e) {
+          var percent = parseInt(100.0 * e.loaded / e.total);
+          $scope.feUpdateProgressBar(percent);
+        }).success(function (res, status, headers, config) {
+          $scope.uploading = false;
+          for (var i = 0; i < res.data.length; i++) {
+            $scope.feAddNode(res.data[i], $scope.selectedNode._id);
+          }
+        }).error(function (err) {
+          $scope.errorShow(err);
+          $scope.uploading = false;
+        });
+
+        if (err.custom !== -1) {
+          $scope.errorShow(err);
         }
-      }).error(function(err) {
-        $scope.errorShow(err);
-        $scope.uploading = false;
-      });
-
-      if (err.custom !== -1) {
-        $scope.errorShow(err);
       }
     };
   }
