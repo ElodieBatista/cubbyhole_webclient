@@ -220,10 +220,13 @@ $(document).ready(function() {
 
     var email = $(this).find('input')[0].value;
 
+    spinner.spin(document.getElementById('signin-spinner'));
+
     $.ajax({
       type: 'GET',
       url: srvEndpoint + '/user/' + email + '/password'
     }).done(function(data) {
+      spinner.stop();
       $('#forgotpassmodal').modal('hide');
 
       $('#modal-title').text('Check your emails');
@@ -231,6 +234,7 @@ $(document).ready(function() {
       $('#appmodal').modal('show');
       $('input:not([type="submit"])').val('');
     }).fail(function(data) {
+      spinner.stop();
       $('#forgotpassmodal').modal('hide');
 
       var msg = '';
@@ -267,6 +271,8 @@ $(document).ready(function() {
       return;
     }
 
+    spinner.spin(document.getElementById('signin-spinner'));
+
     $.ajax({
       type: 'PUT',
       url: srvEndpoint + '/user/password/' + tokenParam,
@@ -274,6 +280,7 @@ $(document).ready(function() {
         pass: pass
       }
     }).done(function(data) {
+      spinner.stop();
       $('#resetpassmodal').modal('hide');
 
       // Passing auth data to Angular via the localStorage
@@ -281,6 +288,7 @@ $(document).ready(function() {
 
       window.location.href = 'webapp.html#/login';
     }).fail(function(data) {
+      spinner.stop();
       $('#resetpassmodal').modal('hide');
 
       var msg = '';
