@@ -673,7 +673,7 @@ footer {
 
 
 /* TABLES */
-.grid-view-table-container {
+#file-explorer-table-container {
   /*height: -webkit-calc(100% - 50px);
   height: -moz-calc(100% - 50px);
   height: calc(100% - 50px);*/

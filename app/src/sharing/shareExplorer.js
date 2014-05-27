@@ -9,7 +9,7 @@ module.directive('shareExplorer', function($location) {
 
     link: function (scope, element, attrs) {
       scope.toggleItem = function(item, forceSelect) {
-        if (scope.itemActive === item && !forceSelect) {
+        if (scope.itemActive === item && !forceSelect || item === null) {
           scope.itemActive = null;
           $location.search('id', null);
         } else {
@@ -21,13 +21,13 @@ module.directive('shareExplorer', function($location) {
 
 
       scope.canConfirm = function(id) {
-          for (var i = 0, l = scope.itemActive.members.length; i < l; i++) {
-            if (scope.itemActive.members[i]._id === id &&
-              !scope.itemActive.members[i].accepted) {
-              return true;
-            }
+        for (var i = 0, l = scope.itemActive.members.length; i < l; i++) {
+          if (scope.itemActive.members[i]._id === id &&
+            !scope.itemActive.members[i].accepted) {
+            return true;
           }
-          return false;
+        }
+        return false;
       };
 
 
