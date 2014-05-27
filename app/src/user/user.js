@@ -74,10 +74,11 @@ module.controller('UserCtrl',
           param: ''
         };
         $scope.errorShow(err);
+      } else {
+        apiService.UserPassword.put({token:$rootScope.getToken(), pass:form.newpass}, function(res) {
+          $scope.ueOpenModalChangePasswordSuccess();
+        }, function(err) { $scope.errorShow(err); });
       }
-      //apiService.Auth.put(function(res) {
-        $scope.ueOpenModalChangePasswordSuccess();
-      //}, function(err) { $scope.errorShow(err); });*/
     };
   }
 );

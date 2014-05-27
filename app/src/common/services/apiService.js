@@ -162,6 +162,14 @@ module.factory('apiService', function(conf, $resource) {
         method: 'GET'
       }
     }),
+    UserPassword: $resource(conf.epApi + '/user/password/:token', {token:'@token'}, {
+      'put': {
+        method: 'PUT',
+        params: {
+          pass:'@pass'
+        }
+      }
+    }),
     UserError: {
       GET: {
         404: 'This user doesn\'t exist.'

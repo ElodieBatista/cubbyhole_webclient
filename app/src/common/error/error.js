@@ -57,7 +57,8 @@ module.directive('error', function(apiService) {
           title: 'Error',
           submitBtnVal: 'Ok',
           errorText: errorText,
-          templateUrl: 'src/common/error/error.tpl.html'
+          templateUrl: 'src/common/error/error.tpl.html',
+          submitFn: function() { $('#errormodal #appmodal').modal('hide'); }
         };
 
         $('#errormodal #appmodal').modal('show');
