@@ -20,6 +20,10 @@ Check out the file explorer at
 Go to /src/lib/custom/index-init.js & replace line 2
 
 	var srvEndpoint = 'http://localhost:3000';
+	
+with 
+
+	var srvEndpoint = 'http://10.0.0.25:3000';
 
 Go to /src/app.js & replace lines 11 and 12
 
