@@ -44,4 +44,3 @@ with
 Use these credentials:
 
 	cubbyholebuyer@gmail.com
-	Supinf0cubbyhole
